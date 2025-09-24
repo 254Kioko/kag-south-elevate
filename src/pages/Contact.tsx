@@ -57,13 +57,13 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Phone Number",
-      details: "+254 700 000 000",
+      details: "+254 724177832",
       action: "Call Us"
     },
     {
       icon: Mail,
       title: "Email Address",
-      details: "info@kagsouthc.org",
+      details: "kagsouthc@gmail.com",
       action: "Send Email"
     },
     {
@@ -128,7 +128,7 @@ const Contact = () => {
                 <CardHeader>
                   <CardTitle className="font-heading text-2xl">Send us a message</CardTitle>
                   <CardDescription>
-                    Fill out the form below and we'll get back to you within 24 hours.
+                    Fill out the form below and we'll get back to you.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
