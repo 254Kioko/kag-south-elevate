@@ -161,7 +161,7 @@ const GiveOnline = () => {
                       <CreditCard className="w-8 h-8 text-blue-600" />
                     </div>
                   </div>
-                  <CardTitle className="font-heading text-2xl">Record Your Donation</CardTitle>
+                  <CardTitle className="font-heading text-2xl">Record Your Pledge</CardTitle>
                   <CardDescription>
                     Help us track your contribution for better stewardship
                   </CardDescription>
@@ -186,7 +186,7 @@ const GiveOnline = () => {
                       </label>
                       <Input
                         type="tel"
-                        placeholder="e.g., +254 700 000 000"
+                        placeholder="e.g., 0700 000 000"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         required
