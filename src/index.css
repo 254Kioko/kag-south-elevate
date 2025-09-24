@@ -147,3 +147,9 @@
     @apply bg-primary-glow;
   }
 }
+--gradient-hero: linear-gradient(
+  135deg, 
+  hsl(var(--primary) / 0.6), 
+  hsl(var(--primary-light) / 0.5)
+);
+
