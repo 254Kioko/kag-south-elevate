@@ -16,27 +16,22 @@ const Contact = () => {
     {
       icon: MapPin,
       title: "Visit Us",
-      details: ["South C Shopping Center", "Nairobi, Kenya"],
+      details: ["South C ", "Nairobi, Kenya"],
       action: "Get Directions"
     },
     {
       icon: Phone,
       title: "Call Us",
-      details: ["+254 XXX XXXXXX", "+254 XXX XXXXXX"],
+      details: ["+254 724177832", "+254 XXX XXXXXX"],
       action: "Call Now"
     },
     {
       icon: Mail,
       title: "Email Us",
-      details: ["info@kagsouthc.org", "pastor@kagsouthc.org"],
+      details: ["info@kagsouthc.co,ke"],
       action: "Send Email"
     },
-    {
-      icon: Clock,
-      title: "Office Hours",
-      details: ["Mon - Fri: 9AM - 5PM", "Sat: 9AM - 2PM", "Sun: Closed"],
-      action: "Visit Office"
-    }
+    
   ];
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -119,7 +114,7 @@ const Contact = () => {
               <CardHeader>
                 <CardTitle className="font-heading text-2xl text-primary flex items-center">
                   <Send className="w-6 h-6 mr-3 text-secondary" />
-                  Send Us a Message
+                  Send Us a Message/ Prayer Request
                 </CardTitle>
                 <p className="text-muted-foreground">
                   Fill out the form below and we'll get back to you as soon as possible.
