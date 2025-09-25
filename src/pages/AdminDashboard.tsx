@@ -62,6 +62,91 @@ const AdminDashboard = () => {
     }
   };
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+useEffect(() => {
+  const fetchData = async () => {
+    setLoading(true);
+
+    // ✅ Contacts
+    const { data: contacts, error: contactError } = await supabase
+      .from("contacts") // 👈 replace with your actual table name
+      .select("*")
+      .order("created_at", { ascending: false });
+
+    if (contactError) {
+      console.error("Error fetching contacts:", contactError.message);
+      toast({ title: "Error loading contacts", description: contactError.message });
+    } else {
+      setContactSubmissions(contacts || []);
+    }
+
+    // ✅ Donations
+    const { data: donations, error: donationError } = await supabase
+      .from("donations") // 👈 replace with your actual table name
+      .select("*")
+      .order("created_at", { ascending: false });
+
+    if (donationError) {
+      console.error("Error fetching donations:", donationError.message);
+      toast({ title: "Error loading donations", description: donationError.message });
+    } else {
+      setDonationSubmissions(donations || []);
+    }
+
+    // ✅ Newsletters (already works)
+    const { data: newsletters, error: newsletterError } = await supabase
+      .from("newsletter_subscriptions") // 👈 your table name
+      .select("*")
+      .order("created_at", { ascending: false });
+
+    if (newsletterError) {
+      console.error("Error fetching newsletters:", newsletterError.message);
+      toast({ title: "Error loading newsletters", description: newsletterError.message });
+    } else {
+      setNewsletterSubscriptions(newsletters || []);
+    }
+
+    setLoading(false);
+  };
+
+  fetchData();
+}, [toast]);
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
   const fetchSubmissions = async () => {
     setLoading(true);
     try {
