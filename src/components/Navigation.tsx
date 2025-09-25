@@ -13,6 +13,7 @@ const Navigation = () => {
     { name: "About & Ministries", href: "/about-ministries" },
     { name: "Contact", href: "/contact" },
     { name: "Give Online", href: "/give-online" }
+     { name: "Admin", href: "/admin" } 
   ];
 
   const closeSheet = () => setIsOpen(false);
