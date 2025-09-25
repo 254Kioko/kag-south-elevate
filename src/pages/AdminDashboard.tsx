@@ -7,7 +7,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import Navigation from "@/components/Navigation";
-import { Eye, EyeOff, Users, MessageSquare, Heart } from "lucide-react";
+import { Eye, EyeOff, Users, MessageSquare, Heart, Mail } from "lucide-react";
 
 interface ContactSubmission {
   id: string;
@@ -25,12 +25,19 @@ interface DonationSubmission {
   created_at: string;
 }
 
+interface NewsletterSubscription {
+  id: string;
+  email: string;
+  created_at: string;
+}
+
 const AdminDashboard = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [contactSubmissions, setContactSubmissions] = useState<ContactSubmission[]>([]);
   const [donationSubmissions, setDonationSubmissions] = useState<DonationSubmission[]>([]);
+  const [newsletterSubscriptions, setNewsletterSubscriptions] = useState<NewsletterSubscription[]>([]);
   const [loading, setLoading] = useState(false);
   const { toast } = useToast();
 
@@ -70,8 +77,14 @@ const AdminDashboard = () => {
         .select('*')
         .order('created_at', { ascending: false });
 
+      const { data: newsletters } = await supabase
+        .from('newsletter_subscriptions')
+        .select('*')
+        .order('created_at', { ascending: false });
+
       if (contacts) setContactSubmissions(contacts);
       if (donations) setDonationSubmissions(donations);
+      if (newsletters) setNewsletterSubscriptions(newsletters);
     } catch (error) {
       console.error('Error fetching submissions:', error);
       toast({
@@ -171,7 +184,7 @@ const AdminDashboard = () => {
         {/* Stats Cards */}
         <section className="py-8">
           <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-3 gap-6 mb-8">
+            <div className="grid md:grid-cols-4 gap-6 mb-8">
               <Card>
                 <CardContent className="p-6">
                   <div className="flex items-center space-x-3">
@@ -213,6 +226,20 @@ const AdminDashboard = () => {
                   </div>
                 </CardContent>
               </Card>
+
+              <Card>
+                <CardContent className="p-6">
+                  <div className="flex items-center space-x-3">
+                    <div className="bg-purple-100 p-3 rounded-full">
+                      <Mail className="w-6 h-6 text-purple-600" />
+                    </div>
+                    <div>
+                      <p className="text-2xl font-bold">{newsletterSubscriptions.length}</p>
+                      <p className="text-sm text-muted-foreground">Newsletter Subscribers</p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
 
             {/* Data Tables */}
@@ -220,6 +247,7 @@ const AdminDashboard = () => {
               <TabsList>
                 <TabsTrigger value="contacts">Contact Submissions</TabsTrigger>
                 <TabsTrigger value="donations">Donation Records</TabsTrigger>
+                <TabsTrigger value="newsletter">Newsletter Subscribers</TabsTrigger>
               </TabsList>
 
               <TabsContent value="contacts">
@@ -296,6 +324,43 @@ const AdminDashboard = () => {
                                   {donation.amount.toLocaleString()}
                                 </TableCell>
                                 <TableCell>{formatDate(donation.created_at)}</TableCell>
+                              </TableRow>
+                            ))}
+                          </TableBody>
+                        </Table>
+                      </div>
+                    )}
+                  </CardContent>
+                </Card>
+              </TabsContent>
+
+              <TabsContent value="newsletter">
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Newsletter Subscribers</CardTitle>
+                    <CardDescription>
+                      Email addresses collected from newsletter subscriptions
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    {loading ? (
+                      <p className="text-center py-8">Loading...</p>
+                    ) : newsletterSubscriptions.length === 0 ? (
+                      <p className="text-center py-8 text-muted-foreground">No newsletter subscribers yet</p>
+                    ) : (
+                      <div className="overflow-x-auto">
+                        <Table>
+                          <TableHeader>
+                            <TableRow>
+                              <TableHead>Email</TableHead>
+                              <TableHead>Subscription Date</TableHead>
+                            </TableRow>
+                          </TableHeader>
+                          <TableBody>
+                            {newsletterSubscriptions.map((subscription) => (
+                              <TableRow key={subscription.id}>
+                                <TableCell className="font-medium">{subscription.email}</TableCell>
+                                <TableCell>{formatDate(subscription.created_at)}</TableCell>
                               </TableRow>
                             ))}
                           </TableBody>

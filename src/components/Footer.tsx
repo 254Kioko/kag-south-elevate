@@ -1,8 +1,16 @@
-import { Heart, MapPin, Phone, Mail, Youtube, Facebook, Instagram, Twitter } from "lucide-react";
+import { MapPin, Phone, Mail, Youtube, Facebook, Instagram, Twitter } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { useToast } from "@/hooks/use-toast";
+import { supabase } from "@/integrations/supabase/client";
+import { useState } from "react";
+import kagLogo from "@/assets/kag-logo.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const [email, setEmail] = useState("");
+  const [isSubscribing, setIsSubscribing] = useState(false);
+  const { toast } = useToast();
 
   const quickLinks = [
     { name: "About Us", href: "#about" },
@@ -36,6 +44,45 @@ const Footer = () => {
     }
   };
 
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email.trim()) return;
+
+    setIsSubscribing(true);
+    try {
+      const { error } = await supabase
+        .from('newsletter_subscriptions')
+        .insert([{ email: email.trim() }]);
+
+      if (error) {
+        if (error.code === '23505') {
+          toast({
+            title: "Already subscribed",
+            description: "You're already subscribed to our newsletter!",
+            variant: "destructive",
+          });
+        } else {
+          throw error;
+        }
+      } else {
+        toast({
+          title: "Subscribed successfully!",
+          description: "Thank you for subscribing to our newsletter.",
+        });
+        setEmail("");
+      }
+    } catch (error) {
+      console.error('Newsletter subscription error:', error);
+      toast({
+        title: "Subscription failed",
+        description: "There was an error subscribing to our newsletter. Please try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubscribing(false);
+    }
+  };
+
   return (
     <footer className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-4">
@@ -45,10 +92,12 @@ const Footer = () => {
             
             {/* Church Info */}
             <div className="lg:col-span-1">
-              <div className="flex items-center space-x-2 mb-6">
-                <div className="w-10 h-10 bg-secondary rounded-full flex items-center justify-center">
-                  <Heart className="w-6 h-6 text-secondary-foreground" />
-                </div>
+              <div className="flex items-center space-x-3 mb-6">
+                <img 
+                  src={kagLogo} 
+                  alt="KAG Logo" 
+                  className="w-12 h-12 object-contain"
+                />
                 <div>
                   <h3 className="font-heading font-bold text-xl">KAG South C</h3>
                   <p className="text-sm text-primary-foreground/80">Kenya Assemblies of God</p>
@@ -163,16 +212,24 @@ const Footer = () => {
             <p className="text-primary-foreground/80 mb-6 max-w-2xl mx-auto">
               Subscribe to our newsletter for updates on services, events, and church news.
             </p>
-            <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-              <input
+            <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+              <Input
                 type="email"
                 placeholder="Enter your email address"
-                className="flex-1 px-4 py-2 rounded-lg bg-primary-foreground/10 border border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/60 focus:outline-none focus:ring-2 focus:ring-secondary"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="flex-1 bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/60 focus:ring-secondary"
+                required
               />
-              <Button variant="secondary" className="font-semibold">
-                Subscribe
+              <Button 
+                type="submit" 
+                variant="secondary" 
+                className="font-semibold"
+                disabled={isSubscribing}
+              >
+                {isSubscribing ? "Subscribing..." : "Subscribe"}
               </Button>
-            </div>
+            </form>
           </div>
         </div>
 
