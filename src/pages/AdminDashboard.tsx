@@ -283,43 +283,53 @@ const AdminDashboard = () => {
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    {loading ? (
-                      <p className="text-center py-8">Loading...</p>
-                    ) : contactSubmissions.length === 0 ? (
-                      <p className="text-center py-8 text-muted-foreground">
-                        No contact submissions yet
-                      </p>
-                    ) : (
-                      <div className="overflow-x-auto">
-                        <Table className="min-w-[600px]">
-                          <TableHeader>
-                            <TableRow>
-                              <TableHead>Name</TableHead>
-                              <TableHead>Email</TableHead>
-                              <TableHead>Message</TableHead>
-                              <TableHead>Date</TableHead>
-                            </TableRow>
-                          </TableHeader>
-                          <TableBody>
-                            {contactSubmissions.map((submission) => (
-                              <TableRow key={submission.id}>
-                                <TableCell className="font-medium">
-                                  {submission.name}
-                                </TableCell>
-                                <TableCell>{submission.email}</TableCell>
-                                <TableCell className="max-w-xs truncate">
-                                  {submission.message}
-                                </TableCell>
-                                <TableCell>
-                                  {formatDate(submission.created_at)}
-                                </TableCell>
-                              </TableRow>
-                            ))}
-                          </TableBody>
-                        </Table>
-                      </div>
-                    )}
-                  </CardContent>
+  {loading ? (
+    <p className="text-center py-8">Loading...</p>
+  ) : newsletterSubscriptions.length === 0 ? (
+    <p className="text-center py-8 text-muted-foreground">
+      No newsletter subscribers yet
+    </p>
+  ) : (
+    <>
+      {/* Desktop Table */}
+      <div className="hidden sm:block overflow-x-auto">
+        <Table className="min-w-[400px]">
+          <TableHeader>
+            <TableRow>
+              <TableHead>Email</TableHead>
+              <TableHead>Subscription Date</TableHead>
+            </TableRow>
+          </TableHeader>
+          <TableBody>
+            {newsletterSubscriptions.map((subscription) => (
+              <TableRow key={subscription.id}>
+                <TableCell className="font-medium">{subscription.email}</TableCell>
+                <TableCell>{formatDate(subscription.created_at)}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </div>
+
+      {/* Mobile Cards */}
+      <div className="space-y-4 sm:hidden">
+        {newsletterSubscriptions.map((subscription) => (
+          <div
+            key={subscription.id}
+            className="border rounded-lg p-4 shadow-sm bg-white"
+          >
+            <p className="text-sm font-semibold">Email:</p>
+            <p className="mb-2">{subscription.email}</p>
+
+            <p className="text-sm font-semibold">Subscription Date:</p>
+            <p>{formatDate(subscription.created_at)}</p>
+          </div>
+        ))}
+      </div>
+    </>
+  )}
+</CardContent>
+
                 </Card>
               </TabsContent>
 
