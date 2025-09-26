@@ -14,9 +14,8 @@ const Footer = () => {
 
   const socialLinks = [
     { icon: Youtube, href: "https://www.youtube.com/channel/UCAP5aGJBcRy8wMYPfnbqX7w", label: "YouTube" },
-    { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Twitter, href: "#", label: "Twitter" }
+    { icon: Facebook, href: "https://www.facebook.com/p/KAG-SOUTH-C-Church-100064333766328/", label: "Facebook" },
+    { icon: Whatsapp, href: "https://wa.link/6yxg3m", label: "Whatsapp" }
   ];
 
   const scrollToSection = (href: string) => {
@@ -91,13 +90,13 @@ const Footer = () => {
                 <div className="flex items-center space-x-2">
                   <MapPin className="w-4 h-4 text-secondary flex-shrink-0" />
                   <span className="text-sm text-primary-foreground/90">
-                    South C Shopping Center, Nairobi
+                    South C, Nairobi
                   </span>
                 </div>
                 <div className="flex items-center space-x-2">
                   <Phone className="w-4 h-4 text-secondary flex-shrink-0" />
                   <span className="text-sm text-primary-foreground/90">
-                    +254 XXX XXXXXX
+                    +254 724177832
                   </span>
                 </div>
                 <div className="flex items-center space-x-2">
@@ -109,27 +108,7 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Social Links */}
-            <div className="flex flex-col items-center lg:items-start">
-              <h4 className="font-heading font-semibold text-lg mb-4">Follow Us</h4>
-              <div className="flex space-x-3">
-                {socialLinks.map((social, index) => {
-                  const IconComponent = social.icon;
-                  return (
-                    <Button
-                      key={index}
-                      variant="ghost"
-                      size="icon"
-                      onClick={() => scrollToSection(social.href)}
-                      className="h-10 w-10 bg-primary-foreground/10 hover:bg-secondary hover:text-secondary-foreground transition-colors"
-                      aria-label={social.label}
-                    >
-                      <IconComponent className="h-5 w-5" />
-                    </Button>
-                  );
-                })}
-              </div>
-            </div>
+           
 
             {/* Newsletter Signup */}
             <div className="md:col-span-2 lg:col-span-1">
@@ -158,6 +137,27 @@ const Footer = () => {
             </div>
           </div>
         </div>
+         {/* Social Links */}
+            <div className="flex flex-col items-center lg:items-start">
+              <h4 className="font-heading font-semibold text-lg mb-4">Connect with Us</h4>
+              <div className="flex space-x-3">
+                {socialLinks.map((social, index) => {
+                  const IconComponent = social.icon;
+                  return (
+                    <Button
+                      key={index}
+                      variant="ghost"
+                      size="icon"
+                      onClick={() => scrollToSection(social.href)}
+                      className="h-10 w-10 bg-primary-foreground/10 hover:bg-secondary hover:text-secondary-foreground transition-colors"
+                      aria-label={social.label}
+                    >
+                      <IconComponent className="h-5 w-5" />
+                    </Button>
+                  );
+                })}
+              </div>
+            </div>
 
         {/* Bottom Bar */}
         <div className="py-6 border-t border-primary-foreground/20">
