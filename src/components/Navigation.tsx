@@ -14,8 +14,8 @@ const Navigation = () => {
     { name: "About Us", href: "/about-ministries" },
     { name: "Events", href: "/events" },
     { name: "Sermons", href: "/sermons" },
-    { name: "Contact", href: "/contact" },
     { name: "Give", href: "/give-online" },
+        { name: "Contact", href: "/contact" },
     { name: "Admin", href: "/admin" },
   ];
 
