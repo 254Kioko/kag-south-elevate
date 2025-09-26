@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Phone } from "lucide-react";
-import kagLogo from "../assets/kag-logo.png";
+import kagLogo from "../assets/kag-logo.png"; // ✅ make sure path is correct
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,7 +15,7 @@ const Navigation = () => {
     { name: "Events", href: "/events" },
     { name: "Sermons", href: "/sermons" },
     { name: "Give", href: "/give-online" },
-        { name: "Contact", href: "/contact" },
+    { name: "Contact", href: "/contact" },
     { name: "Admin", href: "/admin" },
   ];
 
@@ -25,15 +25,14 @@ const Navigation = () => {
     <nav className="fixed top-0 w-full bg-card/95 backdrop-blur-md border-b shadow-soft z-50">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Logo Section */}
-        <Link to="/" className="flex items-center space-x-2">
-  <img
-    src={kagLogo}
-    alt="KAG South C Logo"
-    className="w-12 h-12 object-contain"
-  />
-</Link>
-
+          {/* ✅ Logo only */}
+          <Link to="/" className="flex items-center">
+            <img
+              src={kagLogo}
+              alt="KAG South C Logo"
+              className="w-12 h-12 object-contain"
+            />
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
