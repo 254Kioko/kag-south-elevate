@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Phone } from "lucide-react";
-import kagLogo from "@/assets/kag-logo.png";
+import kagLogo from "../assets/kag-logo.png";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
