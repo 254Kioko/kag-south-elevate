@@ -1,8 +1,21 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
@@ -41,14 +54,13 @@ const AdminDashboard = () => {
   const [loading, setLoading] = useState(false);
   const { toast } = useToast();
 
-  // Simple password check - in production, use proper authentication
-  const ADMIN_PASSWORD = "KAGSouthC2024!"; 
+  const ADMIN_PASSWORD = "KAGSouthC2024!";
 
-  const handleLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     if (password === ADMIN_PASSWORD) {
       setIsAuthenticated(true);
-      fetchSubmissions();
+      await fetchSubmissions();
       toast({
         title: "Login successful",
         description: "Welcome to the admin dashboard",
@@ -62,50 +74,29 @@ const AdminDashboard = () => {
     }
   };
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-
   const fetchSubmissions = async () => {
     setLoading(true);
     try {
-      // Note: In a real app, you'd use the service role key for admin access
-      // For now, we'll create a simple approach
       const { data: contacts } = await supabase
-        .from('contact_submissions')
-        .select('*')
-        .order('created_at', { ascending: false });
+        .from("contact_submissions")
+        .select("*")
+        .order("created_at", { ascending: false });
 
       const { data: donations } = await supabase
-        .from('donation_submissions')
-        .select('*')
-        .order('created_at', { ascending: false });
+        .from("donation_submissions")
+        .select("*")
+        .order("created_at", { ascending: false });
 
       const { data: newsletters } = await supabase
-        .from('newsletter_subscriptions')
-        .select('*')
-        .order('created_at', { ascending: false });
+        .from("newsletter_subscriptions")
+        .select("*")
+        .order("created_at", { ascending: false });
 
       if (contacts) setContactSubmissions(contacts);
       if (donations) setDonationSubmissions(donations);
       if (newsletters) setNewsletterSubscriptions(newsletters);
     } catch (error) {
-      console.error('Error fetching submissions:', error);
+      console.error("Error fetching submissions:", error);
       toast({
         title: "Error loading data",
         description: "Could not load submissions. Please check your connection.",
@@ -117,16 +108,19 @@ const AdminDashboard = () => {
   };
 
   const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-      hour: '2-digit',
-      minute: '2-digit'
+    return new Date(dateString).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
     });
   };
 
-  const totalDonations = donationSubmissions.reduce((sum, donation) => sum + donation.amount, 0);
+  const totalDonations = donationSubmissions.reduce(
+    (sum, donation) => sum + donation.amount,
+    0
+  );
 
   if (!isAuthenticated) {
     return (
@@ -177,10 +171,10 @@ const AdminDashboard = () => {
       <div className="pt-16">
         {/* Header */}
         <section className="bg-gradient-subtle py-8">
-          <div className="container mx-auto px-4">
-            <div className="flex justify-between items-center">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4">
               <div>
-                <h1 className="font-heading text-4xl font-bold text-primary mb-2">
+                <h1 className="font-heading text-3xl sm:text-4xl font-bold text-primary mb-2">
                   Admin Dashboard
                 </h1>
                 <p className="text-muted-foreground">
@@ -202,8 +196,8 @@ const AdminDashboard = () => {
 
         {/* Stats Cards */}
         <section className="py-8">
-          <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-4 gap-6 mb-8">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
               <Card>
                 <CardContent className="p-6">
                   <div className="flex items-center space-x-3">
@@ -239,7 +233,9 @@ const AdminDashboard = () => {
                       <Users className="w-6 h-6 text-primary" />
                     </div>
                     <div>
-                      <p className="text-2xl font-bold">KSH {totalDonations.toLocaleString()}</p>
+                      <p className="text-2xl font-bold">
+                        KSH {totalDonations.toLocaleString()}
+                      </p>
                       <p className="text-sm text-muted-foreground">Total Donations</p>
                     </div>
                   </div>
@@ -253,7 +249,9 @@ const AdminDashboard = () => {
                       <Mail className="w-6 h-6 text-purple-600" />
                     </div>
                     <div>
-                      <p className="text-2xl font-bold">{newsletterSubscriptions.length}</p>
+                      <p className="text-2xl font-bold">
+                        {newsletterSubscriptions.length}
+                      </p>
                       <p className="text-sm text-muted-foreground">Newsletter Subscribers</p>
                     </div>
                   </div>
@@ -263,12 +261,19 @@ const AdminDashboard = () => {
 
             {/* Data Tables */}
             <Tabs defaultValue="contacts" className="space-y-6">
-              <TabsList>
-                <TabsTrigger value="contacts">Contact Submissions</TabsTrigger>
-                <TabsTrigger value="donations">Donation Records</TabsTrigger>
-                <TabsTrigger value="newsletter">Newsletter Subscribers</TabsTrigger>
+              <TabsList className="flex flex-wrap gap-2">
+                <TabsTrigger value="contacts" className="flex-1 sm:flex-none">
+                  Contacts
+                </TabsTrigger>
+                <TabsTrigger value="donations" className="flex-1 sm:flex-none">
+                  Donations
+                </TabsTrigger>
+                <TabsTrigger value="newsletter" className="flex-1 sm:flex-none">
+                  Newsletter
+                </TabsTrigger>
               </TabsList>
 
+              {/* Contacts */}
               <TabsContent value="contacts">
                 <Card>
                   <CardHeader>
@@ -281,10 +286,12 @@ const AdminDashboard = () => {
                     {loading ? (
                       <p className="text-center py-8">Loading...</p>
                     ) : contactSubmissions.length === 0 ? (
-                      <p className="text-center py-8 text-muted-foreground">No contact submissions yet</p>
+                      <p className="text-center py-8 text-muted-foreground">
+                        No contact submissions yet
+                      </p>
                     ) : (
                       <div className="overflow-x-auto">
-                        <Table>
+                        <Table className="min-w-[600px]">
                           <TableHeader>
                             <TableRow>
                               <TableHead>Name</TableHead>
@@ -296,10 +303,16 @@ const AdminDashboard = () => {
                           <TableBody>
                             {contactSubmissions.map((submission) => (
                               <TableRow key={submission.id}>
-                                <TableCell className="font-medium">{submission.name}</TableCell>
+                                <TableCell className="font-medium">
+                                  {submission.name}
+                                </TableCell>
                                 <TableCell>{submission.email}</TableCell>
-                                <TableCell className="max-w-xs truncate">{submission.message}</TableCell>
-                                <TableCell>{formatDate(submission.created_at)}</TableCell>
+                                <TableCell className="max-w-xs truncate">
+                                  {submission.message}
+                                </TableCell>
+                                <TableCell>
+                                  {formatDate(submission.created_at)}
+                                </TableCell>
                               </TableRow>
                             ))}
                           </TableBody>
@@ -310,6 +323,7 @@ const AdminDashboard = () => {
                 </Card>
               </TabsContent>
 
+              {/* Donations */}
               <TabsContent value="donations">
                 <Card>
                   <CardHeader>
@@ -322,10 +336,12 @@ const AdminDashboard = () => {
                     {loading ? (
                       <p className="text-center py-8">Loading...</p>
                     ) : donationSubmissions.length === 0 ? (
-                      <p className="text-center py-8 text-muted-foreground">No donation records yet</p>
+                      <p className="text-center py-8 text-muted-foreground">
+                        No donation records yet
+                      </p>
                     ) : (
                       <div className="overflow-x-auto">
-                        <Table>
+                        <Table className="min-w-[600px]">
                           <TableHeader>
                             <TableRow>
                               <TableHead>Name</TableHead>
@@ -337,12 +353,16 @@ const AdminDashboard = () => {
                           <TableBody>
                             {donationSubmissions.map((donation) => (
                               <TableRow key={donation.id}>
-                                <TableCell className="font-medium">{donation.name}</TableCell>
+                                <TableCell className="font-medium">
+                                  {donation.name}
+                                </TableCell>
                                 <TableCell>{donation.phone}</TableCell>
                                 <TableCell className="font-medium">
                                   {donation.amount.toLocaleString()}
                                 </TableCell>
-                                <TableCell>{formatDate(donation.created_at)}</TableCell>
+                                <TableCell>
+                                  {formatDate(donation.created_at)}
+                                </TableCell>
                               </TableRow>
                             ))}
                           </TableBody>
@@ -353,6 +373,7 @@ const AdminDashboard = () => {
                 </Card>
               </TabsContent>
 
+              {/* Newsletter */}
               <TabsContent value="newsletter">
                 <Card>
                   <CardHeader>
@@ -365,10 +386,12 @@ const AdminDashboard = () => {
                     {loading ? (
                       <p className="text-center py-8">Loading...</p>
                     ) : newsletterSubscriptions.length === 0 ? (
-                      <p className="text-center py-8 text-muted-foreground">No newsletter subscribers yet</p>
+                      <p className="text-center py-8 text-muted-foreground">
+                        No newsletter subscribers yet
+                      </p>
                     ) : (
                       <div className="overflow-x-auto">
-                        <Table>
+                        <Table className="min-w-[400px]">
                           <TableHeader>
                             <TableRow>
                               <TableHead>Email</TableHead>
@@ -378,8 +401,12 @@ const AdminDashboard = () => {
                           <TableBody>
                             {newsletterSubscriptions.map((subscription) => (
                               <TableRow key={subscription.id}>
-                                <TableCell className="font-medium">{subscription.email}</TableCell>
-                                <TableCell>{formatDate(subscription.created_at)}</TableCell>
+                                <TableCell className="font-medium">
+                                  {subscription.email}
+                                </TableCell>
+                                <TableCell>
+                                  {formatDate(subscription.created_at)}
+                                </TableCell>
                               </TableRow>
                             ))}
                           </TableBody>
