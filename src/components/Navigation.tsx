@@ -2,22 +2,22 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, Heart, Phone, Calendar } from "lucide-react";
+import { Menu, Phone } from "lucide-react";
+import kagLogo from "@/assets/kag-logo.png"; // 👈 import your logo image
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
- const navItems = [
-  { name: "Home", href: "/" },
-  { name: "About Us", href: "/about-ministries" },
-  { name: "Events", href: "/events" },
-  { name: "Sermons", href: "/sermons" },
-  { name: "Contact", href: "/contact" },
-  { name: "Give Online", href: "/give-online" },
-  { name: "Admin", href: "/admin" } // 
-];
-
+  const navItems = [
+    { name: "Home", href: "/" },
+    { name: "About Us", href: "/about-ministries" },
+    { name: "Events", href: "/events" },
+    { name: "Sermons", href: "/sermons" },
+    { name: "Contact", href: "/contact" },
+    { name: "Give", href: "/give-online" },
+    { name: "Admin", href: "/admin" },
+  ];
 
   const closeSheet = () => setIsOpen(false);
 
@@ -25,13 +25,16 @@ const Navigation = () => {
     <nav className="fixed top-0 w-full bg-card/95 backdrop-blur-md border-b shadow-soft z-50">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-primary rounded-full flex items-center justify-center">
-              <Heart className="w-5 h-5 text-primary-foreground" />
-            </div>
-            <span className="font-heading font-semibold text-xl text-primary">KAG South C</span>
-          </div>
+          {/* Logo Section */}
+          <Link to="/" className="flex items-center space-x-2">
+            <img
+              src={kagLogo}
+              alt="KAG South C Logo"
+              className="w-10 h-10 object-contain"
+            />
+            {/* If you want text next to the logo, uncomment below: */}
+            {/* <span className="font-heading font-semibold text-xl text-primary">KAG South C</span> */}
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
@@ -40,7 +43,7 @@ const Navigation = () => {
                 key={item.name}
                 to={item.href}
                 className={`text-foreground hover:text-primary transition-colors font-medium ${
-                  location.pathname === item.href ? 'text-primary font-semibold' : ''
+                  location.pathname === item.href ? "text-primary font-semibold" : ""
                 }`}
               >
                 {item.name}
@@ -69,7 +72,7 @@ const Navigation = () => {
                     to={item.href}
                     onClick={closeSheet}
                     className={`text-left py-3 px-4 text-lg font-medium text-foreground hover:text-primary hover:bg-muted rounded-lg transition-colors ${
-                      location.pathname === item.href ? 'text-primary font-semibold bg-muted' : ''
+                      location.pathname === item.href ? "text-primary font-semibold bg-muted" : ""
                     }`}
                   >
                     {item.name}
