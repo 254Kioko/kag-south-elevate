@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Phone } from "lucide-react";
-import kagLogo from "@/assets/kag-logo.png"; // 👈 import your logo image
+import kagLogo from "@/assets/kag-logo.png";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,15 +26,14 @@ const Navigation = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo Section */}
-          <Link to="/" className="flex items-center space-x-2">
-            <img
-              src={kagLogo}
-              alt="KAG South C Logo"
-              className="w-10 h-10 object-contain"
-            />
-            {/* If you want text next to the logo, uncomment below: */}
-            {/* <span className="font-heading font-semibold text-xl text-primary">KAG South C</span> */}
-          </Link>
+        <Link to="/" className="flex items-center space-x-2">
+  <img
+    src={kagLogo}
+    alt="KAG South C Logo"
+    className="w-12 h-12 object-contain"
+  />
+</Link>
+
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
