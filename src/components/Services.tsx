@@ -6,15 +6,15 @@ const Services = () => {
   const services = [
     {
       title: "1st Service - Empowerment",
-      time: "7:00 - 8:50 AM",
+      time: "7:30 - 8:45 AM",
       type: "Early Morning",
       description: "Start your day with intercessory prayers and empowerment service",
-      features: ["Intercessory Prayers: 7:00-7:45 AM", "Empowerment Service: 7:50-8:50 AM"],
+      features: ["Intercessory Prayers: 7:30-8:00 AM", "Empowerment Service: 8:00-8:45 AM"],
       language: "English/Swahili",
-      audience: "All Ages"
+      audience: "Youth"
     },
     {
-      title: "2nd Service - English Service", 
+      title: "2nd Service - Main Service", 
       time: "9:00 - 11:00 AM",
       type: "Morning Worship",
       description: "Our main English worship service with contemporary style",
@@ -29,7 +29,7 @@ const Services = () => {
       audience: "All Ages"
     },
     {
-      title: "3rd Service - Bilingual Service",
+      title: "3rd Service - Main Service",
       time: "11:10 AM - 1:30 PM", 
       type: "Main Service",
       description: "Our largest service combining English and Swahili worship",
@@ -38,31 +38,25 @@ const Services = () => {
         "Accountability Groups: 11:40 AM-12:10 PM",
         "Choir: 12:10-12:25 PM", 
         "Message: 12:25-12:55 PM",
-        "Offertory & Closing Prayer"
+        "Offertory & Closing Prayer: 12:55:15PM"
       ],
       language: "English & Swahili", 
-      audience: "All Ages"
+      audience: "Adults"
     }
   ];
 
   const midweekServices = [
     {
-      title: "Devotion Hour",
-      time: "Tuesday 1:00 PM",
+      title: "Devotion ",
+      time: "Tuesday 5:30-7:00 PM",
       icon: Clock,
-      description: "Midday spiritual reflection and prayer"
+      description: "Evening spiritual reflection and prayer"
     },
     {
-      title: "Prayer Meeting", 
-      time: "Tuesday 6:00 PM",
+      title: "Intercessory Service", 
+      time: "Friday 6:00 PM",
       icon: Users,
-      description: "Evening corporate prayer and intercession"
-    },
-    {
-      title: "Intercessory Service",
-      time: "Friday 6:00 PM", 
-      icon: Music,
-      description: "Powerful prayer and worship experience"
+      description: "Evening prayer and intercession"
     }
   ];
 
