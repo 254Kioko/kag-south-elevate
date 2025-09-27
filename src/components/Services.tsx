@@ -42,6 +42,34 @@ const Services = () => {
       ],
       language: "English & Swahili", 
       audience: "Adults"
+    },
+      {
+      title: "Teens Service",
+      time: "11:30 AM - 1:30 PM", 
+      type: "Youth Ministry",
+      description: "A vibrant service tailored for teenagers to grow in faith and fellowship.",
+      features: [
+        "Fun Games",
+        "Interactive Bible Study",
+        "Life Application Talk"
+      ],
+      language: "English & Swahili", 
+      audience: " Ages 13-19"
+    },
+      {
+      title: "Sunday School",
+      time: "11:10 AM - 1:30 PM", 
+      type: "Children Ministry",
+      description: "A fun, safe, and nurturing environment where kids learn about Jesus through stories, songs, and activities.",
+      features: [
+        "Praise & Worship",
+        "Bible Story Time",
+        "Creative Activities (Drawing, Crafts", 
+        "Snacks and short break",
+        "Age-Based Classes"
+      ],
+      language: "English & Swahili", 
+      audience: "Ages 0-12"
     }
   ];
 
