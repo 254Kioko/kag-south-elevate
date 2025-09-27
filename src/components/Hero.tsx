@@ -25,7 +25,6 @@ const Hero = () => {
       <div className="relative z-10 text-center text-primary-foreground px-4 max-w-4xl mx-auto">
         {/* Logo & Heading */}
         <div className="mb-8 flex justify-center">
-          <img src={kagLogo} alt="KAG Logo" className="h-16 w-auto mr-3" />
           <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-md px-6 py-3 rounded-full shadow-elegant animate-fade-in">
             <span className="text-white font-semibold text-lg">
               Welcome to our family
