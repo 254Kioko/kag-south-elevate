@@ -29,28 +29,48 @@ const Hero = () => {
           </div>
         </div>
 
-        <h1 className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight animate-fade-in">
-          <span className="block text-white drop-shadow-2xl">WELCOME TO</span>
-          <span className="block bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent drop-shadow-lg">
-            KAG SOUTH C
-          </span>
-        </h1>
+      <h1 className="font-heading text-3xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-snug animate-fade-in">
+  <span className="block text-white drop-shadow-xl tracking-wide">WELCOME TO</span>
+  <span className="block bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent drop-shadow-md">
+    KAG SOUTH C
+  </span>
+</h1>
+
         
         <p className="text-xl md:text-2xl mb-10 text-white/95 max-w-4xl mx-auto leading-relaxed font-medium drop-shadow-lg animate-fade-in">
           Where faith finds its home! Join our vibrant congregation for spiritual growth, 
           meaningful fellowship, and life-changing encounters with God's love.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in">
-          <Button size="lg" variant="secondary" className="font-bold px-10 py-4 text-lg shadow-elegant hover-scale">
-            <Play className="w-6 h-6 mr-3" />
-            Watch Latest Service
-          </Button>
-          <Button size="lg" variant="outline" className="font-bold px-10 py-4 text-lg bg-white/10 border-white/30 text-white hover:bg-white/20 backdrop-blur-sm shadow-elegant hover-scale">
-            <Calendar className="w-6 h-6 mr-3" />
-            Visit Us This Sunday
-          </Button>
-        </div>
+       <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in">
+  {/* Watch Latest Service → goes to /sermons */}
+  <Link to="/sermons">
+    <Button
+      size="lg"
+      variant="secondary"
+      className="font-bold px-10 py-4 text-lg shadow-elegant hover-scale"
+    >
+      <Play className="w-6 h-6 mr-3" />
+      Watch Latest Service
+    </Button>
+  </Link>
+
+  {/* Visit Us This Sunday → opens Google Maps */}
+  <a
+    href="https://maps.google.com/?q=KAG+South+C+Church" // replace with actual church location link
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <Button
+      size="lg"
+      variant="outline"
+      className="font-bold px-10 py-4 text-lg bg-white/10 border-white/30 text-white hover:bg-white/20 backdrop-blur-sm shadow-elegant hover-scale"
+    >
+      <Calendar className="w-6 h-6 mr-3" />
+      Visit Us This Sunday
+    </Button>
+  </a>
+</div>
 
         {/* Service Times Quick Info */}
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto animate-fade-in">
