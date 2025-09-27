@@ -1,191 +1,67 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Clock, Calendar, Users, Music } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom"; 
+import eventImage from "@/assets/upcoming-event.jpg"; // ✅ Add an image in assets
 
 const Services = () => {
-  const services = [
-    {
-      title: "1st Service - Empowerment",
-      time: "7:30 - 8:45 AM",
-      type: "Early Morning",
-      description: "Start your day with intercessory prayers and empowerment service",
-      features: ["Intercessory Prayers: 7:30-8:00 AM", "Empowerment Service: 8:00-8:45 AM"],
-      language: "English/Swahili",
-      audience: "Youth"
-    },
-    {
-      title: "2nd Service - Main Service", 
-      time: "9:00 - 11:00 AM",
-      type: "Morning Worship",
-      description: "Our main English worship service with contemporary style",
-      features: [
-        "Worship: 9:00-9:30 AM",
-        "Accountability Groups: 9:30-10:00 AM", 
-        "Choir: 10:05-10:15 AM",
-        "Message: 10:15-10:45 AM",
-        "Offertory & Closing: 10:45-11:00 AM"
-      ],
-      language: "English",
-      audience: "All Ages"
-    },
-    {
-      title: "3rd Service - Main Service",
-      time: "11:10 AM - 1:30 PM", 
-      type: "Main Service",
-      description: "Our largest service combining English and Swahili worship",
-      features: [
-        "Praise & Worship: 11:10-11:40 AM",
-        "Accountability Groups: 11:40 AM-12:10 PM",
-        "Choir: 12:10-12:25 PM", 
-        "Message: 12:25-12:55 PM",
-        "Offertory & Closing Prayer: 12:55:15PM"
-      ],
-      language: "English & Swahili", 
-      audience: "Adults"
-    },
-      {
-      title: "Teens Service",
-      time: "11:30 AM - 1:30 PM", 
-      type: "Youth Ministry",
-      description: "A vibrant service tailored for teenagers to grow in faith and fellowship.",
-      features: [
-        "Fun Games",
-        "Interactive Bible Study",
-        "Life Application Talk"
-      ],
-      language: "English & Swahili", 
-      audience: " Ages 13-19"
-    },
-      {
-      title: "Sunday School",
-      time: "11:10 AM - 1:30 PM", 
-      type: "Children Ministry",
-      description: "A fun, safe, and nurturing environment where kids learn about Jesus through stories, songs, and activities.",
-      features: [
-        "Praise & Worship",
-        "Bible Story Time",
-        "Creative Activities (Drawing, Crafts", 
-        "Snacks and short break",
-        "Age-Based Classes"
-      ],
-      language: "English & Swahili", 
-      audience: "Ages 0-12"
-    }
-  ];
+  const services = [/* ... your services data ... */];
 
-  const midweekServices = [
-    {
-      title: "Devotion ",
-      time: "Tuesday 5:30-7:00 PM",
-      icon: Clock,
-      description: "Evening spiritual reflection and prayer"
-    },
-    {
-      title: "Intercessory Service", 
-      time: "Friday 6:00 PM",
-      icon: Users,
-      description: "Evening prayer and intercession"
-    }
-  ];
+  const midweekServices = [/* ... your midweek data ... */];
 
   return (
-    <section id="services" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+    <>
+      <section id="services" className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          {/* ... existing Sunday & Midweek services code ... */}
+        </div>
+      </section>
+
+      {/* ✅ Upcoming Events Section */}
+      <section id="events" className="py-20 bg-muted/30">
+        <div className="container mx-auto px-4 text-center">
           <h2 className="font-heading text-4xl md:text-5xl font-bold mb-6 text-primary">
-            Service Times
+            Upcoming Event
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Join us for worship, fellowship, and spiritual growth. We have multiple services 
-            to accommodate different preferences and schedules.
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12">
+            Stay connected with what’s happening at KAG South C. Here’s what’s next:
           </p>
-        </div>
 
-        {/* Sunday Services */}
-        <div className="mb-16">
-          <h3 className="font-heading text-3xl font-semibold mb-8 text-center text-primary">
-            Sunday Services
-          </h3>
-          <div className="grid lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <Card key={index} className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-1">
-                <CardHeader className="pb-4">
-                  <div className="flex items-center justify-between mb-2">
-                    <Badge variant="secondary" className="text-xs">
-                      {service.type}
-                    </Badge>
-                    <div className="flex items-center text-sm text-muted-foreground">
-                      <Clock className="w-4 h-4 mr-1" />
-                      {service.time}
-                    </div>
-                  </div>
-                  <CardTitle className="font-heading text-xl text-primary group-hover:text-primary-glow transition-colors">
-                    {service.title}
-                  </CardTitle>
-                  <p className="text-muted-foreground text-sm">
-                    {service.description}
-                  </p>
-                </CardHeader>
-                <CardContent className="pt-0">
-                  <div className="space-y-3">
-                    <div>
-                      <h4 className="font-semibold text-sm mb-2 text-primary">Schedule:</h4>
-                      <ul className="space-y-1">
-                        {service.features.map((feature, idx) => (
-                          <li key={idx} className="text-sm text-muted-foreground flex items-center">
-                            <div className="w-1.5 h-1.5 bg-secondary rounded-full mr-2 flex-shrink-0"></div>
-                            {feature}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="flex justify-between text-sm pt-3 border-t">
-                      <span className="text-muted-foreground">Language:</span>
-                      <span className="font-medium text-primary">{service.language}</span>
-                    </div>
-                    <div className="flex justify-between text-sm">
-                      <span className="text-muted-foreground">Audience:</span>
-                      <span className="font-medium text-primary">{service.audience}</span>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="max-w-3xl mx-auto">
+            <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+              <img
+                src={eventImage}
+                alt="Upcoming Event"
+                className="w-full h-64 object-cover"
+              />
+              <CardHeader className="text-left p-6">
+                <Badge variant="secondary" className="mb-3">Special Event</Badge>
+                <CardTitle className="text-2xl font-bold text-primary">
+                  Youth Worship Night
+                </CardTitle>
+                <p className="text-muted-foreground text-sm mt-2">
+                  Join us for a powerful night of praise, worship, and fellowship.
+                </p>
+              </CardHeader>
+              <CardContent className="flex items-center justify-between p-6 border-t">
+                <div className="flex items-center space-x-4 text-muted-foreground text-sm">
+                  <Calendar className="w-4 h-4" />
+                  <span>Sunday, Oct 20th</span>
+                  <Clock className="w-4 h-4 ml-4" />
+                  <span>5:00 PM - 8:00 PM</span>
+                </div>
+                <Link to="/events">
+                  <Button variant="secondary" className="ml-6">
+                    More Events
+                  </Button>
+                </Link>
+              </CardContent>
+            </Card>
           </div>
         </div>
-
-        {/* Midweek Services */}
-        <div>
-          <h3 className="font-heading text-3xl font-semibold mb-8 text-center text-primary">
-            Midweek Services
-          </h3>
-          <div className="grid md:grid-cols-3 gap-6">
-            {midweekServices.map((service, index) => {
-              const IconComponent = service.icon;
-              return (
-                <Card key={index} className="group hover:shadow-warm transition-all duration-300">
-                  <CardContent className="p-6 text-center">
-                    <div className="w-16 h-16 bg-gradient-primary rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform">
-                      <IconComponent className="w-8 h-8 text-primary-foreground" />
-                    </div>
-                    <h4 className="font-heading text-xl font-semibold mb-2 text-primary">
-                      {service.title}
-                    </h4>
-                    <div className="flex items-center justify-center mb-3 text-secondary font-semibold">
-                      <Calendar className="w-4 h-4 mr-1" />
-                      {service.time}
-                    </div>
-                    <p className="text-muted-foreground text-sm">
-                      {service.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              );
-            })}
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 
