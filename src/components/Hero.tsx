@@ -16,14 +16,7 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-primary/60 via-primary/40 to-transparent"></div>
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 text-center text-primary-foreground px-4 max-w-4xl mx-auto">
-        <div className="mb-8 flex justify-center">
-          <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-md px-6 py-3 rounded-full shadow-elegant animate-fade-in">
-          
-            <span className="text-white font-semibold text-lg">Welcome to our family</span>
-          </div>
-        </div>
+      
 
       <h1 className="font-heading text-3xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-snug animate-fade-in">
   <span className="block text-white drop-shadow-xl tracking-wide">WELCOME TO</span>
@@ -84,7 +77,14 @@ const Hero = () => {
           </div>
         </div>
       </div>
-
+{/* Content */}
+      <div className="relative z-10 text-center text-primary-foreground px-4 max-w-4xl mx-auto">
+        <div className="mb-8 flex justify-center">
+          <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-md px-6 py-3 rounded-full shadow-elegant animate-fade-in">
+          
+            <span className="text-white font-semibold text-lg">Welcome to our family</span>
+          </div>
+        </div>
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
         <div className="w-6 h-10 border-2 border-primary-foreground/50 rounded-full flex justify-center">
