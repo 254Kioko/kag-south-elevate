@@ -1,11 +1,18 @@
-
 import { Button } from "@/components/ui/button";
 import { Play, Calendar } from "lucide-react";
-import { Link } from "react-router-dom"; // ✅ needed for <Link>
+import { Link } from "react-router-dom"; 
 import heroImage from "@/assets/church-hero.jpg";
 import kagLogo from "@/assets/kag-logo.png";
 
 const Hero = () => {
+  // Smooth scroll function
+  const handleScroll = () => {
+    const nextSection = document.getElementById("about"); // 👈 change "about" to your next section ID
+    if (nextSection) {
+      nextSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section
       id="home"
@@ -49,7 +56,6 @@ const Hero = () => {
 
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in">
-          {/* Watch Latest Service → goes to /sermons */}
           <Link to="/sermons">
             <Button
               size="lg"
@@ -61,7 +67,6 @@ const Hero = () => {
             </Button>
           </Link>
 
-          {/* Visit Us This Sunday → opens Google Maps */}
           <a
             href="https://maps.app.goo.gl/FLKDdmePNH9QLRgm6"
             target="_blank"
@@ -78,13 +83,13 @@ const Hero = () => {
           </a>
         </div>
 
-        {/* Service Times Quick Info */}
+        {/* Service Times */}
         <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto animate-fade-in">
           <div className="bg-white/15 backdrop-blur-md rounded-2xl p-6 shadow-elegant hover-scale">
             <h3 className="font-heading font-bold mb-3 text-white text-lg">
               1st Service
             </h3>
-            <p className="text-white/90 font-medium">7:00 - 8:50 AM</p>
+            <p className="text-white/90 font-medium">7:30 - 8:45 AM</p>
           </div>
           <div className="bg-white/15 backdrop-blur-md rounded-2xl p-6 shadow-elegant hover-scale">
             <h3 className="font-heading font-bold mb-3 text-white text-lg">
@@ -101,13 +106,17 @@ const Hero = () => {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 border-2 border-primary-foreground/50 rounded-full flex justify-center">
+      {/* Scroll Indicator (Now Clickable) */}
+      <button
+        onClick={handleScroll}
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce focus:outline-none"
+      >
+        <div className="w-6 h-10 border-2 border-primary-foreground/50 rounded-full flex justify-center items-start">
           <div className="w-1 h-3 bg-primary-foreground/50 rounded-full mt-2"></div>
         </div>
-      </div>
+      </button>
     </section>
   );
 };
+
 export default Hero;
