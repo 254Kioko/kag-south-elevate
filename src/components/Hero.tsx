@@ -20,11 +20,7 @@ const Hero = () => {
       <div className="relative z-10 text-center text-primary-foreground px-4 max-w-4xl mx-auto">
         <div className="mb-8 flex justify-center">
           <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-md px-6 py-3 rounded-full shadow-elegant animate-fade-in">
-            <img 
-              src={kagLogo} 
-              alt="KAG Logo" 
-              className="w-8 h-8 object-contain"
-            />
+          
             <span className="text-white font-semibold text-lg">Welcome to our family</span>
           </div>
         </div>
@@ -57,7 +53,7 @@ const Hero = () => {
 
   {/* Visit Us This Sunday → opens Google Maps */}
   <a
-    href="https://maps.google.com/?q=KAG+South+C+Church" // replace with actual church location link
+    href="https://maps.app.goo.gl/FLKDdmePNH9QLRgm6" // replace with actual church location link
     target="_blank"
     rel="noopener noreferrer"
   >
