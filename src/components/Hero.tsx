@@ -1,4 +1,4 @@
-```tsx
+
 import { Button } from "@/components/ui/button";
 import { Play, Calendar } from "lucide-react";
 import { Link } from "react-router-dom"; // ✅ needed for <Link>
