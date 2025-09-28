@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Clock, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom"; 
-import eventImage from "@/assets/upcoming-event.jpg"; // ✅ Add an image in assets
+import eventImage from "@/assets/upcoming-event.jpg"; // ✅ Ensure this file exists in src/assets
 
 const Services = () => {
   const services = [
@@ -50,7 +50,7 @@ const Services = () => {
         "Accountability Groups: 11:40 AM-12:10 PM",
         "Choir: 12:10-12:25 PM",
         "Message: 12:25-12:55 PM",
-        "Offertory & Closing Prayer: 12:55-1:5PM"
+        "Offertory & Closing Prayer: 12:55-1:05 PM"
       ],
       language: "English & Swahili",
       audience: "Adults"
@@ -59,6 +59,7 @@ const Services = () => {
 
   return (
     <>
+      {/* Services Section */}
       <section id="services" className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <h2 className="font-heading text-4xl md:text-5xl font-bold text-center mb-6 text-primary">
@@ -68,7 +69,6 @@ const Services = () => {
             Join us for worship, fellowship, and spiritual growth. We have multiple services to accommodate different preferences and schedules.
           </p>
 
-          {/* Sunday Services */}
           <div className="mb-16">
             <h3 className="font-heading text-3xl font-bold text-center mb-8 text-primary">
               Sunday Services
@@ -125,7 +125,7 @@ const Services = () => {
         </div>
       </section>
 
-      {/* ✅ Upcoming Events Section */}
+      {/* Upcoming Events Section */}
       <section id="events" className="py-20 bg-muted/30">
         <div className="container mx-auto px-4 text-center">
           <h2 className="font-heading text-4xl md:text-5xl font-bold mb-6 text-primary">
@@ -169,10 +169,12 @@ const Services = () => {
         </div>
       </section>
 
-
-  {/* Call to Action */}
-        <div className="text-center bg-gradient-primary rounded-2xl p-8 text-primary-foreground shadow-elegant">
-          <h3 className="font-heading text-2xl font-semibold mb-4">Ready to Get Involved?</h3>
+      {/* Call to Action */}
+      <section className="py-20">
+        <div className="container mx-auto px-4 text-center bg-gradient-primary rounded-2xl p-8 text-primary-foreground shadow-elegant">
+          <h3 className="font-heading text-2xl font-semibold mb-4">
+            Ready to Get Involved?
+          </h3>
           <p className="mb-6 text-primary-foreground/90 max-w-2xl mx-auto">
             Join one of our ministries and discover how God can use your gifts to make a difference. 
             Whether you're new to faith or a seasoned believer, there's a place for you.
@@ -181,23 +183,9 @@ const Services = () => {
             Connect With a Ministry
           </Button>
         </div>
-      </div>
-    </section>
-  );
-};
-
-
-
-
-
-
-
-      
+      </section>
     </>
   );
 };
-
-
-
 
 export default Services;
