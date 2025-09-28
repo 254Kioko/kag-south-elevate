@@ -170,20 +170,23 @@ const Services = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20">
-        <div className="container mx-auto px-4 text-center bg-gradient-primary rounded-2xl p-8 text-primary-foreground shadow-elegant">
-          <h3 className="font-heading text-2xl font-semibold mb-4">
-            Ready to Get Involved?
-          </h3>
-          <p className="mb-6 text-primary-foreground/90 max-w-2xl mx-auto">
-            Join one of our ministries and discover how God can use your gifts to make a difference. 
-            Whether you're new to faith or a seasoned believer, there's a place for you.
-          </p>
-          <Button variant="secondary" size="lg" className="font-semibold">
-            Connect With a Ministry
-          </Button>
-        </div>
-      </section>
+   <section className="py-20">
+  <div className="container mx-auto px-4 text-center bg-gradient-primary rounded-2xl p-8 text-primary-foreground shadow-elegant">
+    <h3 className="font-heading text-2xl font-semibold mb-4">
+      Ready to Get Involved?
+    </h3>
+    <p className="mb-6 text-primary-foreground/90 max-w-2xl mx-auto">
+      Join one of our ministries and discover how God can use your gifts to make a difference. 
+      Whether you're new to faith or a seasoned believer, there's a place for you.
+    </p>
+
+    <Link to="/about">
+      <Button variant="secondary" size="lg" className="font-semibold">
+        Connect With a Ministry
+      </Button>
+    </Link>
+  </div>
+</section>
     </>
   );
 };
