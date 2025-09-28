@@ -180,7 +180,7 @@ const Services = () => {
       Whether you're new to faith or a seasoned believer, there's a place for you.
     </p>
 
-    <Link to="/about">
+    <Link to="/about-ministries">
       <Button variant="secondary" size="lg" className="font-semibold">
         Connect With a Ministry
       </Button>
