@@ -248,19 +248,26 @@ const Services = () => {
                   Join us for a powerful night of praise, worship, and fellowship.
                 </p>
               </CardHeader>
-              <CardContent className="flex items-center justify-between p-6 border-t">
-                <div className="flex items-center space-x-4 text-muted-foreground text-sm">
-                  <Calendar className="w-4 h-4" />
-                  <span>Sunday, Oct 20th</span>
-                  <Clock className="w-4 h-4 ml-4" />
-                  <span>5:00 PM - 8:00 PM</span>
-                </div>
-                <Link to="/events">
-                  <Button variant="secondary" className="ml-6">
-                    More Events
-                  </Button>
-                </Link>
-              </CardContent>
+            <CardContent className="p-6 border-t text-left">
+  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between text-muted-foreground text-sm gap-3">
+    <div className="flex items-center space-x-2">
+      <Calendar className="w-4 h-4" />
+      <span>Sunday, Oct 20th</span>
+    </div>
+    <div className="flex items-center space-x-2">
+      <Clock className="w-4 h-4" />
+      <span>5:00 PM - 8:00 PM</span>
+    </div>
+  </div>
+  <div className="mt-4 text-center sm:text-right">
+    <Link to="/events">
+      <Button variant="secondary" className="font-semibold">
+        More Events
+      </Button>
+    </Link>
+  </div>
+</CardContent>
+
             </Card>
           </div>
         </div>
