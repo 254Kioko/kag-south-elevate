@@ -225,9 +225,9 @@ const Services = () => {
       {/* Upcoming Events Section */}
       <section id="events" className="py-20 bg-muted/30">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="font-heading text-4xl md:text-5xl font-bold mb-6 text-primary">
+          <h3 className="font-heading text-4xl md:text-5xl font-bold mb-6 text-primary">
             Upcoming Event
-          </h2>
+          </h3>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12">
             Stay connected with what’s happening at KAG South C. Here’s what’s next:
           </p>
