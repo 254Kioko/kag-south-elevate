@@ -54,6 +54,41 @@ const Services = () => {
       ],
       language: "English & Swahili",
       audience: "Adults"
+    },
+    {
+      id: 4,
+      badge: "Teens Service",
+      badgeColor: "bg-blue-500",
+      time: "11:30 AM - 1:30 PM",
+      name: "Teens Service",
+      description: "A vibrant service designed for teenagers to grow in faith and fellowship.",
+      schedule: [
+        "Praise & Worship: 11:30-11:50 AM",
+        "Interactive Session: 11:50 AM - 12:20 PM",
+        "Message & Discussions: 12:20-12:50 PM",
+        "Choir / Drama: 12:50-1:10 PM",
+        "Prayer & Dismissal: 1:10-1:30 PM"
+      ],
+      language: "English & Swahili",
+      audience: "Ages 13-19"
+    },
+    {
+      id: 5,
+      badge: "Children’s Church",
+      badgeColor: "bg-green-500",
+      time: "9:00 AM - 12:00 PM",
+      name: "Children’s Service",
+      description: "Fun, interactive, and faith-filled classes tailored for children of all ages.",
+      schedule: [
+        "Songs & Praise: 9:00-9:20 AM",
+        "Bible Story Time: 9:20-9:50 AM",
+        "Memory Verses & Games: 9:50-10:30 AM",
+        "Creative Activities: 10:30-11:00 AM",
+        "Prayer & Snacks: 11:00-11:20 AM",
+        "Breakout Classes (by age groups): 11:20-12:00 PM"
+      ],
+      language: "English & Swahili",
+      audience: "Children (Ages 3-12)"
     }
   ];
 
@@ -170,23 +205,23 @@ const Services = () => {
       </section>
 
       {/* Call to Action */}
-   <section className="py-20">
-  <div className="container mx-auto px-4 text-center bg-gradient-primary rounded-2xl p-8 text-primary-foreground shadow-elegant">
-    <h3 className="font-heading text-2xl font-semibold mb-4">
-      Ready to Get Involved?
-    </h3>
-    <p className="mb-6 text-primary-foreground/90 max-w-2xl mx-auto">
-      Join one of our ministries and discover how God can use your gifts to make a difference. 
-      Whether you're new to faith or a seasoned believer, there's a place for you.
-    </p>
+      <section className="py-20">
+        <div className="container mx-auto px-4 text-center bg-gradient-primary rounded-2xl p-8 text-primary-foreground shadow-elegant">
+          <h3 className="font-heading text-2xl font-semibold mb-4">
+            Ready to Get Involved?
+          </h3>
+          <p className="mb-6 text-primary-foreground/90 max-w-2xl mx-auto">
+            Join one of our ministries and discover how God can use your gifts to make a difference. 
+            Whether you're new to faith or a seasoned believer, there's a place for you.
+          </p>
 
-    <Link to="/about-ministries">
-      <Button variant="secondary" size="lg" className="font-semibold">
-        Connect With a Ministry
-      </Button>
-    </Link>
-  </div>
-</section>
+          <Link to="/about-ministries">
+            <Button variant="secondary" size="lg" className="font-semibold">
+              Connect With a Ministry
+            </Button>
+          </Link>
+        </div>
+      </section>
     </>
   );
 };
