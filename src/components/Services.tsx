@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Clock, Calendar, User } from "lucide-react";
+import { Clock, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom"; 
 import eventImage from "@/assets/upcoming-event.jpg"; // ✅ Ensure this file exists in src/assets
@@ -57,35 +57,38 @@ const Services = () => {
     },
     {
       id: 4,
-      badge: "Youth Focus",
-      badgeColor: "bg-yellow-500",
-      time: "9:00 - 11:00 AM",
+      badge: "Teens Service",
+      badgeColor: "bg-blue-500",
+      time: "11:30 AM - 1:30 PM",
       name: "Teens Service",
-      description: "Dynamic and interactive service designed for teenagers.",
+      description: "A vibrant service designed for teenagers to grow in faith and fellowship.",
       schedule: [
-        "Ice Breaker & Worship: 9:00-9:30 AM",
-        "Bible Study: 9:30-10:00 AM",
-        "Group Discussions: 10:00-10:30 AM",
-        "Message & Prayer: 10:30-11:00 AM"
+        "Praise & Worship: 11:30-11:50 AM",
+        "Interactive Session: 11:50 AM - 12:20 PM",
+        "Message & Discussions: 12:20-12:50 PM",
+        "Choir / Drama: 12:50-1:10 PM",
+        "Prayer & Dismissal: 1:10-1:30 PM"
       ],
-      language: "English/Swahili",
-      audience: "Teens"
+      language: "English & Swahili",
+      audience: "Ages 13-19"
     },
     {
       id: 5,
-      badge: "Kids Ministry",
-      badgeColor: "bg-yellow-500",
-      time: "9:00 - 11:00 AM",
+      badge: "Children’s Church",
+      badgeColor: "bg-green-500",
+      time: "9:00 AM - 12:00 PM",
       name: "Children’s Service",
-      description: "Fun, engaging, and biblical lessons designed for kids.",
+      description: "Fun, interactive, and faith-filled classes tailored for children of all ages.",
       schedule: [
-        "Praise & Worship: 9:00-9:20 AM",
-        "Bible Story: 9:20-9:50 AM",
-        "Games & Activities: 9:50-10:30 AM",
-        "Memory Verses & Closing: 10:30-11:00 AM"
+        "Songs & Praise: 9:00-9:20 AM",
+        "Bible Story Time: 9:20-9:50 AM",
+        "Memory Verses & Games: 9:50-10:30 AM",
+        "Creative Activities: 10:30-11:00 AM",
+        "Prayer & Snacks: 11:00-11:20 AM",
+        "Breakout Classes (by age groups): 11:20-12:00 PM"
       ],
-      language: "English/Swahili",
-      audience: "Children"
+      language: "English & Swahili",
+      audience: "Children (Ages 3-12)"
     }
   ];
 
@@ -154,44 +157,69 @@ const Services = () => {
               ))}
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* Last Week's Sermon Preview */}
-          <div className="mt-20 max-w-4xl mx-auto">
+      {/* Upcoming Events Section */}
+      <section id="events" className="py-20 bg-muted/30">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="font-heading text-4xl md:text-5xl font-bold mb-6 text-primary">
+            Upcoming Event
+          </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12">
+            Stay connected with what’s happening at KAG South C. Here’s what’s next:
+          </p>
+
+          <div className="max-w-3xl mx-auto">
             <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-              <div className="aspect-video w-full">
-                <iframe
-                  className="w-full h-full"
-                  src="https://www.youtube.com/embed/YOUR_VIDEO_ID" // 🔄 Replace with your YouTube video ID
-                  title="Last Week's Sermon"
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                />
-              </div>
+              <img
+                src={eventImage}
+                alt="Upcoming Event"
+                className="w-full h-64 object-cover"
+              />
               <CardHeader className="text-left p-6">
-                <Badge variant="secondary" className="mb-3">Last Week’s Sermon</Badge>
+                <Badge variant="secondary" className="mb-3">Special Event</Badge>
                 <CardTitle className="text-2xl font-bold text-primary">
-                  Living by Faith
+                  Youth Worship Night
                 </CardTitle>
                 <p className="text-muted-foreground text-sm mt-2">
-                  A powerful word reminding us to walk by faith and not by sight, and to trust God in every season.
+                  Join us for a powerful night of praise, worship, and fellowship.
                 </p>
-                <div className="flex items-center gap-4 mt-4 text-sm text-muted-foreground">
-                  <User className="w-4 h-4" />
-                  <span>Pastor John Doe</span>
-                  <Calendar className="w-4 h-4 ml-6" />
-                  <span>Sunday, Sept 22nd 2025</span>
-                </div>
               </CardHeader>
-              <CardContent className="flex justify-end p-6 border-t">
-                <a href="https://sermons.txs" target="_blank" rel="noopener noreferrer">
+              <CardContent className="flex items-center justify-between p-6 border-t">
+                <div className="flex items-center space-x-4 text-muted-foreground text-sm">
+                  <Calendar className="w-4 h-4" />
+                  <span>Sunday, Oct 20th</span>
+                  <Clock className="w-4 h-4 ml-4" />
+                  <span>5:00 PM - 8:00 PM</span>
+                </div>
+                <Link to="/events">
                   <Button variant="secondary" className="ml-6">
-                    More Sermons
+                    More Events
                   </Button>
-                </a>
+                </Link>
               </CardContent>
             </Card>
           </div>
+        </div>
+      </section>
+
+      {/* Call to Action */}
+      <section className="py-20">
+        <div className="container mx-auto px-4 text-center bg-gradient-primary rounded-2xl p-8 text-primary-foreground shadow-elegant">
+          <h3 className="font-heading text-2xl font-semibold mb-4">
+            Ready to Get Involved?
+          </h3>
+          <p className="mb-6 text-primary-foreground/90 max-w-2xl mx-auto">
+            Join one of our ministries and discover how God can use your gifts to make a difference. 
+            Whether you're new to faith or a seasoned believer, there's a place for you.
+          </p>
+
+          <Link to="/about-ministries">
+            <Button variant="secondary" size="lg" className="font-semibold">
+              Connect With a Ministry
+            </Button>
+          </Link>
         </div>
       </section>
     </>
