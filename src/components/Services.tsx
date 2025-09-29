@@ -157,6 +157,33 @@ const Services = () => {
               ))}
             </div>
           </div>
+
+          {/* Last Week's Sermon */}
+          <div className="mt-20 text-center">
+            <h3 className="font-heading text-3xl font-bold text-primary mb-6">
+              Last Week’s Sermon
+            </h3>
+            <div className="max-w-4xl mx-auto">
+              <div className="aspect-w-16 aspect-h-9 mb-6">
+                <iframe
+                  className="w-full h-[500px] rounded-lg shadow-lg"
+                  src="https://www.youtube.com/embed/YOUR_VIDEO_ID" // replace with real YouTube video ID
+                  title="Last Week's Sermon"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              </div>
+              <p className="text-muted-foreground text-lg max-w-2xl mx-auto mb-6">
+                In this sermon, we explored the power of faith and trust in God even in challenging seasons. Be inspired and encouraged to keep walking with Him.
+              </p>
+              <Link to="/sermon-txs">
+                <Button size="lg" className="font-semibold">
+                  View More Sermons
+                </Button>
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
