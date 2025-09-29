@@ -59,4 +59,5 @@ const Services = () => {
       id: 4,
       badge: "Youth Focus",
       badgeColor: "bg-yellow-500",
-      time:
+time: "11:30 AM - 1:30 PM",
+    }
