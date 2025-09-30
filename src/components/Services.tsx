@@ -33,8 +33,7 @@ const Services = () => {
         "Choir",
         "Message",
         "Offertory & Closing",
-        "Accountability Groups",
-
+        "Accountability Groups"
       ],
       language: "English",
       audience: "All Ages"
@@ -80,10 +79,10 @@ const Services = () => {
       description: "Fun, interactive, and faith-filled classes tailored for children.",
       schedule: [
         "Songs & Praise",
-        "Bible Story Time,
-        "Memory Verses & Games,
-        "Creative Activities,
-        "Prayer & Snacks,
+        "Bible Story Time",
+        "Memory Verses & Games",
+        "Creative Activities",
+        "Prayer & Snacks",
         "Breakout Classes (by age groups)"
       ],
       language: "English & Swahili",
@@ -159,67 +158,55 @@ const Services = () => {
         </div>
       </section>
 
-
-{/* Last Week's Sermon */}
-<div className="mt-20 text-center">
-  <h3 className="font-heading text-3xl font-bold text-primary mb-6">
-    Last Week’s Service
-  </h3>
-  <div className="max-w-4xl mx-auto">
-    <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-      <div className="aspect-w-16 aspect-h-9">
-        <iframe
-          className="w-full h-[400px] md:h-[500px] rounded-t-lg"
-          src="https://www.youtube.com/live/aAvcYfBPsng?si=jlEvo5nx6ypFtLOe" // replace with actual YouTube video ID
-          title="Last Week's Sermon"
-          frameBorder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowFullScreen
-        ></iframe>
-      </div>
-      <CardHeader className="text-left p-6">
-        <CardTitle className="text-2xl font-bold text-primary mb-2">
-          He is still the way maker
-        </CardTitle>
-        <div className="flex items-center text-muted-foreground text-sm space-x-6 mb-3">
-          <div className="flex items-center space-x-2">
-            <Calendar className="w-4 h-4" />
-            <span>Sunday, Sept 28, 2025</span>
-          </div>
-          <div className="flex items-center space-x-2">
-            <Clock className="w-4 h-4" />
-            <span>10:15 AM</span>
-          </div>
+      {/* Last Week's Sermon */}
+      <div className="mt-20 text-center">
+        <h3 className="font-heading text-3xl font-bold text-primary mb-6">
+          Last Week’s Service
+        </h3>
+        <div className="max-w-4xl mx-auto">
+          <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+            <div className="aspect-w-16 aspect-h-9">
+              <iframe
+                className="w-full h-[400px] md:h-[500px] rounded-t-lg"
+                src="https://www.youtube.com/live/aAvcYfBPsng?si=jlEvo5nx6ypFtLOe"
+                title="Last Week's Sermon"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+            <CardHeader className="text-left p-6">
+              <CardTitle className="text-2xl font-bold text-primary mb-2">
+                He is still the way maker
+              </CardTitle>
+              <div className="flex items-center text-muted-foreground text-sm space-x-6 mb-3">
+                <div className="flex items-center space-x-2">
+                  <Calendar className="w-4 h-4" />
+                  <span>Sunday, Sept 28, 2025</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <Clock className="w-4 h-4" />
+                  <span>10:15 AM</span>
+                </div>
+              </div>
+              <p className="text-muted-foreground text-base mb-4">
+                <span className="font-semibold">Preacher: </span> Rev. Peter Kioko
+              </p>
+              <p className="text-muted-foreground text-sm">
+                In this sermon, we explored the power of faith and trust in God even in challenging
+                seasons. Be inspired and encouraged to keep walking with Him.
+              </p>
+            </CardHeader>
+            <CardContent className="p-6 border-t text-center">
+              <Link to="/sermon-txs">
+                <Button size="lg" className="font-semibold">
+                  View More Sermons
+                </Button>
+              </Link>
+            </CardContent>
+          </Card>
         </div>
-        <p className="text-muted-foreground text-base mb-4">
-          <span className="font-semibold">Preacher: </span> Rev. Peter Kioko
-        </p>
-        <p className="text-muted-foreground text-sm">
-          In this sermon, we explored the power of faith and trust in God even in challenging
-          seasons. Be inspired and encouraged to keep walking with Him.
-        </p>
-      </CardHeader>
-      <CardContent className="p-6 border-t text-center">
-        <Link to="/sermon-txs">
-          <Button size="lg" className="font-semibold">
-            View More Sermons
-          </Button>
-        </Link>
-      </CardContent>
-    </Card>
-  </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-      
+      </div>
 
       {/* Upcoming Events Section */}
       <section id="events" className="py-20 bg-muted/30">
@@ -247,26 +234,25 @@ const Services = () => {
                   Join us for a powerful day with the Men
                 </p>
               </CardHeader>
-            <CardContent className="p-6 border-t text-left">
-  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between text-muted-foreground text-sm gap-3">
-    <div className="flex items-center space-x-2">
-      <Calendar className="w-4 h-4" />
-      <span>Sunday, Oct 20th</span>
-    </div>
-    <div className="flex items-center space-x-2">
-      <Clock className="w-4 h-4" />
-      <span>9:00 PM - 1:30 PM</span>
-    </div>
-  </div>
-  <div className="mt-4 text-center sm:text-right">
-    <Link to="/events">
-      <Button variant="secondary" className="font-semibold">
-        More Events
-      </Button>
-    </Link>
-  </div>
-</CardContent>
-
+              <CardContent className="p-6 border-t text-left">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between text-muted-foreground text-sm gap-3">
+                  <div className="flex items-center space-x-2">
+                    <Calendar className="w-4 h-4" />
+                    <span>Sunday, Oct 20th</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <Clock className="w-4 h-4" />
+                    <span>9:00 AM - 1:30 PM</span>
+                  </div>
+                </div>
+                <div className="mt-4 text-center sm:text-right">
+                  <Link to="/events">
+                    <Button variant="secondary" className="font-semibold">
+                      More Events
+                    </Button>
+                  </Link>
+                </div>
+              </CardContent>
             </Card>
           </div>
         </div>
