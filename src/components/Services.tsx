@@ -47,7 +47,7 @@ const Services = () => {
       name: "3rd Service - Main Service",
       description: "Our largest service combining English and Swahili worship",
       schedule: [
-        "Praise & Worship,
+        "Praise & Worship",
         "Choir",
         "Message",
         "Offertory & Closing Prayer"
