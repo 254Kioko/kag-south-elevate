@@ -198,7 +198,7 @@ const Services = () => {
               </p>
             </CardHeader>
             <CardContent className="p-6 border-t text-center">
-              <Link to="/sermon-txs">
+              <Link to="/sermon.tsx">
                 <Button size="lg" className="font-semibold">
                   View More Sermons
                 </Button>
