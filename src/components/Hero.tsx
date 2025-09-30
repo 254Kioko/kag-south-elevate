@@ -101,7 +101,7 @@ const Hero = () => {
             <h3 className="font-heading font-bold mb-3 text-white text-lg">
               3rd Service
             </h3>
-            <p className="text-white/90 font-medium">11:10 AM - 1:30 PM</p>
+            <p className="text-white/90 font-medium">11:40 AM - 1:30 PM</p>
           </div>
         </div>
       </div>
