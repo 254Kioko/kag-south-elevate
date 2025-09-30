@@ -29,11 +29,12 @@ const Services = () => {
       name: "2nd Service - Main Service",
       description: "Our main English worship service with contemporary style",
       schedule: [
-        "Worship: 9:00-9:30 AM",
-        "Accountability Groups: 9:30-10:00 AM",
-        "Choir: 10:05-10:15 AM",
-        "Message: 10:15-10:45 AM",
-        "Offertory & Closing: 10:45-11:00 AM"
+        "Praise & Worship,
+        "Choir",
+        "Message",
+        "Offertory & Closing"
+        "Accountability Groups",
+
       ],
       language: "English",
       audience: "All Ages"
@@ -42,15 +43,14 @@ const Services = () => {
       id: 3,
       badge: "Main Service",
       badgeColor: "bg-yellow-500",
-      time: "11:10 AM - 1:30 PM",
+      time: "11:45 AM - 1:30 PM",
       name: "3rd Service - Main Service",
       description: "Our largest service combining English and Swahili worship",
       schedule: [
-        "Praise & Worship: 11:10-11:40 AM",
-        "Accountability Groups: 11:40 AM-12:10 PM",
-        "Choir: 12:10-12:25 PM",
-        "Message: 12:25-12:55 PM",
-        "Offertory & Closing Prayer: 12:55-1:05 PM"
+        "Praise & Worship,
+        "Choir",
+        "Message",
+        "Offertory & Closing Prayer"
       ],
       language: "English & Swahili",
       audience: "Adults"
@@ -63,11 +63,10 @@ const Services = () => {
       name: "Teens Service",
       description: "A vibrant service designed for teenagers to grow in faith and fellowship.",
       schedule: [
-        "Praise & Worship: 11:30-11:50 AM",
-        "Interactive Session: 11:50 AM - 12:20 PM",
-        "Message & Discussions: 12:20-12:50 PM",
-        "Choir / Drama: 12:50-1:10 PM",
-        "Prayer & Dismissal: 1:10-1:30 PM"
+        "Praise & Worship",
+        "Interactive Session",
+        "Message & Discussions",
+        "Prayer & Dismissal"
       ],
       language: "English & Swahili",
       audience: "Ages 13-19"
@@ -76,16 +75,16 @@ const Services = () => {
       id: 5,
       badge: "Children’s Church",
       badgeColor: "bg-green-500",
-      time: "9:00 AM - 12:00 PM",
+      time: "11:45 AM - 1:30 PM",
       name: "Children’s Service",
-      description: "Fun, interactive, and faith-filled classes tailored for children of all ages.",
+      description: "Fun, interactive, and faith-filled classes tailored for children.",
       schedule: [
-        "Songs & Praise: 9:00-9:20 AM",
-        "Bible Story Time: 9:20-9:50 AM",
-        "Memory Verses & Games: 9:50-10:30 AM",
-        "Creative Activities: 10:30-11:00 AM",
-        "Prayer & Snacks: 11:00-11:20 AM",
-        "Breakout Classes (by age groups): 11:20-12:00 PM"
+        "Songs & Praise",
+        "Bible Story Time,
+        "Memory Verses & Games,
+        "Creative Activities,
+        "Prayer & Snacks,
+        "Breakout Classes (by age groups)"
       ],
       language: "English & Swahili",
       audience: "Children (Ages 3-12)"
@@ -164,14 +163,14 @@ const Services = () => {
 {/* Last Week's Sermon */}
 <div className="mt-20 text-center">
   <h3 className="font-heading text-3xl font-bold text-primary mb-6">
-    Last Week’s Sermon
+    Last Week’s Service
   </h3>
   <div className="max-w-4xl mx-auto">
     <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
       <div className="aspect-w-16 aspect-h-9">
         <iframe
           className="w-full h-[400px] md:h-[500px] rounded-t-lg"
-          src="https://www.youtube.com/embed/YOUR_VIDEO_ID" // replace with actual YouTube video ID
+          src="https://www.youtube.com/live/aAvcYfBPsng?si=jlEvo5nx6ypFtLOe" // replace with actual YouTube video ID
           title="Last Week's Sermon"
           frameBorder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -180,12 +179,12 @@ const Services = () => {
       </div>
       <CardHeader className="text-left p-6">
         <CardTitle className="text-2xl font-bold text-primary mb-2">
-          Walking by Faith in Difficult Times
+          He is still the way maker
         </CardTitle>
         <div className="flex items-center text-muted-foreground text-sm space-x-6 mb-3">
           <div className="flex items-center space-x-2">
             <Calendar className="w-4 h-4" />
-            <span>Sunday, Sept 22, 2025</span>
+            <span>Sunday, Sept 28, 2025</span>
           </div>
           <div className="flex items-center space-x-2">
             <Clock className="w-4 h-4" />
@@ -193,7 +192,7 @@ const Services = () => {
           </div>
         </div>
         <p className="text-muted-foreground text-base mb-4">
-          <span className="font-semibold">Preacher: </span> Rev. John Doe
+          <span className="font-semibold">Preacher: </span> Rev. Peter Kioko
         </p>
         <p className="text-muted-foreground text-sm">
           In this sermon, we explored the power of faith and trust in God even in challenging
@@ -242,10 +241,10 @@ const Services = () => {
               <CardHeader className="text-left p-6">
                 <Badge variant="secondary" className="mb-3">Special Event</Badge>
                 <CardTitle className="text-2xl font-bold text-primary">
-                  Youth Worship Night
+                  Men's Fellowship Day
                 </CardTitle>
                 <p className="text-muted-foreground text-sm mt-2">
-                  Join us for a powerful night of praise, worship, and fellowship.
+                  Join us for a powerful day with the Men
                 </p>
               </CardHeader>
             <CardContent className="p-6 border-t text-left">
@@ -256,7 +255,7 @@ const Services = () => {
     </div>
     <div className="flex items-center space-x-2">
       <Clock className="w-4 h-4" />
-      <span>5:00 PM - 8:00 PM</span>
+      <span>9:00 PM - 1:30 PM</span>
     </div>
   </div>
   <div className="mt-4 text-center sm:text-right">
