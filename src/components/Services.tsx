@@ -168,7 +168,7 @@ const Services = () => {
             <div className="aspect-w-16 aspect-h-9">
               <iframe
                 className="w-full h-[400px] md:h-[500px] rounded-t-lg"
-                src="https://www.youtube.com/live/aAvcYfBPsng?si=jlEvo5nx6ypFtLOe"
+                src="https://www.youtube.com/embed/B8HubOEGN88?si=9yCZ5FuB0NrgXQ2s"
                 title="Last Week's Sermon"
                 frameBorder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
