@@ -29,7 +29,7 @@ const Services = () => {
       name: "2nd Service - Main Service",
       description: "Our main English worship service with contemporary style",
       schedule: [
-        "Praise & Worship,
+        "Praise & Worship",
         "Choir",
         "Message",
         "Offertory & Closing"
