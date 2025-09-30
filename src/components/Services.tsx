@@ -32,7 +32,7 @@ const Services = () => {
         "Praise & Worship",
         "Choir",
         "Message",
-        "Offertory & Closing"
+        "Offertory & Closing",
         "Accountability Groups",
 
       ],
