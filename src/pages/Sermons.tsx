@@ -8,72 +8,65 @@ const latestSermons = [
   {
     id: 1,
     title: "Walking in Faith: Trusting God's Plan",
-    speaker: "Pastor John Mwangi",
+    speaker: "Rev. Peter Kioko",
     date: "2025-09-28",
     series: "Faith Journey",
     description: "Discover how to walk confidently in faith even when you can't see the full path ahead. Learn practical steps to trust God's perfect timing and plan for your life.",
-    youtubeUrl: "https://www.youtube.com/embed/aAvcYfBPsng?si=avcFovO7PNV7bIfe",
-    duration: "35 minutes"
+    youtubeUrl: "https://www.youtube.com/embed/aAvcYfBPsng?si=avcFovO7PNV7bIfe"
   },
   {
     id: 2,
     title: "The Power of Prayer in Daily Life",
-    speaker: "Pastor Sarah Njoki",
+    speaker: "Rev. Peter Kioko",
     date: "2025-09-21",
     series: "Prayer & Devotion",
     description: "Explore the transformative power of prayer and how it can change not just circumstances, but our hearts and minds as we commune with God daily.",
-    youtubeUrl: "https://www.youtube.com/embed/58nB_-4SH7k?si=hQk5LELZCjcl_EKn",
-    duration: "28 minutes"
+    youtubeUrl: "https://www.youtube.com/embed/58nB_-4SH7k?si=hQk5LELZCjcl_EKn"
   },
   {
     id: 3,
     title: "Building Strong Families God's Way",
-    speaker: "Pastor David Kamau",
+    speaker: "Pastor Simon Kimatu",
     date: "2025-08-13",
     series: "Family Values",
     description: "Learn biblical principles for building strong, Christ-centered families that honor God and create lasting legacies of faith for generations to come.",
-    youtubeUrl: "https://www.youtube.com/embed/DZ_PFu3VtE4?si=jOMfsXb8LWLGTZsh",
-    duration: "42 minutes"
+    youtubeUrl: "https://www.youtube.com/embed/DZ_PFu3VtE4?si=jOMfsXb8LWLGTZsh"
   },
   {
     id: 4,
     title: "Overcoming Life's Challenges with Hope",
-    speaker: "Pastor Grace Wanjiku",
+    speaker: "Rev. Peter Kioko",
     date: "2025-09-6",
     series: "Hope & Perseverance",
     description: "Find hope and strength in God's promises as we navigate through life's difficult seasons. Discover how challenges can become stepping stones to greater faith.",
-    youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-    duration: "31 minutes"
+    youtubeUrl: "https://www.youtube.com/embed/bXvzJmfRW_Y?si=-_aezzvc_GxXMUYw"
   },
   {
     id: 5,
     title: "The Great Commission: Our Calling",
-    speaker: "Pastor John Mwangi",
+    speaker: "Rev. Peter Kioko",
     date: "2025-08-31",
     series: "Mission & Ministry",
     description: "Understand our calling as believers to share the Gospel and make disciples. Learn practical ways to fulfill the Great Commission in your daily life.",
-    youtubeUrl: "https://www.youtube.com/embed/JDRFWUAJheQ?si=rMMu0VhLvy0Xfnfg",
-    duration: "38 minutes"
+    youtubeUrl: "https://www.youtube.com/embed/JDRFWUAJheQ?si=rMMu0VhLvy0Xfnfg"
   },
   {
     id: 6,
     title: "Living in God's Grace",
-    speaker: "Pastor Sarah Njoki",
+    speaker: "Pastor Simon Kimaty",
     date: "2025-08-25",
     series: "Grace & Mercy",
     description: "Dive deep into understanding God's amazing grace and how it transforms our lives from the inside out. Experience the freedom that comes from grace.",
-    youtubeUrl: "https://www.youtube.com/embed/7Kf5HmhWqvA?si=JCB7YUjBsXb8-fFt",
-    duration: "33 minutes"
+    youtubeUrl: "https://www.youtube.com/embed/7Kf5HmhWqvA?si=JCB7YUjBsXb8-fFt"
   },
   {
     id: 7,
     title: "Financial Stewardship & Generosity",
-    speaker: "Pastor David Kamau",
+    speaker: "Rev. Peter Kioko",
     date: "2025-08-18",
     series: "Stewardship",
     description: "Learn biblical principles of financial stewardship, generosity, and how to manage resources in a way that honors God and blesses others.",
-    youtubeUrl: "https://www.youtube.com/embed/7Kf5HmhWqvA?si=KGSj_CqPCwatNTUN",
-    duration: "29 minutes"
+    youtubeUrl: "https://www.youtube.com/embed/7Kf5HmhWqvA?si=KGSj_CqPCwatNTUN"
   },
   {
     id: 8,
@@ -82,8 +75,7 @@ const latestSermons = [
     date: "2025-08-11",
     series: "Spiritual Growth",
     description: "Explore how the fruits of the Spirit should manifest in our daily lives and relationships, bringing glory to God and blessing to others.",
-    youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ",
-    duration: "36 minutes"
+    youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
   },
   {
     id: 9,
@@ -92,8 +84,7 @@ const latestSermons = [
     date: "2025-1-4",
     series: "Worship & Praise",
     description: "Discover how worship extends beyond Sunday service into every aspect of our lives. Learn to live as a continuous offering of praise to God.",
-    youtubeUrl: "https://www.youtube.com/embed/0Rxwa7uM0-M?si=CPh0ImG8V2ZHabkd",
-    duration: "34 minutes"
+    youtubeUrl: "https://www.youtube.com/embed/0Rxwa7uM0-M?si=CPh0ImG8V2ZHabkd"
   },
   {
     id: 10,
@@ -102,8 +93,7 @@ const latestSermons = [
     date: "2025-07-26",
     series: "Church Community",
     description: "Understand the importance of unity in the church and how we can work together as one body to accomplish God's purposes on earth.",
-    youtubeUrl: "https://www.youtube.com/embed/hedv_tZ-m4o?si=FiEm3dQMGQZ7FLwy",
-    duration: "30 minutes"
+    youtubeUrl: "https://www.youtube.com/embed/hedv_tZ-m4o?si=FiEm3dQMGQZ7FLwy"
   }
 ];
 
@@ -127,7 +117,7 @@ const Sermons = () => {
           <div className="container mx-auto px-4">
             <div className="text-center">
               <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent">
-                Latest Sermons
+                Latest Services
               </h1>
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
                 Be encouraged and equipped through our weekly sermons. Each message is carefully 
