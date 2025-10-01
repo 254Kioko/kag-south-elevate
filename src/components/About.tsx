@@ -43,16 +43,12 @@ const About = () => {
           <div>
             <h3 className="font-heading text-3xl font-semibold mb-6 text-primary">Our Mission</h3>
             <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              To create a welcoming environment where people can encounter God, grow in their faith, 
-              and serve others with love and compassion. We are committed to spreading the Gospel 
-              and making disciples who make disciples.
+            We are a family living and Working together in Prayer, Witnessing, Study of GOD'S WORD and MAKING DISCIPLES to impact our community in Following Christ.
             </p>
             
             <h3 className="font-heading text-3xl font-semibold mb-6 text-primary">Our Vision</h3>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              To be a church that transforms lives and communities through the power of God's love, 
-              where every person feels valued, every gift is utilized, and every heart is changed 
-              by the Gospel of Jesus Christ.
+            KNOWING CHRIST AND MAKING HIM KNOWN.
             </p>
           </div>
 
@@ -65,7 +61,7 @@ const About = () => {
               </div>
               <div className="flex justify-between">
                 <span>Weekly Services:</span>
-                <span className="font-semibold">6</span>
+                <span className="font-semibold">2</span>
               </div>
               <div className="flex justify-between">
                 <span>Active Ministries:</span>
