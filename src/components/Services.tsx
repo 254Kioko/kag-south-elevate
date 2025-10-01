@@ -161,7 +161,7 @@ const Services = () => {
       {/* Last Week's Sermon */}
       <div className="mt-20 text-center">
         <h3 className="font-heading text-3xl font-bold text-primary mb-6">
-          Last Week’s Service
+          Latest Service
         </h3>
         <div className="max-w-4xl mx-auto">
           <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
