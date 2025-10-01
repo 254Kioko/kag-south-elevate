@@ -200,9 +200,7 @@ const Events = () => {
               <Button size="lg">
                 Subscribe to Newsletter
               </Button>
-              <Button variant="outline" size="lg">
-                View Full Calendar
-              </Button>
+           
             </div>
           </div>
         </section>
