@@ -67,7 +67,6 @@ const GiveOnline = () => {
           <div className="container mx-auto px-4 text-center">
             <div className="flex justify-center mb-6">
               <div className="bg-gradient-primary p-4 rounded-full">
-                <Heart className="w-8 h-8 text-primary-foreground" />
               </div>
             </div>
             <h1 className="font-heading text-4xl md:text-5xl font-bold text-primary mb-4">
