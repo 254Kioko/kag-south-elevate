@@ -57,7 +57,7 @@ const latestSermons = [
     date: "2025-08-25",
     series: "Grace & Mercy",
     description: "Dive deep into understanding God's amazing grace and how it transforms our lives from the inside out. Experience the freedom that comes from grace.",
-    youtubeUrl: "https://www.youtube.com/embed/7Kf5HmhWqvA?si=JCB7YUjBsXb8-fFt"
+    youtubeUrl: "https://www.youtube.com/embed/t38j8O1R8X0?si=FO7xq6yeje6EQrHa"
   },
   {
     id: 7,
@@ -66,7 +66,7 @@ const latestSermons = [
     date: "2025-08-18",
     series: "Stewardship",
     description: "Learn biblical principles of financial stewardship, generosity, and how to manage resources in a way that honors God and blesses others.",
-    youtubeUrl: "https://www.youtube.com/embed/7Kf5HmhWqvA?si=KGSj_CqPCwatNTUN"
+    youtubeUrl: "https://www.youtube.com/embed/OFYnfPWeDYA?si=jCJ6l6nABIO2S1a5"
   },
   {
     id: 8,
