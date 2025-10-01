@@ -65,12 +65,6 @@ const Contact = () => {
       title: "Email Address",
       details: "kagsouthc@gmail.com",
       action: "Send Email"
-    },
-    {
-      icon: Clock,
-      title: "Office Hours",
-      details: "Mon - Fri: 9AM - 5PM",
-      action: "Visit Us"
     }
   ];
 
@@ -85,7 +79,7 @@ const Contact = () => {
               Contact Us
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+              We'd love to hear from you. Send us a message or prayer request and we'll respond as soon as possible.
             </p>
           </div>
         </section>
@@ -152,7 +146,7 @@ const Contact = () => {
                     </div>
                     <div>
                       <Textarea
-                        placeholder="Your Message"
+                        placeholder="Your Message/ Prayer Request"
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                         rows={6}
