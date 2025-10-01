@@ -2,8 +2,36 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, MapPin, Clock, Users, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
+import { useState } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { useToast } from "@/hooks/use-toast";
 
 const Events = () => {
+  const [email, setEmail] = useState("");
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const { toast } = useToast();
+
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Handle subscription logic here
+    toast({
+      title: "Subscribed!",
+      description: "You've been added to our mailing list.",
+    });
+    setEmail("");
+    setIsDialogOpen(false);
+  };
+
   const upcomingEvents = [
     {
       title: "Youth Sunday Service",
@@ -35,36 +63,6 @@ const Events = () => {
       attendees: "200+ Expected",
       featured: true
     },
-    {
-      title: "Men's Ministry Breakfast",
-      date: "2024-01-21",
-      time: "7:00 AM - 9:00 AM",
-      location: "Church Grounds",
-      description: "Monthly men's fellowship with breakfast, devotion, and community building activities.",
-      category: "Men's Ministry", 
-      attendees: "60+ Expected",
-      featured: false
-    },
-    {
-      title: "Children's Fun Day",
-      date: "2024-01-28",
-      time: "10:00 AM - 3:00 PM",
-      location: "Church Grounds",
-      description: "A day of fun activities, games, and learning for children and families.",
-      category: "Children",
-      attendees: "120+ Expected",
-      featured: false
-    },
-    {
-      title: "Prayer & Fasting Week",
-      date: "2024-02-05",
-      time: "Various Times",
-      location: "Multiple Venues", 
-      description: "Week-long spiritual emphasis with daily prayer meetings and fasting guidance.",
-      category: "Prayer",
-      attendees: "All Members",
-      featured: true
-    }
   ];
 
   const formatDate = (dateString: string) => {
@@ -150,13 +148,43 @@ const Events = () => {
               upcoming services, events, and special programs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button variant="secondary" size="lg" className="font-semibold">
-                <Calendar className="w-5 h-5 mr-2" />
-                View Full Calendar
-              </Button>
-              <Button variant="outline" size="lg" className="font-semibold bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/20">
-                Subscribe to Updates
-              </Button>
+              <Link to="/events">
+                <Button variant="secondary" size="lg" className="font-semibold">
+                  <Calendar className="w-5 h-5 mr-2" />
+                  View Full Calendar
+                </Button>
+              </Link>
+              <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+                <DialogTrigger asChild>
+                  <Button variant="outline" size="lg" className="font-semibold bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground hover:bg-primary-foreground/20">
+                    Subscribe to Updates
+                  </Button>
+                </DialogTrigger>
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle>Subscribe to Event Updates</DialogTitle>
+                    <DialogDescription>
+                      Never miss an event! Enter your email to receive notifications about upcoming services, events, and special programs.
+                    </DialogDescription>
+                  </DialogHeader>
+                  <form onSubmit={handleSubscribe} className="space-y-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="email">Email Address</Label>
+                      <Input
+                        id="email"
+                        type="email"
+                        placeholder="your.email@example.com"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                      />
+                    </div>
+                    <Button type="submit" className="w-full">
+                      Subscribe
+                    </Button>
+                  </form>
+                </DialogContent>
+              </Dialog>
             </div>
           </div>
         </div>
