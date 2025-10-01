@@ -75,7 +75,7 @@ const latestSermons = [
     date: "2025-08-11",
     series: "Spiritual Growth",
     description: "Explore how the fruits of the Spirit should manifest in our daily lives and relationships, bringing glory to God and blessing to others.",
-    youtubeUrl: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+    youtubeUrl: "https://www.youtube.com/embed/8Y9ufsyql2g?si=geZw8-GExciqzRMK"
   },
   {
     id: 9,
