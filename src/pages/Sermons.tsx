@@ -2,7 +2,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Calendar, Play, Youtube, Facebook } from "lucide-react";
+import { Calendar, Youtube, Facebook } from "lucide-react";
 
 const latestSermons = [
   {
@@ -143,9 +143,11 @@ const Sermons = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {latestSermons.map((sermon) => (
                 <Card key={sermon.id} className="overflow-hidden hover:shadow-lg transition-shadow">
+                  {/* Video Preview with YouTube Icon */}
                   <div className="aspect-video bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                    <Play className="w-16 h-16 text-primary" />
+                    <Youtube className="w-16 h-16 text-red-600" />
                   </div>
+
                   <CardHeader>
                     <div className="flex items-center gap-2 text-sm text-muted-foreground mb-2">
                       <Calendar className="w-4 h-4" />
@@ -161,15 +163,17 @@ const Sermons = () => {
                       <p className="text-sm line-clamp-3">{sermon.description}</p>
                     </CardDescription>
                   </CardHeader>
+
                   <CardContent className="space-y-4">
                     <div className="text-sm text-muted-foreground">
                       Duration: {sermon.duration}
                     </div>
                     <div className="flex gap-2">
-                      <Button asChild className="flex-1">
+                      {/* Watch Sermon Button with YouTube Icon */}
+                      <Button asChild className="flex-1 bg-red-600 hover:bg-red-700 text-white">
                         <a href={sermon.youtubeUrl} target="_blank" rel="noopener noreferrer">
-                          <Play className="w-4 h-4 mr-2" />
-                          Watch Sermon
+                          <Youtube className="w-4 h-4 mr-2" />
+                          Watch on YouTube
                         </a>
                       </Button>
                     </div>
