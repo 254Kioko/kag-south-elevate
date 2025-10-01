@@ -6,7 +6,7 @@ import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { Heart, Smartphone, CreditCard, Copy } from "lucide-react";
+import { Smartphone, CreditCard, Copy, Building, FileText } from "lucide-react";
 
 const GiveOnline = () => {
   const [formData, setFormData] = useState({
@@ -23,7 +23,7 @@ const GiveOnline = () => {
 
     try {
       const { error } = await supabase
-        .from('donation_submissions')
+        .from("donation_submissions")
         .insert([{
           name: formData.name,
           phone: formData.phone,
@@ -50,11 +50,11 @@ const GiveOnline = () => {
     }
   };
 
-  const copyTillNumber = () => {
-    navigator.clipboard.writeText("803777");
+  const copyText = (text: string, label: string) => {
+    navigator.clipboard.writeText(text);
     toast({
-      title: "Till number copied!",
-      description: "803777 has been copied to your clipboard",
+      title: `${label} copied!`,
+      description: `${text} has been copied to your clipboard`,
     });
   };
 
@@ -65,10 +65,6 @@ const GiveOnline = () => {
         {/* Header */}
         <section className="bg-gradient-subtle py-16">
           <div className="container mx-auto px-4 text-center">
-            <div className="flex justify-center mb-6">
-              <div className="bg-gradient-primary p-4 rounded-full">
-              </div>
-            </div>
             <h1 className="font-heading text-4xl md:text-5xl font-bold text-primary mb-4">
               Give Online
             </h1>
@@ -83,7 +79,8 @@ const GiveOnline = () => {
         <section className="py-16">
           <div className="container mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-              {/* MPesa Instructions */}
+              
+              {/* Ways of Giving */}
               <Card className="shadow-elegant">
                 <CardHeader className="text-center">
                   <div className="flex justify-center mb-4">
@@ -91,21 +88,21 @@ const GiveOnline = () => {
                       <Smartphone className="w-8 h-8 text-green-600" />
                     </div>
                   </div>
-                  <CardTitle className="font-heading text-2xl">Give via MPesa</CardTitle>
+                  <CardTitle className="font-heading text-2xl">Ways to Give</CardTitle>
                   <CardDescription>
-                    Send your donation directly through MPesa Buy Goods
+                    Choose the method most convenient for you
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">
-                  {/* Till Number */}
+                  {/* Buy Goods */}
                   <div className="bg-primary/5 border border-primary/20 rounded-lg p-6 text-center">
-                    <p className="text-sm font-medium text-muted-foreground mb-2">Till Number</p>
+                    <p className="text-sm font-medium text-muted-foreground mb-2">Buy Goods</p>
                     <div className="flex items-center justify-center space-x-3">
-                      <span className="text-3xl font-bold text-primary font-mono">803777</span>
+                      <span className="text-2xl font-bold text-primary font-mono">Till No: 803777</span>
                       <Button
                         variant="outline"
                         size="sm"
-                        onClick={copyTillNumber}
+                        onClick={() => copyText("803777", "Till number")}
                         className="h-8 w-8 p-0"
                       >
                         <Copy className="w-4 h-4" />
@@ -113,41 +110,37 @@ const GiveOnline = () => {
                     </div>
                   </div>
 
-                  {/* Instructions */}
-                  <div className="space-y-4">
-                    <h3 className="font-heading font-semibold text-lg">How to Give:</h3>
-                    <ol className="space-y-3 text-sm">
-                      <li className="flex items-start space-x-3">
-                        <span className="bg-primary text-primary-foreground rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold flex-shrink-0">
-                          1
-                        </span>
-                        <span>Go to MPesa menu on your phone</span>
-                      </li>
-                      <li className="flex items-start space-x-3">
-                        <span className="bg-primary text-primary-foreground rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold flex-shrink-0">
-                          2
-                        </span>
-                        <span>Select "Lipa na MPesa" then "Buy Goods and Services"</span>
-                      </li>
-                      <li className="flex items-start space-x-3">
-                        <span className="bg-primary text-primary-foreground rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold flex-shrink-0">
-                          3
-                        </span>
-                        <span>Enter Till Number: <strong>803777</strong></span>
-                      </li>
-                      <li className="flex items-start space-x-3">
-                        <span className="bg-primary text-primary-foreground rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold flex-shrink-0">
-                          4
-                        </span>
-                        <span>Enter the amount you wish to give</span>
-                      </li>
-                      <li className="flex items-start space-x-3">
-                        <span className="bg-primary text-primary-foreground rounded-full w-6 h-6 flex items-center justify-center text-xs font-bold flex-shrink-0">
-                          5
-                        </span>
-                        <span>Enter your MPesa PIN to complete</span>
-                      </li>
-                    </ol>
+                  {/* Paybill */}
+                  <div className="bg-primary/5 border border-primary/20 rounded-lg p-6 text-center">
+                    <p className="text-sm font-medium text-muted-foreground mb-2">Paybill</p>
+                    <p className="text-lg">
+                      <strong>Number:</strong> 247247 <br />
+                      <strong>Account:</strong> 803777
+                    </p>
+                  </div>
+
+                  {/* Bank Transfer */}
+                  <div className="bg-primary/5 border border-primary/20 rounded-lg p-6 text-center">
+                    <p className="text-sm font-medium text-muted-foreground mb-2">Bank Transfer</p>
+                    <div className="flex items-center justify-center space-x-3">
+                      <span className="text-lg font-bold text-primary font-mono">1280298934050</span>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => copyText("1280298934050", "Bank Account")}
+                        className="h-8 w-8 p-0"
+                      >
+                        <Copy className="w-4 h-4" />
+                      </Button>
+                    </div>
+                  </div>
+
+                  {/* Cheques */}
+                  <div className="bg-primary/5 border border-primary/20 rounded-lg p-6 text-center">
+                    <p className="text-sm font-medium text-muted-foreground mb-2">Cheques</p>
+                    <p className="text-lg font-semibold text-primary">
+                      Payable to: Kenya Assemblies of God South C Church
+                    </p>
                   </div>
                 </CardContent>
               </Card>
@@ -219,7 +212,7 @@ const GiveOnline = () => {
                   <div className="mt-6 p-4 bg-muted/50 rounded-lg">
                     <p className="text-sm text-muted-foreground text-center">
                       <strong>Note:</strong> This form only records your donation for our records. 
-                      Please complete the actual payment through MPesa using the till number above.
+                      Please complete the actual payment using your preferred method above.
                     </p>
                   </div>
                 </CardContent>
