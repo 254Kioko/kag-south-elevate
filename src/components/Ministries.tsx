@@ -4,6 +4,20 @@ import { Users, Heart, Baby, Music, GraduationCap, HandHeart, UserCheck, BookOpe
 
 const Ministries = () => {
   const ministries = [
+     {
+      icon: GraduationCap,
+      title: "Men's Fellowship",
+      description: "Building strong Christian men through fellowship, accountability, and spiritual growth.",
+      activities: ["Men's Fellowship", "Bible Study", "Accountability Groups", "Community Projects"],
+      color: "bg-gradient-secondary"
+    },
+     {
+      icon: Heart,
+      title: "WWK - Women's Ministry", 
+      description: "Supporting women in their spiritual journey through fellowship, Bible study, and community service.",
+      activities: ["Bible Study Groups", "Community Service", "Mentorship Programs", "Prayer Circles"],
+      color: "bg-gradient-secondary"
+    },
     {
       icon: Users,
       title: "Youth Ministry",
@@ -11,13 +25,28 @@ const Ministries = () => {
       activities: ["Youth Sunday Services", "Leadership Training", "Community Outreach", "Sports & Recreation"],
       color: "bg-gradient-primary"
     },
-    {
-      icon: Heart,
-      title: "Women's Ministry", 
-      description: "Supporting women in their spiritual journey through fellowship, Bible study, and community service.",
-      activities: ["Bible Study Groups", "Community Service", "Mentorship Programs", "Prayer Circles"],
-      color: "bg-gradient-secondary"
+     {
+      icon: Music,
+      title: "Praise & Worship",
+      description: "Leading the congregation in heartfelt worship through music, choir, and creative arts.",
+      activities: ["Adult Choir", "Youth Band", "Worship Team Training", "Music Lessons"],
+      color: "bg-gradient-primary"
     },
+    {
+  icon: Music,
+  title: "Media Team",
+  description: "Capturing and amplifying the message of Christ through sound, visuals, and technology to enhance worship and extend outreach.",
+  activities: [
+    "Sound & Audio Engineering",
+    "Live Streaming & Video Production",
+    "Photography & Graphic Design",
+    "Projection & Lighting Support",
+    "Social Media & Content Creation"
+  ],
+  color: "bg-gradient-primary"
+}
+
+   
     {
       icon: Baby,
       title: "Children's Ministry",
@@ -25,20 +54,8 @@ const Ministries = () => {
       activities: ["Sunday School", "Vacation Bible School", "Children's Choir", "Family Events"],
       color: "bg-accent"
     },
-    {
-      icon: Music,
-      title: "Music & Worship",
-      description: "Leading the congregation in heartfelt worship through music, choir, and creative arts.",
-      activities: ["Adult Choir", "Youth Band", "Worship Team Training", "Music Lessons"],
-      color: "bg-gradient-primary"
-    },
-    {
-      icon: GraduationCap,
-      title: "Men's Ministry",
-      description: "Building strong Christian men through fellowship, accountability, and spiritual growth.",
-      activities: ["Men's Fellowship", "Bible Study", "Accountability Groups", "Community Projects"],
-      color: "bg-gradient-secondary"
-    },
+   
+   
     {
       icon: HandHeart,
       title: "Community Outreach",
@@ -116,9 +133,7 @@ const Ministries = () => {
             Join one of our ministries and discover how God can use your gifts to make a difference. 
             Whether you're new to faith or a seasoned believer, there's a place for you.
           </p>
-          <Button variant="secondary" size="lg" className="font-semibold">
-            Connect With a Ministry
-          </Button>
+      
         </div>
       </div>
     </section>
