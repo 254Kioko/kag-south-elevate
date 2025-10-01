@@ -39,7 +39,7 @@ const latestSermons = [
     date: "2025-09-6",
     series: "Hope & Perseverance",
     description: "Find hope and strength in God's promises as we navigate through life's difficult seasons. Discover how challenges can become stepping stones to greater faith.",
-    youtubeUrl: "https://www.youtube.com/embed/bXvzJmfRW_Y?si=-_aezzvc_GxXMUYw"
+    youtubeUrl: "https://www.youtube.com/embed/jK9OMEowPNU?si=EsROkG1nQoFZYSlG"
   },
   {
     id: 5,
@@ -48,7 +48,7 @@ const latestSermons = [
     date: "2025-08-31",
     series: "Mission & Ministry",
     description: "Understand our calling as believers to share the Gospel and make disciples. Learn practical ways to fulfill the Great Commission in your daily life.",
-    youtubeUrl: "https://www.youtube.com/embed/JDRFWUAJheQ?si=rMMu0VhLvy0Xfnfg"
+    youtubeUrl: "https://www.youtube.com/embed/7Kf5HmhWqvA?si=62yBzU0uTPKHL5X4"
   },
   {
     id: 6,
@@ -84,7 +84,7 @@ const latestSermons = [
     date: "2025-1-4",
     series: "Worship & Praise",
     description: "Discover how worship extends beyond Sunday service into every aspect of our lives. Learn to live as a continuous offering of praise to God.",
-    youtubeUrl: "https://www.youtube.com/embed/0Rxwa7uM0-M?si=CPh0ImG8V2ZHabkd"
+    youtubeUrl: "https://www.youtube.com/embed/hedv_tZ-m4o?si=FiEm3dQMGQZ7FLwy"
   },
   {
     id: 10,
@@ -93,7 +93,7 @@ const latestSermons = [
     date: "2025-07-26",
     series: "Church Community",
     description: "Understand the importance of unity in the church and how we can work together as one body to accomplish God's purposes on earth.",
-    youtubeUrl: "https://www.youtube.com/embed/hedv_tZ-m4o?si=FiEm3dQMGQZ7FLwy"
+    youtubeUrl: "https://www.youtube.com/embed/coV19EAltn4?si=WMpRBTIAHhPimkIP"
   }
 ];
 
