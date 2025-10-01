@@ -143,9 +143,15 @@ const Sermons = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {latestSermons.map((sermon) => (
                 <Card key={sermon.id} className="overflow-hidden hover:shadow-lg transition-shadow">
-                  {/* Video Preview with YouTube Icon */}
-                  <div className="aspect-video bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                    <Youtube className="w-16 h-16 text-red-600" />
+                  {/* YouTube Video Embed */}
+                  <div className="aspect-video">
+                    <iframe
+                      src={sermon.youtubeUrl}
+                      title={sermon.title}
+                      className="w-full h-full"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
                   </div>
 
                   <CardHeader>
