@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+,import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Clock, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -198,7 +198,7 @@ const Services = () => {
               </p>
             </CardHeader>
             <CardContent className="p-6 border-t text-center">
-              <Link to="/sermon.tsx">
+              <Link to="/sermons.tsx">
                 <Button size="lg" className="font-semibold">
                   View More Sermons
                 </Button>
