@@ -2,7 +2,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Calendar, MapPin, Clock, Users } from "lucide-react";
+import { Calendar, MapPin, Clock } from "lucide-react";
 import eventYouth from "@/assets/event-youth.jpg";
 import eventPrayer from "@/assets/event-prayer.jpg";
 import eventOutreach from "@/assets/event-outreach.jpg";
@@ -34,7 +34,6 @@ const upcomingEvents = [
     time: "7:00 PM - 9:00 PM",
     location: "KAG South C Main Church",
     image: eventYouth,
-    attendees: 45
   },
   {
     id: 2,
@@ -44,7 +43,6 @@ const upcomingEvents = [
     time: "9:00 AM - 4:00 PM",
     location: "Church Grounds",
     image: eventPrayer,
-    attendees: 30
   },
   {
     id: 3,
@@ -54,7 +52,6 @@ const upcomingEvents = [
     time: "7:00 PM - 9:00 PM",
     location: "KAG South C Main Hall",
     image: eventYouth,
-    attendees: 45
   },
   {
     id: 4,
@@ -64,7 +61,6 @@ const upcomingEvents = [
     time: "9:00 AM - 4:00 PM",
     location: "Church Grounds",
     image: eventPrayer,
-    attendees: 30
   },
   {
     id: 5,
@@ -74,7 +70,6 @@ const upcomingEvents = [
     time: "9:00 AM - 2:00 PM",
     location: "Kibera Slums",
     image: eventOutreach,
-    attendees: 60
   },
   {
     id: 6,
@@ -84,7 +79,6 @@ const upcomingEvents = [
     time: "9:00 AM - 4:00 PM",
     location: "KAG South C Main Auditorium",
     image: eventYouth,
-    attendees: 120
   },
   {
     id: 7,
@@ -94,7 +88,6 @@ const upcomingEvents = [
     time: "7:00 AM - 9:00 AM",
     location: "Church Grounds",
     image: eventPrayer,
-    attendees: 80
   }
 ];
 
@@ -214,10 +207,6 @@ const Events = () => {
                     <div className="flex items-center text-sm text-muted-foreground">
                       <MapPin className="w-4 h-4 mr-2" />
                       {event.location}
-                    </div>
-                    <div className="flex items-center text-sm text-muted-foreground">
-                      <Users className="w-4 h-4 mr-2" />
-                      Expected: {event.attendees} people
                     </div>
                   </CardContent>
                 </Card>
