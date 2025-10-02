@@ -27,105 +27,77 @@ const emailSchema = z.object({
 
 const upcomingEvents = [
   {
-    id: 1,
-    title: "Youth Fellowship Night",
-    description: "Join us for an evening of worship, games, and fellowship with our young adults community.",
-    date: "2024-10-15",
-    time: "7:00 PM - 9:00 PM",
-    location: "KAG South C Main Hall",
-    image: eventYouth,
-    attendees: 45
-  },
-  {
-    id: 2,
-    title: "Prayer & Fasting Meeting",
-    description: "Come together for a powerful time of prayer and seeking God's face as we fast and intercede.",
-    date: "2024-10-20",
-    time: "6:00 AM - 8:00 AM",
-    location: "Prayer Room",
-    image: eventPrayer,
-    attendees: 30
-  },
-  {
-    id: 3,
-    title: "Community Outreach Program",
-    description: "Join us as we reach out to our local community with love, care, and practical support.",
-    date: "2024-10-25",
-    time: "9:00 AM - 2:00 PM",
-    location: "Kibera Slums",
-    image: eventOutreach,
-    attendees: 60
-  },
-  {
-    id: 4,
-    title: "Women's Conference",
-    description: "A special gathering for all women to be empowered, encouraged, and equipped for ministry.",
-    date: "2024-11-02",
-    time: "9:00 AM - 4:00 PM",
-    location: "KAG South C Main Auditorium",
-    image: eventYouth,
-    attendees: 120
-  },
-  {
-    id: 5,
-    title: "Men's Breakfast Meeting",
-    description: "Brothers, come together for fellowship, food, and powerful ministry focused on godly manhood.",
-    date: "2024-11-08",
-    time: "7:00 AM - 9:00 AM",
-    location: "Church Grounds",
-    image: eventPrayer,
-    attendees: 80
-  },
-  {
-    id: 6,
-    title: "Children's Fun Day",
-    description: "A special day dedicated to our little ones with games, activities, and Bible stories.",
-    date: "2024-11-12",
-    time: "10:00 AM - 3:00 PM",
-    location: "Church Playground",
-    image: eventOutreach,
-    attendees: 90
-  },
-  {
-    id: 7,
-    title: "Marriage Enrichment Seminar",
-    description: "Couples, join us for practical teachings on building strong, Christ-centered marriages.",
-    date: "2024-11-18",
-    time: "2:00 PM - 6:00 PM",
-    location: "Conference Room",
-    image: eventYouth,
-    attendees: 40
-  },
-  {
-    id: 8,
-    title: "Choir Practice & Concert",
-    description: "Come practice with the choir and stay for our special evening concert performance.",
-    date: "2024-11-22",
-    time: "4:00 PM - 8:00 PM",
-    location: "Main Sanctuary",
-    image: eventPrayer,
-    attendees: 150
-  },
-  {
-    id: 9,
-    title: "Bible Study Marathon",
-    description: "An intensive day of studying God's Word together with different topics and speakers.",
-    date: "2024-11-28",
-    time: "8:00 AM - 6:00 PM",
-    location: "Multiple Classrooms",
-    image: eventOutreach,
-    attendees: 100
-  },
-  {
-    id: 10,
-    title: "Thanksgiving Service",
-    description: "Join us for a special thanksgiving service as we celebrate God's faithfulness this year.",
-    date: "2024-11-30",
-    time: "10:00 AM - 12:00 PM",
-    location: "Main Sanctuary",
-    image: eventYouth,
-    attendees: 300
-  }
+  id: 1,
+  title: "THANKSGIVING DAY",
+  description: "A special day dedicated to all congregants, filled with worship, empowerment sessions, and fellowship.",
+  date: "2024-10-15",
+  time: "7:00 PM - 9:00 PM",
+  location: "KAG South C Main Church",
+  image: eventYouth,
+  attendees: 45
+},
+{
+  id: 2,
+  title: "CELEBRATION SUNDAY (Family Sunday)",
+  description: "A vibrant day of worship, games, teachings, and activities designed specifically for our teenagers.",
+  date: "2024-10-20",
+  time: "9:00 AM - 4:00 PM",
+  location: "Church Grounds",
+  image: eventPrayer,
+  attendees: 30
+},
+
+ {
+  id: 3,
+  title: "WWK DAY (Women's Day)",
+  description: "A special day dedicated to women of all ages, filled with worship, empowerment sessions, and fellowship.",
+  date: "2024-10-15",
+  time: "7:00 PM - 9:00 PM",
+  location: "KAG South C Main Hall",
+  image: eventYouth,
+  attendees: 45
+},
+{
+  id: 4,
+  title: "TEEN'S DAY",
+  description: "A vibrant day of worship, games, teachings, and activities designed specifically for our teenagers.",
+  date: "2024-10-20",
+  time: "9:00 AM - 4:00 PM",
+  location: "Church Grounds",
+  image: eventPrayer,
+  attendees: 30
+},
+{
+  id: 5,
+  title: "YOUTH DAY",
+  description: "An exciting time for the youth to gather, worship, connect, and grow together in faith and purpose.",
+  date: "2024-10-25",
+  time: "9:00 AM - 2:00 PM",
+  location: "Kibera Slums",
+  image: eventOutreach,
+  attendees: 60
+},
+{
+  id: 6,
+  title: "CHILDREN'S DAY",
+  description: "A fun-filled day of songs, Bible stories, games, and activities tailored for our children to enjoy and learn.",
+  date: "2024-11-02",
+  time: "9:00 AM - 4:00 PM",
+  location: "KAG South C Main Auditorium",
+  image: eventYouth,
+  attendees: 120
+},
+{
+  id: 7,
+  title: "MEN'S FELLOWSHIP DAY",
+  description: "Brothers, come together for fellowship, mentorship, and ministry focused on godly manhood and leadership.",
+  date: "2024-11-08",
+  time: "7:00 AM - 9:00 AM",
+  location: "Church Grounds",
+  image: eventPrayer,
+  attendees: 80
+}
+
 ];
 
 const formatDate = (dateString: string) => {
