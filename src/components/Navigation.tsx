@@ -47,7 +47,7 @@ const Navigation = () => {
                 {item.name}
               </Link>
             ))}
-            <Link to="/contact">
+            <Link to="tel:0724177832">
               <Button variant="default" size="sm" className="ml-4">
                 <Phone className="w-4 h-4 mr-2" />
                 Contact Us
