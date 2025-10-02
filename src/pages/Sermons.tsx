@@ -160,10 +160,7 @@ const Sermons = () => {
                     </CardDescription>
                   </CardHeader>
 
-                  <CardContent className="space-y-4">
-                    <div className="text-sm text-muted-foreground">
-                      Duration: {sermon.duration}
-                    </div>
+                  <CardContent>
                     <div className="flex gap-2">
                       {/* Watch Sermon Button with YouTube Icon */}
                       <Button asChild className="flex-1 bg-red-600 hover:bg-red-700 text-white">

@@ -12,7 +12,7 @@ import { MapPin, Phone, Mail, Clock } from "lucide-react";
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
+    phone: "",
     message: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -34,7 +34,7 @@ const Contact = () => {
         description: "Thank you for reaching out. We'll get back to you soon.",
       });
 
-      setFormData({ name: "", email: "", message: "" });
+      setFormData({ name: "", phone: "", message: "" });
     } catch (error) {
       console.error("Error submitting form:", error);
       toast({
@@ -79,7 +79,7 @@ const Contact = () => {
               Contact Us
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              We'd love to hear from you. Send us a message or prayer request and we'll respond as soon as possible.
+              We'd love to hear from you. Send us a message or prayer request (anonymously if you prefer) and we'll respond as soon as possible.
             </p>
           </div>
         </section>
@@ -122,31 +122,29 @@ const Contact = () => {
                 <CardHeader>
                   <CardTitle className="font-heading text-2xl">Send us a message</CardTitle>
                   <CardDescription>
-                    Fill out the form below and we'll get back to you.
+                    Fill out the form below and we'll get back to you. You can submit prayer requests anonymously - only your message is required.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
                   <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
                       <Input
-                        placeholder="Your Name"
+                        placeholder="Your Name (Optional)"
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        required
                       />
                     </div>
                     <div>
                       <Input
-                        type="email"
-                        placeholder="Your Email"
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        required
+                        type="tel"
+                        placeholder="Your Phone Number (Optional)"
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       />
                     </div>
                     <div>
                       <Textarea
-                        placeholder="Your Message/ Prayer Request"
+                        placeholder="Your Message / Prayer Request *"
                         value={formData.message}
                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                         rows={6}
