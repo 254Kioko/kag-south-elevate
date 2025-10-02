@@ -30,7 +30,7 @@ const Contact = () => {
           phone: formData.phone || null,
           email: null,
           message: formData.message
-        }]);
+        } as any]);
 
       if (error) throw error;
 
