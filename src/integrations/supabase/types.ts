@@ -44,6 +44,7 @@ export type Database = {
       donation_submissions: {
         Row: {
           amount: number
+          category: string | null
           created_at: string
           id: string
           name: string
@@ -51,6 +52,7 @@ export type Database = {
         }
         Insert: {
           amount: number
+          category?: string | null
           created_at?: string
           id?: string
           name: string
@@ -58,6 +60,7 @@ export type Database = {
         }
         Update: {
           amount?: number
+          category?: string | null
           created_at?: string
           id?: string
           name?: string
