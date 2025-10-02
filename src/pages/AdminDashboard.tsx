@@ -11,8 +11,9 @@ import { Eye, EyeOff, Users, MessageSquare, Heart, Mail } from "lucide-react";
 
 interface ContactSubmission {
   id: string;
-  name: string;
-  email: string;
+  name: string | null;
+  phone: string | null;
+  email: string | null;
   message: string;
   created_at: string;
 }
@@ -22,6 +23,7 @@ interface DonationSubmission {
   name: string;
   phone: string;
   amount: number;
+  category: string | null;
   created_at: string;
 }
 
@@ -233,7 +235,7 @@ const AdminDashboard = () => {
                             <TableHeader>
                               <TableRow>
                                 <TableHead>Name</TableHead>
-                                <TableHead>Email</TableHead>
+                                <TableHead>Phone</TableHead>
                                 <TableHead>Message</TableHead>
                                 <TableHead>Date</TableHead>
                               </TableRow>
@@ -241,8 +243,8 @@ const AdminDashboard = () => {
                             <TableBody>
                               {contactSubmissions.map((s) => (
                                 <TableRow key={s.id}>
-                                  <TableCell>{s.name}</TableCell>
-                                  <TableCell>{s.email}</TableCell>
+                                  <TableCell>{s.name || <span className="text-muted-foreground text-xs italic">Anonymous</span>}</TableCell>
+                                  <TableCell>{s.phone || <span className="text-muted-foreground text-xs">N/A</span>}</TableCell>
                                   <TableCell className="max-w-xs truncate">{s.message}</TableCell>
                                   <TableCell>{formatDate(s.created_at)}</TableCell>
                                 </TableRow>
@@ -254,8 +256,14 @@ const AdminDashboard = () => {
                         <div className="space-y-4 sm:hidden">
                           {contactSubmissions.map((s) => (
                             <div key={s.id} className="border rounded-lg p-4 shadow-sm bg-white">
-                              <p><span className="font-semibold">Name:</span> {s.name}</p>
-                              <p><span className="font-semibold">Email:</span> {s.email}</p>
+                              <p>
+                                <span className="font-semibold">Name:</span>{" "}
+                                {s.name || <span className="text-muted-foreground text-xs italic">Anonymous</span>}
+                              </p>
+                              <p>
+                                <span className="font-semibold">Phone:</span>{" "}
+                                {s.phone || <span className="text-muted-foreground text-xs">N/A</span>}
+                              </p>
                               <p><span className="font-semibold">Message:</span> {s.message}</p>
                               <p><span className="font-semibold">Date:</span> {formatDate(s.created_at)}</p>
                             </div>
@@ -288,6 +296,7 @@ const AdminDashboard = () => {
                               <TableRow>
                                 <TableHead>Name</TableHead>
                                 <TableHead>Phone</TableHead>
+                                <TableHead>Category</TableHead>
                                 <TableHead>Amount</TableHead>
                                 <TableHead>Date</TableHead>
                               </TableRow>
@@ -297,6 +306,15 @@ const AdminDashboard = () => {
                                 <TableRow key={d.id}>
                                   <TableCell>{d.name}</TableCell>
                                   <TableCell>{d.phone}</TableCell>
+                                  <TableCell>
+                                    {d.category ? (
+                                      <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary capitalize">
+                                        {d.category}
+                                      </span>
+                                    ) : (
+                                      <span className="text-muted-foreground text-xs">N/A</span>
+                                    )}
+                                  </TableCell>
                                   <TableCell>KSH {d.amount.toLocaleString()}</TableCell>
                                   <TableCell>{formatDate(d.created_at)}</TableCell>
                                 </TableRow>
@@ -310,6 +328,16 @@ const AdminDashboard = () => {
                             <div key={d.id} className="border rounded-lg p-4 shadow-sm bg-white">
                               <p><span className="font-semibold">Name:</span> {d.name}</p>
                               <p><span className="font-semibold">Phone:</span> {d.phone}</p>
+                              <p>
+                                <span className="font-semibold">Category:</span>{" "}
+                                {d.category ? (
+                                  <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary capitalize">
+                                    {d.category}
+                                  </span>
+                                ) : (
+                                  <span className="text-muted-foreground text-xs">N/A</span>
+                                )}
+                              </p>
                               <p><span className="font-semibold">Amount:</span> KSH {d.amount.toLocaleString()}</p>
                               <p><span className="font-semibold">Date:</span> {formatDate(d.created_at)}</p>
                             </div>
