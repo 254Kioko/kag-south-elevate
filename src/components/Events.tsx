@@ -82,35 +82,23 @@ const Events = () => {
 
   const upcomingEvents = [
     {
-      title: "Youth Sunday Service",
-      date: "2024-01-07",
-      time: "9:00 AM - 11:00 AM",
+      title: "Thanksgiving Sunday",
+      date: "2025-11-07",
+      time: "9:00 AM - 1:30 AM",
       location: "Main Sanctuary",
-      description: "A special service led by our youth ministry with contemporary worship and inspiring message.",
-      category: "Youth",
-      attendees: "150+ Expected",
+      description: "A special service where we come together as a church family to give thanks to God for His goodness and blessings throughout the year.",
+      category: "Entire Church",
       featured: true
     },
     {
-      title: "Women's Fellowship Meeting",
-      date: "2024-01-10", 
-      time: "6:00 PM - 8:00 PM",
-      location: "Fellowship Hall",
-      description: "Monthly gathering for prayer, Bible study, and fellowship among women of the church.",
-      category: "Women's Ministry",
-      attendees: "80+ Expected",
-      featured: false
-    },
-    {
-      title: "Community Outreach Program",
-      date: "2024-01-14",
-      time: "8:00 AM - 4:00 PM", 
-      location: "South C Community",
-      description: "Medical camp and food distribution program serving the local community.",
-      category: "Outreach",
-      attendees: "200+ Expected",
+      title: "Celebration Sunday",
+      date: "2025-12-14",
+      time: "9:00 AM - 1:30 PM", 
+      location: "Main Sanctuary",
+      description: "A vibrant day of praise, worship, and rejoicing as we celebrate God’s faithfulness and victories.",
+      category: "Entire Church",
       featured: true
-    },
+    }
   ];
 
   const formatDate = (dateString: string) => {
