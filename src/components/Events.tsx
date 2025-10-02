@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Calendar, MapPin, Clock, Users, ArrowRight } from "lucide-react";
+import { Calendar, MapPin, Clock, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import {
@@ -31,7 +31,6 @@ const Events = () => {
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    // Validate email
     const validation = emailSchema.safeParse({ email });
     if (!validation.success) {
       toast({
@@ -50,7 +49,6 @@ const Events = () => {
         .insert([{ email: validation.data.email }]);
 
       if (error) {
-        // Check if it's a duplicate email error
         if (error.code === '23505') {
           toast({
             title: "Already Subscribed",
@@ -161,15 +159,13 @@ const Events = () => {
                     <MapPin className="w-4 h-4 mr-3 text-secondary flex-shrink-0" />
                     <span className="text-muted-foreground">{event.location}</span>
                   </div>
-                  <div className="flex items-center text-sm">
-                    <Users className="w-4 h-4 mr-3 text-secondary flex-shrink-0" />
-                    <span className="text-muted-foreground">{event.attendees}</span>
-                  </div>
                 </div>
-                <Button variant="outline" className="w-full mt-6 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-                  Learn More
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Button>
+                <Link to="/events">
+                  <Button variant="outline" className="w-full mt-6 group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                    Learn More
+                    <ArrowRight className="w-4 h-4 ml-2" />
+                  </Button>
+                </Link>
               </CardContent>
             </Card>
           ))}
