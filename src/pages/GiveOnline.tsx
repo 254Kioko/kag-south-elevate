@@ -7,7 +7,7 @@ import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { Smartphone, CreditCard, Copy, Building, FileText } from "lucide-react";
+import { Smartphone, Copy } from "lucide-react";
 
 const GiveOnline = () => {
   const [formData, setFormData] = useState({
@@ -15,7 +15,6 @@ const GiveOnline = () => {
     amount: "",
     category: ""
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isStkPushing, setIsStkPushing] = useState(false);
   const { toast } = useToast();
 
@@ -44,7 +43,7 @@ const GiveOnline = () => {
     setIsStkPushing(true);
 
     try {
-      const { data, error } = await supabase.functions.invoke('mpesa-stkpush', {
+      const { data, error } = await supabase.functions.invoke("mpesa-stkpush", {
         body: {
           phone: formData.phone,
           amount: parseFloat(formData.amount),
@@ -59,8 +58,6 @@ const GiveOnline = () => {
           title: "STK Push Sent!",
           description: "Please check your phone and enter your M-Pesa PIN to complete the payment.",
         });
-        
-        // Reset form
         setFormData({ phone: "", amount: "", category: "" });
       } else {
         toast({
@@ -106,7 +103,7 @@ const GiveOnline = () => {
           </div>
         </section>
 
-        {/* Giving Methods */}
+        {/* Giving Methods + M-Pesa Form */}
         <section className="py-16">
           <div className="container mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
@@ -191,6 +188,7 @@ const GiveOnline = () => {
                 </CardHeader>
                 <CardContent>
                   <form onSubmit={handleMpesaPay} className="space-y-6">
+                    {/* Category First */}
                     <div>
                       <label className="text-sm font-medium text-foreground mb-2 block">
                         Category <span className="text-destructive">*</span>
@@ -215,7 +213,8 @@ const GiveOnline = () => {
                         </SelectContent>
                       </Select>
                     </div>
-                    
+
+                    {/* Phone */}
                     <div>
                       <label className="text-sm font-medium text-foreground mb-2 block">
                         Phone Number <span className="text-destructive">*</span>
@@ -232,6 +231,7 @@ const GiveOnline = () => {
                       </p>
                     </div>
 
+                    {/* Amount */}
                     <div>
                       <label className="text-sm font-medium text-foreground mb-2 block">
                         Amount (KSH) <span className="text-destructive">*</span>
@@ -266,6 +266,7 @@ const GiveOnline = () => {
                     </Button>
                   </form>
 
+                  {/* Instructions */}
                   <div className="mt-6 p-4 bg-green-50 dark:bg-green-950/20 rounded-lg border border-green-200 dark:border-green-900">
                     <p className="text-sm text-foreground">
                       <strong className="text-green-700 dark:text-green-400">How it works:</strong>
