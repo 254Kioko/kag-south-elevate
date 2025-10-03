@@ -176,7 +176,7 @@ const AdminDashboard = () => {
                     <div className="bg-green-100 p-3 rounded-full"><Heart className="w-6 h-6 text-green-600" /></div>
                     <div>
                       <p className="text-2xl font-bold">{donationSubmissions.length}</p>
-                      <p className="text-sm text-muted-foreground">Donations</p>
+                      <p className="text-sm text-muted-foreground">Pledges</p>
                     </div>
                   </div>
                 </CardContent>
