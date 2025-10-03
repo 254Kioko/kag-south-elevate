@@ -2,79 +2,51 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { Smartphone, Copy } from "lucide-react";
+import { Smartphone, CreditCard, Copy, Building, FileText } from "lucide-react";
 
 const GiveOnline = () => {
   const [formData, setFormData] = useState({
+    name: "",
     phone: "",
-    amount: "",
-    category: ""
+    amount: ""
   });
-  const [isStkPushing, setIsStkPushing] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
-  const handleMpesaPay = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
-    // Validation
-    if (!formData.category || !formData.phone || !formData.amount) {
-      toast({
-        title: "Missing information",
-        description: "Please fill in all fields before proceeding.",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    if (parseFloat(formData.amount) < 1) {
-      toast({
-        title: "Invalid amount",
-        description: "Amount must be at least KSH 1.",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    setIsStkPushing(true);
+    setIsSubmitting(true);
 
     try {
-      const { data, error } = await supabase.functions.invoke("mpesa-stkpush", {
-        body: {
+      const { error } = await supabase
+        .from("donation_submissions")
+        .insert([{
+          name: formData.name,
           phone: formData.phone,
-          amount: parseFloat(formData.amount),
-          category: formData.category,
-        },
-      });
+          amount: parseFloat(formData.amount)
+        }]);
 
       if (error) throw error;
 
-      if (data.success) {
-        toast({
-          title: "STK Push Sent!",
-          description: "Please check your phone and enter your M-Pesa PIN to complete the payment.",
-        });
-        setFormData({ phone: "", amount: "", category: "" });
-      } else {
-        toast({
-          title: "Payment Failed",
-          description: data.message || "Failed to initiate payment. Please try again.",
-          variant: "destructive",
-        });
-      }
-    } catch (error: any) {
-      console.error("Error initiating M-Pesa payment:", error);
       toast({
-        title: "Error",
-        description: error.message || "Failed to process payment. Please try again.",
+        title: "Donation recorded successfully!",
+        description: "Thank you for your generous contribution to our ministry.",
+      });
+
+      setFormData({ name: "", phone: "", amount: "" });
+    } catch (error) {
+      console.error("Error submitting donation:", error);
+      toast({
+        title: "Error recording donation",
+        description: "Please try again or contact us directly.",
         variant: "destructive",
       });
     } finally {
-      setIsStkPushing(false);
+      setIsSubmitting(false);
     }
   };
 
@@ -103,7 +75,7 @@ const GiveOnline = () => {
           </div>
         </section>
 
-        {/* Giving Methods + M-Pesa Form */}
+        {/* Giving Methods */}
         <section className="py-16">
           <div className="container mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
@@ -173,73 +145,54 @@ const GiveOnline = () => {
                 </CardContent>
               </Card>
 
-              {/* M-Pesa Payment Form */}
+              {/* Donation Form */}
               <Card className="shadow-elegant">
                 <CardHeader className="text-center">
                   <div className="flex justify-center mb-4">
-                    <div className="bg-green-100 p-3 rounded-full">
-                      <Smartphone className="w-8 h-8 text-green-600" />
+                    <div className="bg-blue-100 p-3 rounded-full">
+                      <CreditCard className="w-8 h-8 text-blue-600" />
                     </div>
                   </div>
-                  <CardTitle className="font-heading text-2xl">Pay with M-Pesa</CardTitle>
+                  <CardTitle className="font-heading text-2xl">Record Your Pledge</CardTitle>
                   <CardDescription>
-                    Complete your donation instantly using M-Pesa
+                    Help us track your contribution for better stewardship
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <form onSubmit={handleMpesaPay} className="space-y-6">
-                    {/* Category First */}
+                  <form onSubmit={handleSubmit} className="space-y-6">
                     <div>
                       <label className="text-sm font-medium text-foreground mb-2 block">
-                        Category <span className="text-destructive">*</span>
+                        Full Name
                       </label>
-                      <Select
-                        value={formData.category}
-                        onValueChange={(value) => setFormData({ ...formData, category: value })}
+                      <Input
+                        placeholder="Enter your full name"
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         required
-                      >
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select donation category" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="Offering">Offering</SelectItem>
-                          <SelectItem value="Tithe">Tithe</SelectItem>
-                          <SelectItem value="Missions">Missions</SelectItem>
-                          <SelectItem value="MF">MF</SelectItem>
-                          <SelectItem value="WWK">WWK</SelectItem>
-                          <SelectItem value="Youth">Youth</SelectItem>
-                          <SelectItem value="Teens">Teens</SelectItem>
-                          <SelectItem value="Children Ministry">Children Ministry</SelectItem>
-                        </SelectContent>
-                      </Select>
+                      />
                     </div>
-
-                    {/* Phone */}
+                    
                     <div>
                       <label className="text-sm font-medium text-foreground mb-2 block">
-                        Phone Number <span className="text-destructive">*</span>
+                        Phone Number
                       </label>
                       <Input
                         type="tel"
-                        placeholder="e.g., 0712345678 or 254712345678"
+                        placeholder="e.g., 0700 000 000"
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         required
                       />
-                      <p className="text-xs text-muted-foreground mt-1">
-                        Enter your M-Pesa number (07XX... or 2547XX...)
-                      </p>
                     </div>
 
-                    {/* Amount */}
                     <div>
                       <label className="text-sm font-medium text-foreground mb-2 block">
-                        Amount (KSH) <span className="text-destructive">*</span>
+                        Amount (KSH)
                       </label>
                       <Input
                         type="number"
                         min="1"
-                        step="1"
+                        step="0.01"
                         placeholder="Enter amount"
                         value={formData.amount}
                         onChange={(e) => setFormData({ ...formData, amount: e.target.value })}
@@ -249,36 +202,18 @@ const GiveOnline = () => {
 
                     <Button
                       type="submit"
-                      className="w-full bg-green-600 hover:bg-green-700"
-                      disabled={isStkPushing}
+                      className="w-full"
+                      disabled={isSubmitting}
                     >
-                      {isStkPushing ? (
-                        <>
-                          <Smartphone className="w-4 h-4 mr-2 animate-pulse" />
-                          Sending STK Push...
-                        </>
-                      ) : (
-                        <>
-                          <Smartphone className="w-4 h-4 mr-2" />
-                          Pay with M-Pesa
-                        </>
-                      )}
+                      {isSubmitting ? "Recording..." : "Record Donation"}
                     </Button>
                   </form>
 
-                  {/* Instructions */}
-                  <div className="mt-6 p-4 bg-green-50 dark:bg-green-950/20 rounded-lg border border-green-200 dark:border-green-900">
-                    <p className="text-sm text-foreground">
-                      <strong className="text-green-700 dark:text-green-400">How it works:</strong>
+                  <div className="mt-6 p-4 bg-muted/50 rounded-lg">
+                    <p className="text-sm text-muted-foreground text-center">
+                      <strong>Note:</strong> This form only records your donation for our records. 
+                      Please complete the actual payment using your preferred method above.
                     </p>
-                    <ol className="text-sm text-muted-foreground mt-2 space-y-1 list-decimal list-inside">
-                      <li>Select your donation category</li>
-                      <li>Enter your M-Pesa phone number</li>
-                      <li>Enter the amount you wish to donate</li>
-                      <li>Click "Pay with M-Pesa"</li>
-                      <li>Check your phone for the STK Push prompt</li>
-                      <li>Enter your M-Pesa PIN to complete</li>
-                    </ol>
                   </div>
                 </CardContent>
               </Card>
