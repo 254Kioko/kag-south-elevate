@@ -188,7 +188,7 @@ const AdminDashboard = () => {
                     <div className="bg-primary/10 p-3 rounded-full"><Users className="w-6 h-6 text-primary" /></div>
                     <div>
                       <p className="text-2xl font-bold">KSH {totalDonations.toLocaleString()}</p>
-                      <p className="text-sm text-muted-foreground">Total Donations</p>
+                      <p className="text-sm text-muted-foreground">Total Pledges</p>
                     </div>
                   </div>
                 </CardContent>
@@ -211,7 +211,7 @@ const AdminDashboard = () => {
             <Tabs defaultValue="contacts" className="space-y-6">
               <TabsList>
                 <TabsTrigger value="contacts">Contact Submissions</TabsTrigger>
-                <TabsTrigger value="donations">Donation Records</TabsTrigger>
+                <TabsTrigger value="donations">Pledges Records</TabsTrigger>
                 <TabsTrigger value="newsletter">Newsletter Subscribers</TabsTrigger>
               </TabsList>
 
@@ -280,7 +280,7 @@ const AdminDashboard = () => {
                 <Card>
                   <CardHeader>
                     <CardTitle>Donation Records</CardTitle>
-                    <CardDescription>Donations recorded through the Give Online form</CardDescription>
+                    <CardDescription>Pledges recorded through the Give Online form</CardDescription>
                   </CardHeader>
                   <CardContent>
                     {loading ? (
