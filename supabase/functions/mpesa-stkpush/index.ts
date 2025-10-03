@@ -120,7 +120,7 @@ serve(async (req) => {
       BusinessShortCode: BUSINESS_SHORT_CODE,
       Password: password,
       Timestamp: timestamp,
-      TransactionType: 'CustomerBuyGoodsOnline',
+      TransactionType: 'CustomerPayBillOnline',
       Amount: Math.round(amount), // M-Pesa accepts whole numbers
       PartyA: formattedPhone,
       PartyB: BUSINESS_SHORT_CODE,
