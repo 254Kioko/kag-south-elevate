@@ -2,17 +2,19 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { Smartphone, CreditCard, Copy, Building, FileText } from "lucide-react";
+import { Smartphone, CreditCard, Copy } from "lucide-react";
 
 const GiveOnline = () => {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
-    amount: ""
+    amount: "",
+    category: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
@@ -27,7 +29,8 @@ const GiveOnline = () => {
         .insert([{
           name: formData.name,
           phone: formData.phone,
-          amount: parseFloat(formData.amount)
+          amount: parseFloat(formData.amount),
+          category: formData.category,
         }]);
 
       if (error) throw error;
@@ -37,7 +40,7 @@ const GiveOnline = () => {
         description: "Thank you for your generous contribution to our ministry.",
       });
 
-      setFormData({ name: "", phone: "", amount: "" });
+      setFormData({ name: "", phone: "", amount: "", category: "" });
     } catch (error) {
       console.error("Error submitting donation:", error);
       toast({
@@ -160,6 +163,32 @@ const GiveOnline = () => {
                 </CardHeader>
                 <CardContent>
                   <form onSubmit={handleSubmit} className="space-y-6">
+                    
+                    <div>
+                      <label className="text-sm font-medium text-foreground mb-2 block">
+                        Category
+                      </label>
+                      <Select
+                        value={formData.category}
+                        onValueChange={(value) => setFormData({ ...formData, category: value })}
+                        required
+                      >
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select category" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="Offering">Offering</SelectItem>
+                          <SelectItem value="Tithe">Tithe</SelectItem>
+                          <SelectItem value="Missions">Missions</SelectItem>
+                          <SelectItem value="MF">MF</SelectItem>
+                          <SelectItem value="WWK">WWK</SelectItem>
+                          <SelectItem value="Youth">Youth</SelectItem>
+                          <SelectItem value="Teens Ministry">Teens Ministry</SelectItem>
+                          <SelectItem value="Children Ministry">Children Ministry</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+
                     <div>
                       <label className="text-sm font-medium text-foreground mb-2 block">
                         Full Name
