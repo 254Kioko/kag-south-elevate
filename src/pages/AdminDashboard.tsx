@@ -279,7 +279,7 @@ const AdminDashboard = () => {
               <TabsContent value="donations">
                 <Card>
                   <CardHeader>
-                    <CardTitle>Donation Records</CardTitle>
+                    <CardTitle>Records of Pledges </CardTitle>
                     <CardDescription>Pledges recorded through the Give Online form</CardDescription>
                   </CardHeader>
                   <CardContent>
