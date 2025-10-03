@@ -36,7 +36,7 @@ const GiveOnline = () => {
       if (error) throw error;
 
       toast({
-        title: "Donation recorded successfully!",
+        title: "Pledge recorded successfully!",
         description: "Thank you for your generous contribution to our ministry.",
       });
 
@@ -166,6 +166,31 @@ const GiveOnline = () => {
                     
                     <div>
                       <label className="text-sm font-medium text-foreground mb-2 block">
+                        Name
+                      </label>
+                      <Input
+                        placeholder="Enter your full name"
+                        value={formData.name}
+                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                        required
+                      />
+                    </div>
+                    
+                    <div>
+                      <label className="text-sm font-medium text-foreground mb-2 block">
+                        Phone Number
+                      </label>
+                      <Input
+                        type="tel"
+                        placeholder="e.g., 0700 000 000"
+                        value={formData.phone}
+                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                        required
+                      />
+                    </div>
+
+                    <div>
+                      <label className="text-sm font-medium text-foreground mb-2 block">
                         Category
                       </label>
                       <Select
@@ -187,31 +212,6 @@ const GiveOnline = () => {
                           <SelectItem value="Children Ministry">Children Ministry</SelectItem>
                         </SelectContent>
                       </Select>
-                    </div>
-
-                    <div>
-                      <label className="text-sm font-medium text-foreground mb-2 block">
-                        Full Name
-                      </label>
-                      <Input
-                        placeholder="Enter your full name"
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        required
-                      />
-                    </div>
-                    
-                    <div>
-                      <label className="text-sm font-medium text-foreground mb-2 block">
-                        Phone Number
-                      </label>
-                      <Input
-                        type="tel"
-                        placeholder="e.g., 0700 000 000"
-                        value={formData.phone}
-                        onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                        required
-                      />
                     </div>
 
                     <div>
@@ -240,7 +240,7 @@ const GiveOnline = () => {
 
                   <div className="mt-6 p-4 bg-muted/50 rounded-lg">
                     <p className="text-sm text-muted-foreground text-center">
-                      <strong>Note:</strong> This form only records your donation for our records. 
+                      <strong>Note:</strong> This form only records your pledges for our records. 
                       Please complete the actual payment using your preferred method above.
                     </p>
                   </div>
