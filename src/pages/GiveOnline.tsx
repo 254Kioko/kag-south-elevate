@@ -234,7 +234,7 @@ const GiveOnline = () => {
                       className="w-full"
                       disabled={isSubmitting}
                     >
-                      {isSubmitting ? "Recording..." : "Record Donation"}
+                      {isSubmitting ? "Recording..." : "Record Pledge"}
                     </Button>
                   </form>
 
