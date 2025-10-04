@@ -8,7 +8,7 @@ const corsHeaders = {
 // M-Pesa credentials
 const CONSUMER_KEY = Deno.env.get('MPESA_CONSUMER_KEY');
 const CONSUMER_SECRET = Deno.env.get('MPESA_CONSUMER_SECRET');
-const BUSINESS_SHORT_CODE = '803777';
+const BUSINESS_SHORT_CODE = '174379'; // Sandbox test shortcode
 const PASSKEY = 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919'; // Sandbox passkey
 const CALLBACK_URL = 'https://ttsfulgsmhhynxvjtnpr.supabase.co/functions/v1/mpesa-callback';
 
@@ -120,7 +120,7 @@ serve(async (req) => {
       BusinessShortCode: BUSINESS_SHORT_CODE,
       Password: password,
       Timestamp: timestamp,
-      TransactionType: 'CustomerPayBillOnline',
+      TransactionType: 'CustomerBuyGoodsOnline',
       Amount: Math.round(amount), // M-Pesa accepts whole numbers
       PartyA: formattedPhone,
       PartyB: BUSINESS_SHORT_CODE,
