@@ -1,19 +1,26 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.57.4';
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 };
 
-// M-Pesa credentials
+// M-Pesa credentials from environment variables
 const CONSUMER_KEY = Deno.env.get('MPESA_CONSUMER_KEY');
 const CONSUMER_SECRET = Deno.env.get('MPESA_CONSUMER_SECRET');
-const BUSINESS_SHORT_CODE = '174379'; // Sandbox test shortcode
-const PASSKEY = 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919'; // Sandbox passkey
-const CALLBACK_URL = 'https://ttsfulgsmhhynxvjtnpr.supabase.co/functions/v1/mpesa-callback';
+const BUSINESS_SHORT_CODE = Deno.env.get('MPESA_SHORTCODE') || '803777'; // Default to production Till
+const PASSKEY = Deno.env.get('MPESA_PASSKEY') || 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919';
+const MPESA_ENV = Deno.env.get('MPESA_ENV') || 'sandbox'; // 'sandbox' or 'production'
+const CALLBACK_URL = Deno.env.get('CALLBACK_URL') || 'https://ttsfulgsmhhynxvjtnpr.supabase.co/functions/v1/mpesa-callback';
+
+// Supabase client
+const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
+const supabaseServiceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
+const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
 // Switch between sandbox and production
-const IS_SANDBOX = true;
+const IS_SANDBOX = MPESA_ENV === 'sandbox';
 const AUTH_URL = IS_SANDBOX 
   ? 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials'
   : 'https://api.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials';
@@ -120,7 +127,7 @@ serve(async (req) => {
       BusinessShortCode: BUSINESS_SHORT_CODE,
       Password: password,
       Timestamp: timestamp,
-      TransactionType: 'CustomerBuyGoodsOnline',
+      TransactionType: 'CustomerBuyGoodsOnline', // For Till Number
       Amount: Math.round(amount), // M-Pesa accepts whole numbers
       PartyA: formattedPhone,
       PartyB: BUSINESS_SHORT_CODE,
@@ -130,7 +137,11 @@ serve(async (req) => {
       TransactionDesc: `${category || 'Donation'} - KAG South C`,
     };
 
-    console.log('Sending STK Push request:', stkPushPayload);
+    console.log('Sending STK Push request:', {
+      ...stkPushPayload,
+      Password: '[REDACTED]',
+      environment: IS_SANDBOX ? 'SANDBOX' : 'PRODUCTION'
+    });
 
     // Send STK Push request
     const stkResponse = await fetch(STK_PUSH_URL, {
@@ -146,6 +157,7 @@ serve(async (req) => {
     console.log('STK Push response:', stkData);
 
     if (!stkResponse.ok) {
+      console.error('STK Push failed:', stkData);
       return new Response(
         JSON.stringify({ 
           error: 'Failed to initiate STK Push',
@@ -157,6 +169,24 @@ serve(async (req) => {
 
     // Check if request was successful
     if (stkData.ResponseCode === '0') {
+      // Store initial transaction in database
+      const { error: dbError } = await supabase
+        .from('mpesa_transactions')
+        .insert({
+          merchant_request_id: stkData.MerchantRequestID,
+          checkout_request_id: stkData.CheckoutRequestID,
+          phone_number: formattedPhone,
+          amount: Math.round(amount),
+          category: category || 'Donation',
+          status: 'pending'
+        });
+
+      if (dbError) {
+        console.error('Failed to store transaction:', dbError);
+      } else {
+        console.log('Transaction stored successfully');
+      }
+
       return new Response(
         JSON.stringify({
           success: true,
@@ -167,6 +197,20 @@ serve(async (req) => {
         { status: 200, headers: { ...corsHeaders, 'Content-Type': 'application/json' } }
       );
     } else {
+      // Store failed transaction
+      if (stkData.CheckoutRequestID) {
+        await supabase
+          .from('mpesa_transactions')
+          .insert({
+            checkout_request_id: stkData.CheckoutRequestID,
+            phone_number: formattedPhone,
+            amount: Math.round(amount),
+            category: category || 'Donation',
+            status: 'failed',
+            result_desc: stkData.ResponseDescription
+          });
+      }
+
       return new Response(
         JSON.stringify({
           success: false,

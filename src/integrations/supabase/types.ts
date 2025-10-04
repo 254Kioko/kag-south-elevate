@@ -68,6 +68,54 @@ export type Database = {
         }
         Relationships: []
       }
+      mpesa_transactions: {
+        Row: {
+          amount: number
+          callback_data: Json | null
+          category: string | null
+          checkout_request_id: string
+          created_at: string
+          id: string
+          merchant_request_id: string | null
+          mpesa_receipt_number: string | null
+          phone_number: string
+          result_code: number | null
+          result_desc: string | null
+          status: string
+          transaction_date: number | null
+        }
+        Insert: {
+          amount: number
+          callback_data?: Json | null
+          category?: string | null
+          checkout_request_id: string
+          created_at?: string
+          id?: string
+          merchant_request_id?: string | null
+          mpesa_receipt_number?: string | null
+          phone_number: string
+          result_code?: number | null
+          result_desc?: string | null
+          status?: string
+          transaction_date?: number | null
+        }
+        Update: {
+          amount?: number
+          callback_data?: Json | null
+          category?: string | null
+          checkout_request_id?: string
+          created_at?: string
+          id?: string
+          merchant_request_id?: string | null
+          mpesa_receipt_number?: string | null
+          phone_number?: string
+          result_code?: number | null
+          result_desc?: string | null
+          status?: string
+          transaction_date?: number | null
+        }
+        Relationships: []
+      }
       newsletter_subscriptions: {
         Row: {
           created_at: string
