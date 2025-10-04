@@ -16,7 +16,13 @@ const GiveOnline = () => {
     amount: "",
     category: "",
   });
+  const [mpesaData, setMpesaData] = useState({
+    phone: "",
+    amount: "",
+    category: "",
+  });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isMpesaPaying, setIsMpesaPaying] = useState(false);
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -53,6 +59,42 @@ const GiveOnline = () => {
     }
   };
 
+  const handleMpesaPay = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsMpesaPaying(true);
+
+    try {
+      const { data, error } = await supabase.functions.invoke('mpesa-stkpush', {
+        body: {
+          phone: mpesaData.phone,
+          amount: parseFloat(mpesaData.amount),
+          category: mpesaData.category,
+        },
+      });
+
+      if (error) throw error;
+
+      if (data.success) {
+        toast({
+          title: "M-Pesa prompt sent!",
+          description: "Please check your phone and enter your M-Pesa PIN to complete the payment.",
+        });
+        setMpesaData({ phone: "", amount: "", category: "" });
+      } else {
+        throw new Error(data.message || "Payment failed");
+      }
+    } catch (error: any) {
+      console.error("M-Pesa payment error:", error);
+      toast({
+        title: "Payment failed",
+        description: error.message || "Please try again or use another payment method.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsMpesaPaying(false);
+    }
+  };
+
   const copyText = (text: string, label: string) => {
     navigator.clipboard.writeText(text);
     toast({
@@ -78,7 +120,103 @@ const GiveOnline = () => {
           </div>
         </section>
 
-        {/* Giving Methods */}
+        {/* Instant M-Pesa Payment */}
+        <section className="py-16 bg-gradient-subtle">
+          <div className="container mx-auto px-4">
+            <div className="max-w-2xl mx-auto">
+              <Card className="shadow-elegant border-2 border-primary/20">
+                <CardHeader className="text-center">
+                  <div className="flex justify-center mb-4">
+                    <div className="bg-green-100 p-3 rounded-full">
+                      <Smartphone className="w-8 h-8 text-green-600" />
+                    </div>
+                  </div>
+                  <CardTitle className="font-heading text-2xl">Pay Instantly with M-Pesa</CardTitle>
+                  <CardDescription>
+                    Quick and secure payment directly from your phone
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <form onSubmit={handleMpesaPay} className="space-y-6">
+                    <div>
+                      <label className="text-sm font-medium text-foreground mb-2 block">
+                        Category
+                      </label>
+                      <Select
+                        value={mpesaData.category}
+                        onValueChange={(value) => setMpesaData({ ...mpesaData, category: value })}
+                        required
+                      >
+                        <SelectTrigger>
+                          <SelectValue placeholder="Select category" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          <SelectItem value="Offering">Offering</SelectItem>
+                          <SelectItem value="Tithe">Tithe</SelectItem>
+                          <SelectItem value="Missions">Missions</SelectItem>
+                          <SelectItem value="MF">MF</SelectItem>
+                          <SelectItem value="WWK">WWK</SelectItem>
+                          <SelectItem value="Youth">Youth</SelectItem>
+                          <SelectItem value="Teens Ministry">Teens Ministry</SelectItem>
+                          <SelectItem value="Children Ministry">Children Ministry</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+
+                    <div>
+                      <label className="text-sm font-medium text-foreground mb-2 block">
+                        M-Pesa Phone Number
+                      </label>
+                      <Input
+                        type="tel"
+                        placeholder="e.g., 0712345678"
+                        value={mpesaData.phone}
+                        onChange={(e) => setMpesaData({ ...mpesaData, phone: e.target.value })}
+                        required
+                      />
+                      <p className="text-xs text-muted-foreground mt-1">
+                        Enter the phone number registered with M-Pesa
+                      </p>
+                    </div>
+
+                    <div>
+                      <label className="text-sm font-medium text-foreground mb-2 block">
+                        Amount (KSH)
+                      </label>
+                      <Input
+                        type="number"
+                        min="1"
+                        step="1"
+                        placeholder="Enter amount"
+                        value={mpesaData.amount}
+                        onChange={(e) => setMpesaData({ ...mpesaData, amount: e.target.value })}
+                        required
+                      />
+                    </div>
+
+                    <Button
+                      type="submit"
+                      className="w-full"
+                      size="lg"
+                      disabled={isMpesaPaying}
+                    >
+                      {isMpesaPaying ? "Processing..." : "Pay with M-Pesa"}
+                    </Button>
+                  </form>
+
+                  <div className="mt-6 p-4 bg-green-50 dark:bg-green-950/20 border border-green-200 dark:border-green-800 rounded-lg">
+                    <p className="text-sm text-green-800 dark:text-green-200 text-center">
+                      <strong>How it works:</strong> You'll receive an M-Pesa prompt on your phone. 
+                      Enter your PIN to complete the payment instantly.
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
+          </div>
+        </section>
+
+        {/* Other Payment Methods & Pledge Recording */}
         <section className="py-16">
           <div className="container mx-auto px-4">
             <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
