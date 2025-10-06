@@ -166,53 +166,64 @@ const Services = () => {
       </section>
 
       {/* Latest Sermon */}
-      <div className="mt-20 text-center">
-        <h3 className="font-heading text-3xl font-bold text-primary mb-6">
-          Latest Service
-        </h3>
-        <div className="max-w-4xl mx-auto">
-          <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-            <div className="aspect-w-16 aspect-h-9">
-              <iframe
-                className="w-full h-[400px] md:h-[500px] rounded-t-lg"
-                src="https://www.youtube.com/embed/B8HubOEGN88?si=9yCZ5FuB0NrgXQ2s"
-                title="Last Week's Sermon"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
-            </div>
-            <CardHeader className="text-left p-6">
-              <CardTitle className="text-2xl font-bold text-primary mb-2">
-                He is still the way maker
-              </CardTitle>
-              <div className="flex items-center text-muted-foreground text-sm space-x-6 mb-3">
-                <div className="flex items-center space-x-2">
-                  <Calendar className="w-4 h-4" />
-                  <span>Sunday, Sept 28, 2025</span>
-                </div>
-                <div className="flex items-center space-x-2">
-                  <Clock className="w-4 h-4" />
-                  <span>10:15 AM</span>
-                </div>
+    {/* Latest Sermon */}
+<div className="mt-20 text-center">
+  <h3 className="font-heading text-3xl font-bold text-primary mb-6">
+    Latest Service
+  </h3>
+
+  <div className="max-w-6xl mx-auto">
+    <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+      <div className="grid grid-cols-1 md:grid-cols-2">
+        {/* Left side: Video */}
+        <div className="bg-black">
+          <iframe
+            className="w-full h-[300px] md:h-full rounded-t-lg md:rounded-none md:rounded-l-lg"
+            src="https://www.youtube.com/embed/B8HubOEGN88?si=9yCZ5FuB0NrgXQ2s"
+            title="Last Week's Sermon"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </div>
+
+        {/* Right side: Description */}
+        <div className="text-left p-6 flex flex-col justify-center">
+          <CardHeader className="p-0">
+            <CardTitle className="text-2xl font-bold text-primary mb-2">
+              He is still the way maker
+            </CardTitle>
+            <div className="flex items-center text-muted-foreground text-sm space-x-6 mb-3">
+              <div className="flex items-center space-x-2">
+                <Calendar className="w-4 h-4" />
+                <span>Sunday, Sept 28, 2025</span>
               </div>
-              <p className="text-muted-foreground text-base mb-4">
-                <span className="font-semibold">Preacher: </span> Rev. Peter Kioko
-              </p>
-              <p className="text-muted-foreground text-sm">
-                In this sermon, we explored the power of faith and trust in God even in challenging seasons. Be inspired and encouraged to keep walking with Him.
-              </p>
-            </CardHeader>
-            <CardContent className="p-6 border-t text-center">
-              <Link to="/sermons">
-                <Button size="lg" className="font-semibold">
-                  View More Sermons
-                </Button>
-              </Link>
-            </CardContent>
-          </Card>
+              <div className="flex items-center space-x-2">
+                <Clock className="w-4 h-4" />
+                <span>10:15 AM</span>
+              </div>
+            </div>
+            <p className="text-muted-foreground text-base mb-4">
+              <span className="font-semibold">Preacher: </span> Rev. Peter Kioko
+            </p>
+            <p className="text-muted-foreground text-sm mb-4">
+              In this sermon, we explored the power of faith and trust in God even in challenging seasons. Be inspired and encouraged to keep walking with Him.
+            </p>
+          </CardHeader>
+
+          <CardContent className="p-0 mt-4">
+            <Link to="/sermons">
+              <Button size="lg" className="font-semibold">
+                View More Sermons
+              </Button>
+            </Link>
+          </CardContent>
         </div>
       </div>
+    </Card>
+  </div>
+</div>
+
 
       {/* Upcoming Events */}
       <section id="events" className="py-20 bg-muted/30">
