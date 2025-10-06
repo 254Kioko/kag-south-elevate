@@ -164,9 +164,7 @@ const Services = () => {
           </div>
         </div>
       </section>
-
-      {/* Latest Sermon */}
-    {/* Latest Sermon */}
+{/* Latest Sermon */}
 <div className="mt-20 text-center">
   <h3 className="font-heading text-3xl font-bold text-primary mb-6">
     Latest Service
@@ -174,11 +172,11 @@ const Services = () => {
 
   <div className="max-w-6xl mx-auto">
     <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-      <div className="grid grid-cols-1 md:grid-cols-2">
+      <div className="grid grid-cols-1 md:grid-cols-2 md:h-[500px] lg:h-[550px]">
         {/* Left side: Video */}
-        <div className="bg-black">
+        <div className="bg-black h-[300px] md:h-full">
           <iframe
-            className="w-full h-[300px] md:h-full rounded-t-lg md:rounded-none md:rounded-l-lg"
+            className="w-full h-full rounded-t-lg md:rounded-none md:rounded-l-lg"
             src="https://www.youtube.com/embed/B8HubOEGN88?si=9yCZ5FuB0NrgXQ2s"
             title="Last Week's Sermon"
             frameBorder="0"
@@ -188,12 +186,12 @@ const Services = () => {
         </div>
 
         {/* Right side: Description */}
-        <div className="text-left p-6 flex flex-col justify-center">
+        <div className="text-left p-8 flex flex-col justify-center md:space-y-3">
           <CardHeader className="p-0">
-            <CardTitle className="text-2xl font-bold text-primary mb-2">
+            <CardTitle className="text-3xl font-bold text-primary mb-3">
               He is still the way maker
             </CardTitle>
-            <div className="flex items-center text-muted-foreground text-sm space-x-6 mb-3">
+            <div className="flex items-center text-muted-foreground text-sm space-x-6 mb-4">
               <div className="flex items-center space-x-2">
                 <Calendar className="w-4 h-4" />
                 <span>Sunday, Sept 28, 2025</span>
@@ -203,15 +201,16 @@ const Services = () => {
                 <span>10:15 AM</span>
               </div>
             </div>
-            <p className="text-muted-foreground text-base mb-4">
+            <p className="text-muted-foreground text-base mb-4 leading-relaxed">
               <span className="font-semibold">Preacher: </span> Rev. Peter Kioko
             </p>
-            <p className="text-muted-foreground text-sm mb-4">
-              In this sermon, we explored the power of faith and trust in God even in challenging seasons. Be inspired and encouraged to keep walking with Him.
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              In this sermon, we explored the power of faith and trust in God even in challenging seasons.
+              Be inspired and encouraged to keep walking with Him.
             </p>
           </CardHeader>
 
-          <CardContent className="p-0 mt-4">
+          <CardContent className="p-0 mt-6">
             <Link to="/sermons">
               <Button size="lg" className="font-semibold">
                 View More Sermons
@@ -223,6 +222,7 @@ const Services = () => {
     </Card>
   </div>
 </div>
+
 
 
       {/* Upcoming Events */}
