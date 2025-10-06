@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 import eventImage from "@/assets/upcoming-event.jpg"; 
-const prayerImage = "https://via.placeholder.com/800x400?text=Prayer+Requests"; // ✅ Placeholder to prevent Netlify errors
+import eventImage from "@/assets/prayer-placeholder.jpg"; 
 
 const Services = () => {
   const services = [
