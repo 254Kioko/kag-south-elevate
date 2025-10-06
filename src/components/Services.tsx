@@ -279,42 +279,40 @@ const Services = () => {
           </Button>
         </Link>
       </div>
-
       {/* Prayer Requests Section */}
       <div className="mt-20 text-center">
-        <h2 className="font-heading text-3xl font-bold text-primary mb-3">
+        <h3 className="font-heading text-3xl font-bold text-primary mb-6">
           Share Your Prayer Needs
-        </h2>
-        <p className="text-muted-foreground max-w-2xl mx-auto mb-10">
-          This section allows you to submit your prayer requests directly to our pastoral team, 
-          who will stand with you in faith and lift your needs before God.
+        </h3>
+        <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12">
+          Whether you’re seeking healing, breakthrough, or thanksgiving — our prayer team is ready to stand with you in faith.
         </p>
-
-        <div className="container mx-auto px-4 text-center">
-          <Card className="overflow-hidden max-w-4xl mx-auto shadow-lg flex flex-col md:flex-row">
-            <img
-              src={prayerImage}
-              alt="Prayer Request"
-              className="w-full md:w-1/2 h-64 md:h-auto object-cover"
-            />
-            <div className="md:w-1/2 flex flex-col justify-center p-6 text-left">
-              <CardTitle className="text-2xl font-bold text-primary mb-3">
-                Send Your Prayer Requests
-              </CardTitle>
-              <p className="text-muted-foreground mb-6">
-                We believe in the power of prayer. Share your prayer requests with us, and our pastoral team will stand with you in faith.
-              </p>
-              <Link to="/contact">
-                <Button size="lg" className="font-semibold">
-                  Submit Prayer Request
-                </Button>
-              </Link>
-            </div>
-          </Card>
-        </div>
       </div>
-    </>
-  );
-};
+
+      <div className="container mx-auto px-4 text-center mb-20">
+        <Card className="overflow-hidden max-w-4xl mx-auto shadow-lg flex flex-col md:flex-row">
+          <img
+            src={prayerImage}
+            alt="Prayer Request"
+            className="w-full md:w-1/2 h-64 md:h-auto object-cover"
+          />
+          <div className="md:w-1/2 flex flex-col justify-center p-6 text-left">
+            <CardTitle className="text-2xl font-bold text-primary mb-3">
+              Send Your Prayer Requests
+            </CardTitle>
+            <p className="text-muted-foreground mb-6">
+              We believe in the power of prayer. Share your prayer requests with us, and our pastoral team will stand with you in faith.
+            </p>
+            <Link to="/contact">
+              <Button size="lg" className="font-semibold">
+                Submit Prayer Request
+              </Button>
+            </Link>
+          </div>
+        </Card>
+      </div>
+    </section>
+  </>
+);
 
 export default Services;
