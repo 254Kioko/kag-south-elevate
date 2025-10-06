@@ -220,7 +220,6 @@ const Services = () => {
       </div>
 
       {/* Upcoming Events */}
-      <section id="events" className="py-20 bg-muted/30">
         <div className="container mx-auto px-4 text-center">
           <h4 className="font-heading text-4xl md:text-5xl font-bold mb-6 text-primary">
             Upcoming Event
@@ -265,10 +264,10 @@ const Services = () => {
             </Card>
           </div>
         </div>
-      </section>
+ 
 
       {/* Call to Action */}
-      <section className="py-20">
+    
         <div className="container mx-auto px-4 text-center bg-gradient-primary rounded-2xl p-8 text-primary-foreground shadow-elegant">
           <h3 className="font-heading text-2xl font-semibold mb-4">
             Ready to Get Involved?
@@ -284,10 +283,10 @@ const Services = () => {
             </Button>
           </Link>
         </div>
-      </section>
+  
 
       {/* Prayer Requests Section */}
-      <section className="py-20 bg-muted/30">
+    
          <div className="mt-20 text-center">
         <h3 className="font-heading text-3xl font-bold text-primary mb-6">
     Share Your Prayer Needs
