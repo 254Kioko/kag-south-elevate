@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 import eventImage from "@/assets/upcoming-event.jpg";
-import prayerImage from "@/assets/prayer-placeholder.jpg"; // ✅ fixed: unique variable name
+import prayerImage from "@/assets/prayer-placeholder.jpg";
 
 const Services = () => {
   const services = [
@@ -219,79 +219,78 @@ const Services = () => {
         </div>
       </div>
 
-      {/* Upcoming Events */}
-        <div className="container mx-auto px-4 text-center">
-          <h4 className="font-heading text-4xl md:text-5xl font-bold mb-6 text-primary">
-            Upcoming Event
-          </h4>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12">
-            Stay connected with what’s happening at KAG South C. Here’s what’s next:
-          </p>
+      {/* Upcoming Event */}
+      <div className="container mx-auto px-4 text-center mt-20">
+        <h4 className="font-heading text-4xl md:text-5xl font-bold mb-6 text-primary">
+          Upcoming Event
+        </h4>
+        <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12">
+          Stay connected with what’s happening at KAG South C. Here’s what’s next:
+        </p>
 
-          <div className="max-w-4xl mx-auto">
-            <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow flex flex-col md:flex-row">
-              <img
-                src={eventImage}
-                alt="Upcoming Event"
-                className="w-full md:w-1/2 h-64 md:h-auto object-cover"
-              />
-              <div className="md:w-1/2 flex flex-col justify-center text-left p-6">
-                <Badge variant="secondary" className="mb-3">Special Event</Badge>
-                <CardTitle className="text-2xl font-bold text-primary">
-                  Men's Fellowship Day
-                </CardTitle>
-                <p className="text-muted-foreground text-sm mt-2">
-                  Join us for a powerful day with the Men
-                </p>
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between text-muted-foreground text-sm gap-3 mt-4">
-                  <div className="flex items-center space-x-2">
-                    <Calendar className="w-4 h-4" />
-                    <span>Sunday, Oct 20th</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Clock className="w-4 h-4" />
-                    <span>9:00 AM - 1:30 PM</span>
-                  </div>
+        <div className="max-w-4xl mx-auto">
+          <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow flex flex-col md:flex-row">
+            <img
+              src={eventImage}
+              alt="Upcoming Event"
+              className="w-full md:w-1/2 h-64 md:h-auto object-cover"
+            />
+            <div className="md:w-1/2 flex flex-col justify-center text-left p-6">
+              <Badge variant="secondary" className="mb-3">Special Event</Badge>
+              <CardTitle className="text-2xl font-bold text-primary">
+                Men's Fellowship Day
+              </CardTitle>
+              <p className="text-muted-foreground text-sm mt-2">
+                Join us for a powerful day with the Men
+              </p>
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between text-muted-foreground text-sm gap-3 mt-4">
+                <div className="flex items-center space-x-2">
+                  <Calendar className="w-4 h-4" />
+                  <span>Sunday, Oct 20th</span>
                 </div>
-                <div className="mt-6 text-right">
-                  <Link to="/events">
-                    <Button variant="secondary" className="font-semibold">
-                      More Events
-                    </Button>
-                  </Link>
+                <div className="flex items-center space-x-2">
+                  <Clock className="w-4 h-4" />
+                  <span>9:00 AM - 1:30 PM</span>
                 </div>
               </div>
-            </Card>
-          </div>
+              <div className="mt-6 text-right">
+                <Link to="/events">
+                  <Button variant="secondary" className="font-semibold">
+                    More Events
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </Card>
         </div>
- 
+      </div>
 
       {/* Call to Action */}
-    
-        <div className="container mx-auto px-4 text-center bg-gradient-primary rounded-2xl p-8 text-primary-foreground shadow-elegant">
-          <h3 className="font-heading text-2xl font-semibold mb-4">
-            Ready to Get Involved?
-          </h3>
-          <p className="mb-6 text-primary-foreground/90 max-w-2xl mx-auto">
-            Join one of our ministries and discover how God can use your gifts to make a difference. 
-            Whether you're new to faith or a seasoned believer, there's a place for you.
-          </p>
-
-          <Link to="/about-ministries">
-            <Button variant="secondary" size="lg" className="font-semibold">
-              Connect With a Ministry
-            </Button>
-          </Link>
-        </div>
-  
+      <div className="container mx-auto px-4 text-center bg-gradient-primary rounded-2xl p-8 text-primary-foreground shadow-elegant mt-20">
+        <h3 className="font-heading text-2xl font-semibold mb-4">
+          Ready to Get Involved?
+        </h3>
+        <p className="mb-6 text-primary-foreground/90 max-w-2xl mx-auto">
+          Join one of our ministries and discover how God can use your gifts to make a difference. 
+          Whether you're new to faith or a seasoned believer, there's a place for you.
+        </p>
+        <Link to="/about-ministries">
+          <Button variant="secondary" size="lg" className="font-semibold">
+            Connect With a Ministry
+          </Button>
+        </Link>
+      </div>
 
       {/* Prayer Requests Section */}
-    
-         <div className="mt-20 text-center">
-        <h3 className="font-heading text-3xl font-bold text-primary mb-6">
-    Share Your Prayer Needs
-        </h3>
-           </div>
+      <div className="mt-20 text-center">
+        <h2 className="font-heading text-3xl font-bold text-primary mb-3">
+          Share Your Prayer Needs
+        </h2>
+        <p className="text-muted-foreground max-w-2xl mx-auto mb-10">
+          This section allows you to submit your prayer requests directly to our pastoral team, 
+          who will stand with you in faith and lift your needs before God.
+        </p>
+
         <div className="container mx-auto px-4 text-center">
           <Card className="overflow-hidden max-w-4xl mx-auto shadow-lg flex flex-col md:flex-row">
             <img
@@ -314,7 +313,7 @@ const Services = () => {
             </div>
           </Card>
         </div>
-      </section>
+      </div>
     </>
   );
 };
