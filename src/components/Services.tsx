@@ -163,7 +163,6 @@ const Services = () => {
             </div>
           </div>
         </div>
-      </section>
 
       {/* Latest Sermon */}
       <div className="mt-20 text-center">
