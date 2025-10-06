@@ -225,55 +225,57 @@ const Services = () => {
 
 
 
-      {/* Upcoming Events */}
-      <section id="events" className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4 text-center">
-          <h4 className="font-heading text-4xl md:text-5xl font-bold mb-6 text-primary">
-            Upcoming Event
-          </h4>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12">
-            Stay connected with what’s happening at KAG South C. Here’s what’s next:
-          </p>
+    {/* Upcoming Event */}
+<div className="mt-20 text-center">
+  <h3 className="font-heading text-3xl font-bold text-primary mb-6">
+    Upcoming Event
+  </h3>
 
-          <div className="max-w-3xl mx-auto">
-            <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
-              <img
-                src={eventImage}
-                alt="Upcoming Event"
-                className="w-full h-64 object-cover"
-              />
-              <CardHeader className="text-left p-6">
-                <Badge variant="secondary" className="mb-3">Special Event</Badge>
-                <CardTitle className="text-2xl font-bold text-primary">
-                  Men's Fellowship Day
-                </CardTitle>
-                <p className="text-muted-foreground text-sm mt-2">
-                  Join us for a powerful day with the Men
-                </p>
-              </CardHeader>
-              <CardContent className="p-6 border-t text-left">
-                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between text-muted-foreground text-sm gap-3">
-                  <div className="flex items-center space-x-2">
-                    <Calendar className="w-4 h-4" />
-                    <span>Sunday, Oct 20th</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Clock className="w-4 h-4" />
-                    <span>9:00 AM - 1:30 PM</span>
-                  </div>
-                </div>
-                <div className="mt-4 text-center sm:text-right">
-                  <Link to="/events">
-                    <Button variant="secondary" className="font-semibold">
-                      More Events
-                    </Button>
-                  </Link>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
+  <div className="max-w-6xl mx-auto">
+    <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+      <div className="grid grid-cols-1 md:grid-cols-2">
+        {/* Left side: Image */}
+        <div className="bg-gray-200">
+          <img
+            src="/event-image.jpg"
+            alt="Upcoming Event"
+            className="w-full h-full object-cover md:h-[350px]"
+          />
         </div>
-      </section>
+
+        {/* Right side: Details */}
+        <div className="text-left p-8 flex flex-col justify-center">
+          <CardHeader className="p-0">
+            <CardTitle className="text-2xl font-bold text-primary mb-3">
+              Annual Youth Conference 2025
+            </CardTitle>
+            <div className="flex flex-wrap items-center text-muted-foreground text-sm space-x-4 mb-4">
+              <div className="flex items-center space-x-2">
+                <Calendar className="w-4 h-4" />
+                <span>October 12, 2025</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <MapPin className="w-4 h-4" />
+                <span>KAG South C Church</span>
+              </div>
+            </div>
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              Join us for a spirit-filled weekend of worship, teaching, and fellowship.  
+              Discover your purpose and ignite your passion for Christ alongside other believers.
+            </p>
+          </CardHeader>
+
+          <CardContent className="p-0 mt-5">
+            <Link to="/events">
+              <Button className="font-semibold">Learn More</Button>
+            </Link>
+          </CardContent>
+        </div>
+      </div>
+    </Card>
+  </div>
+</div>
+
 
       {/* Call to Action */}
       <section className="py-20">
@@ -295,32 +297,54 @@ const Services = () => {
       </section>
 
       {/* Prayer Requests Section */}
-      <section className="py-20 bg-muted/30">
-        <div className="container mx-auto px-4 text-center">
-          <Card className="overflow-hidden max-w-3xl mx-auto shadow-lg">
-            <img
-              src={prayerImage}
-              alt="Prayer Request"
-              className="w-full h-64 object-cover"
-            />
-            <CardHeader>
-              <CardTitle className="text-2xl font-bold text-primary">
-                Send Your Prayer Requests
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground mb-6">
-                We believe in the power of prayer. Share your prayer requests with us, and our pastoral team will stand with you in faith.
-              </p>
-              <Link to="/contact">
-                <Button size="lg" className="font-semibold">
-                  Submit Prayer Request
-                </Button>
-              </Link>
-            </CardContent>
-          </Card>
+   <div className="mt-20 text-center">
+  <h3 className="font-heading text-3xl font-bold text-primary mb-6">
+    Prayer Request
+  </h3>
+
+  <div className="max-w-6xl mx-auto">
+    <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+      <div className="grid grid-cols-1 md:grid-cols-2">
+        {/* Left side: Image */}
+        <div className="bg-gray-100">
+          <img
+            src="/prayer-image.jpg"
+            alt="Prayer Request"
+            className="w-full h-full object-cover md:h-[350px]"
+          />
         </div>
-      </section>
+
+        {/* Right side: Form */}
+        <div className="text-left p-8 flex flex-col justify-center">
+          <CardHeader className="p-0 mb-4">
+            <CardTitle className="text-2xl font-bold text-primary mb-2">
+              Submit a Prayer Request
+            </CardTitle>
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              We believe in the power of prayer. Share your request below and our team will stand with you in faith.
+            </p>
+          </CardHeader>
+
+          <CardContent className="p-0">
+            <form className="flex flex-col space-y-3 text-left">
+              <input
+                type="text"
+                placeholder="Your Name"
+                className="border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+              />
+              <textarea
+                placeholder="Your prayer request..."
+                rows={4}
+                className="border rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-primary"
+              ></textarea>
+              <Button className="mt-2 font-semibold">Send Request</Button>
+            </form>
+          </CardContent>
+        </div>
+      </div>
+    </Card>
+  </div>
+</div>
     </>
   );
 };
