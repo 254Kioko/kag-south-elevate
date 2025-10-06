@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 import eventImage from "@/assets/upcoming-event.jpg"; 
-import eventImage from "@/assets/prayer-placeholder.jpg"; 
+import prayerImage from "@/assets/prayer-placeholder.jpg"; // ✅ fixed: unique variable name
 
 const Services = () => {
   const services = [
