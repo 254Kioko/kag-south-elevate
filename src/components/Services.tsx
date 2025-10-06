@@ -292,6 +292,7 @@ const Services = () => {
         <h3 className="font-heading text-3xl font-bold text-primary mb-6">
     Share Your Prayer Needs
         </h3>
+           </div>
         <div className="container mx-auto px-4 text-center">
           <Card className="overflow-hidden max-w-4xl mx-auto shadow-lg flex flex-col md:flex-row">
             <img
