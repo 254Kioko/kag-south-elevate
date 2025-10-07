@@ -100,17 +100,17 @@ const Services = () => {
   return (
     <>
       {/* Services Section */}
-      <section id="services" className="py-24 bg-background">
+      <section id="services" className="py-12 bg-background">
         <div className="container mx-auto px-4">
           <h2 className="font-heading text-4xl md:text-5xl font-bold text-center mb-6 text-primary">
             Service Times
           </h2>
-          <p className="text-lg text-muted-foreground text-center max-w-2xl mx-auto mb-20">
+          <p className="text-lg text-muted-foreground text-center max-w-2xl mx-auto mb-12">
             Join us for worship, fellowship, and spiritual growth. We have multiple services to accommodate different preferences and schedules.
           </p>
 
-          <div className="mb-24">
-            <h3 className="font-heading text-3xl font-bold text-center mb-12 text-primary">
+          <div className="mb-12">
+            <h3 className="font-heading text-3xl font-bold text-center mb-8 text-primary">
               Sunday Services
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
