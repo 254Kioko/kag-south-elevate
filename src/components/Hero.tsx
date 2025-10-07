@@ -54,16 +54,20 @@ const Hero = () => {
 
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in">
-          <Link to="/sermons">
-            <Button
-              size="default"
-              variant="secondary"
-              className="font-semibold px-6 py-3 text-base shadow-elegant hover-scale"
-            >
-              <Play className="w-5 h-5 mr-2" />
-              Watch Latest Service
-            </Button>
-          </Link>
+          <Button
+            size="default"
+            variant="secondary"
+            className="font-semibold px-6 py-3 text-base shadow-elegant hover-scale"
+            onClick={() => {
+              const latestService = document.getElementById("latest-service");
+              if (latestService) {
+                latestService.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
+          >
+            <Play className="w-5 h-5 mr-2" />
+            Watch Latest Service
+          </Button>
 
           <a
             href="https://maps.app.goo.gl/FLKDdmePNH9QLRgm6"

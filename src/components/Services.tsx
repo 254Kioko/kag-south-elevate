@@ -164,7 +164,7 @@ const Services = () => {
       </section>
 
       {/* Latest Sermon */}
-      <section className="py-24 bg-muted/30">
+      <section id="latest-service" className="py-16 bg-muted/30">
         <div className="container mx-auto px-4">
           <h3 className="font-heading text-3xl md:text-4xl font-bold text-center text-primary mb-12">
             Latest Service
@@ -220,7 +220,7 @@ const Services = () => {
       </section>
 
       {/* Upcoming Event */}
-      <section className="py-24 bg-background">
+      <section className="py-16 bg-background">
         <div className="container mx-auto px-4 text-center">
           <h3 className="font-heading text-3xl md:text-4xl font-bold mb-6 text-primary">
             Upcoming Event
@@ -270,7 +270,7 @@ const Services = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-24 bg-muted/30">
+      <section className="py-16 bg-muted/30">
         <div className="container mx-auto px-4">
           <div className="text-center bg-gradient-primary rounded-2xl p-12 text-primary-foreground shadow-elegant max-w-4xl mx-auto">
             <h3 className="font-heading text-2xl md:text-3xl font-semibold mb-4">
@@ -290,7 +290,7 @@ const Services = () => {
       </section>
 
       {/* Prayer Requests Section */}
-      <section className="py-24 bg-background">
+      <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
             <h3 className="font-heading text-3xl md:text-4xl font-bold text-primary mb-4">
