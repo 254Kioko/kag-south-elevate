@@ -14,7 +14,6 @@ import mediaTeam from "@/assets/mediateam.png";
 const Ministries = () => {
   const ministries = [
     {
-      icon: GraduationCap,
       title: "Men's Fellowship",
       description:
         "Building strong Christian men through fellowship, accountability, and spiritual growth.",
@@ -23,7 +22,6 @@ const Ministries = () => {
       image: mensFellowship,
     },
     {
-      icon: Heart,
       title: "WWK - Women's Ministry",
       description:
         "Supporting women in their spiritual journey through fellowship, Bible study, and community service.",
@@ -32,7 +30,6 @@ const Ministries = () => {
       image: womensMinistry,
     },
     {
-      icon: Users,
       title: "Youth Ministry",
       description:
         "Empowering young people to grow in faith and leadership through dynamic programs and mentorship.",
@@ -41,7 +38,6 @@ const Ministries = () => {
       image: youthMinistry,
     },
     {
-      icon: UserCheck,
       title: "Teens Ministry",
       description:
         "Helping believers grow deeper in their faith through structured learning and mentorship.",
@@ -50,7 +46,6 @@ const Ministries = () => {
       image: teensMinistry,
     },
     {
-      icon: Baby,
       title: "Children's Ministry",
       description:
         "Nurturing children's faith through age-appropriate teaching, activities, and loving care.",
@@ -59,7 +54,6 @@ const Ministries = () => {
       image: childrenMinistry,
     },
     {
-      icon: Music,
       title: "Praise & Worship",
       description:
         "Leading the congregation in heartfelt worship through music, choir, and creative arts.",
@@ -68,7 +62,6 @@ const Ministries = () => {
       image: praiseWorship,
     },
     {
-      icon: Music,
       title: "Choir",
       description:
         "Leading the congregation in heartfelt worship through music, choir, and creative arts.",
@@ -77,7 +70,6 @@ const Ministries = () => {
       image: choir,
     },
     {
-      icon: Music,
       title: "Media Team",
       description:
         "Capturing and amplifying the message of Christ through sound, visuals, and technology to enhance worship and extend outreach.",
