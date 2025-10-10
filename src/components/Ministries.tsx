@@ -1,14 +1,14 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 // ✅ Import images from src/assets
-import mensFellowship from "@/assets/mens-fellowship.jpg";
-import womensMinistry from "@/assets/womens-ministry.jpg";
-import youthMinistry from "@/assets/youth-ministry.jpg";
-import teensMinistry from "@/assets/teens-ministry.jpg";
-import childrenMinistry from "@/assets/children-ministry.jpg";
-import praiseWorship from "@/assets/praise-worship.jpg";
-import choir from "@/assets/choir.jpg";
-import mediaTeam from "@/assets/media-team.jpg";
+import mensFellowship from "@/assets/MF.jpg";
+import womensMinistry from "@/assets/WWK.webp";
+import youthMinistry from "@/assets/youth.jpeg";
+import teensMinistry from "@/assets/teens.jpg";
+import childrenMinistry from "@/assets/children.jpeg";
+import praiseWorship from "@/assets/praise.jpg";
+import choir from "@/assets/choir.webp";
+import mediaTeam from "@/assets/mediateam.png";
 
 const Ministries = () => {
   const ministries = [
