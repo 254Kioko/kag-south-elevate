@@ -1,11 +1,12 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Users, Heart, Baby, Music, GraduationCap, HandHeart, UserCheck, BookOpen } from "lucide-react";
+import { Users, Heart, Baby, Music, GraduationCap, UserCheck } from "lucide-react";
 
 const Ministries = () => {
   const ministries = [
     {
       icon: GraduationCap,
       title: "Men's Fellowship",
+      image: "/images/mens-fellowship.jpg",
       description: "Building strong Christian men through fellowship, accountability, and spiritual growth.",
       activities: ["Men's Fellowship", "Bible Study", "Accountability Groups", "Community Projects"],
       color: "bg-gradient-secondary"
@@ -13,6 +14,7 @@ const Ministries = () => {
     {
       icon: Heart,
       title: "WWK - Women's Ministry", 
+      image: "/images/womens-ministry.jpg",
       description: "Supporting women in their spiritual journey through fellowship, Bible study, and community service.",
       activities: ["Bible Study Groups", "Community Service", "Mentorship Programs", "Prayer Circles"],
       color: "bg-gradient-secondary"
@@ -20,20 +22,23 @@ const Ministries = () => {
     {
       icon: Users,
       title: "Youth Ministry",
+      image: "/images/youth-ministry.jpg",
       description: "Empowering young people to grow in faith and leadership through dynamic programs and mentorship.",
       activities: ["Youth Sunday Services", "Leadership Training", "Community Outreach", "Sports & Recreation"],
       color: "bg-gradient-primary"
     },
-     {
+    {
       icon: UserCheck,
       title: "Teens Ministry",
+      image: "/images/teens-ministry.jpg",
       description: "Helping believers grow deeper in their faith through structured learning and mentorship.",
       activities: ["New Member Classes", "Bible Study", "Mentorship", "Leadership Development"],
       color: "bg-gradient-primary"
     },
-      {
+    {
       icon: Baby,
       title: "Children's Ministry",
+      image: "/images/children-ministry.jpg",
       description: "Nurturing children's faith through age-appropriate teaching, activities, and loving care.",
       activities: ["Sunday School", "Vacation Bible School", "Children's Choir", "Family Events"],
       color: "bg-accent"
@@ -41,23 +46,32 @@ const Ministries = () => {
     {
       icon: Music,
       title: "Praise & Worship",
+      image: "/images/praise-worship.jpg",
       description: "Leading the congregation in heartfelt worship through music, choir, and creative arts.",
       activities: ["Adult Choir", "Youth Band", "Worship Team Training", "Music Lessons"],
       color: "bg-gradient-primary"
     },
     {
       icon: Music,
+      title: "Choir",
+      image: "/images/choir.jpg",
+      description: "Leading the congregation in heartfelt worship through music, choir, and creative arts.",
+      activities: ["Adult Choir", "Youth Band", "Choir Practice", "Music Lessons"],
+      color: "bg-gradient-primary"
+    },
+    {
+      icon: Music,
       title: "Media Team",
+      image: "/images/media-team.jpg",
       description: "Capturing and amplifying the message of Christ through sound, visuals, and technology to enhance worship and extend outreach.",
       activities: [
         "Sound & Audio Engineering",
         "Live Streaming & Video Production",
         "Photography & Graphic Design",
-        "Projection & Lighting Support",
-        "Social Media & Content Creation"
+        "Projection & Lighting Support"
       ],
       color: "bg-gradient-primary"
-    } // ✅ Added missing comma here
+    }
   ];
 
   return (
@@ -78,6 +92,15 @@ const Ministries = () => {
             const IconComponent = ministry.icon;
             return (
               <Card key={index} className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-2">
+                {/* Ministry Image */}
+                <div className="relative h-40 w-full overflow-hidden rounded-t-xl">
+                  <img 
+                    src={ministry.image} 
+                    alt={ministry.title} 
+                    className="h-full w-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                </div>
+
                 <CardHeader className="pb-4">
                   <div className={`w-16 h-16 ${ministry.color} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
                     <IconComponent className="w-8 h-8 text-primary-foreground" />
@@ -86,6 +109,7 @@ const Ministries = () => {
                     {ministry.title}
                   </CardTitle>
                 </CardHeader>
+
                 <CardContent className="pt-0">
                   <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
                     {ministry.description}
