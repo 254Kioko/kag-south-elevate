@@ -24,6 +24,20 @@ const Ministries = () => {
       activities: ["Youth Sunday Services", "Leadership Training", "Community Outreach", "Sports & Recreation"],
       color: "bg-gradient-primary"
     },
+     {
+      icon: UserCheck,
+      title: "Teens Ministry",
+      description: "Helping believers grow deeper in their faith through structured learning and mentorship.",
+      activities: ["New Member Classes", "Bible Study", "Mentorship", "Leadership Development"],
+      color: "bg-gradient-primary"
+    },
+      {
+      icon: Baby,
+      title: "Children's Ministry",
+      description: "Nurturing children's faith through age-appropriate teaching, activities, and loving care.",
+      activities: ["Sunday School", "Vacation Bible School", "Children's Choir", "Family Events"],
+      color: "bg-accent"
+    },
     {
       icon: Music,
       title: "Praise & Worship",
@@ -43,35 +57,7 @@ const Ministries = () => {
         "Social Media & Content Creation"
       ],
       color: "bg-gradient-primary"
-    }, // ✅ Added missing comma here
-    {
-      icon: Baby,
-      title: "Children's Ministry",
-      description: "Nurturing children's faith through age-appropriate teaching, activities, and loving care.",
-      activities: ["Sunday School", "Vacation Bible School", "Children's Choir", "Family Events"],
-      color: "bg-accent"
-    },
-    {
-      icon: HandHeart,
-      title: "Community Outreach",
-      description: "Serving our local community through various programs and humanitarian efforts.",
-      activities: ["Food Programs", "Medical Camps", "Education Support", "Elderly Care"],
-      color: "bg-accent"
-    },
-    {
-      icon: UserCheck,
-      title: "Discipleship",
-      description: "Helping believers grow deeper in their faith through structured learning and mentorship.",
-      activities: ["New Member Classes", "Bible Study", "Mentorship", "Leadership Development"],
-      color: "bg-gradient-primary"
-    },
-    {
-      icon: BookOpen,
-      title: "Prayer Ministry",
-      description: "Interceding for the church and community through organized prayer initiatives.",
-      activities: ["Prayer Groups", "Intercessory Prayer", "Healing Ministry", "Prayer Requests"],
-      color: "bg-gradient-secondary"
-    }
+    } // ✅ Added missing comma here
   ];
 
   return (
