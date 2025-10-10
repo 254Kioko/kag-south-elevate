@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-// ✅ Import ministry images (make sure these filenames match your assets)
+// ✅ Import images from src/assets
 import mensFellowship from "@/assets/mens-fellowship.jpg";
 import womensMinistry from "@/assets/womens-ministry.jpg";
 import youthMinistry from "@/assets/youth-ministry.jpg";
@@ -78,7 +78,6 @@ const Ministries = () => {
   return (
     <section id="ministries" className="py-20 bg-gradient-warm">
       <div className="container mx-auto px-4">
-        {/* Header */}
         <div className="text-center mb-16">
           <h2 className="font-heading text-4xl md:text-5xl font-bold mb-6 text-primary">
             Our Ministries
@@ -89,14 +88,12 @@ const Ministries = () => {
           </p>
         </div>
 
-        {/* Ministry Cards */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
           {ministries.map((ministry, index) => (
             <Card
               key={index}
               className="group hover:shadow-elegant transition-all duration-300 hover:-translate-y-2 overflow-hidden"
             >
-              {/* Ministry Image */}
               <div className="relative h-40 w-full overflow-hidden">
                 <img
                   src={ministry.image}
@@ -104,8 +101,6 @@ const Ministries = () => {
                   className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
-
-              {/* Ministry Info */}
               <CardHeader className="pb-4">
                 <CardTitle className="font-heading text-xl text-primary group-hover:text-primary-glow transition-colors">
                   {ministry.title}
@@ -134,7 +129,6 @@ const Ministries = () => {
           ))}
         </div>
 
-        {/* Call to Action */}
         <div className="text-center bg-gradient-primary rounded-2xl p-8 text-primary-foreground shadow-elegant">
           <h3 className="font-heading text-2xl font-semibold mb-4">
             Ready to Get Involved?
