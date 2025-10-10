@@ -1,5 +1,4 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Users, Heart, Baby, Music, GraduationCap, UserCheck } from "lucide-react";
 
 // ✅ Import ministry images (make sure these filenames match exactly)
 import mensFellowship from "@/assets/MF.jpg";
