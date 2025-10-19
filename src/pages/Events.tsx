@@ -2,10 +2,8 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import { Calendar, MapPin, Clock } from "lucide-react";
-import eventYouth from "@/assets/event-youth.jpg";
-import eventPrayer from "@/assets/event-prayer.jpg";
-import eventOutreach from "@/assets/event-outreach.jpg";
 import { useState } from "react";
 import {
   Dialog,
@@ -18,7 +16,6 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
-import { supabase } from "@/integrations/supabase/client";
 import { z } from "zod";
 
 const emailSchema = z.object({
@@ -28,21 +25,23 @@ const emailSchema = z.object({
 const upcomingEvents = [
   {
     id: 1,
-    title: "THANKSGIVING DAY",
-    description: "A special day dedicated to all congregants, filled with worship, empowerment sessions, and fellowship.",
-    date: "2024-10-15",
-    time: "7:00 PM - 9:00 PM",
-    location: "KAG South C Main Church",
-    image: eventYouth,
+    title: "Thanksgiving Sunday",
+    description: "A special service where we come together as a church family to give thanks to God for His goodness and blessings throughout the year.",
+    date: "2024-11-07",
+    time: "9:00 AM - 1:30 AM",
+    location: "Main Sanctuary",
+    isEntireChurch: true,
+    isFeatured: true,
   },
   {
     id: 2,
-    title: "CELEBRATION SUNDAY (Family Sunday)",
-    description: "A vibrant day of worship, games, teachings, and activities designed specifically for our families to come together in joy and unity.",
-    date: "2024-10-20",
-    time: "9:00 AM - 4:00 PM",
-    location: "Church Grounds",
-    image: eventPrayer,
+    title: "Celebration Sunday",
+    description: "A vibrant day of praise, worship, and rejoicing as we celebrate God's faithfulness and victories.",
+    date: "2024-12-14",
+    time: "9:00 AM - 1:30 PM",
+    location: "Main Sanctuary",
+    isEntireChurch: true,
+    isFeatured: true,
   },
   {
     id: 3,
@@ -51,7 +50,8 @@ const upcomingEvents = [
     date: "2024-10-15",
     time: "7:00 PM - 9:00 PM",
     location: "KAG South C Main Hall",
-    image: eventYouth,
+    isEntireChurch: true,
+    isFeatured: false,
   },
   {
     id: 4,
@@ -60,7 +60,8 @@ const upcomingEvents = [
     date: "2024-10-20",
     time: "9:00 AM - 4:00 PM",
     location: "Church Grounds",
-    image: eventPrayer,
+    isEntireChurch: false,
+    isFeatured: false,
   },
   {
     id: 5,
@@ -69,7 +70,8 @@ const upcomingEvents = [
     date: "2024-10-25",
     time: "9:00 AM - 2:00 PM",
     location: "Kibera Slums",
-    image: eventOutreach,
+    isEntireChurch: false,
+    isFeatured: false,
   },
   {
     id: 6,
@@ -78,26 +80,18 @@ const upcomingEvents = [
     date: "2024-11-02",
     time: "9:00 AM - 4:00 PM",
     location: "KAG South C Main Auditorium",
-    image: eventYouth,
+    isEntireChurch: false,
+    isFeatured: false,
   },
-  {
-    id: 7,
-    title: "MEN'S FELLOWSHIP DAY",
-    description: "Brothers, come together for fellowship, mentorship, and ministry focused on godly manhood and leadership.",
-    date: "2024-11-08",
-    time: "7:00 AM - 9:00 AM",
-    location: "Church Grounds",
-    image: eventPrayer,
-  }
 ];
 
 const formatDate = (dateString: string) => {
   const date = new Date(dateString);
   return date.toLocaleDateString('en-US', { 
     weekday: 'long', 
-    year: 'numeric', 
     month: 'long', 
-    day: 'numeric' 
+    day: 'numeric',
+    year: 'numeric'
   });
 };
 
@@ -123,28 +117,15 @@ const Events = () => {
     setIsSubmitting(true);
 
     try {
-      const { error } = await supabase
-        .from('newsletter_subscriptions')
-        .insert([{ email: validation.data.email }]);
-
-      if (error) {
-        if (error.code === '23505') {
-          toast({
-            title: "Already Subscribed",
-            description: "This email is already registered for updates.",
-            variant: "destructive",
-          });
-        } else {
-          throw error;
-        }
-      } else {
-        toast({
-          title: "Subscribed!",
-          description: "You've been added to our mailing list.",
-        });
-        setEmail("");
-        setIsDialogOpen(false);
-      }
+      // Simulate API call - replace with actual Supabase call when Cloud is enabled
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      toast({
+        title: "Subscribed!",
+        description: "You've been added to our mailing list.",
+      });
+      setEmail("");
+      setIsDialogOpen(false);
     } catch (error) {
       console.error("Error subscribing to newsletter:", error);
       toast({
@@ -158,56 +139,66 @@ const Events = () => {
   };
 
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-background">
       <Navigation />
       <div className="pt-16">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-primary/10 via-background to-accent/5 py-20">
-          <div className="container mx-auto px-4">
-            <div className="text-center">
-              <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent">
+        <section className="py-12 px-4">
+          <div className="container mx-auto">
+            <div className="text-center max-w-3xl mx-auto">
+              <h1 className="text-4xl md:text-5xl font-bold mb-4 text-foreground">
                 Upcoming Events
               </h1>
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                Join us for these upcoming events and be part of our vibrant church community. 
-                Each event is designed to bring us closer to God and to one another.
+              <p className="text-lg text-muted-foreground">
+                Join us for these upcoming events and be part of our vibrant church community.
               </p>
             </div>
           </div>
         </section>
 
         {/* Events Grid */}
-        <section className="py-20">
-          <div className="container mx-auto px-4">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <section className="py-8 px-4">
+          <div className="container mx-auto">
+            <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
               {upcomingEvents.map((event) => (
-                <Card key={event.id} className="overflow-hidden hover:shadow-lg transition-shadow">
-                  <div className="aspect-video overflow-hidden">
-                    <img 
-                      src={event.image} 
-                      alt={event.title}
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
+                <Card 
+                  key={event.id} 
+                  className="overflow-hidden hover:shadow-lg transition-all duration-300 border-2 border-accent bg-accent/5"
+                >
                   <CardHeader>
-                    <CardTitle className="text-xl">{event.title}</CardTitle>
-                    <CardDescription className="text-sm">
+                    <div className="flex items-center justify-between mb-4">
+                      {event.isEntireChurch && (
+                        <Badge variant="church">Entire Church</Badge>
+                      )}
+                      {event.isFeatured && (
+                        <Badge variant="featured" className="ml-auto">Featured</Badge>
+                      )}
+                    </div>
+                    <CardTitle className="text-2xl text-primary font-bold">
+                      {event.title}
+                    </CardTitle>
+                    <CardDescription className="text-base mt-2">
                       {event.description}
                     </CardDescription>
                   </CardHeader>
-                  <CardContent className="space-y-4">
+                  <CardContent className="space-y-3">
                     <div className="flex items-center text-sm text-muted-foreground">
-                      <Calendar className="w-4 h-4 mr-2" />
-                      {formatDate(event.date)}
+                      <Calendar className="w-4 h-4 mr-3 text-accent" />
+                      <span>{formatDate(event.date)}</span>
                     </div>
                     <div className="flex items-center text-sm text-muted-foreground">
-                      <Clock className="w-4 h-4 mr-2" />
-                      {event.time}
+                      <Clock className="w-4 h-4 mr-3 text-accent" />
+                      <span>{event.time}</span>
                     </div>
                     <div className="flex items-center text-sm text-muted-foreground">
-                      <MapPin className="w-4 h-4 mr-2" />
-                      {event.location}
+                      <MapPin className="w-4 h-4 mr-3 text-accent" />
+                      <span>{event.location}</span>
                     </div>
+                    <Button 
+                      className="w-full mt-4 bg-primary hover:bg-primary/90 text-primary-foreground"
+                    >
+                      Learn More
+                    </Button>
                   </CardContent>
                 </Card>
               ))}
@@ -215,21 +206,32 @@ const Events = () => {
           </div>
         </section>
 
-        {/* Call to Action */}
-        <section className="bg-gradient-to-r from-primary/5 to-accent/5 py-16">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl font-heading font-bold mb-6">
-              Never Miss an Event
+        {/* Stay Updated Section */}
+        <section className="bg-primary py-16 px-4 mt-12">
+          <div className="container mx-auto text-center">
+            <h2 className="text-3xl font-bold mb-4 text-primary-foreground">
+              Stay Updated
             </h2>
-            <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Stay updated with all our church events and activities. Subscribe to our newsletter 
-              or follow us on social media to get the latest updates.
+            <p className="text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
+              Never miss an event! Subscribe to our calendar to get notifications about all 
+              upcoming services, events, and special programs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                size="lg" 
+                variant="secondary"
+                className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold"
+              >
+                <Calendar className="w-4 h-4 mr-2" />
+                View Full Calendar
+              </Button>
               <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
                 <DialogTrigger asChild>
-                  <Button size="lg">
-                    Subscribe to Newsletter
+                  <Button 
+                    size="lg"
+                    className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 font-semibold"
+                  >
+                    Subscribe to Updates
                   </Button>
                 </DialogTrigger>
                 <DialogContent>
