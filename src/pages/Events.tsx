@@ -207,31 +207,22 @@ const Events = () => {
         </section>
 
         {/* Stay Updated Section */}
-        <section className="bg-primary py-16 px-4 mt-12">
-          <div className="container mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-4 text-primary-foreground">
-              Stay Updated
+       
+        {/* Call to Action */}
+        <section className="bg-gradient-to-r from-primary/5 to-accent/5 py-16">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-3xl font-heading font-bold mb-6">
+              Never Miss an Event
             </h2>
-            <p className="text-primary-foreground/90 mb-8 max-w-2xl mx-auto">
-              Never miss an event! Subscribe to our calendar to get notifications about all 
-              upcoming services, events, and special programs.
+            <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Stay updated with all our church events and activities. Subscribe to our newsletter 
+              or follow us on social media to get the latest updates.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button 
-                size="lg" 
-                variant="secondary"
-                className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold"
-              >
-                <Calendar className="w-4 h-4 mr-2" />
-                View Full Calendar
-              </Button>
               <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
                 <DialogTrigger asChild>
-                  <Button 
-                    size="lg"
-                    className="bg-primary-foreground text-primary hover:bg-primary-foreground/90 font-semibold"
-                  >
-                    Subscribe to Updates
+                  <Button size="lg">
+                    Subscribe to Newsletter
                   </Button>
                 </DialogTrigger>
                 <DialogContent>
