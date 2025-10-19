@@ -1,7 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { Play, Calendar, Users, Heart } from "lucide-react";
-import { Link } from "react-router-dom"; 
-import heroImage from "@/assets/church-hero.jpg";
+import { Link } from "react-router-dom";
+import mainImage from "@/assets/main.jpeg";
+import heroImage2 from "@/assets/hero3.jpeg";
+import heroImage3 from "@/assets/hero2.jpeg";
 import {
   Carousel,
   CarouselContent,
@@ -37,10 +39,10 @@ const Hero = () => {
           {/* Slide 1: Welcome Slide */}
           <CarouselItem>
             <div className="relative min-h-screen flex items-center justify-center">
-              {/* Background Image with Overlay */}
+              {/* Background Image */}
               <div className="absolute inset-0">
                 <img
-                  src={heroImage}
+                  src={mainImage}
                   alt="KAG South C Church worship service with congregation"
                   className="w-full h-full object-cover"
                 />
@@ -49,7 +51,6 @@ const Hero = () => {
 
               {/* Content */}
               <div className="relative z-10 text-center text-primary-foreground px-4 max-w-3xl mx-auto">
-                {/* Logo & Heading */}
                 <div className="mb-6 flex justify-center">
                   <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full shadow-elegant animate-fade-in">
                     <span className="text-white font-medium text-base font-body">
@@ -134,10 +135,10 @@ const Hero = () => {
           {/* Slide 2: Men's Fellowship */}
           <CarouselItem>
             <div className="relative min-h-screen flex items-center justify-center">
-              {/* Background Image with Overlay */}
+              {/* Background Image */}
               <div className="absolute inset-0">
                 <img
-                  src={heroImage}
+                  src={heroImage2}
                   alt="Men's Fellowship gathering at KAG South C"
                   className="w-full h-full object-cover"
                 />
@@ -196,10 +197,10 @@ const Hero = () => {
           {/* Slide 3: Thanksgiving Day */}
           <CarouselItem>
             <div className="relative min-h-screen flex items-center justify-center">
-              {/* Background Image with Overlay */}
+              {/* Background Image */}
               <div className="absolute inset-0">
                 <img
-                  src={heroImage}
+                  src={heroImage3}
                   alt="Thanksgiving celebration at KAG South C"
                   className="w-full h-full object-cover"
                 />
@@ -259,6 +260,7 @@ const Hero = () => {
           </CarouselItem>
         </CarouselContent>
 
+        {/* Navigation Arrows */}
         <CarouselPrevious className="left-4 bg-white/20 backdrop-blur-md border-white/30 text-white hover:bg-white/30" />
         <CarouselNext className="right-4 bg-white/20 backdrop-blur-md border-white/30 text-white hover:bg-white/30" />
       </Carousel>
