@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import mainImage from "@/assets/main.jpeg";
 import hero3Image from "@/assets/hero3.jpeg";
-import hero1Image from "@/assets/hero1.jpg";
+import hero1Image from "@/assets/hero1.jpeg";
 
 interface Slide {
   id: number;
