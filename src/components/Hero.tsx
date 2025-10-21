@@ -8,8 +8,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 
@@ -31,6 +29,8 @@ const Hero = () => {
         plugins={[
           Autoplay({
             delay: 5000,
+            stopOnInteraction: false,
+            stopOnMouseEnter: false,
           }),
         ]}
         className="w-full h-screen"
@@ -45,6 +45,7 @@ const Hero = () => {
                   src={mainImage}
                   alt="KAG South C Church worship service with congregation"
                   className="w-full h-full object-cover"
+                  style={{ filter: "brightness(1.1) contrast(1.05)" }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/60 via-primary/40 to-transparent"></div>
               </div>
@@ -141,6 +142,7 @@ const Hero = () => {
                   src={heroImage2}
                   alt="Men's Fellowship gathering at KAG South C"
                   className="w-full h-full object-cover"
+                  style={{ filter: "brightness(1.1) contrast(1.05)" }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/70 via-primary/50 to-accent/30"></div>
               </div>
@@ -173,7 +175,7 @@ const Hero = () => {
                     </p>
                   </div>
                   <p className="text-lg md:text-xl text-white/95 max-w-2xl mx-auto leading-relaxed font-body">
-                    Join us for a powerful time of fellowship, worship, and encouragement. 
+                    Join us for a powerful time of fellowship, worship, and encouragement.
                     Building godly men, strengthening families, and impacting our community together.
                   </p>
                 </div>
@@ -203,6 +205,7 @@ const Hero = () => {
                   src={heroImage3}
                   alt="Thanksgiving celebration at KAG South C"
                   className="w-full h-full object-cover"
+                  style={{ filter: "brightness(1.1) contrast(1.05)" }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-accent/70 via-primary/50 to-secondary/30"></div>
               </div>
@@ -235,7 +238,7 @@ const Hero = () => {
                     </p>
                   </div>
                   <p className="text-lg md:text-xl text-white/95 max-w-2xl mx-auto leading-relaxed mb-4 font-body">
-                    Join us as we gather to give thanks to God for His abundant blessings, 
+                    Join us as we gather to give thanks to God for His abundant blessings,
                     faithfulness, and love throughout the year.
                   </p>
                   <p className="text-xl font-semibold text-secondary animate-pulse font-body">
@@ -259,10 +262,6 @@ const Hero = () => {
             </div>
           </CarouselItem>
         </CarouselContent>
-
-        {/* Navigation Arrows */}
-        <CarouselPrevious className="left-4 bg-white/20 backdrop-blur-md border-white/30 text-white hover:bg-white/30" />
-        <CarouselNext className="right-4 bg-white/20 backdrop-blur-md border-white/30 text-white hover:bg-white/30" />
       </Carousel>
 
       {/* Scroll Indicator */}
