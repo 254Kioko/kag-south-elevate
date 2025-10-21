@@ -45,9 +45,7 @@ const slides: Slide[] = [
         variant: "secondary",
         action: () => {
           const latestService = document.getElementById("latest-service");
-          if (latestService) {
-            latestService.scrollIntoView({ behavior: "smooth" });
-          }
+          if (latestService) latestService.scrollIntoView({ behavior: "smooth" });
         },
       },
       {
@@ -58,17 +56,17 @@ const slides: Slide[] = [
       },
     ],
     additionalContent: (
-      <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-4 max-w-2xl animate-fade-in">
-        <div className="bg-white/15 backdrop-blur-md rounded-xl p-4 shadow-lg hover:scale-105 transition-transform duration-300">
-          <h3 className="font-semibold mb-2 text-white text-xs md:text-sm">1st Service</h3>
+      <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 max-w-2xl animate-fade-in">
+        <div className="bg-white/15 backdrop-blur-md rounded-xl p-3 sm:p-4 shadow-lg hover:scale-105 transition-transform duration-300">
+          <h3 className="font-semibold mb-1 text-white text-xs md:text-sm">1st Service</h3>
           <p className="text-white/90 text-xs font-medium">7:30 - 8:45 AM</p>
         </div>
-        <div className="bg-white/15 backdrop-blur-md rounded-xl p-4 shadow-lg hover:scale-105 transition-transform duration-300">
-          <h3 className="font-semibold mb-2 text-white text-xs md:text-sm">2nd Service</h3>
+        <div className="bg-white/15 backdrop-blur-md rounded-xl p-3 sm:p-4 shadow-lg hover:scale-105 transition-transform duration-300">
+          <h3 className="font-semibold mb-1 text-white text-xs md:text-sm">2nd Service</h3>
           <p className="text-white/90 text-xs font-medium">9:00 - 11:00 AM</p>
         </div>
-        <div className="bg-white/15 backdrop-blur-md rounded-xl p-4 shadow-lg hover:scale-105 transition-transform duration-300">
-          <h3 className="font-semibold mb-2 text-white text-xs md:text-sm">3rd Service</h3>
+        <div className="bg-white/15 backdrop-blur-md rounded-xl p-3 sm:p-4 shadow-lg hover:scale-105 transition-transform duration-300">
+          <h3 className="font-semibold mb-1 text-white text-xs md:text-sm">3rd Service</h3>
           <p className="text-white/90 text-xs font-medium">11:40 AM - 1:30 PM</p>
         </div>
       </div>
@@ -94,10 +92,10 @@ const slides: Slide[] = [
       },
     ],
     additionalContent: (
-      <div className="bg-white/15 backdrop-blur-md rounded-2xl p-8 mb-8 shadow-lg animate-fade-in">
+      <div className="bg-white/15 backdrop-blur-md rounded-2xl p-6 sm:p-8 mb-8 shadow-lg animate-fade-in">
         <div className="flex items-center justify-center gap-2 mb-4">
           <Calendar className="w-5 h-5 text-secondary" />
-          <p className="text-lg md:text-xl font-bold text-white">October 20th, 2025</p>
+          <p className="text-base sm:text-lg md:text-xl font-bold text-white">October 20th, 2025</p>
         </div>
       </div>
     ),
@@ -122,12 +120,14 @@ const slides: Slide[] = [
       },
     ],
     additionalContent: (
-      <div className="bg-white/15 backdrop-blur-md rounded-2xl p-8 mb-8 shadow-lg animate-fade-in">
+      <div className="bg-white/15 backdrop-blur-md rounded-2xl p-6 sm:p-8 mb-8 shadow-lg animate-fade-in">
         <div className="flex items-center justify-center gap-2 mb-4">
           <Calendar className="w-5 h-5 text-secondary" />
-          <p className="text-lg md:text-xl font-bold text-white">November 14th, 2025</p>
+          <p className="text-base sm:text-lg md:text-xl font-bold text-white">November 14th, 2025</p>
         </div>
-        <p className="text-base font-semibold text-secondary animate-pulse">All Are Welcome! 🙏</p>
+        <p className="text-sm sm:text-base font-semibold text-secondary animate-pulse">
+          All Are Welcome! 🙏
+        </p>
       </div>
     ),
   },
@@ -149,7 +149,7 @@ export const HeroSlider = () => {
 
   return (
     <section
-      className="relative h-screen min-h-[600px] w-full overflow-hidden"
+      className="relative h-[90vh] sm:h-screen min-h-[500px] w-full overflow-hidden"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -168,34 +168,34 @@ export const HeroSlider = () => {
               <img
                 src={slide.image}
                 alt={slide.title}
-                className="h-full w-full object-cover object-center"
+                className="h-full w-full object-cover sm:object-center object-[center_top]"
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/40 via-primary/20 to-transparent md:from-primary/50 md:via-primary/30" />
+              <div className="absolute inset-0 bg-black/40 sm:bg-gradient-to-r sm:from-primary/40 sm:via-primary/20 sm:to-transparent" />
             </div>
 
-            {/* Content - Left aligned like reference */}
+            {/* Content */}
             <div className="absolute inset-0 flex items-center z-10">
               <div className="container mx-auto px-4 sm:px-6 md:px-12 lg:px-20 max-w-7xl">
                 <div className="max-w-3xl text-white">
                   {/* Badge */}
                   <div
                     className={cn(
-                      "mb-6 inline-flex items-center space-x-3 bg-white/10 backdrop-blur-md px-6 py-3 rounded-full shadow-lg transition-all duration-700 delay-100",
+                      "mb-4 sm:mb-6 inline-flex items-center space-x-3 bg-white/10 backdrop-blur-md px-5 sm:px-6 py-2 sm:py-3 rounded-full shadow-lg transition-all duration-700 delay-100",
                       index === currentSlide
                         ? "opacity-100 translate-y-0"
                         : "opacity-0 translate-y-8"
                     )}
                   >
                     {slide.badge.icon}
-                    <span className="text-white font-semibold text-xs md:text-sm">
+                    <span className="text-white font-semibold text-xs sm:text-sm">
                       {slide.badge.text}
                     </span>
                   </div>
 
-                  {/* Title - matching reference style */}
+                  {/* Title */}
                   <h1
                     className={cn(
-                      "text-xl sm:text-2xl md:text-3xl lg:text-4xl font-extrabold mb-2 leading-tight transition-all duration-700 delay-200",
+                      "text-lg sm:text-2xl md:text-3xl lg:text-4xl font-extrabold mb-2 sm:mb-3 leading-snug sm:leading-tight transition-all duration-700 delay-200",
                       index === currentSlide
                         ? "opacity-100 translate-y-0"
                         : "opacity-0 translate-y-8"
@@ -212,7 +212,7 @@ export const HeroSlider = () => {
                   {/* Description */}
                   <p
                     className={cn(
-                      "text-xs sm:text-sm md:text-base mb-6 sm:mb-8 text-white leading-relaxed font-medium drop-shadow-lg max-w-2xl transition-all duration-700 delay-300",
+                      "text-xs sm:text-sm md:text-base mb-4 sm:mb-8 text-white leading-relaxed font-medium drop-shadow-lg max-w-md sm:max-w-2xl transition-all duration-700 delay-300",
                       index === currentSlide
                         ? "opacity-100 translate-y-0"
                         : "opacity-0 translate-y-8"
@@ -224,7 +224,7 @@ export const HeroSlider = () => {
                   {/* Buttons */}
                   <div
                     className={cn(
-                      "flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8 transition-all duration-700 delay-400",
+                      "flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8 w-full sm:w-auto transition-all duration-700 delay-400",
                       index === currentSlide
                         ? "opacity-100 translate-y-0"
                         : "opacity-0 translate-y-8"
@@ -268,7 +268,7 @@ export const HeroSlider = () => {
                     })}
                   </div>
 
-                  {/* Additional Content */}
+                  {/* Extra content */}
                   {slide.additionalContent && (
                     <div
                       className={cn(
@@ -288,8 +288,8 @@ export const HeroSlider = () => {
         ))}
       </div>
 
-      {/* Dots Navigation - No arrow buttons as requested */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-3">
+      {/* Dots */}
+      <div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2 sm:gap-3">
         {slides.map((_, index) => (
           <button
             key={index}
@@ -297,7 +297,7 @@ export const HeroSlider = () => {
             className={cn(
               "h-2 rounded-full transition-all duration-500",
               index === currentSlide
-                ? "w-12 bg-secondary"
+                ? "w-10 sm:w-12 bg-secondary"
                 : "w-2 bg-white/50 hover:bg-white/80"
             )}
             aria-label={`Go to slide ${index + 1}`}
@@ -309,11 +309,9 @@ export const HeroSlider = () => {
       <button
         onClick={() => {
           const nextSection = document.getElementById("about");
-          if (nextSection) {
-            nextSection.scrollIntoView({ behavior: "smooth" });
-          }
+          if (nextSection) nextSection.scrollIntoView({ behavior: "smooth" });
         }}
-        className="absolute bottom-6 left-6 animate-bounce focus:outline-none z-20"
+        className="absolute bottom-4 sm:bottom-6 left-1/2 sm:left-6 -translate-x-1/2 sm:translate-x-0 animate-bounce focus:outline-none z-20"
       >
         <div className="w-5 h-8 border-2 border-white/50 rounded-full flex justify-center items-start">
           <div className="w-1 h-2 bg-white/50 rounded-full mt-2"></div>
