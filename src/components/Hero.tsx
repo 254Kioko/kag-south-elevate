@@ -320,3 +320,4 @@ export const HeroSlider = () => {
     </section>
   );
 };
+export default Hero;
