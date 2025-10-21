@@ -1,323 +1,281 @@
-import { useState, useEffect, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Play, Calendar, Users, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
-import { cn } from "@/lib/utils";
 import mainImage from "@/assets/main.jpeg";
-import hero3Image from "@/assets/hero3.jpeg";
-import hero1Image from "@/assets/hero1.jpeg";
+import heroImage2 from "@/assets/hero3.jpeg";
+import heroImage3 from "@/assets/hero2.jpeg";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
-interface Slide {
-  id: number;
-  image: string;
-  badge: {
-    icon?: React.ReactNode;
-    text: string;
+const Hero = () => {
+  const handleScroll = () => {
+    const nextSection = document.getElementById("about");
+    if (nextSection) {
+      nextSection.scrollIntoView({ behavior: "smooth" });
+    }
   };
-  title: string;
-  subtitle: string;
-  description: string;
-  buttons: Array<{
-    text: string;
-    icon: React.ReactNode;
-    variant: "default" | "outline" | "secondary";
-    action?: () => void;
-    link?: string;
-  }>;
-  additionalContent?: React.ReactNode;
-}
-
-const slides: Slide[] = [
-  {
-    id: 1,
-    image: mainImage,
-    badge: {
-      text: "Welcome to our family",
-    },
-    title: "WELCOME TO",
-    subtitle: "KAG SOUTH C",
-    description:
-      "Where faith finds its home! Join our vibrant congregation for spiritual growth, meaningful fellowship, and life-changing encounters with God's love.",
-    buttons: [
-      {
-        text: "Watch Latest Service",
-        icon: <Play className="w-5 h-5 mr-2" />,
-        variant: "secondary",
-        action: () => {
-          const latestService = document.getElementById("latest-service");
-          if (latestService) latestService.scrollIntoView({ behavior: "smooth" });
-        },
-      },
-      {
-        text: "Visit Us This Sunday",
-        icon: <Calendar className="w-5 h-5 mr-2" />,
-        variant: "outline",
-        link: "https://maps.app.goo.gl/FLKDdmePNH9QLRgm6",
-      },
-    ],
-    additionalContent: (
-      <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4 max-w-2xl animate-fade-in">
-        <div className="bg-white/15 backdrop-blur-md rounded-xl p-3 sm:p-4 shadow-lg hover:scale-105 transition-transform duration-300">
-          <h3 className="font-semibold mb-1 text-white text-xs md:text-sm">1st Service</h3>
-          <p className="text-white/90 text-xs font-medium">7:30 - 8:45 AM</p>
-        </div>
-        <div className="bg-white/15 backdrop-blur-md rounded-xl p-3 sm:p-4 shadow-lg hover:scale-105 transition-transform duration-300">
-          <h3 className="font-semibold mb-1 text-white text-xs md:text-sm">2nd Service</h3>
-          <p className="text-white/90 text-xs font-medium">9:00 - 11:00 AM</p>
-        </div>
-        <div className="bg-white/15 backdrop-blur-md rounded-xl p-3 sm:p-4 shadow-lg hover:scale-105 transition-transform duration-300">
-          <h3 className="font-semibold mb-1 text-white text-xs md:text-sm">3rd Service</h3>
-          <p className="text-white/90 text-xs font-medium">11:40 AM - 1:30 PM</p>
-        </div>
-      </div>
-    ),
-  },
-  {
-    id: 2,
-    image: hero3Image,
-    badge: {
-      icon: <Users className="w-5 h-5 text-white" />,
-      text: "Upcoming Event",
-    },
-    title: "MEN'S FELLOWSHIP",
-    subtitle: "Brothers in Christ",
-    description:
-      "Join us for a powerful time of fellowship, worship, and encouragement. Building godly men, strengthening families, and impacting our community together.",
-    buttons: [
-      {
-        text: "View Event Details",
-        icon: <Calendar className="w-5 h-5 mr-2" />,
-        variant: "secondary",
-        link: "/events",
-      },
-    ],
-    additionalContent: (
-      <div className="bg-white/15 backdrop-blur-md rounded-2xl p-6 sm:p-8 mb-8 shadow-lg animate-fade-in">
-        <div className="flex items-center justify-center gap-2 mb-4">
-          <Calendar className="w-5 h-5 text-secondary" />
-          <p className="text-base sm:text-lg md:text-xl font-bold text-white">October 20th, 2025</p>
-        </div>
-      </div>
-    ),
-  },
-  {
-    id: 3,
-    image: hero1Image,
-    badge: {
-      icon: <Heart className="w-5 h-5 text-white" />,
-      text: "Special Celebration",
-    },
-    title: "THANKSGIVING DAY",
-    subtitle: "A Day of Gratitude",
-    description:
-      "Join us as we gather to give thanks to God for His abundant blessings, faithfulness, and love throughout the year.",
-    buttons: [
-      {
-        text: "Learn More",
-        icon: <Calendar className="w-5 h-5 mr-2" />,
-        variant: "secondary",
-        link: "/events",
-      },
-    ],
-    additionalContent: (
-      <div className="bg-white/15 backdrop-blur-md rounded-2xl p-6 sm:p-8 mb-8 shadow-lg animate-fade-in">
-        <div className="flex items-center justify-center gap-2 mb-4">
-          <Calendar className="w-5 h-5 text-secondary" />
-          <p className="text-base sm:text-lg md:text-xl font-bold text-white">November 14th, 2025</p>
-        </div>
-        <p className="text-sm sm:text-base font-semibold text-secondary animate-pulse">
-          All Are Welcome! 🙏
-        </p>
-      </div>
-    ),
-  },
-];
-
-export const HeroSlider = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-
-  const nextSlide = useCallback(() => {
-    setCurrentSlide((prev) => (prev + 1) % slides.length);
-  }, []);
-
-  useEffect(() => {
-    if (isPaused) return;
-    const interval = setInterval(nextSlide, 5000);
-    return () => clearInterval(interval);
-  }, [isPaused, nextSlide]);
 
   return (
-    <section
-      className="relative h-[90vh] sm:h-screen min-h-[500px] w-full overflow-hidden"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-    >
-      {/* Slides */}
-      <div className="relative h-full w-full">
-        {slides.map((slide, index) => (
-          <div
-            key={slide.id}
-            className={cn(
-              "absolute inset-0 h-full w-full transition-all duration-700 ease-in-out",
-              index === currentSlide ? "opacity-100 z-10" : "opacity-0 z-0"
-            )}
-          >
-            {/* Image with overlay */}
-            <div className="relative h-full w-full">
-              <img
-                src={slide.image}
-                alt={slide.title}
-                className="h-full w-full object-cover sm:object-center object-[center_top]"
-              />
-              <div className="absolute inset-0 bg-black/40 sm:bg-gradient-to-r sm:from-primary/40 sm:via-primary/20 sm:to-transparent" />
-            </div>
+    <section id="home" className="relative min-h-screen overflow-hidden">
+      <Carousel
+        opts={{
+          align: "start",
+          loop: true,
+        }}
+        plugins={[
+          Autoplay({
+            delay: 5000,
+          }),
+        ]}
+        className="w-full h-screen"
+      >
+        <CarouselContent>
+          {/* Slide 1: Welcome Slide */}
+          <CarouselItem>
+            <div className="relative min-h-screen flex items-center justify-center">
+              {/* Background Image */}
+              <div className="absolute inset-0">
+                <img
+                  src={mainImage}
+                  alt="KAG South C Church worship service with congregation"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/60 via-primary/40 to-transparent"></div>
+              </div>
 
-            {/* Content */}
-            <div className="absolute inset-0 flex items-center z-10">
-              <div className="container mx-auto px-4 sm:px-6 md:px-12 lg:px-20 max-w-7xl">
-                <div className="max-w-3xl text-white">
-                  {/* Badge */}
-                  <div
-                    className={cn(
-                      "mb-4 sm:mb-6 inline-flex items-center space-x-3 bg-white/10 backdrop-blur-md px-5 sm:px-6 py-2 sm:py-3 rounded-full shadow-lg transition-all duration-700 delay-100",
-                      index === currentSlide
-                        ? "opacity-100 translate-y-0"
-                        : "opacity-0 translate-y-8"
-                    )}
-                  >
-                    {slide.badge.icon}
-                    <span className="text-white font-semibold text-xs sm:text-sm">
-                      {slide.badge.text}
+              {/* Content */}
+              <div className="relative z-10 text-center text-primary-foreground px-4 max-w-3xl mx-auto">
+                <div className="mb-6 flex justify-center">
+                  <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full shadow-elegant animate-fade-in">
+                    <span className="text-white font-medium text-base font-body">
+                      Welcome to our family
                     </span>
                   </div>
+                </div>
 
-                  {/* Title */}
-                  <h1
-                    className={cn(
-                      "text-lg sm:text-2xl md:text-3xl lg:text-4xl font-extrabold mb-2 sm:mb-3 leading-snug sm:leading-tight transition-all duration-700 delay-200",
-                      index === currentSlide
-                        ? "opacity-100 translate-y-0"
-                        : "opacity-0 translate-y-8"
-                    )}
+                <h1 className="font-heading text-2xl md:text-4xl lg:text-5xl font-extrabold mb-4 leading-snug animate-fade-in">
+                  <span className="block text-white drop-shadow-xl tracking-wide">
+                    WELCOME TO
+                  </span>
+                  <span className="block bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent drop-shadow-md">
+                    KAG SOUTH C
+                  </span>
+                </h1>
+
+                <p className="text-lg md:text-xl mb-8 text-white/95 max-w-2xl mx-auto leading-relaxed font-medium drop-shadow-lg animate-fade-in font-body">
+                  Where faith finds its home! Join our vibrant congregation for spiritual
+                  growth, meaningful fellowship, and life-changing encounters with God's
+                  love.
+                </p>
+
+                {/* Action Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in">
+                  <Button
+                    size="default"
+                    variant="secondary"
+                    className="font-semibold px-6 py-3 text-base shadow-elegant hover-scale font-body"
+                    onClick={() => {
+                      const latestService = document.getElementById("latest-service");
+                      if (latestService) {
+                        latestService.scrollIntoView({ behavior: "smooth" });
+                      }
+                    }}
                   >
-                    <span className="block text-secondary drop-shadow-xl mb-1 sm:mb-2">
-                      {slide.title}
-                    </span>
-                    <span className="block text-white drop-shadow-xl">
-                      {slide.subtitle}
-                    </span>
-                  </h1>
+                    <Play className="w-5 h-5 mr-2" />
+                    Watch Latest Service
+                  </Button>
 
-                  {/* Description */}
-                  <p
-                    className={cn(
-                      "text-xs sm:text-sm md:text-base mb-4 sm:mb-8 text-white leading-relaxed font-medium drop-shadow-lg max-w-md sm:max-w-2xl transition-all duration-700 delay-300",
-                      index === currentSlide
-                        ? "opacity-100 translate-y-0"
-                        : "opacity-0 translate-y-8"
-                    )}
+                  <a
+                    href="https://maps.app.goo.gl/FLKDdmePNH9QLRgm6"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
-                    {slide.description}
-                  </p>
-
-                  {/* Buttons */}
-                  <div
-                    className={cn(
-                      "flex flex-col sm:flex-row gap-3 sm:gap-4 mb-6 sm:mb-8 w-full sm:w-auto transition-all duration-700 delay-400",
-                      index === currentSlide
-                        ? "opacity-100 translate-y-0"
-                        : "opacity-0 translate-y-8"
-                    )}
-                  >
-                    {slide.buttons.map((button, btnIndex) => {
-                      const ButtonContent = (
-                        <Button
-                          size="lg"
-                          variant={button.variant}
-                          className={cn(
-                            "font-semibold px-4 py-3 sm:py-4 text-xs md:text-sm shadow-lg hover:scale-105 transition-transform duration-300 w-full sm:w-auto",
-                            button.variant === "outline" &&
-                              "bg-white/10 border-white/30 text-white hover:bg-white/20 backdrop-blur-sm"
-                          )}
-                          onClick={button.action}
-                        >
-                          {button.icon}
-                          {button.text}
-                        </Button>
-                      );
-
-                      return button.link ? (
-                        button.link.startsWith("http") ? (
-                          <a
-                            key={btnIndex}
-                            href={button.link}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            {ButtonContent}
-                          </a>
-                        ) : (
-                          <Link key={btnIndex} to={button.link}>
-                            {ButtonContent}
-                          </Link>
-                        )
-                      ) : (
-                        <div key={btnIndex}>{ButtonContent}</div>
-                      );
-                    })}
-                  </div>
-
-                  {/* Extra content */}
-                  {slide.additionalContent && (
-                    <div
-                      className={cn(
-                        "transition-all duration-700 delay-500",
-                        index === currentSlide
-                          ? "opacity-100 translate-y-0"
-                          : "opacity-0 translate-y-8"
-                      )}
+                    <Button
+                      size="default"
+                      variant="outline"
+                      className="font-semibold px-6 py-3 text-base bg-white/10 border-white/30 text-white hover:bg-white/20 backdrop-blur-sm shadow-elegant hover-scale font-body"
                     >
-                      {slide.additionalContent}
-                    </div>
-                  )}
+                      <Calendar className="w-5 h-5 mr-2" />
+                      Visit Us This Sunday
+                    </Button>
+                  </a>
+                </div>
+
+                {/* Service Times */}
+                <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-4 max-w-2xl mx-auto animate-fade-in">
+                  <div className="bg-white/15 backdrop-blur-md rounded-xl p-4 shadow-elegant hover-scale">
+                    <h3 className="font-heading font-semibold mb-2 text-white text-base">
+                      1st Service
+                    </h3>
+                    <p className="text-white/90 text-sm font-medium font-body">7:30 - 8:45 AM</p>
+                  </div>
+                  <div className="bg-white/15 backdrop-blur-md rounded-xl p-4 shadow-elegant hover-scale">
+                    <h3 className="font-heading font-semibold mb-2 text-white text-base">
+                      2nd Service
+                    </h3>
+                    <p className="text-white/90 text-sm font-medium font-body">9:00 - 11:00 AM</p>
+                  </div>
+                  <div className="bg-white/15 backdrop-blur-md rounded-xl p-4 shadow-elegant hover-scale">
+                    <h3 className="font-heading font-semibold mb-2 text-white text-base">
+                      3rd Service
+                    </h3>
+                    <p className="text-white/90 text-sm font-medium font-body">11:40 AM - 1:30 PM</p>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
+          </CarouselItem>
 
-      {/* Dots */}
-      <div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2 sm:gap-3">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentSlide(index)}
-            className={cn(
-              "h-2 rounded-full transition-all duration-500",
-              index === currentSlide
-                ? "w-10 sm:w-12 bg-secondary"
-                : "w-2 bg-white/50 hover:bg-white/80"
-            )}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
-      </div>
+          {/* Slide 2: Men's Fellowship */}
+          <CarouselItem>
+            <div className="relative min-h-screen flex items-center justify-center">
+              {/* Background Image */}
+              <div className="absolute inset-0">
+                <img
+                  src={heroImage2}
+                  alt="Men's Fellowship gathering at KAG South C"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/70 via-primary/50 to-accent/30"></div>
+              </div>
+
+              {/* Content */}
+              <div className="relative z-10 text-center text-primary-foreground px-4 max-w-4xl mx-auto">
+                <div className="mb-6 flex justify-center">
+                  <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-md px-6 py-3 rounded-full shadow-elegant animate-fade-in">
+                    <Users className="w-5 h-5 text-white" />
+                    <span className="text-white font-semibold text-base font-body">
+                      Upcoming Event
+                    </span>
+                  </div>
+                </div>
+
+                <h1 className="font-heading text-3xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight animate-fade-in">
+                  <span className="block text-white drop-shadow-xl">
+                    MEN'S FELLOWSHIP
+                  </span>
+                  <span className="block bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent drop-shadow-md mt-2">
+                    Brothers in Christ
+                  </span>
+                </h1>
+
+                <div className="bg-white/15 backdrop-blur-md rounded-2xl p-8 mb-8 shadow-elegant animate-fade-in">
+                  <div className="flex items-center justify-center gap-2 mb-4">
+                    <Calendar className="w-6 h-6 text-secondary" />
+                    <p className="text-2xl md:text-3xl font-bold text-white font-heading">
+                      October 20th, 2025
+                    </p>
+                  </div>
+                  <p className="text-lg md:text-xl text-white/95 max-w-2xl mx-auto leading-relaxed font-body">
+                    Join us for a powerful time of fellowship, worship, and encouragement. 
+                    Building godly men, strengthening families, and impacting our community together.
+                  </p>
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in">
+                  <Link to="/events">
+                    <Button
+                      size="lg"
+                      variant="secondary"
+                      className="font-semibold px-8 py-6 text-lg shadow-elegant hover-scale font-body"
+                    >
+                      <Calendar className="w-5 h-5 mr-2" />
+                      View Event Details
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </CarouselItem>
+
+          {/* Slide 3: Thanksgiving Day */}
+          <CarouselItem>
+            <div className="relative min-h-screen flex items-center justify-center">
+              {/* Background Image */}
+              <div className="absolute inset-0">
+                <img
+                  src={heroImage3}
+                  alt="Thanksgiving celebration at KAG South C"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-accent/70 via-primary/50 to-secondary/30"></div>
+              </div>
+
+              {/* Content */}
+              <div className="relative z-10 text-center text-primary-foreground px-4 max-w-4xl mx-auto">
+                <div className="mb-6 flex justify-center">
+                  <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-md px-6 py-3 rounded-full shadow-elegant animate-fade-in">
+                    <Heart className="w-5 h-5 text-white" />
+                    <span className="text-white font-semibold text-base font-body">
+                      Special Celebration
+                    </span>
+                  </div>
+                </div>
+
+                <h1 className="font-heading text-3xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight animate-fade-in">
+                  <span className="block text-white drop-shadow-xl">
+                    THANKSGIVING DAY
+                  </span>
+                  <span className="block bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent drop-shadow-md mt-2">
+                    A Day of Gratitude
+                  </span>
+                </h1>
+
+                <div className="bg-white/15 backdrop-blur-md rounded-2xl p-8 mb-8 shadow-elegant animate-fade-in">
+                  <div className="flex items-center justify-center gap-2 mb-4">
+                    <Calendar className="w-6 h-6 text-secondary" />
+                    <p className="text-2xl md:text-3xl font-bold text-white font-heading">
+                      November 14th, 2025
+                    </p>
+                  </div>
+                  <p className="text-lg md:text-xl text-white/95 max-w-2xl mx-auto leading-relaxed mb-4 font-body">
+                    Join us as we gather to give thanks to God for His abundant blessings, 
+                    faithfulness, and love throughout the year.
+                  </p>
+                  <p className="text-xl font-semibold text-secondary animate-pulse font-body">
+                    All Are Welcome! 🙏
+                  </p>
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in">
+                  <Link to="/events">
+                    <Button
+                      size="lg"
+                      variant="secondary"
+                      className="font-semibold px-8 py-6 text-lg shadow-elegant hover-scale font-body"
+                    >
+                      <Calendar className="w-5 h-5 mr-2" />
+                      Learn More
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </CarouselItem>
+        </CarouselContent>
+
+        {/* Navigation Arrows */}
+        <CarouselPrevious className="left-4 bg-white/20 backdrop-blur-md border-white/30 text-white hover:bg-white/30" />
+        <CarouselNext className="right-4 bg-white/20 backdrop-blur-md border-white/30 text-white hover:bg-white/30" />
+      </Carousel>
 
       {/* Scroll Indicator */}
       <button
-        onClick={() => {
-          const nextSection = document.getElementById("about");
-          if (nextSection) nextSection.scrollIntoView({ behavior: "smooth" });
-        }}
-        className="absolute bottom-4 sm:bottom-6 left-1/2 sm:left-6 -translate-x-1/2 sm:translate-x-0 animate-bounce focus:outline-none z-20"
+        onClick={handleScroll}
+        className="absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce focus:outline-none z-20"
       >
-        <div className="w-5 h-8 border-2 border-white/50 rounded-full flex justify-center items-start">
-          <div className="w-1 h-2 bg-white/50 rounded-full mt-2"></div>
+        <div className="w-5 h-8 border-2 border-primary-foreground/50 rounded-full flex justify-center items-start">
+          <div className="w-1 h-2 bg-primary-foreground/50 rounded-full mt-2"></div>
         </div>
       </button>
     </section>
   );
 };
+
 export default Hero;
