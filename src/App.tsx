@@ -12,6 +12,8 @@ import GiveOnline from "./pages/GiveOnline";
 import Events from "./pages/Events";
 import Sermons from "./pages/Sermons";
 import AdminDashboard from "./pages/AdminDashboard";
+import CCTV from "./pages/cctv";
+
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
