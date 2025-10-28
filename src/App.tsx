@@ -12,7 +12,6 @@ import GiveOnline from "./pages/GiveOnline";
 import Events from "./pages/Events";
 import Sermons from "./pages/Sermons";
 import AdminDashboard from "./pages/AdminDashboard";
-import CCTV from "./pages/cctv";
 
 import NotFound from "./pages/NotFound";
 
@@ -33,7 +32,6 @@ const App = () => (
           <Route path="/events" element={<Events />} />
           <Route path="/sermons" element={<Sermons />} />
           <Route path="/admin" element={<AdminDashboard />} />
-          <Route path="/cctv" element={<CCTV />} />
 
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
