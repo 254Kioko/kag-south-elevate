@@ -140,12 +140,12 @@ const AdminDashboard = () => {
                 <h1 className="font-heading text-4xl font-bold text-primary mb-2">Admin Dashboard</h1>
                 <p className="text-muted-foreground">Manage contact submissions and donation records</p>
               </div>
-              <div className="flex gap-3">
+        <div className="flex gap-3">
   <Button
     variant="secondary"
-    onClick={() => router.push("/cctv")}
+    onClick={() => router.push("/cctv")}   // navigates within the app
   >
-    CCTV 
+    CCTV View
   </Button>
 
   <Button
@@ -158,6 +158,7 @@ const AdminDashboard = () => {
     Logout
   </Button>
 </div>
+
 
             </div>
           </div>
