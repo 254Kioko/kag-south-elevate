@@ -4,106 +4,95 @@
 @tailwind components;
 @tailwind utilities;
 
-/* --------------------------------------------
-   KAG South C - Professional Design System
-   -------------------------------------------- */
+/* Church Website Design System - KAG South C */
 
 @layer base {
   :root {
-    /* Base Colors (Elegant Neutrals) */
-    --background: 40 10% 98%;
-    --foreground: 340 10% 15%;
-
-    /* Brand Colors */
-    --primary: 345 65% 30%;           /* Deep Wine Burgundy */
-    --primary-foreground: 0 0% 100%;
-    --primary-light: 345 60% 40%;
-    --primary-glow: 345 70% 45%;
-
-    --secondary: 42 35% 55%;          /* Muted Warm Gold */
-    --secondary-foreground: 345 10% 15%;
-    --secondary-light: 42 30% 65%;
-
-    --accent: 210 10% 40%;            /* Professional Cool Gray */
-    --accent-foreground: 0 0% 100%;
-    --accent-light: 210 10% 60%;
-
+    /* Background & Surface Colors */
+    --background: 45 15% 97%;
+    --foreground: 355 25% 15%;
+    
+    /* Church Brand Colors */
+    --primary: 355 75% 35%;        /* Deep Burgundy */
+    --primary-foreground: 45 15% 97%;
+    --primary-light: 355 65% 45%;
+    --primary-glow: 355 75% 55%;
+    
+    --secondary: 45 85% 55%;       /* Warm Gold */
+    --secondary-foreground: 355 25% 15%;
+    --secondary-light: 45 90% 70%;
+    
+    --accent: 150 30% 55%;         /* Sage Green */
+    --accent-foreground: 45 15% 97%;
+    --accent-light: 150 25% 70%;
+    
     /* Semantic Colors */
-    --muted: 0 0% 92%;
-    --muted-foreground: 0 0% 45%;
-
+    --muted: 45 15% 92%;
+    --muted-foreground: 355 15% 45%;
+    
     --card: 0 0% 100%;
-    --card-foreground: 345 10% 15%;
-
+    --card-foreground: 355 25% 15%;
+    
     --popover: 0 0% 100%;
-    --popover-foreground: 345 10% 15%;
-
-    --destructive: 0 75% 50%;
+    --popover-foreground: 355 25% 15%;
+    
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-
-    --border: 0 0% 88%;
-    --input: 0 0% 88%;
-    --ring: 345 65% 30%;
-
+    
+    --border: 45 25% 88%;
+    --input: 45 25% 88%;
+    --ring: 355 75% 35%;
+    
     /* Design System Extensions */
     --radius: 0.75rem;
-
+    
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
     --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary-light)));
-
-    /* ✅ Professional Hero Gradient (no blur or heavy overlay) */
-    --gradient-hero: linear-gradient(
-      135deg,
-      hsl(var(--primary) / 0.12),
-      hsl(var(--primary-light) / 0.08)
-    );
-
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary) / 0.95), hsl(var(--primary-light) / 0.9));
     --gradient-warm: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
-
+    
     /* Shadows */
-    --shadow-soft: 0 4px 20px hsl(var(--primary) / 0.08);
-    --shadow-warm: 0 8px 30px hsl(var(--secondary) / 0.12);
-    --shadow-elegant: 0 12px 40px hsl(var(--primary) / 0.1);
-
-    /* Typography */
+    --shadow-soft: 0 4px 20px hsl(var(--primary) / 0.1);
+    --shadow-warm: 0 8px 30px hsl(var(--secondary) / 0.2);
+    --shadow-elegant: 0 12px 40px hsl(var(--primary) / 0.15);
+    
+    /* Typography Scale */
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Inter', sans-serif;
-
+    
     /* Animations */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
 
-  /* Dark Mode */
   .dark {
-    --background: 345 15% 10%;
-    --foreground: 40 10% 90%;
-
-    --primary: 345 60% 55%;
-    --primary-foreground: 40 10% 98%;
-
-    --secondary: 42 25% 70%;
-    --secondary-foreground: 345 15% 10%;
-
-    --accent: 210 10% 65%;
-    --accent-foreground: 345 10% 10%;
-
-    --muted: 345 15% 15%;
-    --muted-foreground: 40 5% 70%;
-
-    --card: 345 20% 12%;
-    --card-foreground: 40 10% 90%;
-
-    --border: 345 15% 25%;
-    --input: 345 15% 25%;
-    --ring: 345 60% 55%;
+    --background: 355 25% 8%;
+    --foreground: 45 15% 92%;
+    
+    --primary: 355 70% 55%;
+    --primary-foreground: 355 25% 8%;
+    
+    --secondary: 45 80% 65%;
+    --secondary-foreground: 355 25% 8%;
+    
+    --accent: 150 35% 65%;
+    --accent-foreground: 355 25% 8%;
+    
+    --muted: 355 20% 15%;
+    --muted-foreground: 45 10% 65%;
+    
+    --card: 355 25% 12%;
+    --card-foreground: 45 15% 92%;
+    
+    --popover: 355 25% 12%;
+    --popover-foreground: 45 15% 92%;
+    
+    --border: 355 20% 20%;
+    --input: 355 20% 20%;
+    --ring: 355 70% 55%;
   }
 }
-
-/* --------------------------------------------
-   Base Styles
-   -------------------------------------------- */
 
 @layer base {
   * {
@@ -111,36 +100,29 @@
   }
 
   body {
-    @apply bg-background text-foreground font-body antialiased;
+    @apply bg-background text-foreground font-body;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading text-primary;
+    @apply font-heading;
   }
 
-  p, span, li {
-    @apply font-body text-foreground;
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
   }
 
-  /* Smooth Transitions */
-  a, button, input, select {
-    transition: var(--transition-smooth);
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
   }
 
-  /* Hero Overlay - Adjusts text color dynamically */
-  .hero-overlay {
-    position: relative;
-    z-index: 1;
-    color: var(--primary-foreground);
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
-  .hero-overlay::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: var(--gradient-hero);
-    z-index: -1;
-    opacity: 0.8;
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
   /* Smooth scrolling */
@@ -162,25 +144,12 @@
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-primary-light;
-  }
-
-  /* Animations */
-  .animate-fade-in {
-    animation: fadeIn 0.6s ease-out forwards;
-  }
-
-  .animate-slide-up {
-    animation: slideUp 0.6s ease-out forwards;
-  }
-
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  @keyframes slideUp {
-    from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: translateY(0); }
+    @apply bg-primary-glow;
   }
 }
+--gradient-hero: linear-gradient(
+  135deg, 
+  hsl(var(--primary) / 0.6), 
+  hsl(var(--primary-light) / 0.5)
+);
+
