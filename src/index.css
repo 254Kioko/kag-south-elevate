@@ -1,96 +1,67 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Church Website Design System - KAG South C */
+/* Corporate Design System – KAG South C */
 
 @layer base {
   :root {
-    /* Background & Surface Colors */
+    /* Neutral + Text Colors */
     --background: 45 15% 97%;
-    --foreground: 355 25% 15%;
-    
-    /* Church Brand Colors */
-    --primary: 355 75% 35%;        /* Deep Burgundy */
+    --foreground: 355 20% 10%; /* Slightly darker for readability */
+
+    /* Brand Colors (unchanged for consistency) */
+    --primary: 355 75% 35%; 
     --primary-foreground: 45 15% 97%;
     --primary-light: 355 65% 45%;
     --primary-glow: 355 75% 55%;
-    
-    --secondary: 45 85% 55%;       /* Warm Gold */
+
+    --secondary: 45 85% 55%; 
     --secondary-foreground: 355 25% 15%;
     --secondary-light: 45 90% 70%;
-    
-    --accent: 150 30% 55%;         /* Sage Green */
+
+    --accent: 150 30% 50%; 
     --accent-foreground: 45 15% 97%;
-    --accent-light: 150 25% 70%;
-    
-    /* Semantic Colors */
-    --muted: 45 15% 92%;
-    --muted-foreground: 355 15% 45%;
-    
+    --accent-light: 150 25% 65%;
+
+    /* Utility Colors */
+    --muted: 45 10% 92%;
+    --muted-foreground: 355 10% 40%;
+    --border: 45 15% 85%;
+
+    /* Card & Surface */
     --card: 0 0% 100%;
-    --card-foreground: 355 25% 15%;
-    
+    --card-foreground: 355 20% 10%;
     --popover: 0 0% 100%;
     --popover-foreground: 355 25% 15%;
-    
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 98%;
-    
-    --border: 45 25% 88%;
+
+    /* Form Colors */
     --input: 45 25% 88%;
     --ring: 355 75% 35%;
-    
-    /* Design System Extensions */
-    --radius: 0.75rem;
-    
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
-    --gradient-secondary: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--secondary-light)));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--primary) / 0.95), hsl(var(--primary-light) / 0.9));
-    --gradient-warm: linear-gradient(180deg, hsl(var(--background)), hsl(var(--muted)));
-    
-    /* Shadows */
-    --shadow-soft: 0 4px 20px hsl(var(--primary) / 0.1);
-    --shadow-warm: 0 8px 30px hsl(var(--secondary) / 0.2);
-    --shadow-elegant: 0 12px 40px hsl(var(--primary) / 0.15);
-    
-    /* Typography Scale */
+
+    /* Typography */
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Inter', sans-serif;
-    
-    /* Animations */
+
+    /* Corners + Shadows */
+    --radius: 0.75rem;
+    --shadow-soft: 0 4px 20px hsl(var(--primary) / 0.1);
+    --shadow-elegant: 0 12px 40px hsl(var(--primary) / 0.15);
+
+    /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
 
   .dark {
     --background: 355 25% 8%;
     --foreground: 45 15% 92%;
-    
     --primary: 355 70% 55%;
-    --primary-foreground: 355 25% 8%;
-    
-    --secondary: 45 80% 65%;
-    --secondary-foreground: 355 25% 8%;
-    
     --accent: 150 35% 65%;
-    --accent-foreground: 355 25% 8%;
-    
     --muted: 355 20% 15%;
-    --muted-foreground: 45 10% 65%;
-    
     --card: 355 25% 12%;
-    --card-foreground: 45 15% 92%;
-    
-    --popover: 355 25% 12%;
-    --popover-foreground: 45 15% 92%;
-    
     --border: 355 20% 20%;
-    --input: 355 20% 20%;
-    --ring: 355 70% 55%;
   }
 }
 
@@ -100,56 +71,62 @@
   }
 
   body {
-    @apply bg-background text-foreground font-body;
+    @apply bg-background text-foreground font-body antialiased leading-relaxed;
+    font-size: 16px;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading;
+    @apply font-heading text-primary font-semibold tracking-tight;
   }
 
-  .animate-fade-in {
-    animation: fadeIn 0.6s ease-out forwards;
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.5rem; }
+
+  /* Links */
+  a {
+    @apply text-primary hover:text-primary-light transition-colors;
   }
 
-  .animate-slide-up {
-    animation: slideUp 0.6s ease-out forwards;
+  /* Buttons retain color scheme */
+  button {
+    @apply transition-transform duration-150;
+  }
+  button:hover {
+    transform: translateY(-1px);
   }
 
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+  /* Subtle Card Styling */
+  .card {
+    @apply shadow-md border border-border rounded-xl bg-card;
   }
 
-  @keyframes slideUp {
-    from { opacity: 0; transform: translateY(40px); }
-    to { opacity: 1; transform: translateY(0); }
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary-glow;
   }
 
-  /* Smooth scrolling */
+  /* Smooth transitions */
   html {
     scroll-behavior: smooth;
   }
 
-  /* Custom scrollbar */
-  ::-webkit-scrollbar {
-    width: 8px;
+  /* Animations */
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
   }
 
-  ::-webkit-scrollbar-track {
-    @apply bg-muted;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    @apply bg-primary rounded-full;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    @apply bg-primary-glow;
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
   }
 }
---gradient-hero: linear-gradient(
-  135deg, 
-  hsl(var(--primary) / 0.6), 
-  hsl(var(--primary-light) / 0.5)
-);
-
