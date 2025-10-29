@@ -23,8 +23,7 @@ export default function CCTVPage() {
       <div className="pt-16 px-4 md:px-8 max-w-7xl mx-auto">
         <div className="flex items-center justify-between mb-8">
           <h1 className="text-3xl font-semibold">CCTV Live Feed</h1>
-  <Button variant="secondary" onClick={() => navigate("/Admin")}>
-            ← Back to Dashboard
+<Button variant="secondary" onClick={() => history.back()}>            ← Back to Dashboard
           </Button>
         </div>
 
