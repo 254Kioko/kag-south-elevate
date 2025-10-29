@@ -1,13 +1,13 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import Navigation from "@/components/Navigation";
+import { useNavigate } from "react-router-dom";
 import { Eye, EyeOff, Users, MessageSquare, Heart, Mail } from "lucide-react";
 
 interface ContactSubmission {
@@ -43,8 +43,9 @@ const AdminDashboard = () => {
   const [newsletterSubscriptions, setNewsletterSubscriptions] = useState<NewsletterSubscription[]>([]);
   const [loading, setLoading] = useState(false);
   const { toast } = useToast();
+  const navigate = useNavigate(); // ✅ add this
 
-  const ADMIN_PASSWORD = "KAGSouthC2024!"; 
+  const ADMIN_PASSWORD = "KAGSouthC2024!";
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -64,9 +65,18 @@ const AdminDashboard = () => {
   const fetchSubmissions = async () => {
     setLoading(true);
     try {
-      const { data: contacts } = await supabase.from("contact_submissions").select("*").order("created_at", { ascending: false });
-      const { data: donations } = await supabase.from("donation_submissions").select("*").order("created_at", { ascending: false });
-      const { data: newsletters } = await supabase.from("newsletter_subscriptions").select("*").order("created_at", { ascending: false });
+      const { data: contacts } = await supabase
+        .from("contact_submissions")
+        .select("*")
+        .order("created_at", { ascending: false });
+      const { data: donations } = await supabase
+        .from("donation_submissions")
+        .select("*")
+        .order("created_at", { ascending: false });
+      const { data: newsletters } = await supabase
+        .from("newsletter_subscriptions")
+        .select("*")
+        .order("created_at", { ascending: false });
 
       if (contacts) setContactSubmissions(contacts);
       if (donations) setDonationSubmissions(donations);
@@ -120,7 +130,9 @@ const AdminDashboard = () => {
                     {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                   </Button>
                 </div>
-                <Button type="submit" className="w-full">Login</Button>
+                <Button type="submit" className="w-full">
+                  Login
+                </Button>
               </form>
             </CardContent>
           </Card>
@@ -141,272 +153,74 @@ const AdminDashboard = () => {
                 <h1 className="font-heading text-4xl font-bold text-primary mb-2">Admin Dashboard</h1>
                 <p className="text-muted-foreground">Manage contact submissions and donation records</p>
               </div>
-        <div className="flex gap-3">
-  <Button
-    variant="secondary"
-  onClick={() => navigate("/cctv")}   // ✅ correct navigation
-  >
-    CCTV View
-  </Button>
-
-  <Button
-    variant="outline"
-    onClick={() => {
-      setIsAuthenticated(false);
-      setPassword("");
-    }}
-  >
-    Logout
-  </Button>
-</div>
-
-
+              <div className="flex gap-3">
+                <Button variant="secondary" onClick={() => navigate("/cctv")}>
+                  CCTV View
+                </Button>
+                <Button
+                  variant="outline"
+                  onClick={() => {
+                    setIsAuthenticated(false);
+                    setPassword("");
+                  }}
+                >
+                  Logout
+                </Button>
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Stats */}
+        {/* Stats + Tables */}
         <section className="py-8">
           <div className="container mx-auto px-4">
+            {/* Summary cards */}
             <div className="grid md:grid-cols-4 gap-6 mb-8">
-              {/* Contact */}
-              <Card>
-                <CardContent className="p-6">
-                  <div className="flex items-center space-x-3">
-                    <div className="bg-blue-100 p-3 rounded-full"><MessageSquare className="w-6 h-6 text-blue-600" /></div>
-                    <div>
-                      <p className="text-2xl font-bold">{contactSubmissions.length}</p>
-                      <p className="text-sm text-muted-foreground">Contact Messages</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-              {/* Donations */}
-              <Card>
-                <CardContent className="p-6">
-                  <div className="flex items-center space-x-3">
-                    <div className="bg-green-100 p-3 rounded-full"><Heart className="w-6 h-6 text-green-600" /></div>
-                    <div>
-                      <p className="text-2xl font-bold">{donationSubmissions.length}</p>
-                      <p className="text-sm text-muted-foreground">Pledges</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-              {/* Total Donations */}
-              <Card>
-                <CardContent className="p-6">
-                  <div className="flex items-center space-x-3">
-                    <div className="bg-primary/10 p-3 rounded-full"><Users className="w-6 h-6 text-primary" /></div>
-                    <div>
-                      <p className="text-2xl font-bold">KSH {totalDonations.toLocaleString()}</p>
-                      <p className="text-sm text-muted-foreground">Total Pledges</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-              {/* Newsletter */}
-              <Card>
-                <CardContent className="p-6">
-                  <div className="flex items-center space-x-3">
-                    <div className="bg-purple-100 p-3 rounded-full"><Mail className="w-6 h-6 text-purple-600" /></div>
-                    <div>
-                      <p className="text-2xl font-bold">{newsletterSubscriptions.length}</p>
-                      <p className="text-sm text-muted-foreground">Newsletter Subscribers</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
+              <DashboardStat icon={MessageSquare} color="blue" label="Contact Messages" value={contactSubmissions.length} />
+              <DashboardStat icon={Heart} color="green" label="Pledges" value={donationSubmissions.length} />
+              <DashboardStat icon={Users} color="primary" label="Total Pledges" value={`KSH ${totalDonations.toLocaleString()}`} />
+              <DashboardStat icon={Mail} color="purple" label="Newsletter Subscribers" value={newsletterSubscriptions.length} />
             </div>
 
-            {/* Tables with mobile cards */}
+            {/* Tabs */}
             <Tabs defaultValue="contacts" className="space-y-6">
               <TabsList>
                 <TabsTrigger value="contacts">Contact Submissions</TabsTrigger>
-                <TabsTrigger value="donations">Pledges Records</TabsTrigger>
+                <TabsTrigger value="donations">Pledge Records</TabsTrigger>
                 <TabsTrigger value="newsletter">Newsletter Subscribers</TabsTrigger>
               </TabsList>
 
-              {/* Contacts */}
               <TabsContent value="contacts">
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Contact Submissions</CardTitle>
-                    <CardDescription>Messages received through the contact form</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    {loading ? (
-                      <p className="text-center py-8">Loading...</p>
-                    ) : contactSubmissions.length === 0 ? (
-                      <p className="text-center py-8 text-muted-foreground">No contact submissions yet</p>
-                    ) : (
-                      <>
-                        {/* Desktop Table */}
-                        <div className="hidden sm:block overflow-x-auto">
-                          <Table>
-                            <TableHeader>
-                              <TableRow>
-                                <TableHead>Name</TableHead>
-                                <TableHead>Phone</TableHead>
-                                <TableHead>Message</TableHead>
-                                <TableHead>Date</TableHead>
-                              </TableRow>
-                            </TableHeader>
-                            <TableBody>
-                              {contactSubmissions.map((s) => (
-                                <TableRow key={s.id}>
-                                  <TableCell>{s.name || <span className="text-muted-foreground text-xs italic">Anonymous</span>}</TableCell>
-                                  <TableCell>{s.phone || <span className="text-muted-foreground text-xs">N/A</span>}</TableCell>
-                                  <TableCell className="max-w-xs truncate">{s.message}</TableCell>
-                                  <TableCell>{formatDate(s.created_at)}</TableCell>
-                                </TableRow>
-                              ))}
-                            </TableBody>
-                          </Table>
-                        </div>
-                        {/* Mobile Cards */}
-                        <div className="space-y-4 sm:hidden">
-                          {contactSubmissions.map((s) => (
-                            <div key={s.id} className="border rounded-lg p-4 shadow-sm bg-white">
-                              <p>
-                                <span className="font-semibold">Name:</span>{" "}
-                                {s.name || <span className="text-muted-foreground text-xs italic">Anonymous</span>}
-                              </p>
-                              <p>
-                                <span className="font-semibold">Phone:</span>{" "}
-                                {s.phone || <span className="text-muted-foreground text-xs">N/A</span>}
-                              </p>
-                              <p><span className="font-semibold">Message:</span> {s.message}</p>
-                              <p><span className="font-semibold">Date:</span> {formatDate(s.created_at)}</p>
-                            </div>
-                          ))}
-                        </div>
-                      </>
-                    )}
-                  </CardContent>
-                </Card>
+                <DataTable
+                  title="Contact Submissions"
+                  description="Messages received through the contact form"
+                  loading={loading}
+                  data={contactSubmissions}
+                  columns={["name", "phone", "message", "created_at"]}
+                  formatDate={formatDate}
+                />
               </TabsContent>
 
-              {/* Donations */}
               <TabsContent value="donations">
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Records of Pledges </CardTitle>
-                    <CardDescription>Pledges recorded through the Give Online form</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    {loading ? (
-                      <p className="text-center py-8">Loading...</p>
-                    ) : donationSubmissions.length === 0 ? (
-                      <p className="text-center py-8 text-muted-foreground">No donation records yet</p>
-                    ) : (
-                      <>
-                        {/* Desktop Table */}
-                        <div className="hidden sm:block overflow-x-auto">
-                          <Table>
-                            <TableHeader>
-                              <TableRow>
-                                <TableHead>Name</TableHead>
-                                <TableHead>Phone</TableHead>
-                                <TableHead>Category</TableHead>
-                                <TableHead>Amount</TableHead>
-                                <TableHead>Date</TableHead>
-                              </TableRow>
-                            </TableHeader>
-                            <TableBody>
-                              {donationSubmissions.map((d) => (
-                                <TableRow key={d.id}>
-                                  <TableCell>{d.name}</TableCell>
-                                  <TableCell>{d.phone}</TableCell>
-                                  <TableCell>
-                                    {d.category ? (
-                                      <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary capitalize">
-                                        {d.category}
-                                      </span>
-                                    ) : (
-                                      <span className="text-muted-foreground text-xs">N/A</span>
-                                    )}
-                                  </TableCell>
-                                  <TableCell>KSH {d.amount.toLocaleString()}</TableCell>
-                                  <TableCell>{formatDate(d.created_at)}</TableCell>
-                                </TableRow>
-                              ))}
-                            </TableBody>
-                          </Table>
-                        </div>
-                        {/* Mobile Cards */}
-                        <div className="space-y-4 sm:hidden">
-                          {donationSubmissions.map((d) => (
-                            <div key={d.id} className="border rounded-lg p-4 shadow-sm bg-white">
-                              <p><span className="font-semibold">Name:</span> {d.name}</p>
-                              <p><span className="font-semibold">Phone:</span> {d.phone}</p>
-                              <p>
-                                <span className="font-semibold">Category:</span>{" "}
-                                {d.category ? (
-                                  <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary capitalize">
-                                    {d.category}
-                                  </span>
-                                ) : (
-                                  <span className="text-muted-foreground text-xs">N/A</span>
-                                )}
-                              </p>
-                              <p><span className="font-semibold">Amount:</span> KSH {d.amount.toLocaleString()}</p>
-                              <p><span className="font-semibold">Date:</span> {formatDate(d.created_at)}</p>
-                            </div>
-                          ))}
-                        </div>
-                      </>
-                    )}
-                  </CardContent>
-                </Card>
+                <DataTable
+                  title="Records of Pledges"
+                  description="Pledges recorded through the Give Online form"
+                  loading={loading}
+                  data={donationSubmissions}
+                  columns={["name", "phone", "category", "amount", "created_at"]}
+                  formatDate={formatDate}
+                />
               </TabsContent>
 
-              {/* Newsletter */}
               <TabsContent value="newsletter">
-                <Card>
-                  <CardHeader>
-                    <CardTitle>Newsletter Subscribers</CardTitle>
-                    <CardDescription>Email addresses collected from newsletter subscriptions</CardDescription>
-                  </CardHeader>
-                  <CardContent>
-                    {loading ? (
-                      <p className="text-center py-8">Loading...</p>
-                    ) : newsletterSubscriptions.length === 0 ? (
-                      <p className="text-center py-8 text-muted-foreground">No newsletter subscribers yet</p>
-                    ) : (
-                      <>
-                        {/* Desktop Table */}
-                        <div className="hidden sm:block overflow-x-auto">
-                          <Table>
-                            <TableHeader>
-                              <TableRow>
-                                <TableHead>Email</TableHead>
-                                <TableHead>Subscription Date</TableHead>
-                              </TableRow>
-                            </TableHeader>
-                            <TableBody>
-                              {newsletterSubscriptions.map((n) => (
-                                <TableRow key={n.id}>
-                                  <TableCell>{n.email}</TableCell>
-                                  <TableCell>{formatDate(n.created_at)}</TableCell>
-                                </TableRow>
-                              ))}
-                            </TableBody>
-                          </Table>
-                        </div>
-                        {/* Mobile Cards */}
-                        <div className="space-y-4 sm:hidden">
-                          {newsletterSubscriptions.map((n) => (
-                            <div key={n.id} className="border rounded-lg p-4 shadow-sm bg-white">
-                              <p><span className="font-semibold">Email:</span> {n.email}</p>
-                              <p><span className="font-semibold">Date:</span> {formatDate(n.created_at)}</p>
-                            </div>
-                          ))}
-                        </div>
-                      </>
-                    )}
-                  </CardContent>
-                </Card>
+                <DataTable
+                  title="Newsletter Subscribers"
+                  description="Email addresses collected from newsletter subscriptions"
+                  loading={loading}
+                  data={newsletterSubscriptions}
+                  columns={["email", "created_at"]}
+                  formatDate={formatDate}
+                />
               </TabsContent>
             </Tabs>
           </div>
@@ -415,5 +229,63 @@ const AdminDashboard = () => {
     </main>
   );
 };
+
+// ✅ Helper Components
+const DashboardStat = ({ icon: Icon, color, label, value }: any) => (
+  <Card>
+    <CardContent className="p-6 flex items-center space-x-3">
+      <div className={`p-3 rounded-full bg-${color}-100`}>
+        <Icon className={`w-6 h-6 text-${color}-600`} />
+      </div>
+      <div>
+        <p className="text-2xl font-bold">{value}</p>
+        <p className="text-sm text-muted-foreground">{label}</p>
+      </div>
+    </CardContent>
+  </Card>
+);
+
+const DataTable = ({ title, description, loading, data, columns, formatDate }: any) => (
+  <Card>
+    <CardHeader>
+      <CardTitle>{title}</CardTitle>
+      <CardDescription>{description}</CardDescription>
+    </CardHeader>
+    <CardContent>
+      {loading ? (
+        <p className="text-center py-8">Loading...</p>
+      ) : data.length === 0 ? (
+        <p className="text-center py-8 text-muted-foreground">No records yet</p>
+      ) : (
+        <div className="overflow-x-auto">
+          <Table>
+            <TableHeader>
+              <TableRow>
+                {columns.map((col: string) => (
+                  <TableHead key={col}>{col.replace("_", " ").toUpperCase()}</TableHead>
+                ))}
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {data.map((item: any) => (
+                <TableRow key={item.id}>
+                  {columns.map((col: string) => (
+                    <TableCell key={col}>
+                      {col === "created_at"
+                        ? formatDate(item[col])
+                        : col === "amount"
+                        ? `KSH ${item[col]?.toLocaleString()}`
+                        : item[col] || <span className="text-muted-foreground text-xs italic">N/A</span>}
+                    </TableCell>
+                  ))}
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
+      )}
+    </CardContent>
+  </Card>
+);
 
 export default AdminDashboard;
