@@ -144,7 +144,7 @@ const AdminDashboard = () => {
         <div className="flex gap-3">
   <Button
     variant="secondary"
-    onClick={() => router.push("/cctv")}   // navigates within the app
+  onClick={() => navigate("/cctv")}   // ✅ correct navigation
   >
     CCTV View
   </Button>
