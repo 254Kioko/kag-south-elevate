@@ -1,9 +1,10 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import ScrollToTop from "./components/ScrollToTop";
-import Index from "./pages/Index";
+
 import Home from "./pages/Home";
 import AboutMinistries from "./pages/AboutMinistries";
 import Contact from "./pages/Contact";
@@ -11,7 +12,6 @@ import GiveOnline from "./pages/GiveOnline";
 import Events from "./pages/Events";
 import Sermons from "./pages/Sermons";
 import AdminDashboard from "./pages/AdminDashboard";
-
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -31,8 +31,7 @@ const App = () => (
           <Route path="/events" element={<Events />} />
           <Route path="/sermons" element={<Sermons />} />
           <Route path="/admin" element={<AdminDashboard />} />
-
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          {/* Catch-all 404 */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
