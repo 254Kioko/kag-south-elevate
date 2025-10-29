@@ -11,6 +11,8 @@ import GiveOnline from "./pages/GiveOnline";
 import Events from "./pages/Events";
 import Sermons from "./pages/Sermons";
 import AdminDashboard from "./pages/AdminDashboard";
+import CCTV from "./pages/CCTV";
+
 import NotFound from "./pages/NotFound";
 import { Routes, Route } from "react-router-dom";
 
@@ -30,6 +32,8 @@ const App = () => (
         <Route path="/events" element={<Events />} />
         <Route path="/sermons" element={<Sermons />} />
         <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/cctv" element={<CCTV />} />
+
         {/* Catch-all 404 */}
         <Route path="*" element={<NotFound />} />
       </Routes>
