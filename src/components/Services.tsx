@@ -166,9 +166,8 @@ const Services = () => {
       {/* Latest Sermon */}
       <section id="latest-service" className="py-16 bg-muted/30">
         <div className="container mx-auto px-4">
-          <h3 className="font-heading text-3xl md:text-4xl font-bold text-center text-primary mb-12">
-            Latest Service
-          </h3>
+<h2 className="text-3xl font-heading font-bold mb-6">            Latest Service
+          </h2>
           <div className="max-w-5xl mx-auto">
             <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
               <div className="flex flex-col md:flex-row">
