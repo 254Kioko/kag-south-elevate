@@ -102,17 +102,21 @@ const Services = () => {
       {/* Services Section */}
       <section id="services" className="py-12 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="font-heading text-4xl md:text-5xl font-bold text-center mb-6 bg-gradient-primary bg-clip-text text-transparent">
+          {/* RED TITLE ONLY HERE */}
+          <h2 className="font-heading text-4xl md:text-5xl font-bold text-center mb-6 text-red-600">
             Service Times
           </h2>
+
           <p className="text-lg text-muted-foreground text-center max-w-2xl mx-auto mb-12">
             Join us for worship, fellowship, and spiritual growth. We have multiple services to accommodate different preferences and schedules.
           </p>
 
           <div className="mb-12">
-            <h3 className="font-heading text-3xl font-bold text-center mb-8 bg-gradient-primary bg-clip-text text-transparent">
+            {/* BLACK TITLE HERE */}
+            <h3 className="font-heading text-3xl font-bold text-center mb-8 text-foreground">
               Sunday Services
             </h3>
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {services.map((service) => (
                 <Card key={service.id} className="text-left hover:shadow-lg transition-shadow flex flex-col h-full">
@@ -166,7 +170,7 @@ const Services = () => {
       {/* Latest Sermon */}
       <section id="latest-service" className="py-16 bg-muted/30">
         <div className="container mx-auto px-4">
-          <h3 className="font-heading text-3xl md:text-4xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent">
+          <h3 className="font-heading text-3xl md:text-4xl font-bold mb-6 text-foreground">
             Latest Service
           </h3>
           <div className="max-w-5xl mx-auto">
@@ -182,6 +186,7 @@ const Services = () => {
                     allowFullScreen
                   ></iframe>
                 </div>
+
                 <div className="md:w-1/2 flex flex-col justify-center">
                   <CardHeader className="text-left p-8 space-y-4">
                     <CardTitle className="text-2xl font-bold text-primary">
@@ -219,7 +224,7 @@ const Services = () => {
       {/* Upcoming Event */}
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4 text-center">
-          <h3 className="font-heading text-3xl md:text-4xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent">
+          <h3 className="font-heading text-3xl md:text-4xl font-bold mb-6 text-foreground">
             Upcoming Event
           </h3>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12">
@@ -236,9 +241,7 @@ const Services = () => {
                 />
               </div>
               <div className="md:w-1/2 flex flex-col justify-center text-left p-8 space-y-4">
-                <Badge variant="secondary" className="w-fit">
-                  Special Event
-                </Badge>
+                <Badge variant="secondary" className="w-fit">Special Event</Badge>
                 <CardTitle className="text-2xl font-bold text-primary">
                   Men's Fellowship Day
                 </CardTitle>
@@ -292,7 +295,7 @@ const Services = () => {
       <section className="py-16 bg-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h3 className="font-heading text-3xl md:text-4xl font-bold mb-4 bg-gradient-primary bg-clip-text text-transparent">
+            <h3 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
               Share Your Prayer Needs
             </h3>
             <p className="text-muted-foreground max-w-2xl mx-auto text-base leading-relaxed">
