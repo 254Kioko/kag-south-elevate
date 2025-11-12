@@ -36,10 +36,9 @@ const Hero = () => {
         className="w-full h-screen"
       >
         <CarouselContent>
-          {/* Slide 1: Welcome Slide */}
+          {/* 🟢 Slide 1: Welcome Slide */}
           <CarouselItem>
             <div className="relative min-h-screen flex items-center justify-center">
-              {/* Background Image */}
               <div className="absolute inset-0">
                 <img
                   src={mainImage}
@@ -61,20 +60,16 @@ const Hero = () => {
 
                 <h1 className="font-heading text-2xl md:text-4xl lg:text-5xl font-extrabold mb-4 leading-snug animate-fade-in">
                   <span className="block text-white drop-shadow-xl tracking-wide">
-                    WELCOME TO
-                  </span>
-                  <span className="block bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent drop-shadow-md">
-                    KAG SOUTH C
+                    WELCOME TO KAG SOUTH C
                   </span>
                 </h1>
 
-                <p className="text-lg md:text-xl mb-8 text-white/95 max-w-2xl mx-auto leading-relaxed font-medium drop-shadow-lg animate-fade-in font-body">
+                <p className="text-lg md:text-xl mb-8 text-white/95 max-w-2xl mx-auto leading-relaxed font-medium drop-shadow-lg font-body">
                   Where faith finds its home! Join our vibrant congregation for spiritual
                   growth, meaningful fellowship, and life-changing encounters with God's
                   love.
                 </p>
 
-                {/* Action Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in">
                   <Button
                     size="default"
@@ -107,7 +102,6 @@ const Hero = () => {
                   </a>
                 </div>
 
-                {/* Service Times */}
                 <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-4 max-w-2xl mx-auto animate-fade-in">
                   <div className="bg-white/15 backdrop-blur-md rounded-xl p-4 shadow-elegant hover-scale">
                     <h3 className="font-heading font-semibold mb-2 text-white text-base">
@@ -132,58 +126,48 @@ const Hero = () => {
             </div>
           </CarouselItem>
 
-          {/* Slide 2: Men's Fellowship */}
+          {/* 🟢 Slide 2: Men's Fellowship */}
           <CarouselItem>
             <div className="relative min-h-screen flex items-center justify-center">
-              {/* Background Image */}
               <div className="absolute inset-0">
                 <img
                   src={heroImage2}
-                  alt="Men's Fellowship gathering at KAG South C"
+                  alt="Men's Fellowship gathering"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/70 via-primary/50 to-accent/30"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/60 via-primary/40 to-transparent"></div>
               </div>
 
-              {/* Content */}
-              <div className="relative z-10 text-center text-primary-foreground px-4 max-w-4xl mx-auto">
+              <div className="relative z-10 text-center text-primary-foreground px-4 max-w-3xl mx-auto">
                 <div className="mb-6 flex justify-center">
-                  <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-md px-6 py-3 rounded-full shadow-elegant animate-fade-in">
+                  <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full shadow-elegant animate-fade-in">
                     <Users className="w-5 h-5 text-white" />
-                    <span className="text-white font-semibold text-base font-body">
+                    <span className="text-white font-medium text-base font-body">
                       Upcoming Event
                     </span>
                   </div>
                 </div>
 
-                <h1 className="font-heading text-3xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight animate-fade-in">
-                  <span className="block text-white drop-shadow-xl">
+                <h1 className="font-heading text-2xl md:text-4xl lg:text-5xl font-extrabold mb-4 leading-snug animate-fade-in">
+                  <span className="block text-white drop-shadow-xl tracking-wide">
                     MEN'S FELLOWSHIP
                   </span>
-                  <span className="block bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent drop-shadow-md mt-2">
+                  <span className="block text-white drop-shadow-md mt-2">
                     Brothers in Christ
                   </span>
                 </h1>
 
-                <div className="bg-white/15 backdrop-blur-md rounded-2xl p-8 mb-8 shadow-elegant animate-fade-in">
-                  <div className="flex items-center justify-center gap-2 mb-4">
-                    <Calendar className="w-6 h-6 text-secondary" />
-                    <p className="text-2xl md:text-3xl font-bold text-white font-heading">
-                      October 20th, 2025
-                    </p>
-                  </div>
-                  <p className="text-lg md:text-xl text-white/95 max-w-2xl mx-auto leading-relaxed font-body">
-                    Join us for a powerful time of fellowship, worship, and encouragement. 
-                    Building godly men, strengthening families, and impacting our community together.
-                  </p>
-                </div>
+                <p className="text-lg md:text-xl mb-8 text-white/95 max-w-2xl mx-auto leading-relaxed font-medium drop-shadow-lg font-body">
+                  Join us for a powerful time of fellowship, worship, and encouragement.
+                  Building godly men, strengthening families, and impacting our community together.
+                </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in">
                   <Link to="/events">
                     <Button
-                      size="lg"
+                      size="default"
                       variant="secondary"
-                      className="font-semibold px-8 py-6 text-lg shadow-elegant hover-scale font-body"
+                      className="font-semibold px-6 py-3 text-base shadow-elegant hover-scale font-body"
                     >
                       <Calendar className="w-5 h-5 mr-2" />
                       View Event Details
@@ -194,61 +178,48 @@ const Hero = () => {
             </div>
           </CarouselItem>
 
-          {/* Slide 3: Thanksgiving Day */}
+          {/* 🟢 Slide 3: Thanksgiving Day */}
           <CarouselItem>
             <div className="relative min-h-screen flex items-center justify-center">
-              {/* Background Image */}
               <div className="absolute inset-0">
                 <img
                   src={heroImage3}
                   alt="Thanksgiving celebration at KAG South C"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-accent/70 via-primary/50 to-secondary/30"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-accent/60 via-primary/40 to-transparent"></div>
               </div>
 
-              {/* Content */}
-              <div className="relative z-10 text-center text-primary-foreground px-4 max-w-4xl mx-auto">
+              <div className="relative z-10 text-center text-primary-foreground px-4 max-w-3xl mx-auto">
                 <div className="mb-6 flex justify-center">
-                  <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-md px-6 py-3 rounded-full shadow-elegant animate-fade-in">
+                  <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full shadow-elegant animate-fade-in">
                     <Heart className="w-5 h-5 text-white" />
-                    <span className="text-white font-semibold text-base font-body">
+                    <span className="text-white font-medium text-base font-body">
                       Special Celebration
                     </span>
                   </div>
                 </div>
 
-                <h1 className="font-heading text-3xl md:text-5xl lg:text-6xl font-extrabold mb-6 leading-tight animate-fade-in">
-                  <span className="block text-white drop-shadow-xl">
+                <h1 className="font-heading text-2xl md:text-4xl lg:text-5xl font-extrabold mb-4 leading-snug animate-fade-in">
+                  <span className="block text-white drop-shadow-xl tracking-wide">
                     THANKSGIVING DAY
                   </span>
-                  <span className="block bg-gradient-to-r from-secondary to-accent bg-clip-text text-transparent drop-shadow-md mt-2">
+                  <span className="block text-white drop-shadow-md mt-2">
                     A Day of Gratitude
                   </span>
                 </h1>
 
-                <div className="bg-white/15 backdrop-blur-md rounded-2xl p-8 mb-8 shadow-elegant animate-fade-in">
-                  <div className="flex items-center justify-center gap-2 mb-4">
-                    <Calendar className="w-6 h-6 text-secondary" />
-                    <p className="text-2xl md:text-3xl font-bold text-white font-heading">
-                      November 14th, 2025
-                    </p>
-                  </div>
-                  <p className="text-lg md:text-xl text-white/95 max-w-2xl mx-auto leading-relaxed mb-4 font-body">
-                    Join us as we gather to give thanks to God for His abundant blessings, 
-                    faithfulness, and love throughout the year.
-                  </p>
-                  <p className="text-xl font-semibold text-secondary animate-pulse font-body">
-                    All Are Welcome! 🙏
-                  </p>
-                </div>
+                <p className="text-lg md:text-xl mb-8 text-white/95 max-w-2xl mx-auto leading-relaxed font-medium drop-shadow-lg font-body">
+                  Join us as we gather to give thanks to God for His abundant blessings,
+                  faithfulness, and love throughout the year.
+                </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in">
                   <Link to="/events">
                     <Button
-                      size="lg"
+                      size="default"
                       variant="secondary"
-                      className="font-semibold px-8 py-6 text-lg shadow-elegant hover-scale font-body"
+                      className="font-semibold px-6 py-3 text-base shadow-elegant hover-scale font-body"
                     >
                       <Calendar className="w-5 h-5 mr-2" />
                       Learn More
@@ -260,7 +231,7 @@ const Hero = () => {
           </CarouselItem>
         </CarouselContent>
 
-        {/* Navigation Arrows */}
+        {/* Navigation */}
         <CarouselPrevious className="left-4 bg-white/20 backdrop-blur-md border-white/30 text-white hover:bg-white/30" />
         <CarouselNext className="right-4 bg-white/20 backdrop-blur-md border-white/30 text-white hover:bg-white/30" />
       </Carousel>
