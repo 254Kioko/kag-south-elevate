@@ -36,7 +36,7 @@ const Hero = () => {
         className="w-full h-screen"
       >
         <CarouselContent>
-          {/* 🟢 Slide 1: Welcome Slide */}
+          {/* Slide 1 */}
           <CarouselItem>
             <div className="relative min-h-screen flex items-center justify-center">
               <div className="absolute inset-0">
@@ -45,10 +45,10 @@ const Hero = () => {
                   alt="KAG South C Church worship service with congregation"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/60 via-primary/40 to-transparent"></div>
+                {/* Removed all gradient tints */}
+                <div className="absolute inset-0 bg-black/0"></div>
               </div>
 
-              {/* Content */}
               <div className="relative z-10 text-center text-primary-foreground px-4 max-w-3xl mx-auto">
                 <div className="mb-6 flex justify-center">
                   <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full shadow-elegant animate-fade-in">
@@ -101,13 +101,11 @@ const Hero = () => {
                     </Button>
                   </a>
                 </div>
-
-
               </div>
             </div>
           </CarouselItem>
 
-          {/* 🟢 Slide 2: Men's Fellowship */}
+          {/* Slide 2 */}
           <CarouselItem>
             <div className="relative min-h-screen flex items-center justify-center">
               <div className="absolute inset-0">
@@ -116,7 +114,8 @@ const Hero = () => {
                   alt="Men's Fellowship gathering"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-primary/60 via-primary/40 to-transparent"></div>
+                {/* Removed tint overlay */}
+                <div className="absolute inset-0 bg-black/0"></div>
               </div>
 
               <div className="relative z-10 text-center text-primary-foreground px-4 max-w-3xl mx-auto">
@@ -159,7 +158,7 @@ const Hero = () => {
             </div>
           </CarouselItem>
 
-          {/* 🟢 Slide 3: Thanksgiving Day */}
+          {/* Slide 3 */}
           <CarouselItem>
             <div className="relative min-h-screen flex items-center justify-center">
               <div className="absolute inset-0">
@@ -168,7 +167,8 @@ const Hero = () => {
                   alt="Thanksgiving celebration at KAG South C"
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-accent/60 via-primary/40 to-transparent"></div>
+                {/* Tint removed */}
+                <div className="absolute inset-0 bg-black/0"></div>
               </div>
 
               <div className="relative z-10 text-center text-primary-foreground px-4 max-w-3xl mx-auto">
