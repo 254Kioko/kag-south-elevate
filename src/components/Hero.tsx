@@ -69,6 +69,8 @@ const Hero = () => {
                   growth, meaningful fellowship, and life-changing encounters with God's
                   love.
                 </p>
+                <br>
+                      <br>    <br>    <br>    <br>    <br>    <br>    <br>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in">
                   <Button
