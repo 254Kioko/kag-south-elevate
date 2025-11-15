@@ -179,7 +179,7 @@ const Services = () => {
                 <div className="md:w-1/2">
                   <iframe
                     className="w-full aspect-video md:h-full"
-                    src="https://www.youtube.com/embed/B8HubOEGN88?si=9yCZ5FuB0NrgXQ2s"
+                    src="https://www.youtube.com/embed/_f_RhrOQvP0?si=Mj3Ls2-8AzVCYJ7A"
                     title="Last Week's Sermon"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -190,12 +190,12 @@ const Services = () => {
                 <div className="md:w-1/2 flex flex-col justify-center">
                   <CardHeader className="text-left p-8 space-y-4">
                     <CardTitle className="text-2xl font-bold text-primary">
-                      He is still the way maker
+THANK GOD FOR ANSWERING YOUR PRAYERS
                     </CardTitle>
                     <div className="flex flex-wrap items-center gap-4 text-muted-foreground text-sm">
                       <div className="flex items-center space-x-2">
                         <Calendar className="w-4 h-4" />
-                        <span>Sunday, Sept 28, 2025</span>
+                        <span>Sunday, Novemvber 9, 2025</span>
                       </div>
                       <div className="flex items-center space-x-2">
                         <Clock className="w-4 h-4" />
@@ -206,7 +206,7 @@ const Services = () => {
                       <span className="font-semibold">Preacher: </span> Rev. Peter Kioko
                     </p>
                     <p className="text-muted-foreground text-sm leading-relaxed">
-                      In this sermon, we explored the power of faith and trust in God even in challenging seasons. Be inspired and encouraged to keep walking with Him.
+                      In this sermon, we explored the power of thanking God for answered prayers. 
                     </p>
                     <Link to="/sermons">
                       <Button size="lg" className="font-semibold">
