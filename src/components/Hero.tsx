@@ -102,26 +102,7 @@ const Hero = () => {
                   </a>
                 </div>
 
-                <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-4 max-w-2xl mx-auto animate-fade-in">
-                  <div className="bg-white/15 backdrop-blur-md rounded-xl p-4 shadow-elegant hover-scale">
-                    <h3 className="font-heading font-semibold mb-2 text-white text-base">
-                      1st Service
-                    </h3>
-                    <p className="text-white/90 text-sm font-medium font-body">7:30 - 8:45 AM</p>
-                  </div>
-                  <div className="bg-white/15 backdrop-blur-md rounded-xl p-4 shadow-elegant hover-scale">
-                    <h3 className="font-heading font-semibold mb-2 text-white text-base">
-                      2nd Service
-                    </h3>
-                    <p className="text-white/90 text-sm font-medium font-body">9:00 - 11:00 AM</p>
-                  </div>
-                  <div className="bg-white/15 backdrop-blur-md rounded-xl p-4 shadow-elegant hover-scale">
-                    <h3 className="font-heading font-semibold mb-2 text-white text-base">
-                      3rd Service
-                    </h3>
-                    <p className="text-white/90 text-sm font-medium font-body">11:40 AM - 1:30 PM</p>
-                  </div>
-                </div>
+
               </div>
             </div>
           </CarouselItem>
