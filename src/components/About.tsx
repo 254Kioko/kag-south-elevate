@@ -73,7 +73,7 @@ const About = () => {
             <div className="space-y-4">
               <div className="flex justify-between">
                 <span>Established:</span>
-                <span className="font-semibold">1952</span>
+                <span className="font-semibold">1978</span>
               </div>
               <div className="flex justify-between">
                 <span>Weekly Services:</span>
@@ -81,7 +81,7 @@ const About = () => {
               </div>
               <div className="flex justify-between">
                 <span>Active Ministries:</span>
-                <span className="font-semibold">15+</span>
+                <span className="font-semibold">10+</span>
               </div>
               <div className="flex justify-between">
                 <span>Community Programs:</span>
