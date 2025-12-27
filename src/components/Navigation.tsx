@@ -16,7 +16,6 @@ const Navigation = () => {
     { name: "Sermons", href: "/sermons" },
     { name: "Give", href: "/give-online" },
     { name: "Contact", href: "/contact" },
-    { name: "Admin", href: "/admin" },
   ];
 
   const closeSheet = () => setIsOpen(false);
