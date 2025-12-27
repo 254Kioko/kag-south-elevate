@@ -154,9 +154,7 @@ const AdminDashboard = () => {
                 <p className="text-muted-foreground">Manage contact submissions and donation records</p>
               </div>
               <div className="flex gap-3">
-                <Button variant="secondary" onClick={() => navigate("/cctv")}>
-                  CCTV View
-                </Button>
+                
                 <Button
                   variant="outline"
                   onClick={() => {
