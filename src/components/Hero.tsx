@@ -45,7 +45,6 @@ const Hero = () => {
                   alt="KAG South C Church worship service with congregation"
                   className="w-full h-full object-cover"
                 />
-                {/* Removed all gradient tints */}
                 <div className="absolute inset-0 bg-black/0"></div>
               </div>
 
@@ -69,8 +68,16 @@ const Hero = () => {
                   growth, meaningful fellowship, and life-changing encounters with God's
                   love.
                 </p>
-                <br>
-                      <br>    <br>    <br>    <br>    <br>    <br>    <br>
+
+                {/* Added self-closing <br /> tags */}
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in">
                   <Button
@@ -116,7 +123,6 @@ const Hero = () => {
                   alt="Men's Fellowship gathering"
                   className="w-full h-full object-cover"
                 />
-                {/* Removed tint overlay */}
                 <div className="absolute inset-0 bg-black/0"></div>
               </div>
 
@@ -169,7 +175,6 @@ const Hero = () => {
                   alt="Thanksgiving celebration at KAG South C"
                   className="w-full h-full object-cover"
                 />
-                {/* Tint removed */}
                 <div className="absolute inset-0 bg-black/0"></div>
               </div>
 
