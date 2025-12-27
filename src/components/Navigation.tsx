@@ -15,7 +15,7 @@ const Navigation = () => {
     { name: "Events", href: "/events" },
     { name: "Sermons", href: "/sermons" },
     { name: "Give", href: "/give-online" },
-    { name: "Contact", href: "/contact" },
+    { name: "Contact", href: "/contact" }
   ];
 
   const closeSheet = () => setIsOpen(false);
