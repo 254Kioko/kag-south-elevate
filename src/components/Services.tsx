@@ -179,8 +179,8 @@ const Services = () => {
                 <div className="md:w-1/2">
                   <iframe
                     className="w-full aspect-video md:h-full"
-                    src="https://www.youtube.com/embed/_f_RhrOQvP0?si=Mj3Ls2-8AzVCYJ7A"
-                    title="Last Week's Sermon"
+                    src="https://www.youtube.com/live/RJkS8uZP0U8?si=Vb6tstPYJJAerDEn"
+                    title="Last Sunday's Sermon"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
@@ -190,7 +190,7 @@ const Services = () => {
                 <div className="md:w-1/2 flex flex-col justify-center">
                   <CardHeader className="text-left p-8 space-y-4">
                     <CardTitle className="text-2xl font-bold text-primary">
-THANK GOD FOR ANSWERING YOUR PRAYERS
+Last Sunday of the year
                     </CardTitle>
                     <div className="flex flex-wrap items-center gap-4 text-muted-foreground text-sm">
                       <div className="flex items-center space-x-2">
@@ -206,7 +206,7 @@ THANK GOD FOR ANSWERING YOUR PRAYERS
                       <span className="font-semibold">Preacher: </span> Rev. Peter Kioko
                     </p>
                     <p className="text-muted-foreground text-sm leading-relaxed">
-                      In this sermon, we explored the power of thanking God for answered prayers. 
+                      In this service, we thankd God for our progress as we prayed for our goals. 
                     </p>
                     <Link to="/sermons">
                       <Button size="lg" className="font-semibold">
