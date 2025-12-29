@@ -54,9 +54,7 @@ const Hero = () => {
                   </div>
                 </div>
 
-                <h1 className="text-2xl md:text-4xl lg:text-5xl font-extrabold text-white drop-shadow-xl">
-                  WELCOME TO KAG SOUTH C
-                </h1>
+               
               </div>
 
               {/* Bottom Content */}
