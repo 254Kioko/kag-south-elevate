@@ -179,7 +179,7 @@ const Services = () => {
                 <div className="md:w-1/2">
                   <iframe
                     className="w-full aspect-video md:h-full"
-                    src="https://www.youtube.com/live/RJkS8uZP0U8?si=Vb6tstPYJJAerDEn"
+                    src="https://www.youtube.com/embed/RJkS8uZP0U8?si=8eRiHM4NvqRnf16j"
                     title="Last Sunday's Sermon"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
