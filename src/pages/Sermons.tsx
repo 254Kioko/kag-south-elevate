@@ -19,7 +19,7 @@ const latestSermons = [
     title: "Finishing well in the Lord",
     speaker: "Rev Peter Kioko",
     date: "2025-12-18",
-    series: "Nuturing,
+    series: "Nuturing",
     description: "Explore the transformative power of prayer and how it can change not just circumstances, but our hearts and minds as we commune with God daily.",
     youtubeUrl: "https://www.youtube.com/embed/Ijv7Y7vVIgI?si=JWupzA_Su1YgmNhx"
   },
