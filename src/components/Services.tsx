@@ -4,7 +4,7 @@ import { Clock, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
-import eventImage from "@/assets/upcoming-event.jpg";
+import heroImage2 from "@/assets/hero3.jpeg";
 import prayerImage from "@/assets/prayer-placeholder.jpg";
 
 const Services = () => {
@@ -235,7 +235,7 @@ THANK GOD FOR ANSWERING YOUR PRAYERS
             <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow flex flex-col md:flex-row">
               <div className="md:w-1/2">
                 <img
-                  src={eventImage}
+                  src={heroImage2}
                   alt="Upcoming Event"
                   className="w-full h-64 md:h-full object-cover"
                 />
@@ -243,19 +243,18 @@ THANK GOD FOR ANSWERING YOUR PRAYERS
               <div className="md:w-1/2 flex flex-col justify-center text-left p-8 space-y-4">
                 <Badge variant="secondary" className="w-fit">Special Event</Badge>
                 <CardTitle className="text-2xl font-bold text-primary">
-                  Men's Fellowship Day
-                </CardTitle>
+End of year kesha                </CardTitle>
                 <p className="text-muted-foreground text-sm leading-relaxed">
-                  Join us for a powerful day with the Men
+                  Join us for a powerful night as we cross over to the new year in prayer.
                 </p>
                 <div className="flex flex-col gap-3 text-muted-foreground text-sm pt-2">
                   <div className="flex items-center space-x-2">
                     <Calendar className="w-4 h-4" />
-                    <span>Sunday, Oct 20th</span>
+                    <span>Wednesday, Dec 31st</span>
                   </div>
                   <div className="flex items-center space-x-2">
                     <Clock className="w-4 h-4" />
-                    <span>9:00 AM - 1:30 PM</span>
+                    <span>9:00 PM - 4:00 AM</span>
                   </div>
                 </div>
                 <div className="pt-4">
