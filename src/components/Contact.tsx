@@ -12,27 +12,31 @@ const Contact = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const contactInfo = [
-    {
-      icon: MapPin,
-      title: "Visit Us",
-      details: ["South C ", "Nairobi, Kenya"],
-      action: "Get Directions"
-    },
-    {
-      icon: Phone,
-      title: "Call Us",
-      details: ["+254 724177832", "+254 XXX XXXXXX"],
-      action: "Call Now"
-    },
-    {
-      icon: Mail,
-      title: "Email Us",
-      details: ["info@kagsouthc.co,ke"],
-      action: "Send Email"
-    },
-    
-  ];
+const contactInfo = [
+  {
+    icon: MapPin,
+    title: "Visit Us",
+    details: ["South C ", "Nairobi, Kenya"],
+    action: "Get Directions",
+    href: "https://www.google.com/maps/search/?api=1&query=South+C+Nairobi+Kenya",
+    external: true,
+  },
+  {
+    icon: Phone,
+    title: "Call Us",
+    details: ["+254 724177832", "+254 XXX XXXXXX"],
+    action: "Call Now",
+    href: "tel:+254724177832",
+  },
+  {
+    icon: Mail,
+    title: "Email Us",
+    details: ["info@kagsouthc.org"],
+    action: "Send Email",
+    href: "mailto:info@kagsouthc.org",
+  },
+];
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
