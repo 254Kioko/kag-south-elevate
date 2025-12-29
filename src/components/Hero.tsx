@@ -66,12 +66,14 @@ const Hero = () => {
         </span>
       </h1>
 
-      <p className="text-lg md:text-xl text-white/95 max-w-2xl mx-auto leading-relaxed font-medium drop-shadow-lg font-body">
-        Where faith finds its home! Join our vibrant congregation for spiritual
-        growth, meaningful fellowship, and life-changing encounters with God's
-        love.
-      </p>
-    </div>
+    <p className="text-lg md:text-xl text-white/95 max-w-2xl mx-auto
+             leading-relaxed font-medium drop-shadow-lg font-body
+             mt-12 md:mt-16">
+  Where faith finds its home! Join our vibrant congregation for spiritual
+  growth, meaningful fellowship, and life-changing encounters with God's
+  love.
+</p>
+
 
     {/* Bottom Buttons */}
     <div className="relative z-10 mb-20 flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in">
