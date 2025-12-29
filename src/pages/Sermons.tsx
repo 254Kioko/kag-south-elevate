@@ -7,21 +7,21 @@ import { Calendar, Youtube, Facebook } from "lucide-react";
 const latestSermons = [
   {
     id: 1,
-    title: "Walking in Faith: Trusting God's Plan",
+    title: "Celebration Sunday",
     speaker: "Rev. Peter Kioko",
-    date: "2025-09-28",
-    series: "Faith Journey",
+    date: "2025-12-14",
+    series: "Celebrating our families",
     description: "Discover how to walk confidently in faith even when you can't see the full path ahead. Learn practical steps to trust God's perfect timing and plan for your life.",
-    youtubeUrl: "https://www.youtube.com/embed/aAvcYfBPsng?si=avcFovO7PNV7bIfe"
+    youtubeUrl: "https://youtu.be/X81sN_VzgiU?si=Kz7Cu3pka3EGA7Ne"
   },
   {
     id: 2,
     title: "The Power of Prayer in Daily Life",
     speaker: "Rev. Peter Kioko",
-    date: "2025-09-21",
+    date: "2025-12-7",
     series: "Prayer & Devotion",
     description: "Explore the transformative power of prayer and how it can change not just circumstances, but our hearts and minds as we commune with God daily.",
-    youtubeUrl: "https://www.youtube.com/embed/58nB_-4SH7k?si=hQk5LELZCjcl_EKn"
+    youtubeUrl: "https://youtu.be/jw4PM3Sx7fs?si=9WpCKAPbhnb7fnqq"
   },
   {
     id: 3,
