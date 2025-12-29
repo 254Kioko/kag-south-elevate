@@ -169,7 +169,7 @@ const Services = () => {
 
       {/* Latest Sermon */}
       <section id="latest-service" className="py-16 bg-muted/30">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 text-center">
           <h3 className="font-heading text-3xl md:text-4xl font-bold mb-6 text-foreground">
             Latest Service
           </h3>
