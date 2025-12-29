@@ -7,39 +7,39 @@ import { Calendar, Youtube, Facebook } from "lucide-react";
 const latestSermons = [
   {
     id: 1,
-    title: "Celebration Sunday",
-    speaker: "Rev. Peter Kioko",
-    date: "2025-12-14",
-    series: "Celebrating our families",
+    title: "Christmas Service",
+    speaker: "Pst. Simon Kimatu",
+    date: "2025-12-25",
+    series: "Christ is born",
     description: "Discover how to walk confidently in faith even when you can't see the full path ahead. Learn practical steps to trust God's perfect timing and plan for your life.",
-    youtubeUrl: "https://youtu.be/X81sN_VzgiU?si=Kz7Cu3pka3EGA7Ne"
+    youtubeUrl: "https://www.youtube.com/embed/RtKqKX8P5-g?si=UQDLyaGc5QexOzhu"
   },
   {
     id: 2,
-    title: "The Power of Prayer in Daily Life",
-    speaker: "Rev. Peter Kioko",
-    date: "2025-12-7",
-    series: "Prayer & Devotion",
+    title: "Finishing well in the Lord",
+    speaker: "Rev Peter Kioko",
+    date: "2025-12-18",
+    series: "Nuturing,
     description: "Explore the transformative power of prayer and how it can change not just circumstances, but our hearts and minds as we commune with God daily.",
-    youtubeUrl: "https://youtu.be/jw4PM3Sx7fs?si=9WpCKAPbhnb7fnqq"
+    youtubeUrl: "https://www.youtube.com/embed/Ijv7Y7vVIgI?si=JWupzA_Su1YgmNhx"
   },
   {
     id: 3,
-    title: "Building Strong Families God's Way",
-    speaker: "Pastor Simon Kimatu",
-    date: "2025-08-13",
-    series: "Family Values",
+    title: "Finish Strong",
+    speaker: "Rev Peter Kioko",
+    date: "2025-12-11",
+    series: "Persistence",
     description: "Learn biblical principles for building strong, Christ-centered families that honor God and create lasting legacies of faith for generations to come.",
-    youtubeUrl: "https://www.youtube.com/embed/DZ_PFu3VtE4?si=jOMfsXb8LWLGTZsh"
+    youtubeUrl: "https://www.youtube.com/embed/ZpWz2WJxWao?si=dNkg1wvCSuWwYwaZ"
   },
   {
     id: 4,
-    title: "Overcoming Life's Challenges with Hope",
+    title: "Thank God for Answered Prayers",
     speaker: "Rev. Peter Kioko",
-    date: "2025-09-6",
-    series: "Hope & Perseverance",
+    date: "2025-12-4",
+    series: "Thanksgiving",
     description: "Find hope and strength in God's promises as we navigate through life's difficult seasons. Discover how challenges can become stepping stones to greater faith.",
-    youtubeUrl: "https://www.youtube.com/embed/jK9OMEowPNU?si=EsROkG1nQoFZYSlG"
+    youtubeUrl: "https://www.youtube.com/embed/x9SxxcTHH_A?si=dAuqKwwjO5HIQ2VV"
   },
   {
     id: 5,
@@ -48,7 +48,7 @@ const latestSermons = [
     date: "2025-08-31",
     series: "Mission & Ministry",
     description: "Understand our calling as believers to share the Gospel and make disciples. Learn practical ways to fulfill the Great Commission in your daily life.",
-    youtubeUrl: "https://www.youtube.com/embed/7Kf5HmhWqvA?si=62yBzU0uTPKHL5X4"
+    youtubeUrl: "https://www.youtube.com/embed/qe2LFLZUAXA?si=Yl_pYbUUg2iRMbvV"
   },
   {
     id: 6,
