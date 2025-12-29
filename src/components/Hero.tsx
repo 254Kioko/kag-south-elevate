@@ -37,82 +37,78 @@ const Hero = () => {
       >
         <CarouselContent>
           {/* Slide 1 */}
-          <CarouselItem>
-            <div className="relative min-h-screen flex items-center justify-center">
-              <div className="absolute inset-0">
-                <img
-                  src={mainImage}
-                  alt="KAG South C Church worship service with congregation"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-black/0"></div>
-              </div>
+<CarouselItem>
+  <div className="relative min-h-screen flex flex-col justify-between">
 
-              <div className="relative z-10 text-center text-primary-foreground px-4 max-w-3xl mx-auto">
-                <div className="mb-6 flex justify-center">
-                  <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full shadow-elegant animate-fade-in">
-                    <span className="text-white font-medium text-base font-body">
-                      Welcome to our family
-                    </span>
-                  </div>
-                </div>
+    {/* Background */}
+    <div className="absolute inset-0">
+      <img
+        src={mainImage}
+        alt="KAG South C Church worship service with congregation"
+        className="w-full h-full object-cover"
+      />
+      <div className="absolute inset-0 bg-black/40"></div>
+    </div>
 
-                <h1 className="font-heading text-2xl md:text-4xl lg:text-5xl font-extrabold mb-4 leading-snug animate-fade-in">
-                  <span className="block text-white drop-shadow-xl tracking-wide">
-                    WELCOME TO KAG SOUTH C
-                  </span>
-                </h1>
+    {/* Center Content */}
+    <div className="relative z-10 text-center text-primary-foreground px-4 max-w-3xl mx-auto mt-24">
+      <div className="mb-6 flex justify-center">
+        <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full shadow-elegant animate-fade-in">
+          <span className="text-white font-medium text-base font-body">
+            Welcome to our family
+          </span>
+        </div>
+      </div>
 
-                <p className="text-lg md:text-xl mb-8 text-white/95 max-w-2xl mx-auto leading-relaxed font-medium drop-shadow-lg font-body">
-                  Where faith finds its home! Join our vibrant congregation for spiritual
-                  growth, meaningful fellowship, and life-changing encounters with God's
-                  love.
-                </p>
+      <h1 className="font-heading text-2xl md:text-4xl lg:text-5xl font-extrabold mb-4 leading-snug animate-fade-in">
+        <span className="block text-white drop-shadow-xl tracking-wide">
+          WELCOME TO KAG SOUTH C
+        </span>
+      </h1>
 
-                {/* Added self-closing <br /> tags */}
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
-                <br />
+      <p className="text-lg md:text-xl text-white/95 max-w-2xl mx-auto leading-relaxed font-medium drop-shadow-lg font-body">
+        Where faith finds its home! Join our vibrant congregation for spiritual
+        growth, meaningful fellowship, and life-changing encounters with God's
+        love.
+      </p>
+    </div>
 
-                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in">
-                  <Button
-                    size="default"
-                    variant="secondary"
-                    className="font-semibold px-6 py-3 text-base shadow-elegant hover-scale font-body"
-                    onClick={() => {
-                      const latestService = document.getElementById("latest-service");
-                      if (latestService) {
-                        latestService.scrollIntoView({ behavior: "smooth" });
-                      }
-                    }}
-                  >
-                    <Play className="w-5 h-5 mr-2" />
-                    Watch Latest Service
-                  </Button>
+    {/* Bottom Buttons */}
+    <div className="relative z-10 mb-20 flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in">
+      <Button
+        size="default"
+        variant="secondary"
+        className="font-semibold px-6 py-3 text-base shadow-elegant hover-scale font-body"
+        onClick={() => {
+          const latestService = document.getElementById("latest-service");
+          if (latestService) {
+            latestService.scrollIntoView({ behavior: "smooth" });
+          }
+        }}
+      >
+        <Play className="w-5 h-5 mr-2" />
+        Watch Latest Service
+      </Button>
 
-                  <a
-                    href="https://maps.app.goo.gl/FLKDdmePNH9QLRgm6"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Button
-                      size="default"
-                      variant="outline"
-                      className="font-semibold px-6 py-3 text-base bg-white/10 border-white/30 text-white hover:bg-white/20 backdrop-blur-sm shadow-elegant hover-scale font-body"
-                    >
-                      <Calendar className="w-5 h-5 mr-2" />
-                      Visit Us This Sunday
-                    </Button>
-                  </a>
-                </div>
-              </div>
-            </div>
-          </CarouselItem>
+      <a
+        href="https://maps.app.goo.gl/FLKDdmePNH9QLRgm6"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Button
+          size="default"
+          variant="outline"
+          className="font-semibold px-6 py-3 text-base bg-white/10 border-white/30 text-white hover:bg-white/20 backdrop-blur-sm shadow-elegant hover-scale font-body"
+        >
+          <Calendar className="w-5 h-5 mr-2" />
+          Visit Us This Sunday
+        </Button>
+      </a>
+    </div>
+
+  </div>
+</CarouselItem>
+
 
           {/* Slide 2 */}
       <CarouselItem>
