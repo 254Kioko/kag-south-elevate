@@ -79,21 +79,42 @@ const Footer = () => {
               </div>
             </div>
 
-            <div className="space-y-1">
-              <div className="flex items-center space-x-2">
-                <MapPin className="w-4 h-4 text-secondary flex-shrink-0" />
-                <span>South C, Nairobi</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Phone className="w-4 h-4 text-secondary flex-shrink-0" />
-                <span>+254 724 177 832</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <Mail className="w-4 h-4 text-secondary flex-shrink-0" />
-                <span>info@kagsouthc.org</span>
-              </div>
-            </div>
-          </div>
+
+
+         <div className="space-y-1">
+  <div className="flex items-center space-x-2">
+    <MapPin className="w-4 h-4 text-secondary flex-shrink-0" />
+    <a
+      href="https://maps.app.goo.gl/yrSXJuswX3yitN4a6"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:underline"
+    >
+      South C, Nairobi
+    </a>
+  </div>
+
+  <div className="flex items-center space-x-2">
+    <Phone className="w-4 h-4 text-secondary flex-shrink-0" />
+    <a
+      href="tel:+254724177832"
+      className="hover:underline"
+    >
+      +254 724 177 832
+    </a>
+  </div>
+
+  <div className="flex items-center space-x-2">
+    <Mail className="w-4 h-4 text-secondary flex-shrink-0" />
+    <a
+      href="mailto:info@kagsouthc.org"
+      className="hover:underline"
+    >
+      info@kagsouthc.org
+    </a>
+  </div>
+</div>
+
 
           {/* Newsletter */}
           <div>
