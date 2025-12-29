@@ -61,6 +61,9 @@ const Hero = () => {
 
               {/* Bottom Content */}
               <div className="relative z-10 mb-20 flex flex-col items-center gap-8 px-4">
+                <h1 className="text-2xl md:text-4xl lg:text-5xl font-extrabold text-white drop-shadow-xl">
+                  WELCOME TO KAG SOUTH C
+                </h1>
 
                 <p className="text-lg md:text-xl text-white/95 max-w-2xl text-center leading-relaxed">
                   Where faith finds its home! Join our vibrant congregation for
