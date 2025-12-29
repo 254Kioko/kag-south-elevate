@@ -103,14 +103,21 @@ const contactInfo = [
                         ))}
                       <a href={info.href}
   target={info.external ? "_blank" : undefined}
-  rel={info.external ? "noopener noreferrer" : undefined}
+  rel={info.external ? "noopener noreferrer" : undefined}>
+<Button
+  asChild
+  variant="link"
+  className="p-0 h-auto mt-2 text-secondary hover:text-secondary-light text-sm"
 >
-  <Button
-    variant="link"
-    className="p-0 h-auto mt-2 text-secondary hover:text-secondary-light text-sm"
+  <a
+    href={info.href}
+    target={info.external ? "_blank" : undefined}
+    rel={info.external ? "noopener noreferrer" : undefined}
   >
     {info.action}
-  </Button>
+  </a>
+</Button>
+
 </a>
 
                       </div>
