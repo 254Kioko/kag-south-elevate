@@ -28,6 +28,7 @@ const contactInfo = [
     action: "Call Now",
     href: "tel:+254724177832",
   },
+  
   {
     icon: Mail,
     title: "Email Us",
@@ -83,49 +84,50 @@ const contactInfo = [
               </p>
             </div>
 
-            {contactInfo.map((info, index) => {
-              const IconComponent = info.icon;
-              return (
-                <Card key={index} className="group hover:shadow-soft transition-all duration-300">
-                  <CardContent className="p-6">
-                    <div className="flex items-start space-x-4">
-                      <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
-                        <IconComponent className="w-6 h-6 text-primary-foreground" />
-                      </div>
-                      <div className="flex-1">
-                        <h4 className="font-heading font-semibold mb-2 text-primary">
-                          {info.title}
-                        </h4>
-                        {info.details.map((detail, idx) => (
-                          <p key={idx} className="text-sm text-muted-foreground">
-                            {detail}
-                          </p>
-                        ))}
-                      <a href={info.href}
-  target={info.external ? "_blank" : undefined}
-  rel={info.external ? "noopener noreferrer" : undefined}>
-<Button
-  asChild
-  variant="link"
-  className="p-0 h-auto mt-2 text-secondary hover:text-secondary-light text-sm"
->
-  <a
-    href={info.href}
-    target={info.external ? "_blank" : undefined}
-    rel={info.external ? "noopener noreferrer" : undefined}
-  >
-    {info.action}
-  </a>
-</Button>
+{contactInfo.map((info, index) => {
+  const IconComponent = info.icon;
+  return (
+    <Card
+      key={index}
+      className="group hover:shadow-soft transition-all duration-300"
+    >
+      <CardContent className="p-6">
+        <div className="flex items-start space-x-4">
+          <div className="w-12 h-12 bg-gradient-primary rounded-lg flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+            <IconComponent className="w-6 h-6 text-primary-foreground" />
+          </div>
 
-</a>
+          <div className="flex-1">
+            <h4 className="font-heading font-semibold mb-2 text-primary">
+              {info.title}
+            </h4>
 
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              );
-            })}
+            {info.details.map((detail, idx) => (
+              <p key={idx} className="text-sm text-muted-foreground">
+                {detail}
+              </p>
+            ))}
+
+            {/* ✅ Correct clickable button */}
+            <Button
+              asChild
+              variant="link"
+              className="p-0 h-auto mt-2 text-secondary hover:text-secondary-light text-sm"
+            >
+              <a
+                href={info.href}
+                target={info.external ? "_blank" : undefined}
+                rel={info.external ? "noopener noreferrer" : undefined}
+              >
+                {info.action}
+              </a>
+            </Button>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  );
+})}
           </div>
 
           {/* Contact Form */}
