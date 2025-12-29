@@ -1,9 +1,10 @@
 import { Button } from "@/components/ui/button";
-import { Play, Calendar, Users, Heart } from "lucide-react";
+import { Play, Calendar, Users } from "lucide-react";
 import { Link } from "react-router-dom";
+
 import mainImage from "@/assets/main.jpeg";
 import heroImage2 from "@/assets/hero3.jpeg";
-import heroImage3 from "@/assets/hero2.jpeg";
+
 import {
   Carousel,
   CarouselContent,
@@ -11,177 +12,148 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+
 import Autoplay from "embla-carousel-autoplay";
 
 const Hero = () => {
   const handleScroll = () => {
     const nextSection = document.getElementById("about");
-    if (nextSection) {
-      nextSection.scrollIntoView({ behavior: "smooth" });
-    }
+    nextSection?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
     <section id="home" className="relative min-h-screen overflow-hidden">
       <Carousel
-        opts={{
-          align: "start",
-          loop: true,
-        }}
-        plugins={[
-          Autoplay({
-            delay: 5000,
-          }),
-        ]}
+        opts={{ loop: true }}
+        plugins={[Autoplay({ delay: 5000 })]}
         className="w-full h-screen"
       >
         <CarouselContent>
-          {/* Slide 1 */}
-<CarouselItem>
-  <div className="relative min-h-screen flex flex-col justify-between">
 
-    {/* Background */}
-    <div className="absolute inset-0">
-      <img
-        src={mainImage}
-        alt="KAG South C Church worship service with congregation"
-        className="w-full h-full object-cover"
-      />
-      <div className="absolute inset-0 bg-black/40"></div>
-    </div>
+          {/* SLIDE 1 */}
+          <CarouselItem>
+            <div className="relative min-h-screen flex flex-col justify-between">
 
-    {/* Center Content */}
-    <div className="relative z-10 text-center text-primary-foreground px-4 max-w-3xl mx-auto mt-24">
-      <div className="mb-6 flex justify-center">
-        <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full shadow-elegant animate-fade-in">
-          <span className="text-white font-medium text-base font-body">
-            Welcome to our family
-          </span>
-        </div>
-      </div>
+              {/* Background */}
+              <div className="absolute inset-0">
+                <img
+                  src={mainImage}
+                  alt="KAG South C Church worship service"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-black/40" />
+              </div>
 
-      <h1 className="font-heading text-2xl md:text-4xl lg:text-5xl font-extrabold mb-4 leading-snug animate-fade-in">
-        <span className="block text-white drop-shadow-xl tracking-wide">
-          WELCOME TO KAG SOUTH C
-        </span>
-      </h1>
+              {/* Top / Center Content */}
+              <div className="relative z-10 text-center px-4 max-w-3xl mx-auto mt-24">
+                <div className="mb-6 flex justify-center">
+                  <div className="bg-white/10 backdrop-blur-md px-4 py-2 rounded-full">
+                    <span className="text-white font-medium">
+                      Welcome to our family
+                    </span>
+                  </div>
+                </div>
 
-    <p className="text-lg md:text-xl text-white/95 max-w-2xl mx-auto
-             leading-relaxed font-medium drop-shadow-lg font-body
-             mt-12 md:mt-16">
-  Where faith finds its home! Join our vibrant congregation for spiritual
-  growth, meaningful fellowship, and life-changing encounters with God's
-  love.
-</p>
+                <h1 className="text-2xl md:text-4xl lg:text-5xl font-extrabold text-white drop-shadow-xl">
+                  WELCOME TO KAG SOUTH C
+                </h1>
+              </div>
 
+              {/* Bottom Content */}
+              <div className="relative z-10 mb-20 flex flex-col items-center gap-8 px-4">
 
-    {/* Bottom Buttons */}
-    <div className="relative z-10 mb-20 flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in">
-      <Button
-        size="default"
-        variant="secondary"
-        className="font-semibold px-6 py-3 text-base shadow-elegant hover-scale font-body"
-        onClick={() => {
-          const latestService = document.getElementById("latest-service");
-          if (latestService) {
-            latestService.scrollIntoView({ behavior: "smooth" });
-          }
-        }}
-      >
-        <Play className="w-5 h-5 mr-2" />
-        Watch Latest Service
-      </Button>
+                <p className="text-lg md:text-xl text-white/95 max-w-2xl text-center leading-relaxed">
+                  Where faith finds its home! Join our vibrant congregation for
+                  spiritual growth, meaningful fellowship, and life-changing
+                  encounters with God's love.
+                </p>
 
-      <a
-        href="https://maps.app.goo.gl/FLKDdmePNH9QLRgm6"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        <Button
-          size="default"
-          variant="outline"
-          className="font-semibold px-6 py-3 text-base bg-white/10 border-white/30 text-white hover:bg-white/20 backdrop-blur-sm shadow-elegant hover-scale font-body"
-        >
-          <Calendar className="w-5 h-5 mr-2" />
-          Visit Us This Sunday
-        </Button>
-      </a>
-    </div>
+                <div className="flex flex-col sm:flex-row gap-4">
+                  <Button
+                    variant="secondary"
+                    className="font-semibold px-6 py-3"
+                    onClick={() => {
+                      const latestService =
+                        document.getElementById("latest-service");
+                      latestService?.scrollIntoView({ behavior: "smooth" });
+                    }}
+                  >
+                    <Play className="w-5 h-5 mr-2" />
+                    Watch Latest Service
+                  </Button>
 
-  </div>
-</CarouselItem>
+                  <a
+                    href="https://maps.app.goo.gl/FLKDdmePNH9QLRgm6"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button
+                      variant="outline"
+                      className="bg-white/10 border-white/30 text-white"
+                    >
+                      <Calendar className="w-5 h-5 mr-2" />
+                      Visit Us This Sunday
+                    </Button>
+                  </a>
+                </div>
 
+              </div>
+            </div>
+          </CarouselItem>
 
-          {/* Slide 2 */}
-      <CarouselItem>
-  <div className="relative min-h-screen flex flex-col justify-between">
-    
-    {/* Background */}
-    <div className="absolute inset-0">
-      <img
-        src={heroImage2}
-        alt=""
-        className="w-full h-full object-cover"
-      />
-      <div className="absolute inset-0 bg-black/40"></div>
-    </div>
+          {/* SLIDE 2 */}
+          <CarouselItem>
+            <div className="relative min-h-screen flex flex-col justify-between">
 
-    {/* Center Content */}
-    <div className="relative z-10 text-center text-primary-foreground px-4 max-w-3xl mx-auto mt-24">
-      <div className="mb-6 flex justify-center">
-        <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full shadow-elegant animate-fade-in">
-          <Users className="w-5 h-5 text-white" />
-          <span className="text-white font-medium text-base font-body">
-            {/* optional text */}
-          </span>
-        </div>
-      </div>
+              {/* Background */}
+              <div className="absolute inset-0">
+                <img
+                  src={heroImage2}
+                  alt=""
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-black/40" />
+              </div>
 
-      <h1 className="font-heading text-2xl md:text-4xl lg:text-5xl font-extrabold mb-4 leading-snug animate-fade-in">
-        <span className="block text-white drop-shadow-xl tracking-wide">
-          {/* title */}
-        </span>
-      </h1>
+              {/* Center Content */}
+              <div className="relative z-10 text-center px-4 max-w-3xl mx-auto mt-32">
+                <div className="flex justify-center mb-6">
+                  <div className="bg-white/10 backdrop-blur-md px-4 py-2 rounded-full flex items-center gap-2">
+                    <Users className="w-5 h-5 text-white" />
+                    <span className="text-white font-medium">
+                      Join Our Community
+                    </span>
+                  </div>
+                </div>
+              </div>
 
-      <p className="text-lg md:text-xl text-white/95 max-w-2xl mx-auto leading-relaxed font-medium drop-shadow-lg font-body">
-        {/* description */}
-      </p>
-    </div>
+              {/* Bottom Button */}
+              <div className="relative z-10 mb-20 flex justify-center">
+                <Link to="/events">
+                  <Button variant="secondary" className="px-6 py-3">
+                    <Calendar className="w-5 h-5 mr-2" />
+                    View Event Details
+                  </Button>
+                </Link>
+              </div>
 
-    {/* Bottom Button */}
-    <div className="relative z-10 mb-20 flex justify-center animate-fade-in">
-      <Link to="/events">
-        <Button
-          size="default"
-          variant="secondary"
-          className="font-semibold px-6 py-3 text-base shadow-elegant hover-scale font-body"
-        >
-          <Calendar className="w-5 h-5 mr-2" />
-          View Event Details
-        </Button>
-      </Link>
-    </div>
+            </div>
+          </CarouselItem>
 
-  </div>
-</CarouselItem>
-
-
-          {/* Slide 3 */}
-        
         </CarouselContent>
 
         {/* Navigation */}
-        <CarouselPrevious className="left-4 bg-white/20 backdrop-blur-md border-white/30 text-white hover:bg-white/30" />
-        <CarouselNext className="right-4 bg-white/20 backdrop-blur-md border-white/30 text-white hover:bg-white/30" />
+        <CarouselPrevious className="left-4 bg-white/20 text-white" />
+        <CarouselNext className="right-4 bg-white/20 text-white" />
       </Carousel>
 
       {/* Scroll Indicator */}
       <button
         onClick={handleScroll}
-        className="absolute bottom-6 left-1/2 transform -translate-x-1/2 animate-bounce focus:outline-none z-20"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 animate-bounce"
       >
-        <div className="w-5 h-8 border-2 border-primary-foreground/50 rounded-full flex justify-center items-start">
-          <div className="w-1 h-2 bg-primary-foreground/50 rounded-full mt-2"></div>
+        <div className="w-5 h-8 border-2 border-white/50 rounded-full flex justify-center">
+          <div className="w-1 h-2 bg-white/50 rounded-full mt-2" />
         </div>
       </button>
     </section>
