@@ -18,7 +18,7 @@ const contactInfo = [
     title: "Visit Us",
     details: ["South C ", "Nairobi, Kenya"],
     action: "Get Directions",
-    href: "https://www.google.com/maps/search/?api=1&query=South+C+Nairobi+Kenya",
+    href: "https://maps.app.goo.gl/yrSXJuswX3yitN4a6",
     external: true,
   },
   {
