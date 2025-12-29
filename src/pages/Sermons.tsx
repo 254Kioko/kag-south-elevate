@@ -85,15 +85,6 @@ const latestSermons = [
     series: "Worship & Praise",
     description: "Discover how worship extends beyond Sunday service into every aspect of our lives. Learn to live as a continuous offering of praise to God.",
     youtubeUrl: "https://www.youtube.com/embed/hedv_tZ-m4o?si=FiEm3dQMGQZ7FLwy"
-  },
-  {
-    id: 10,
-    title: "Unity in the Body of Christ",
-    speaker: "Pastor Sarah Njoki",
-    date: "2025-07-26",
-    series: "Church Community",
-    description: "Understand the importance of unity in the church and how we can work together as one body to accomplish God's purposes on earth.",
-    youtubeUrl: "https://www.youtube.com/embed/coV19EAltn4?si=WMpRBTIAHhPimkIP"
   }
 ];
 
