@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Play, Calendar, Users, Heart } from "lucide-react";
 import { Link } from "react-router-dom";
 import mainImage from "@/assets/main.jpeg";
-import heroImage2 from "@/assets/hero3.jpeg";
+import heroImage2 from "@/assets/kesha.jpeg";
 import heroImage3 from "@/assets/hero2.jpeg";
 import {
   Carousel,
