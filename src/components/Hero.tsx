@@ -120,7 +120,7 @@ const Hero = () => {
               <div className="absolute inset-0">
                 <img
                   src={heroImage2}
-                  alt="Men's Fellowship gathering"
+                  alt=""
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-black/0"></div>
@@ -138,16 +138,15 @@ const Hero = () => {
 
                 <h1 className="font-heading text-2xl md:text-4xl lg:text-5xl font-extrabold mb-4 leading-snug animate-fade-in">
                   <span className="block text-white drop-shadow-xl tracking-wide">
-                    MEN'S FELLOWSHIP
+                  
                   </span>
                   <span className="block text-white drop-shadow-md mt-2">
-                    Brothers in Christ
+                  
                   </span>
                 </h1>
 
                 <p className="text-lg md:text-xl mb-8 text-white/95 max-w-2xl mx-auto leading-relaxed font-medium drop-shadow-lg font-body">
-                  Join us for a powerful time of fellowship, worship, and encouragement.
-                  Building godly men, strengthening families, and impacting our community together.
+                 
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in">
@@ -167,56 +166,7 @@ const Hero = () => {
           </CarouselItem>
 
           {/* Slide 3 */}
-          <CarouselItem>
-            <div className="relative min-h-screen flex items-center justify-center">
-              <div className="absolute inset-0">
-                <img
-                  src={heroImage3}
-                  alt="Thanksgiving celebration at KAG South C"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-black/0"></div>
-              </div>
-
-              <div className="relative z-10 text-center text-primary-foreground px-4 max-w-3xl mx-auto">
-                <div className="mb-6 flex justify-center">
-                  <div className="flex items-center space-x-3 bg-white/10 backdrop-blur-md px-4 py-2 rounded-full shadow-elegant animate-fade-in">
-                    <Heart className="w-5 h-5 text-white" />
-                    <span className="text-white font-medium text-base font-body">
-                      Special Celebration
-                    </span>
-                  </div>
-                </div>
-
-                <h1 className="font-heading text-2xl md:text-4xl lg:text-5xl font-extrabold mb-4 leading-snug animate-fade-in">
-                  <span className="block text-white drop-shadow-xl tracking-wide">
-                    THANKSGIVING DAY
-                  </span>
-                  <span className="block text-white drop-shadow-md mt-2">
-                    A Day of Gratitude
-                  </span>
-                </h1>
-
-                <p className="text-lg md:text-xl mb-8 text-white/95 max-w-2xl mx-auto leading-relaxed font-medium drop-shadow-lg font-body">
-                  Join us as we gather to give thanks to God for His abundant blessings,
-                  faithfulness, and love throughout the year.
-                </p>
-
-                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in">
-                  <Link to="/events">
-                    <Button
-                      size="default"
-                      variant="secondary"
-                      className="font-semibold px-6 py-3 text-base shadow-elegant hover-scale font-body"
-                    >
-                      <Calendar className="w-5 h-5 mr-2" />
-                      Learn More
-                    </Button>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </CarouselItem>
+        
         </CarouselContent>
 
         {/* Navigation */}
