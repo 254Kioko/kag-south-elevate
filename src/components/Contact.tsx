@@ -101,9 +101,18 @@ const contactInfo = [
                             {detail}
                           </p>
                         ))}
-                        <Button variant="link" className="p-0 h-auto mt-2 text-secondary hover:text-secondary-light text-sm">
-                          {info.action}
-                        </Button>
+                      <a href={info.href}
+  target={info.external ? "_blank" : undefined}
+  rel={info.external ? "noopener noreferrer" : undefined}
+>
+  <Button
+    variant="link"
+    className="p-0 h-auto mt-2 text-secondary hover:text-secondary-light text-sm"
+  >
+    {info.action}
+  </Button>
+</a>
+
                       </div>
                     </div>
                   </CardContent>
