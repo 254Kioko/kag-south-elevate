@@ -328,14 +328,40 @@ const formatDate = (dateString: string) =>
   });
 
 /** ✅ Google Calendar link (NO download) */
+const toGoogleDateTime = (date: string, time: string) => {
+  const [hours, minutes] = time.split(":").map(Number);
+  const d = new Date(date);
+  d.setHours(hours, minutes, 0, 0);
+
+  // Google Calendar format: YYYYMMDDTHHmmss
+  return d.toISOString().replace(/[-:]|\.\d{3}/g, "");
+};
+
 const getGoogleCalendarLink = (event: any) => {
-  const start = new Date(event.date).toISOString().replace(/[-:]|\.\d{3}/g, "");
+  // If event has no specific time (e.g. fasting week)
+  if (!event.startTime || !event.endTime) {
+    const start = new Date(event.date)
+      .toISOString()
+      .split("T")[0]
+      .replace(/-/g, "");
+
+    return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
+      event.title
+    )}&dates=${start}/${start}&details=${encodeURIComponent(
+      event.description
+    )}&location=${encodeURIComponent(event.location)}`;
+  }
+
+  const start = toGoogleDateTime(event.date, event.startTime);
+  const end = toGoogleDateTime(event.date, event.endTime);
+
   return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(
     event.title
-  )}&dates=${start}/${start}&details=${encodeURIComponent(
+  )}&dates=${start}/${end}&details=${encodeURIComponent(
     event.description
   )}&location=${encodeURIComponent(event.location)}`;
 };
+
 
 const Events = () => {
   const [email, setEmail] = useState("");
