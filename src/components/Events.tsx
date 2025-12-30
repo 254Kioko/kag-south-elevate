@@ -79,24 +79,25 @@ const Events = () => {
   };
 
   const upcomingEvents = [
-    {
-      title: "Thanksgiving Sunday",
-      date: "2025-11-07",
-      time: "9:00 AM - 1:30 AM",
-      location: "Main Sanctuary",
-      description: "A special service where we come together as a church family to give thanks to God for His goodness and blessings throughout the year.",
-      category: "Entire Church",
-      featured: true
-    },
-    {
-      title: "Celebration Sunday",
-      date: "2025-12-14",
-      time: "9:00 AM - 1:30 PM", 
-      location: "Main Sanctuary",
-      description: "A vibrant day of praise, worship, and rejoicing as we celebrate God’s faithfulness and victories.",
-      category: "Entire Church",
-      featured: true
-    }
+  {
+  title: "Prayer and Fasting",
+  date: "2026-01-19",
+  time: "January 19th – 30th",
+  location: "Main Sanctuary",
+  description: "A dedicated period of prayer and fasting as a church, seeking God’s guidance, renewal, and spiritual growth.",
+  category: "Entire Church",
+  featured: true,
+},
+{
+  title: "Leaders Seminar",
+  date: "2026-02-01",
+  time: "2:00 PM",
+  location: "Church Hall",
+  description: "A leadership training seminar aimed at equipping church leaders with biblical principles and practical ministry skills.",
+  category: "Leaders",
+  featured: false,
+},
+
   ];
 
   const formatDate = (dateString: string) => {
