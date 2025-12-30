@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail, Youtube, Facebook } from "lucide-react";
+import { MapPin, Phone, Mail, Youtube, Facebook, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
@@ -15,6 +15,8 @@ const Footer = () => {
   const socialLinks = [
     { icon: Youtube, href: "https://www.youtube.com/channel/UCAP5aGJBcRy8wMYPfnbqX7w", label: "YouTube" },
     { icon: Facebook, href: "https://www.facebook.com/p/KAG-SOUTH-C-Church-100064333766328/", label: "Facebook" },
+     {
+    icon: Instagram, href: "https://www.instagram.com/kag_southc/",label: "Instagram", },
   ];
 
   const scrollToSection = (href: string) => {
