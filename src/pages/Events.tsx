@@ -43,7 +43,7 @@ const upcomingEvents = [
     isEntireChurch: false,
     isFeatured: true,
   },
-  /  {
+    {
     id: 3,
     title: "WWK Sunday",
     description: "A special Women of Worth Kenya (WWK) Sunday celebrating women through worship, teaching, and fellowship.",
@@ -162,7 +162,7 @@ const upcomingEvents = [
     location: "Main Sanctuary",
     isEntireChurch: true,
     isFeatured: true,
-  },/ (rest unchanged)
+  },
 ];
 
 const formatDate = (dateString: string) =>
