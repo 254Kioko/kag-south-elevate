@@ -434,28 +434,34 @@ const Events = () => {
               <DialogTrigger asChild>
                 <Button size="lg">Subscribe to Newsletter</Button>
               </DialogTrigger>
-              <DialogContent>
-                <DialogHeader>
-                  <DialogTitle>Subscribe</DialogTitle>
-                  <DialogDescription>
-                    Get updates on upcoming events.
-                  </DialogDescription>
-                </DialogHeader>
-                <form onSubmit={handleSubscribe} className="space-y-4">
-                  <Label>Email</Label>
-                  <Input
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                  />
-                  <Button type="submit" disabled={isSubmitting} className="w-full">
-                    Subscribe
-                  </Button>
-                </form>
-              </DialogContent>
-            </Dialog>
+           <DialogDescription>
+                      Never miss an event! Enter your email to receive notifications about upcoming services, events, and special programs.
+                    </DialogDescription>
+                  </DialogHeader>
+                  <form onSubmit={handleSubscribe} className="space-y-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="email">Email Address</Label>
+                      <Input
+                        id="email"
+                        type="email"
+                        placeholder="your.email@example.com"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                        disabled={isSubmitting}
+                      />
+                    </div>
+                    <Button type="submit" className="w-full" disabled={isSubmitting}>
+                      {isSubmitting ? "Subscribing..." : "Subscribe"}
+                    </Button>
+                  </form>
+                </DialogContent>
+              </Dialog>
+            </div>
           </div>
-        </section>
+        </div>
+      </div>
+    </section>
       </div>
 
       <Footer />
