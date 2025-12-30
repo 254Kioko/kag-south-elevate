@@ -38,7 +38,7 @@ const upcomingEvents = [
     title: "Leaders Seminar",
     description: "Leadership empowerment seminar.",
     date: "2026-02-01",
-    time: "9:00 AM - 4:00 PM",
+    time: "2:00 PM",
     location: "Church Hall",
     isEntireChurch: false,
     isFeatured: true,
@@ -100,7 +100,7 @@ const upcomingEvents = [
     date: "2026-04-19",
     time: "9:00 AM - 1:30 PM",
     location: "Main Sanctuary",
-    isEntireChurch: false,
+    isEntireChurch: true,
     isFeatured: false,
   },
   {
@@ -120,7 +120,7 @@ const upcomingEvents = [
     date: "2026-05-24",
     time: "9:00 AM - 1:30 PM",
     location: "Main Sanctuary",
-    isEntireChurch: true,
+    isEntireChurch: false,
     isFeatured: true,
   },
   {
@@ -140,7 +140,7 @@ const upcomingEvents = [
     date: "2026-06-14",
     time: "9:00 AM - 1:30 PM",
     location: "Main Sanctuary",
-    isEntireChurch: false,
+    isEntireChurch: true,
     isFeatured: false,
   },
   {
