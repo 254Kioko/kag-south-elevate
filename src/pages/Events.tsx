@@ -466,9 +466,7 @@ const Events = () => {
               </Dialog>
             </div>
           </div>
-        </div>
-      </div>
-        </section>
+               </section>
       </div>
 
       <Footer />
@@ -477,4 +475,3 @@ const Events = () => {
 };
 
 export default Events;
-
