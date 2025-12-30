@@ -427,41 +427,47 @@ const Events = () => {
           </div>
         </section>
 
-        <section className="bg-gradient-to-r from-primary/5 to-accent/5 py-16">
-          <div className="container mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-6">Never Miss an Event</h2>
-            <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-              <DialogTrigger asChild>
-                <Button size="lg">Subscribe to Newsletter</Button>
-              </DialogTrigger>
-           <DialogDescription>
-                      Never miss an event! Enter your email to receive notifications about upcoming services, events, and special programs.
-                    </DialogDescription>
-                  </DialogHeader>
-                  <form onSubmit={handleSubscribe} className="space-y-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="email">Email Address</Label>
-                      <Input
-                        id="email"
-                        type="email"
-                        placeholder="your.email@example.com"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                        disabled={isSubmitting}
-                      />
-                    </div>
-                    <Button type="submit" className="w-full" disabled={isSubmitting}>
-                      {isSubmitting ? "Subscribing..." : "Subscribe"}
-                    </Button>
-                  </form>
-                </DialogContent>
-              </Dialog>
-            </div>
+      <section className="bg-gradient-to-r from-primary/5 to-accent/5 py-16">
+  <div className="container mx-auto text-center">
+    <h2 className="text-3xl font-bold mb-6">Never Miss an Event</h2>
+
+    <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+      <DialogTrigger asChild>
+        <Button size="lg">Subscribe to Newsletter</Button>
+      </DialogTrigger>
+
+      <DialogContent>
+        <DialogHeader>
+          <DialogTitle>Stay Updated</DialogTitle>
+          <DialogDescription>
+            Never miss an event! Enter your email to receive notifications about
+            upcoming services, events, and special programs.
+          </DialogDescription>
+        </DialogHeader>
+
+        <form onSubmit={handleSubscribe} className="space-y-4">
+          <div className="space-y-2">
+            <Label htmlFor="email">Email Address</Label>
+            <Input
+              id="email"
+              type="email"
+              placeholder="your.email@example.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              disabled={isSubmitting}
+            />
           </div>
-        </div>
-      </div>
-    </section>
+
+          <Button type="submit" className="w-full" disabled={isSubmitting}>
+            {isSubmitting ? "Subscribing..." : "Subscribe"}
+          </Button>
+        </form>
+      </DialogContent>
+    </Dialog>
+  </div>
+</section>
+
       </div>
 
       <Footer />
