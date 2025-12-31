@@ -1,166 +1,174 @@
 import * as React from "react";
+import * as ToastPrimitive from "@radix-ui/react-toast";
+import { cva, type VariantProps } from "class-variance-authority";
+import { X } from "lucide-react";
+import { cn } from "@/lib/utils";
 
-import type { ToastActionElement, ToastProps } from "@/components/ui/toast";
+/* =========================
+   TOAST UI STYLES
+========================= */
+
+const toastVariants = cva(
+  "group relative flex w-full items-start gap-3 rounded-xl border p-4 shadow-lg transition-all",
+  {
+    variants: {
+      variant: {
+        default: "bg-background text-foreground",
+        success: "border-green-200 bg-green-50 text-green-900",
+        error: "border-red-200 bg-red-50 text-red-900",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+    },
+  }
+);
+
+/* =========================
+   ICONS
+========================= */
+
+const SuccessIcon = () => (
+  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-100">
+    <svg
+      className="h-5 w-5 text-green-600"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="3"
+      viewBox="0 0 24 24"
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+    </svg>
+  </div>
+);
+
+/* =========================
+   RADIX COMPONENTS
+========================= */
+
+const ToastProvider = ToastPrimitive.Provider;
+
+const ToastViewport = React.forwardRef<
+  React.ElementRef<typeof ToastPrimitive.Viewport>,
+  React.ComponentPropsWithoutRef<typeof ToastPrimitive.Viewport>
+>((props, ref) => (
+  <ToastPrimitive.Viewport
+    ref={ref}
+    className="fixed top-4 right-4 z-50 flex max-w-sm flex-col gap-2"
+    {...props}
+  />
+));
+ToastViewport.displayName = "ToastViewport";
+
+const Toast = React.forwardRef<
+  React.ElementRef<typeof ToastPrimitive.Root>,
+  React.ComponentPropsWithoutRef<typeof ToastPrimitive.Root> &
+    VariantProps<typeof toastVariants>
+>(({ className, variant, children, ...props }, ref) => (
+  <ToastPrimitive.Root
+    ref={ref}
+    className={cn(toastVariants({ variant }), className)}
+    {...props}
+  >
+    {variant === "success" && <SuccessIcon />}
+    {children}
+  </ToastPrimitive.Root>
+));
+Toast.displayName = "Toast";
+
+const ToastTitle = React.forwardRef<
+  React.ElementRef<typeof ToastPrimitive.Title>,
+  React.ComponentPropsWithoutRef<typeof ToastPrimitive.Title>
+>((props, ref) => (
+  <ToastPrimitive.Title
+    ref={ref}
+    className="font-semibold leading-none"
+    {...props}
+  />
+));
+ToastTitle.displayName = "ToastTitle";
+
+const ToastDescription = React.forwardRef<
+  React.ElementRef<typeof ToastPrimitive.Description>,
+  React.ComponentPropsWithoutRef<typeof ToastPrimitive.Description>
+>((props, ref) => (
+  <ToastPrimitive.Description
+    ref={ref}
+    className="text-sm opacity-90"
+    {...props}
+  />
+));
+ToastDescription.displayName = "ToastDescription";
+
+const ToastClose = React.forwardRef<
+  React.ElementRef<typeof ToastPrimitive.Close>,
+  React.ComponentPropsWithoutRef<typeof ToastPrimitive.Close>
+>((props, ref) => (
+  <ToastPrimitive.Close
+    ref={ref}
+    className="absolute right-3 top-3 text-muted-foreground hover:text-foreground"
+    {...props}
+  >
+    <X className="h-4 w-4" />
+  </ToastPrimitive.Close>
+));
+ToastClose.displayName = "ToastClose";
+
+/* =========================
+   TOAST STATE LOGIC
+========================= */
 
 const TOAST_LIMIT = 1;
-const TOAST_REMOVE_DELAY = 1000000;
+const TOAST_REMOVE_DELAY = 5000;
 
-type ToasterToast = ToastProps & {
+type ToastVariant = "default" | "success" | "error";
+
+type ToastData = {
   id: string;
   title?: React.ReactNode;
   description?: React.ReactNode;
-  action?: ToastActionElement;
+  variant?: ToastVariant;
+  open?: boolean;
 };
 
-const actionTypes = {
-  ADD_TOAST: "ADD_TOAST",
-  UPDATE_TOAST: "UPDATE_TOAST",
-  DISMISS_TOAST: "DISMISS_TOAST",
-  REMOVE_TOAST: "REMOVE_TOAST",
-} as const;
+type State = {
+  toasts: ToastData[];
+};
 
 let count = 0;
+const listeners: Array<(state: State) => void> = [];
+let memoryState: State = { toasts: [] };
 
 function genId() {
   count = (count + 1) % Number.MAX_SAFE_INTEGER;
   return count.toString();
 }
 
-type ActionType = typeof actionTypes;
-
-type Action =
-  | {
-      type: ActionType["ADD_TOAST"];
-      toast: ToasterToast;
-    }
-  | {
-      type: ActionType["UPDATE_TOAST"];
-      toast: Partial<ToasterToast>;
-    }
-  | {
-      type: ActionType["DISMISS_TOAST"];
-      toastId?: ToasterToast["id"];
-    }
-  | {
-      type: ActionType["REMOVE_TOAST"];
-      toastId?: ToasterToast["id"];
-    };
-
-interface State {
-  toasts: ToasterToast[];
+function dispatch(state: State) {
+  memoryState = state;
+  listeners.forEach((l) => l(memoryState));
 }
 
-const toastTimeouts = new Map<string, ReturnType<typeof setTimeout>>();
+function toast(data: Omit<ToastData, "id">) {
+  const id = genId();
 
-const addToRemoveQueue = (toastId: string) => {
-  if (toastTimeouts.has(toastId)) {
-    return;
-  }
+  dispatch({
+    toasts: [
+      {
+        ...data,
+        id,
+        open: true,
+      },
+    ].slice(0, TOAST_LIMIT),
+  });
 
-  const timeout = setTimeout(() => {
-    toastTimeouts.delete(toastId);
+  setTimeout(() => {
     dispatch({
-      type: "REMOVE_TOAST",
-      toastId: toastId,
+      toasts: [],
     });
   }, TOAST_REMOVE_DELAY);
 
-  toastTimeouts.set(toastId, timeout);
-};
-
-export const reducer = (state: State, action: Action): State => {
-  switch (action.type) {
-    case "ADD_TOAST":
-      return {
-        ...state,
-        toasts: [action.toast, ...state.toasts].slice(0, TOAST_LIMIT),
-      };
-
-    case "UPDATE_TOAST":
-      return {
-        ...state,
-        toasts: state.toasts.map((t) => (t.id === action.toast.id ? { ...t, ...action.toast } : t)),
-      };
-
-    case "DISMISS_TOAST": {
-      const { toastId } = action;
-
-      // ! Side effects ! - This could be extracted into a dismissToast() action,
-      // but I'll keep it here for simplicity
-      if (toastId) {
-        addToRemoveQueue(toastId);
-      } else {
-        state.toasts.forEach((toast) => {
-          addToRemoveQueue(toast.id);
-        });
-      }
-
-      return {
-        ...state,
-        toasts: state.toasts.map((t) =>
-          t.id === toastId || toastId === undefined
-            ? {
-                ...t,
-                open: false,
-              }
-            : t,
-        ),
-      };
-    }
-    case "REMOVE_TOAST":
-      if (action.toastId === undefined) {
-        return {
-          ...state,
-          toasts: [],
-        };
-      }
-      return {
-        ...state,
-        toasts: state.toasts.filter((t) => t.id !== action.toastId),
-      };
-  }
-};
-
-const listeners: Array<(state: State) => void> = [];
-
-let memoryState: State = { toasts: [] };
-
-function dispatch(action: Action) {
-  memoryState = reducer(memoryState, action);
-  listeners.forEach((listener) => {
-    listener(memoryState);
-  });
-}
-
-type Toast = Omit<ToasterToast, "id">;
-
-function toast({ ...props }: Toast) {
-  const id = genId();
-
-  const update = (props: ToasterToast) =>
-    dispatch({
-      type: "UPDATE_TOAST",
-      toast: { ...props, id },
-    });
-  const dismiss = () => dispatch({ type: "DISMISS_TOAST", toastId: id });
-
-  dispatch({
-    type: "ADD_TOAST",
-    toast: {
-      ...props,
-      id,
-      open: true,
-      onOpenChange: (open) => {
-        if (!open) dismiss();
-      },
-    },
-  });
-
-  return {
-    id: id,
-    dismiss,
-    update,
-  };
+  return { id };
 }
 
 function useToast() {
@@ -170,17 +178,27 @@ function useToast() {
     listeners.push(setState);
     return () => {
       const index = listeners.indexOf(setState);
-      if (index > -1) {
-        listeners.splice(index, 1);
-      }
+      if (index > -1) listeners.splice(index, 1);
     };
-  }, [state]);
+  }, []);
 
   return {
     ...state,
     toast,
-    dismiss: (toastId?: string) => dispatch({ type: "DISMISS_TOAST", toastId }),
   };
 }
 
-export { useToast, toast };
+/* =========================
+   EXPORTS
+========================= */
+
+export {
+  ToastProvider,
+  ToastViewport,
+  Toast,
+  ToastTitle,
+  ToastDescription,
+  ToastClose,
+  useToast,
+  toast,
+};
