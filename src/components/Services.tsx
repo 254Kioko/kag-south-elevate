@@ -179,8 +179,8 @@ const Services = () => {
                 <div className="md:w-1/2">
                   <iframe
                     className="w-full aspect-video md:h-full"
-                    src="https://www.youtube.com/embed/RJkS8uZP0U8?si=8eRiHM4NvqRnf16j"
-                    title="Last Sunday's Sermon"
+                    src="https://www.youtube.com/embed/kE0s-MEMjdg?si=DjmesaDPrE9ukR1p"
+                    title="Crossover Kesha"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
@@ -190,24 +190,29 @@ const Services = () => {
                 <div className="md:w-1/2 flex flex-col justify-center">
                   <CardHeader className="text-left p-8 space-y-4">
                     <CardTitle className="text-2xl font-bold text-primary">
-Last Sunday of the year
+Kesha
                     </CardTitle>
                     <div className="flex flex-wrap items-center gap-4 text-muted-foreground text-sm">
                       <div className="flex items-center space-x-2">
                         <Calendar className="w-4 h-4" />
-                        <span>Sunday, December 28, 2025</span>
+                        <span>Wednesday, December 31st</span>
                       </div>
                       <div className="flex items-center space-x-2">
                         <Clock className="w-4 h-4" />
-                        <span>12:00AM</span>
+                        <span>9:00 PM-5 AM </span>
                       </div>
                     </div>
                     <p className="text-muted-foreground text-base">
                       <span className="font-semibold">Preacher: </span> Rev. Peter Kioko
                     </p>
                     <p className="text-muted-foreground text-sm leading-relaxed">
-                      In this service, we thankd God for our progress as we prayed for our goals. 
-                    </p>
+Stepping into the new year with faith
+
+Trusting God for direction, provision, and victory
+
+Declaring God’s promises over families, careers, and ministries
+
+Hebrews 11:1                    </p>
                     <Link to="/sermons">
                       <Button size="lg" className="font-semibold">
                         View More Sermons
