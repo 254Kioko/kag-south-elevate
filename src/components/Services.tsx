@@ -254,7 +254,7 @@ End of year kesha                </CardTitle>
                   </div>
                   <div className="flex items-center space-x-2">
                     <Clock className="w-4 h-4" />
-                    <span>9:00 PM - 4:00 AM</span>
+                    <span>9:00 PM - 5:00 AM</span>
                   </div>
                 </div>
                 <div className="pt-4">
