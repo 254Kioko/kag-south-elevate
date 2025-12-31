@@ -402,7 +402,7 @@ const Events = () => {
       <div className="pt-16">
         <section className="py-12 px-4">
           <div className="container mx-auto text-center max-w-3xl">
-            <h1 className="text-4xl font-bold mb-4">Upcoming Events</h1>
+            <h1 className="text-4xl font-bold mb-4">Upcoming Events and Programs</h1>
             <p className="text-muted-foreground">
               Join us for these upcoming church events.
             </p>
