@@ -205,11 +205,11 @@ Worhsip God alone!                    </CardTitle>
                       <span className="font-semibold">Preacher: </span> Rev. Peter Kioko
                     </p>
                     <p className="text-muted-foreground text-sm leading-relaxed">
-Stepping into the new year with faith <br>
+Stepping into the new year with faith 
 
-Trusting God for direction, provision, and victory  <br>
+Trusting God for direction, provision, and victory 
 
-Declaring God’s promises over families, careers, and ministries  <br>
+Declaring God’s promises over families, careers, and ministries  
 
 Worship Him and Him alone!                   </p>
                     <Link to="/sermons">
