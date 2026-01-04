@@ -32,19 +32,19 @@ const Hero = () => {
 
           {/* SLIDE 1 */}
         <CarouselItem>
-  <div className="relative min-h-screen flex flex-col justify-between">
+  <div className="relative min-h-screen flex flex-col justify-between overflow-hidden">
 
-    {/* Background */}
-    <div className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105">
-      <img
-        src={mainImage}
-        alt="KAG South C Church worship service"
-        className="absolute inset-0 w-full h-full object-cover"
-      />
-      <div className="absolute inset-0 bg-black/40" />
-    </div>
+    {/* Background Image */}
+    <img
+      src={mainImage}
+      alt="KAG South C Church worship service"
+      className="absolute inset-0 w-full h-full object-cover scale-100 transition-transform duration-700"
+    />
 
-    {/* Top / Center Content */}
+    {/* Overlay */}
+    <div className="absolute inset-0 bg-black/40" />
+
+    {/* Top Content */}
     <div className="relative z-10 text-center px-4 max-w-3xl mx-auto mt-24">
       <div className="mb-6 flex justify-center">
         <div className="bg-white/10 backdrop-blur-md px-4 py-2 rounded-full">
@@ -57,7 +57,7 @@ const Hero = () => {
 
     {/* Bottom Content */}
     <div className="relative z-10 mb-20 flex flex-col items-center gap-8 px-4">
-      <h1 className="text-2xl md:text-4xl lg:text-5xl font-extrabold text-white drop-shadow-xl">
+      <h1 className="text-2xl md:text-4xl lg:text-5xl font-extrabold text-white drop-shadow-xl text-center">
         WELCOME TO KAG SOUTH C
       </h1>
 
@@ -72,9 +72,9 @@ const Hero = () => {
           variant="secondary"
           className="font-semibold px-6 py-3"
           onClick={() => {
-            const latestService =
-              document.getElementById("latest-service");
-            latestService?.scrollIntoView({ behavior: "smooth" });
+            document
+              .getElementById("latest-service")
+              ?.scrollIntoView({ behavior: "smooth" });
           }}
         >
           <Play className="w-5 h-5 mr-2" />
@@ -96,23 +96,25 @@ const Hero = () => {
         </a>
       </div>
     </div>
+
   </div>
 </CarouselItem>
 
 
-          {/* SLIDE 2 */}
-         <CarouselItem>
-  <div className="relative min-h-screen flex flex-col justify-between">
 
-    {/* Background */}
-    <div className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105">
-      <img
-        src={heroImage2}
-        alt="Church community gathering"
-        className="absolute inset-0 w-full h-full object-cover"
-      />
-      <div className="absolute inset-0 bg-black/40" />
-    </div>
+          {/* SLIDE 2 */}
+      <CarouselItem>
+  <div className="relative min-h-screen flex flex-col justify-between overflow-hidden">
+
+    {/* Background Image */}
+    <img
+      src={heroImage2}
+      alt="Church community gathering"
+      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700"
+    />
+
+    {/* Overlay */}
+    <div className="absolute inset-0 bg-black/40" />
 
     {/* Center Content */}
     <div className="relative z-10 text-center px-4 max-w-3xl mx-auto mt-32">
@@ -135,6 +137,7 @@ const Hero = () => {
         </Button>
       </Link>
     </div>
+
   </div>
 </CarouselItem>
 
