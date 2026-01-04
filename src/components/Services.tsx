@@ -225,55 +225,70 @@ Worship Him and Him alone!                   </p>
         </div>
       </section>
 
-      {/* Upcoming Event */}
-      <section className="py-16 bg-background">
-        <div className="container mx-auto px-4 text-center">
-          <h3 className="font-heading text-3xl md:text-4xl font-bold mb-6 text-foreground">
-            Upcoming Event
-          </h3>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12">
-            Stay connected with what's happening at KAG South C. Here's what's next:
+    {/* Upcoming Event */}
+<section className="py-16 bg-background">
+  <div className="container mx-auto px-4 text-center">
+    <h3 className="font-heading text-3xl md:text-4xl font-bold mb-6 text-foreground">
+      Upcoming Event
+    </h3>
+
+    <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12">
+      Stay connected with what's happening at KAG South C. Here's what's next:
+    </p>
+
+    <div className="max-w-4xl mx-auto">
+      <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow flex flex-col md:flex-row">
+        
+        {/* Image */}
+        <div className="relative md:w-1/2 h-64 md:h-auto">
+          <img
+            src={heroImage2}
+            alt="Upcoming Event"
+            className="absolute inset-0 w-full h-full object-cover object-center"
+          />
+        </div>
+
+        {/* Content */}
+        <div className="md:w-1/2 flex flex-col justify-center text-left p-8 space-y-4">
+          <Badge variant="secondary" className="w-fit">
+            Special Event
+          </Badge>
+
+          <CardTitle className="text-2xl font-bold text-primary">
+            Prayer and Fasting
+          </CardTitle>
+
+          <p className="text-muted-foreground text-sm leading-relaxed">
+            Join us for a powerful prayer and fasting season as we ask God to help
+            us walk in obedience.
           </p>
 
-          <div className="max-w-4xl mx-auto">
-            <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow flex flex-col md:flex-row">
-              <div className="md:w-1/2 relative min-h-[260px] md:min-h-full">
-  <img
-    src={heroImage2}
-    alt="Upcoming Event"
-    className="absolute inset-0 w-full h-full object-cover"
-  />
-</div>
+          <div className="flex flex-col gap-3 text-muted-foreground text-sm pt-2">
+            <div className="flex items-center space-x-2">
+              <Calendar className="w-4 h-4" />
+              <span>January 19th – 30th, 2026</span>
+            </div>
 
-              <div className="md:w-1/2 flex flex-col justify-center text-left p-8 space-y-4">
-                <Badge variant="secondary" className="w-fit">Special Event</Badge>
-                <CardTitle className="text-2xl font-bold text-primary">
-Prayer and fasting                </CardTitle>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  Join us for a powerful prayer and fasting season as we ask God to help us walk in obedience
-                </p>
-                <div className="flex flex-col gap-3 text-muted-foreground text-sm pt-2">
-                  <div className="flex items-center space-x-2">
-                    <Calendar className="w-4 h-4" />
-                    <span>Wednesday, Dec 31st</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <Clock className="w-4 h-4" />
-                    <span> 19th - 30th January, 2026</span>
-                  </div>
-                </div>
-                <div className="pt-4">
-                  <Link to="/events">
-                    <Button variant="secondary" className="font-semibold">
-                      More Events
-                    </Button>
-                  </Link>
-                </div>
-              </div>
-            </Card>
+            <div className="flex items-center space-x-2">
+              <Clock className="w-4 h-4" />
+              <span>All Day</span>
+            </div>
+          </div>
+
+          <div className="pt-4">
+            <Link to="/events">
+              <Button variant="secondary" className="font-semibold">
+                More Events
+              </Button>
+            </Link>
           </div>
         </div>
-      </section>
+
+      </Card>
+    </div>
+  </div>
+</section>
+
 
       {/* Call to Action */}
       <section className="py-16 bg-muted/30">
