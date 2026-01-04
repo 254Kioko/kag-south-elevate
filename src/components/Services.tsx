@@ -237,13 +237,14 @@ Worship Him and Him alone!                   </p>
 
           <div className="max-w-4xl mx-auto">
             <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow flex flex-col md:flex-row">
-              <div className="md:w-1/2">
-                <img
-                  src={heroImage2}
-                  alt="Upcoming Event"
-                  className="w-full h-64 md:h-full object-cover"
-                />
-              </div>
+              <div className="md:w-1/2 relative min-h-[260px] md:min-h-full">
+  <img
+    src={heroImage2}
+    alt="Upcoming Event"
+    className="absolute inset-0 w-full h-full object-cover"
+  />
+</div>
+
               <div className="md:w-1/2 flex flex-col justify-center text-left p-8 space-y-4">
                 <Badge variant="secondary" className="w-fit">Special Event</Badge>
                 <CardTitle className="text-2xl font-bold text-primary">
