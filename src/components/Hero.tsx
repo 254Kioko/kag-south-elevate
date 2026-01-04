@@ -31,53 +31,41 @@ const Hero = () => {
         <CarouselContent>
 
           {/* SLIDE 1 */}
-        <CarouselItem>
-  <div className="relative min-h-screen flex flex-col justify-between overflow-hidden">
+      <CarouselItem>
+  <div className="relative min-h-screen flex flex-col justify-between bg-black">
 
-    {/* Background Image */}
-    <img
-      src={mainImage}
-      alt="KAG South C Church worship service"
-      className="absolute inset-0 w-full h-full object-cover scale-100 transition-transform duration-700"
-    />
-
-    {/* Overlay */}
-    <div className="absolute inset-0 bg-black/40" />
+    {/* Background */}
+    <div className="absolute inset-0 flex items-center justify-center">
+      <img
+        src={mainImage}
+        alt="KAG South C Church worship service"
+        className="max-w-full max-h-full object-contain"
+      />
+      <div className="absolute inset-0 bg-black/40" />
+    </div>
 
     {/* Top Content */}
     <div className="relative z-10 text-center px-4 max-w-3xl mx-auto mt-24">
       <div className="mb-6 flex justify-center">
         <div className="bg-white/10 backdrop-blur-md px-4 py-2 rounded-full">
-          <span className="text-white font-medium">
-            Welcome to our family
-          </span>
+          <span className="text-white font-medium">Welcome to our family</span>
         </div>
       </div>
     </div>
 
     {/* Bottom Content */}
     <div className="relative z-10 mb-20 flex flex-col items-center gap-8 px-4">
-      <h1 className="text-2xl md:text-4xl lg:text-5xl font-extrabold text-white drop-shadow-xl text-center">
+      <h1 className="text-2xl md:text-4xl lg:text-5xl font-extrabold text-white drop-shadow-xl">
         WELCOME TO KAG SOUTH C
       </h1>
 
-      <p className="text-lg md:text-xl text-white/95 max-w-2xl text-center leading-relaxed">
-        Where faith finds its home! Join our vibrant congregation for
-        spiritual growth, meaningful fellowship, and life-changing
-        encounters with God's love.
+      <p className="text-lg md:text-xl text-white/95 max-w-2xl text-center">
+        Where faith finds its home! Join our vibrant congregation for spiritual
+        growth, meaningful fellowship, and life-changing encounters with God's love.
       </p>
 
       <div className="flex flex-col sm:flex-row gap-4">
-        <Button
-          variant="secondary"
-          className="font-semibold px-6 py-3"
-          onClick={() => {
-            document
-              .getElementById("latest-service")
-              ?.scrollIntoView({ behavior: "smooth" });
-          }}
-        >
-          <Play className="w-5 h-5 mr-2" />
+        <Button variant="secondary" className="px-6 py-3">
           Watch Latest Service
         </Button>
 
@@ -86,60 +74,50 @@ const Hero = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Button
-            variant="outline"
-            className="bg-white/10 border-white/30 text-white"
-          >
-            <Calendar className="w-5 h-5 mr-2" />
+          <Button variant="outline" className="bg-white/10 border-white/30 text-white">
             Visit Us This Sunday
           </Button>
         </a>
       </div>
     </div>
-
   </div>
 </CarouselItem>
+
 
 
 
           {/* SLIDE 2 */}
-      <CarouselItem>
-  <div className="relative min-h-screen flex flex-col justify-between overflow-hidden">
+     <CarouselItem>
+  <div className="relative min-h-screen flex flex-col justify-between bg-black">
 
-    {/* Background Image */}
-    <img
-      src={heroImage2}
-      alt="Church community gathering"
-      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700"
-    />
+    <div className="absolute inset-0 flex items-center justify-center">
+      <img
+        src={heroImage2}
+        alt="Church community gathering"
+        className="max-w-full max-h-full object-contain"
+      />
+      <div className="absolute inset-0 bg-black/40" />
+    </div>
 
-    {/* Overlay */}
-    <div className="absolute inset-0 bg-black/40" />
-
-    {/* Center Content */}
     <div className="relative z-10 text-center px-4 max-w-3xl mx-auto mt-32">
       <div className="flex justify-center mb-6">
         <div className="bg-white/10 backdrop-blur-md px-4 py-2 rounded-full flex items-center gap-2">
           <Users className="w-5 h-5 text-white" />
-          <span className="text-white font-medium">
-            Join Our Community
-          </span>
+          <span className="text-white font-medium">Join Our Community</span>
         </div>
       </div>
     </div>
 
-    {/* Bottom Button */}
     <div className="relative z-10 mb-20 flex justify-center">
       <Link to="/events">
         <Button variant="secondary" className="px-6 py-3">
-          <Calendar className="w-5 h-5 mr-2" />
           View Event Details
         </Button>
       </Link>
     </div>
-
   </div>
 </CarouselItem>
+
 
 
         </CarouselContent>
