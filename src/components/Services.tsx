@@ -248,7 +248,7 @@ Worship Him and Him alone!                   </p>
               <div className="md:w-1/2 flex flex-col justify-center text-left p-8 space-y-4">
                 <Badge variant="secondary" className="w-fit">Special Event</Badge>
                 <CardTitle className="text-2xl font-bold text-primary">
-End of year kesha                </CardTitle>
+Prayer and fasting                </CardTitle>
                 <p className="text-muted-foreground text-sm leading-relaxed">
                   Join us for a powerful prayer and fasting season as we ask God to help us walk in obedience
                 </p>
