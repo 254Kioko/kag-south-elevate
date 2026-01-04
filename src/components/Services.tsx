@@ -179,8 +179,8 @@ const Services = () => {
                 <div className="md:w-1/2">
                   <iframe
                     className="w-full aspect-video md:h-full"
-                    src="https://www.youtube.com/embed/kE0s-MEMjdg?si=DjmesaDPrE9ukR1p"
-                    title="Crossover Kesha"
+                    src="https://www.youtube.com/embed/_73_Fg4iLjA?si=wJFh6kF8pre-Ni8X"
+                    title="God expects us to worship Him alone"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
@@ -195,11 +195,11 @@ Crossover Kesha
                     <div className="flex flex-wrap items-center gap-4 text-muted-foreground text-sm">
                       <div className="flex items-center space-x-2">
                         <Calendar className="w-4 h-4" />
-                        <span>Wednesday, December 31st</span>
+                        <span>Sunday, January 4th</span>
                       </div>
                       <div className="flex items-center space-x-2">
                         <Clock className="w-4 h-4" />
-                        <span>9:00 PM-5 AM </span>
+                        <span>9:00 PM-1:30 PM </span>
                       </div>
                     </div>
                     <p className="text-muted-foreground text-base">
@@ -212,7 +212,7 @@ Trusting God for direction, provision, and victory
 
 Declaring God’s promises over families, careers, and ministries
 
-Hebrews 11:1                    </p>
+Worship Him and Him alone!                   </p>
                     <Link to="/sermons">
                       <Button size="lg" className="font-semibold">
                         View More Sermons
