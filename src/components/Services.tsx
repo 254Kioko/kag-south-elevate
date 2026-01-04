@@ -4,7 +4,7 @@ import { Clock, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
-import heroImage2 from "@/assets/hero3.jpeg";
+import heroImage2 from "@/assets/hero3(2).jpeg";
 import prayerImage from "@/assets/prayer-placeholder.jpg";
 
 const Services = () => {
@@ -250,7 +250,7 @@ Worship Him and Him alone!                   </p>
                 <CardTitle className="text-2xl font-bold text-primary">
 End of year kesha                </CardTitle>
                 <p className="text-muted-foreground text-sm leading-relaxed">
-                  Join us for a powerful night as we cross over to the new year in prayer.
+                  Join us for a powerful prayer and fasting season as we ask God to help us walk in obedience
                 </p>
                 <div className="flex flex-col gap-3 text-muted-foreground text-sm pt-2">
                   <div className="flex items-center space-x-2">
@@ -259,7 +259,7 @@ End of year kesha                </CardTitle>
                   </div>
                   <div className="flex items-center space-x-2">
                     <Clock className="w-4 h-4" />
-                    <span>9:00 PM - 5:00 AM</span>
+                    <span> 19th - 30th January, 2026</span>
                   </div>
                 </div>
                 <div className="pt-4">
