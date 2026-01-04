@@ -31,21 +31,30 @@ const Hero = () => {
         <CarouselContent>
 
           {/* SLIDE 1 */}
-      <CarouselItem>
-  <div className="relative min-h-screen flex flex-col justify-between bg-black">
+ <CarouselItem>
+  <div className="relative min-h-screen flex flex-col justify-between overflow-hidden">
 
-    {/* Background */}
+    {/* Blurred background fill */}
+    <div className="absolute inset-0">
+      <img
+        src={mainImage}
+        alt=""
+        className="w-full h-full object-cover scale-110 blur-xl"
+      />
+      <div className="absolute inset-0 bg-black/40" />
+    </div>
+
+    {/* Main image (no cropping) */}
     <div className="absolute inset-0 flex items-center justify-center">
       <img
         src={mainImage}
         alt="KAG South C Church worship service"
         className="max-w-full max-h-full object-contain"
       />
-      <div className="absolute inset-0 bg-black/40" />
     </div>
 
-    {/* Top Content */}
-    <div className="relative z-10 text-center px-4 max-w-3xl mx-auto mt-24">
+    {/* Content */}
+    <div className="relative z-10 mt-24 text-center px-4 max-w-3xl mx-auto">
       <div className="mb-6 flex justify-center">
         <div className="bg-white/10 backdrop-blur-md px-4 py-2 rounded-full">
           <span className="text-white font-medium">Welcome to our family</span>
@@ -53,7 +62,6 @@ const Hero = () => {
       </div>
     </div>
 
-    {/* Bottom Content */}
     <div className="relative z-10 mb-20 flex flex-col items-center gap-8 px-4">
       <h1 className="text-2xl md:text-4xl lg:text-5xl font-extrabold text-white drop-shadow-xl">
         WELCOME TO KAG SOUTH C
@@ -86,9 +94,19 @@ const Hero = () => {
 
 
 
+
           {/* SLIDE 2 */}
-     <CarouselItem>
-  <div className="relative min-h-screen flex flex-col justify-between bg-black">
+    <CarouselItem>
+  <div className="relative min-h-screen flex flex-col justify-between overflow-hidden">
+
+    <div className="absolute inset-0">
+      <img
+        src={heroImage2}
+        alt=""
+        className="w-full h-full object-cover scale-110 blur-xl"
+      />
+      <div className="absolute inset-0 bg-black/40" />
+    </div>
 
     <div className="absolute inset-0 flex items-center justify-center">
       <img
@@ -96,10 +114,9 @@ const Hero = () => {
         alt="Church community gathering"
         className="max-w-full max-h-full object-contain"
       />
-      <div className="absolute inset-0 bg-black/40" />
     </div>
 
-    <div className="relative z-10 text-center px-4 max-w-3xl mx-auto mt-32">
+    <div className="relative z-10 mt-32 text-center px-4 max-w-3xl mx-auto">
       <div className="flex justify-center mb-6">
         <div className="bg-white/10 backdrop-blur-md px-4 py-2 rounded-full flex items-center gap-2">
           <Users className="w-5 h-5 text-white" />
