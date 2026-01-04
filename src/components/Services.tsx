@@ -190,8 +190,7 @@ const Services = () => {
                 <div className="md:w-1/2 flex flex-col justify-center">
                   <CardHeader className="text-left p-8 space-y-4">
                     <CardTitle className="text-2xl font-bold text-primary">
-Crossover Kesha
-                    </CardTitle>
+Worhsip God alone!                    </CardTitle>
                     <div className="flex flex-wrap items-center gap-4 text-muted-foreground text-sm">
                       <div className="flex items-center space-x-2">
                         <Calendar className="w-4 h-4" />
@@ -206,11 +205,11 @@ Crossover Kesha
                       <span className="font-semibold">Preacher: </span> Rev. Peter Kioko
                     </p>
                     <p className="text-muted-foreground text-sm leading-relaxed">
-Stepping into the new year with faith
+Stepping into the new year with faith <br>
 
-Trusting God for direction, provision, and victory
+Trusting God for direction, provision, and victory  <br>
 
-Declaring God’s promises over families, careers, and ministries
+Declaring God’s promises over families, careers, and ministries  <br>
 
 Worship Him and Him alone!                   </p>
                     <Link to="/sermons">
