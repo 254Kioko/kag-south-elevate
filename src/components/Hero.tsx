@@ -73,9 +73,16 @@ const Hero = () => {
       </p>
 
       <div className="flex flex-col sm:flex-row gap-4">
-        <Button variant="secondary" className="px-6 py-3">
-          Watch Latest Service
-        </Button>
+       <Button
+  variant="secondary"
+  className="px-6 py-3"
+  onClick={() => {
+    const section = document.getElementById("latest-service");
+    section?.scrollIntoView({ behavior: "smooth" });
+  }}
+>
+  Watch Latest Service
+</Button>
 
         <a
           href="https://maps.app.goo.gl/FLKDdmePNH9QLRgm6"
