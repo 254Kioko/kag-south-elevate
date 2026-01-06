@@ -4,7 +4,7 @@ import { Clock, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
-import heroImage2 from "@/assets/hero3(2).jpeg";
+import heroImage2 from "@/assets/fasting.jpg";
 import prayerImage from "@/assets/prayer-placeholder.jpg";
 
 const Services = () => {
