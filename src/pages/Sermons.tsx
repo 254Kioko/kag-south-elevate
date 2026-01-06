@@ -180,7 +180,7 @@ const Sermons = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="lg" className="bg-red-600 hover:bg-red-700">
-                <a href="https://youtube.com/@kagsouthc" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.youtube.com/channel/UCAP5aGJBcRy8wMYPfnbqX7w" target="_blank" rel="noopener noreferrer">
                   <Youtube className="w-5 h-5 mr-2" />
                   Follow on YouTube
                 </a>
