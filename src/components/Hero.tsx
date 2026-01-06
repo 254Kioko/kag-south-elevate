@@ -104,11 +104,12 @@ const Hero = () => {
   <div className="relative h-[100svh] w-full overflow-hidden">
 
     {/* Background Image */}
-    <img
-      src={heroImage2}
-      alt="Church community gathering"
-      className="absolute inset-0 w-full h-full object-cover object-center"
-    />
+  <img
+  src={heroImage2}
+  alt="Church community gathering"
+  className="absolute inset-0 w-full h-full object-contain object-center"
+/>
+
 
     {/* Overlay */}
     <div className="absolute inset-0 bg-black/40" />
