@@ -6,6 +6,19 @@ import { Link } from "react-router-dom";
 
 import heroImage2 from "@/assets/fasting.jpg";
 import prayerImage from "@/assets/prayer-placeholder.jpg";
+const getGoogleCalendarLink = () => {
+  const title = encodeURIComponent("Prayer and Fasting - KAG South C");
+  const details = encodeURIComponent(
+    "Join us for a powerful prayer and fasting season at KAG South C."
+  );
+  const location = encodeURIComponent("KAG South C Church, Nairobi");
+
+  // Jan 19–30, 2026 (all day event)
+  const start = "20260119";
+  const end = "20260131"; // Google calendar end date is exclusive
+
+  return `https://www.google.com/calendar/render?action=TEMPLATE&text=${title}&details=${details}&location=${location}&dates=${start}/${end}`;
+};
 
 const Services = () => {
   const services = [
@@ -226,6 +239,7 @@ Worship Him and Him alone!                   </p>
       </section>
 
     {/* Upcoming Event */}
+      
 <section className="py-16 bg-background">
   <div className="container mx-auto px-4 text-center">
     <h3 className="font-heading text-3xl md:text-4xl font-bold mb-6 text-foreground">
@@ -275,13 +289,24 @@ Worship Him and Him alone!                   </p>
             </div>
           </div>
 
-          <div className="pt-4">
-            <Link to="/events">
-              <Button variant="secondary" className="font-semibold">
-                More Events
-              </Button>
-            </Link>
-          </div>
+        <div className="pt-4 flex flex-col sm:flex-row gap-4">
+  <Link to="/events">
+    <Button variant="secondary" className="font-semibold">
+      More Events
+    </Button>
+  </Link>
+
+  <a
+    href={getGoogleCalendarLink()}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <Button variant="outline" className="font-semibold">
+      Add to Calendar
+    </Button>
+  </a>
+</div>
+
         </div>
 
       </Card>
