@@ -61,6 +61,9 @@ const Hero = () => {
           Where faith finds its home! Join our vibrant congregation for spiritual
           growth, meaningful fellowship, and life-changing encounters with God's love.
         </p>
+          <span className="inline-block bg-white/10 px-4 py-2 rounded-full text-white text-sm md:text-base">
+          Welcome to our family
+        </span>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button
