@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Play, Calendar, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 
-import mainImage from "@/assets/main(2).jpeg";
+import mainImage from "@/assets/fasting.jpg";
 import heroImage2 from "@/assets/hero3(2).jpeg";
 
 import {
