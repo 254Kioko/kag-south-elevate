@@ -186,7 +186,7 @@ const Sermons = () => {
                 </a>
               </Button>
               <Button asChild variant="outline" size="lg" className="border-blue-600 text-blue-600 hover:bg-blue-50">
-                <a href="https://facebook.com/kagsouthc" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.facebook.com/p/KAG-SOUTH-C-Church-100064333766328/" target="_blank" rel="noopener noreferrer">
                   <Facebook className="w-5 h-5 mr-2" />
                   Follow on Facebook
                 </a>
