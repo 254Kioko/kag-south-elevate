@@ -101,20 +101,20 @@ const Hero = () => {
 
           {/* SLIDE 2 */}
 <CarouselItem>
-  <div className="relative min-h-[70vh] md:min-h-[80vh] lg:min-h-screen w-full overflow-hidden">
+  <div className="relative min-h-[85vh] md:min-h-[95vh] lg:min-h-[110vh] w-full overflow-hidden">
 
     {/* Background Image */}
     <img
       src={heroImage2}
       alt="Church community gathering"
-      className="absolute inset-0 w-full h-full object-contain bg-black"
+      className="absolute inset-0 w-full h-full object-cover object-center"
     />
 
-    {/* Dark overlay */}
+    {/* Overlay */}
     <div className="absolute inset-0 bg-black/40" />
 
     {/* Content */}
-    <div className="relative z-10 flex flex-col justify-end h-full px-4 pb-20">
+    <div className="relative z-10 flex flex-col justify-end h-full px-4 pb-24">
       <div className="max-w-3xl mx-auto text-center space-y-6">
         <span className="inline-flex items-center gap-2 bg-white/10 px-4 py-2 rounded-full text-white">
           <Users className="w-5 h-5" />
@@ -131,6 +131,7 @@ const Hero = () => {
 
   </div>
 </CarouselItem>
+
 
 
 
