@@ -227,7 +227,7 @@ Declaring God’s promises over families, careers, and ministries
 Worship Him and Him alone!                   </p>
                     <Link to="/sermons">
                       <Button size="lg" className="font-semibold">
-                        View More Sermons
+                       Watch More Services
                       </Button>
                     </Link>
                   </CardHeader>
@@ -290,21 +290,22 @@ Worship Him and Him alone!                   </p>
           </div>
 
         <div className="pt-4 flex flex-col sm:flex-row gap-4">
+            <a
+    href={getGoogleCalendarLink()}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <Button variant="secondary" className="font-semibold">
+      Add to Calendar
+    </Button>
+  </a>
   <Link to="/events">
     <Button variant="secondary" className="font-semibold">
       More Events
     </Button>
   </Link>
 
-  <a
-    href={getGoogleCalendarLink()}
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    <Button variant="outline" className="font-semibold">
-      Add to Calendar
-    </Button>
-  </a>
+
 </div>
 
         </div>
