@@ -49,9 +49,7 @@ const Hero = () => {
 
       <div className="max-w-3xl mx-auto text-center space-y-6">
 
-        <span className="inline-block bg-white/10 px-4 py-2 rounded-full text-white text-sm md:text-base">
-          Welcome to our family
-        </span>
+     
 
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white">
           WELCOME TO KAG SOUTH C
