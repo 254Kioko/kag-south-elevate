@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 
 import heroImage2 from "@/assets/fasting.jpg";
 import prayerImage from "@/assets/prayer-placeholder.jpg";
-
 const getGoogleCalendarLink = () => {
   const title = encodeURIComponent("Prayer and Fasting - KAG South C");
   const details = encodeURIComponent(
@@ -14,8 +13,9 @@ const getGoogleCalendarLink = () => {
   );
   const location = encodeURIComponent("KAG South C Church, Nairobi");
 
+  // Jan 19–30, 2026 (all day event)
   const start = "20260119";
-  const end = "20260131";
+  const end = "20260131"; // Google calendar end date is exclusive
 
   return `https://www.google.com/calendar/render?action=TEMPLATE&text=${title}&details=${details}&location=${location}&dates=${start}/${end}`;
 };
@@ -27,14 +27,14 @@ const Services = () => {
       badge: "Early Morning",
       badgeColor: "bg-yellow-500",
       time: "7:30 - 8:45 AM",
-      name: "1st Service – Empowerment",
+      name: "1st Service - Empowerment",
       description:
-        "Start your day with intercessory prayers and empowerment service.",
+        "Start your day with intercessory prayers and empowerment service",
       schedule: [
-        "Intercessory Prayers: 7:30–8:00 AM",
-        "Empowerment Service: 8:00–8:45 AM",
+        "Intercessory Prayers: 7:30-8:00 AM",
+        "Empowerment Service: 8:00-8:45 AM",
       ],
-      language: "English / Swahili",
+      language: "English/Swahili",
       audience: "Youth",
     },
     {
@@ -42,14 +42,15 @@ const Services = () => {
       badge: "Morning Worship",
       badgeColor: "bg-yellow-500",
       time: "9:00 - 11:00 AM",
-      name: "2nd Service – Main Service",
+      name: "2nd Service - Main Service",
       description:
-        "Our main English worship service with contemporary praise.",
+        "Our main English worship service with contemporary style",
       schedule: [
         "Praise & Worship",
         "Choir",
         "Message",
         "Offertory & Closing",
+        "Accountability Groups",
       ],
       language: "English",
       audience: "All Ages",
@@ -59,9 +60,9 @@ const Services = () => {
       badge: "Main Service",
       badgeColor: "bg-yellow-500",
       time: "11:45 AM - 1:30 PM",
-      name: "3rd Service – Main Service",
+      name: "3rd Service - Main Service",
       description:
-        "Our largest service combining English and Swahili worship.",
+        "Our largest service combining English and Swahili worship",
       schedule: [
         "Praise & Worship",
         "Choir",
@@ -71,147 +72,305 @@ const Services = () => {
       language: "English & Swahili",
       audience: "Adults",
     },
+    {
+      id: 4,
+      badge: "Teens Service",
+      badgeColor: "bg-blue-500",
+      time: "11:30 AM - 1:30 PM",
+      name: "Teens Service",
+      description:
+        "A vibrant service designed for teenagers to grow in faith and fellowship.",
+      schedule: [
+        "Praise & Worship",
+        "Interactive Session",
+        "Message & Discussions",
+        "Prayer & Dismissal",
+      ],
+      language: "English & Swahili",
+      audience: "Ages 13-19",
+    },
+    {
+      id: 5,
+      badge: "Children’s Church",
+      badgeColor: "bg-green-500",
+      time: "11:45 AM - 1:30 PM",
+      name: "Children’s Service",
+      description:
+        "Fun, interactive, and faith-filled classes tailored for children.",
+      schedule: [
+        "Songs & Praise",
+        "Bible Story Time",
+        "Memory Verses & Games",
+        "Creative Activities",
+        "Prayer & Snacks",
+        "Breakout Classes (by age groups)",
+      ],
+      language: "English & Swahili",
+      audience: "Children (Ages 3-12)",
+    },
   ];
 
   return (
     <>
-      {/* SERVICES */}
-      <section className="py-16">
+      {/* Services Section */}
+      <section id="services" className="py-12 bg-background">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center text-red-600 mb-6">
+          {/* RED TITLE ONLY HERE */}
+          <h2 className="font-heading text-4xl md:text-5xl font-bold text-center mb-6 text-red-600">
             Service Times
           </h2>
 
-          <p className="text-center text-muted-foreground max-w-2xl mx-auto mb-12">
-            Join us for worship, fellowship, and spiritual growth.
+          <p className="text-lg text-muted-foreground text-center max-w-2xl mx-auto mb-12">
+            Join us for worship, fellowship, and spiritual growth. We have multiple services to accommodate different preferences and schedules.
           </p>
 
-          {/* 🔥 FIXED GRID */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            {services.map((service) => (
-              <Card
-                key={service.id}
-                className="overflow-hidden hover:shadow-lg transition-shadow"
-              >
-                <div className="flex flex-col md:flex-row h-full">
-                  
-                  {/* IMAGE */}
-                  <div className="md:w-1/3 h-48 md:h-auto">
-                    <img
-                      src={heroImage2}
-                      alt={service.name}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
+          <div className="mb-12">
+            {/* BLACK TITLE HERE */}
+            <h3 className="font-heading text-3xl font-bold text-center mb-8 text-foreground">
+              Sunday Services
+            </h3>
 
-                  {/* CONTENT */}
-                  <div className="md:w-2/3 p-6 flex flex-col">
-                    <div className="flex items-center gap-2 mb-2">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {services.map((service) => (
+                <Card key={service.id} className="text-left hover:shadow-lg transition-shadow flex flex-col h-full">
+                  <CardHeader className="pb-4 space-y-4">
+                    <div className="flex items-center gap-2">
                       <Clock className="w-4 h-4 text-muted-foreground" />
-                      <span className="text-sm text-muted-foreground">
+                      <span className="text-sm font-medium text-muted-foreground">
                         {service.time}
                       </span>
                     </div>
-
-                    <Badge className={`${service.badgeColor} text-white w-fit mb-3`}>
+                    <Badge className={`${service.badgeColor} text-white w-fit`}>
                       {service.badge}
                     </Badge>
-
-                    <CardTitle className="text-xl text-primary mb-2">
+                    <CardTitle className="text-xl font-bold text-primary">
                       {service.name}
                     </CardTitle>
-
-                    <p className="text-sm text-muted-foreground mb-4">
+                    <p className="text-muted-foreground text-sm leading-relaxed">
                       {service.description}
                     </p>
-
-                    <ul className="text-sm text-muted-foreground space-y-1 mb-4">
-                      {service.schedule.map((item, i) => (
-                        <li key={i} className="flex">
-                          <span className="text-yellow-500 mr-2">•</span>
-                          {item}
-                        </li>
-                      ))}
-                    </ul>
-
-                    <div className="mt-auto pt-4 border-t text-sm flex gap-6">
-                      <span>
-                        <strong>Language:</strong> {service.language}
-                      </span>
-                      <span>
-                        <strong>Audience:</strong> {service.audience}
-                      </span>
+                  </CardHeader>
+                  <CardContent className="pt-0 flex-grow">
+                    <div className="mb-6">
+                      <h4 className="font-semibold text-primary mb-3">Schedule:</h4>
+                      <ul className="text-sm text-muted-foreground space-y-2">
+                        {service.schedule.map((item, index) => (
+                          <li key={index} className="flex items-start">
+                            <span className="text-yellow-500 mr-2">•</span>
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
                     </div>
-                  </div>
-                </div>
-              </Card>
-            ))}
+                    <div className="space-y-3 text-sm pt-4 border-t">
+                      <div className="flex items-center justify-between">
+                        <span className="font-medium text-muted-foreground">Language:</span>
+                        <span className="text-primary font-semibold">{service.language}</span>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <span className="font-medium text-muted-foreground">Audience:</span>
+                        <span className="text-primary font-semibold">{service.audience}</span>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      {/* UPCOMING EVENT */}
-      <section className="py-16 bg-muted/30">
-        <div className="container mx-auto px-4">
-          <Card className="max-w-4xl mx-auto flex flex-col md:flex-row overflow-hidden">
-            <div className="md:w-1/2 h-64 md:h-auto">
-              <img
-                src={heroImage2}
-                alt="Prayer and Fasting"
-                className="w-full h-full object-cover"
-              />
-            </div>
+      {/* Latest Sermon */}
+      <section id="latest-service" className="py-16 bg-muted/30">
+        <div className="container mx-auto px-4 text-center">
+          <h3 className="font-heading text-3xl md:text-4xl font-bold mb-6 text-foreground">
+            Latest Service
+          </h3>
+          <div className="max-w-5xl mx-auto">
+            <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow">
+              <div className="flex flex-col md:flex-row">
+                <div className="md:w-1/2">
+                  <iframe
+                    className="w-full aspect-video md:h-full"
+                    src="https://www.youtube.com/embed/_73_Fg4iLjA?si=wJFh6kF8pre-Ni8X"
+                    title="God expects us to worship Him alone"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
 
-            <div className="md:w-1/2 p-8 space-y-4">
-              <Badge>Special Event</Badge>
-              <CardTitle className="text-2xl text-primary">
-                Prayer & Fasting
-              </CardTitle>
+                <div className="md:w-1/2 flex flex-col justify-center">
+                  <CardHeader className="text-left p-8 space-y-4">
+                    <CardTitle className="text-2xl font-bold text-primary">
+Worhsip God alone!                    </CardTitle>
+                    <div className="flex flex-wrap items-center gap-4 text-muted-foreground text-sm">
+                      <div className="flex items-center space-x-2">
+                        <Calendar className="w-4 h-4" />
+                        <span>Sunday, January 4th</span>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <Clock className="w-4 h-4" />
+                        <span>9:00 PM-1:30 PM </span>
+                      </div>
+                    </div>
+                    <p className="text-muted-foreground text-base">
+                      <span className="font-semibold">Preacher: </span> Rev. Peter Kioko
+                    </p>
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+Stepping into the new year with faith 
 
-              <div className="flex gap-4 text-sm text-muted-foreground">
-                <span className="flex items-center gap-2">
-                  <Calendar className="w-4 h-4" /> Jan 19–30, 2026
-                </span>
-                <span className="flex items-center gap-2">
-                  <Clock className="w-4 h-4" /> All Day
-                </span>
+Trusting God for direction, provision, and victory 
+
+Declaring God’s promises over families, careers, and ministries  
+
+Worship Him and Him alone!                   </p>
+                    <Link to="/sermons">
+                      <Button size="lg" className="font-semibold">
+                       Watch More Services
+                      </Button>
+                    </Link>
+                  </CardHeader>
+                </div>
               </div>
-
-              <div className="flex gap-4 pt-4">
-                <a href={getGoogleCalendarLink()} target="_blank">
-                  <Button variant="secondary">Add to Calendar</Button>
-                </a>
-                <Link to="/events">
-                  <Button variant="secondary">More Events</Button>
-                </Link>
-              </div>
-            </div>
-          </Card>
+            </Card>
+          </div>
         </div>
       </section>
 
-      {/* PRAYER */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <Card className="max-w-4xl mx-auto flex flex-col md:flex-row overflow-hidden">
-            <div className="md:w-1/2 h-64 md:h-auto">
-              <img
-                src={prayerImage}
-                alt="Prayer"
-                className="w-full h-full object-cover"
-              />
+    {/* Upcoming Event */}
+      
+<section className="py-16 bg-background">
+  <div className="container mx-auto px-4 text-center">
+    <h3 className="font-heading text-3xl md:text-4xl font-bold mb-6 text-foreground">
+      Upcoming Event
+    </h3>
+
+    <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-12">
+      Stay connected with what's happening at KAG South C. Here's what's next:
+    </p>
+
+    <div className="max-w-4xl mx-auto">
+      <Card className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow flex flex-col md:flex-row">
+        
+        {/* Image */}
+        <div className="relative md:w-1/2 h-64 md:h-auto">
+          <img
+            src={heroImage2}
+            alt="Upcoming Event"
+            className="absolute inset-0 w-full h-full object-cover object-center"
+          />
+        </div>
+
+        {/* Content */}
+        <div className="md:w-1/2 flex flex-col justify-center text-left p-8 space-y-4">
+          <Badge variant="secondary" className="w-fit">
+            Special Event
+          </Badge>
+
+          <CardTitle className="text-2xl font-bold text-primary">
+            Prayer and Fasting
+          </CardTitle>
+
+          <p className="text-muted-foreground text-sm leading-relaxed">
+            Join us for a powerful prayer and fasting season as we ask God to help
+            us walk in obedience.
+          </p>
+
+          <div className="flex flex-col gap-3 text-muted-foreground text-sm pt-2">
+            <div className="flex items-center space-x-2">
+              <Calendar className="w-4 h-4" />
+              <span>January 19th – 30th, 2026</span>
             </div>
 
-            <div className="md:w-1/2 p-8 space-y-4">
-              <CardTitle className="text-2xl text-primary">
-                Submit a Prayer Request
+            <div className="flex items-center space-x-2">
+              <Clock className="w-4 h-4" />
+              <span>All Day</span>
+            </div>
+          </div>
+
+        <div className="pt-4 flex flex-col sm:flex-row gap-4">
+            <a
+    href={getGoogleCalendarLink()}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    <Button variant="secondary" className="font-semibold">
+      Add to Calendar
+    </Button>
+  </a>
+  <Link to="/events">
+    <Button variant="secondary" className="font-semibold">
+      More Events
+    </Button>
+  </Link>
+
+
+</div>
+
+        </div>
+
+      </Card>
+    </div>
+  </div>
+</section>
+
+
+      {/* Call to Action */}
+      <section className="py-16 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="text-center bg-gradient-primary rounded-2xl p-12 text-primary-foreground shadow-elegant max-w-4xl mx-auto">
+            <h3 className="font-heading text-2xl md:text-3xl font-semibold mb-4">
+              Ready to Get Involved?
+            </h3>
+            <p className="mb-8 text-primary-foreground/90 max-w-2xl mx-auto text-base leading-relaxed">
+              Join one of our ministries and discover how God can use your gifts to make a difference.
+              Whether you're new to faith or a seasoned believer, there's a place for you.
+            </p>
+            <Link to="/about-ministries">
+              <Button variant="secondary" size="lg" className="font-semibold">
+                Connect With a Ministry
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Prayer Requests Section */}
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h3 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Share Your Prayer Needs
+            </h3>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-base leading-relaxed">
+              This section allows you to submit your prayer requests directly to our pastoral team,
+              who will stand with you in faith and lift your needs before God.
+            </p>
+          </div>
+
+          <Card className="overflow-hidden max-w-4xl mx-auto shadow-lg flex flex-col md:flex-row">
+            <div className="md:w-1/2">
+              <img
+                src={prayerImage}
+                alt="Prayer Request"
+                className="w-full h-64 md:h-full object-cover"
+              />
+            </div>
+            <div className="md:w-1/2 flex flex-col justify-center p-8 text-left space-y-4">
+              <CardTitle className="text-2xl font-bold text-primary">
+                Send Your Prayer Requests
               </CardTitle>
-              <p className="text-muted-foreground">
-                Share your prayer needs with our pastoral team.
+              <p className="text-muted-foreground leading-relaxed">
+                We believe in the power of prayer. Share your prayer requests with us, and our pastoral team will stand with you in faith.
               </p>
-              <Link to="/contact">
-                <Button size="lg">Send Prayer Request</Button>
-              </Link>
+              <div className="pt-2">
+                <Link to="/contact">
+                  <Button size="lg" className="font-semibold">
+                    Submit Prayer Request
+                  </Button>
+                </Link>
+              </div>
             </div>
           </Card>
         </div>
