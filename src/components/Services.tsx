@@ -337,52 +337,44 @@ Worship Him and Him alone!                   </p>
       </section>
 
       {/* Prayer Requests Section */}
-   {/* Prayer Requests Section */}
-<section className="py-16 bg-background">
-  <div className="container mx-auto px-4">
-    {/* Section Header */}
-    <div className="text-center mb-12">
-      <h3 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
-        Share Your Prayer Needs
-      </h3>
-      <p className="text-muted-foreground max-w-2xl mx-auto text-base leading-relaxed">
-        This section allows you to submit your prayer requests directly to our pastoral team,
-        who will stand with you in faith and lift your needs before God.
-      </p>
-    </div>
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h3 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
+              Share Your Prayer Needs
+            </h3>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-base leading-relaxed">
+              This section allows you to submit your prayer requests directly to our pastoral team,
+              who will stand with you in faith and lift your needs before God.
+            </p>
+          </div>
 
-    {/* Content */}
-    <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-      
-      {/* LEFT: Image */}
-      <div className="w-full h-64 md:h-[360px] overflow-hidden rounded-xl">
-        <img
-          src={prayerImage}
-          alt="Prayer Request"
-          className="w-full h-full object-cover"
-        />
-      </div>
-
-      {/* RIGHT: Content */}
-      <div className="text-left space-y-5">
-        <h4 className="text-2xl font-bold text-primary">
-          Send Your Prayer Requests
-        </h4>
-
-        <p className="text-muted-foreground leading-relaxed">
-          We believe in the power of prayer. Share your prayer requests with us,
-          and our pastoral team will stand with you in faith.
-        </p>
-
-        <Link to="/contact">
-          <Button size="lg" className="font-semibold">
-            Submit Prayer Request
-          </Button>
-        </Link>
-      </div>
-    </div>
-  </div>
-</section>
+          <Card className="overflow-hidden max-w-4xl mx-auto shadow-lg flex flex-col md:flex-row">
+            <div className="md:w-1/2">
+              <img
+                src={prayerImage}
+                alt="Prayer Request"
+                className="w-full h-64 md:h-full object-cover"
+              />
+            </div>
+            <div className="md:w-1/2 flex flex-col justify-center p-8 text-left space-y-4">
+              <CardTitle className="text-2xl font-bold text-primary">
+                Send Your Prayer Requests
+              </CardTitle>
+              <p className="text-muted-foreground leading-relaxed">
+                We believe in the power of prayer. Share your prayer requests with us, and our pastoral team will stand with you in faith.
+              </p>
+              <div className="pt-2">
+                <Link to="/contact">
+                  <Button size="lg" className="font-semibold">
+                    Submit Prayer Request
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </Card>
+        </div>
+      </section>
 
     </>
   );
