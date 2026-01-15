@@ -203,7 +203,7 @@ const Services = () => {
 
       {/* Text */}
       <div className="space-y-6">
-        <h3 className="font-heading text-3xl md:text-4xl font-bold text-primary">
+        <h3 className="font-heading text-3xl md:text-4xl font-bold mb-6 text-foreground">
           2026 Theme: Walking in Obedience
         </h3>
 
