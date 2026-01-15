@@ -187,13 +187,19 @@ const Services = () => {
     <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
       
       {/* Image */}
-      <div className="w-full">
-        <img
-          src={themeImage}
-          alt="2026 Theme - Walking in Obedience"
-          className="rounded-lg shadow-lg w-full object-cover"
-        />
-      </div>
+    {/* Image */}
+<div className="w-full space-y-3">
+  <h4 className="text-black font-semibold text-lg">
+    Our theme of the year
+  </h4>
+
+  <img
+    src={themeImage}
+    alt="2026 Theme - Walking in Obedience"
+    className="rounded-lg shadow-lg w-full object-cover"
+  />
+</div>
+
 
       {/* Text */}
       <div className="space-y-6">
