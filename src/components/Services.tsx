@@ -189,9 +189,7 @@ const Services = () => {
       {/* Image */}
     {/* Image */}
 <div className="w-full space-y-3">
-  <h4 className="text-black font-semibold text-lg">
-    Our theme of the year
-  </h4>
+ 
 
   <img
     src={themeImage}
