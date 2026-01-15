@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 
 import heroImage2 from "@/assets/fasting.jpg";
 import prayerImage from "@/assets/prayer-placeholder.jpg";
+import themeImage from "@/assets/theme.jpeg";
+
 const getGoogleCalendarLink = () => {
   const title = encodeURIComponent("Prayer and Fasting - KAG South C");
   const details = encodeURIComponent(
@@ -179,6 +181,42 @@ const Services = () => {
           </div>
         </div>
       </section>
+      {/* Theme Highlight Section */}
+<section className="py-16 bg-background">
+  <div className="container mx-auto px-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+      
+      {/* Image */}
+      <div className="w-full">
+        <img
+          src={themeImage}
+          alt="2026 Theme - Walking in Obedience"
+          className="rounded-lg shadow-lg w-full object-cover"
+        />
+      </div>
+
+      {/* Text */}
+      <div className="space-y-6">
+        <h3 className="font-heading text-3xl md:text-4xl font-bold text-primary">
+          2026 Theme: Walking in Obedience
+        </h3>
+
+        <p className="text-muted-foreground text-lg leading-relaxed">
+          As a church, we step into 2026 committed to living according to God’s
+          word. Walking in obedience means trusting God fully, honoring His
+          commands, and allowing His promises to unfold in our lives.
+        </p>
+
+        <p className="italic text-muted-foreground">
+          “If you live in accordance with my statutes and are careful to obey my
+          commands…” — Leviticus 26:3
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
       {/* Latest Sermon */}
       <section id="latest-service" className="py-16 bg-muted/30">
