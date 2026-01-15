@@ -321,7 +321,7 @@ God is able to fulfil every promise he has made including the punishment of obed
 
             <div className="flex items-center space-x-2">
               <Clock className="w-4 h-4" />
-              <span>All Day</span>
+              <span>6AM - 6PM</span>
             </div>
           </div>
 
