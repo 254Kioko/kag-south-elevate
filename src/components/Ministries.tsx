@@ -6,7 +6,7 @@ import womensMinistry from "@/assets/WWK.webp";
 import youthMinistry from "@/assets/youth.jpeg";
 import teensMinistry from "@/assets/teens.jpg";
 import childrenMinistry from "@/assets/children.jpeg";
-import praiseWorship from "@/assets/praisepic.jpg";
+import praiseWorship from "@/assets/praisepic.JPG";
 import choir from "@/assets/choir.webp";
 import mediaTeam from "@/assets/mediateam.png";
 
