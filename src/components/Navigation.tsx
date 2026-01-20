@@ -13,7 +13,7 @@ const Navigation = () => {
     { name: "Home", href: "/" },
     { name: "About Us", href: "/about-ministries" },
     { name: "Events", href: "/events" },
-    { name: "Sermons", href: "/sermons" },
+    { name: "Online Services", href: "/sermons" },
     { name: "Give", href: "/give-online" },
     { name: "Contact", href: "/contact" }
   ];
