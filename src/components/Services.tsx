@@ -190,7 +190,10 @@ const Services = () => {
     {/* Image */}
 <div className="w-full space-y-3">
  
-
+    <div className="space-y-6">
+        <h3 className="font-heading text-3xl md:text-4xl font-bold mb-6 text-foreground">
+          2026 Theme: Walking in Obedience
+        </h3>
   <img
     src={themeImage}
     alt="2026 Theme - Walking in Obedience"
@@ -200,10 +203,7 @@ const Services = () => {
 
 
       {/* Text */}
-      <div className="space-y-6">
-        <h3 className="font-heading text-3xl md:text-4xl font-bold mb-6 text-foreground">
-          2026 Theme: Walking in Obedience
-        </h3>
+  
 
         <p className="text-muted-foreground text-lg leading-relaxed">
           As a church, we step into 2026 committed to living according to God’s
