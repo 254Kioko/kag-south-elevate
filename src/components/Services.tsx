@@ -186,25 +186,21 @@ const Services = () => {
   <div className="container mx-auto px-4">
     <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
       
-      {/* Image */}
-    {/* Image */}
-<div className="w-full space-y-3">
- 
-    <div className="space-y-6">
-        <h3 className="font-heading text-3xl md:text-4xl font-bold mb-6 text-foreground">
+      {/* LEFT COLUMN: Heading + Image */}
+      <div className="w-full space-y-6">
+        <h3 className="font-heading text-3xl md:text-4xl font-bold text-foreground">
           2026 Theme: Walking in Obedience
         </h3>
-  <img
-    src={themeImage}
-    alt="2026 Theme - Walking in Obedience"
-    className="rounded-lg shadow-lg w-full object-cover"
-  />
-</div>
 
+        <img
+          src={themeImage}
+          alt="2026 Theme - Walking in Obedience"
+          className="rounded-lg shadow-lg w-full object-cover"
+        />
+      </div>
 
-      {/* Text */}
-  
-
+      {/* RIGHT COLUMN: Text */}
+      <div className="space-y-6">
         <p className="text-muted-foreground text-lg leading-relaxed">
           As a church, we step into 2026 committed to living according to God’s
           word. Walking in obedience means trusting God fully, honoring His
