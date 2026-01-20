@@ -234,7 +234,7 @@ const Services = () => {
                 <div className="md:w-1/2">
                   <iframe
                     className="w-full aspect-video md:h-full"
-                    src="https://www.youtube.com/embed/aXyU876BIM0?si=i2bqdlMgU_6tVytF"
+                    src="https://www.youtube.com/embed/0Z8vyr8kGhI?si=hR9DjzkRJ0HNX4tP"
                     title="Walking in Obedience"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -245,11 +245,11 @@ const Services = () => {
                 <div className="md:w-1/2 flex flex-col justify-center">
                   <CardHeader className="text-left p-8 space-y-4">
                     <CardTitle className="text-2xl font-bold text-primary">
-The Lord Rejects King Saul                  </CardTitle>
+PRAYER AND FASTING               </CardTitle>
                     <div className="flex flex-wrap items-center gap-4 text-muted-foreground text-sm">
                       <div className="flex items-center space-x-2">
                         <Calendar className="w-4 h-4" />
-                        <span>Sunday, January 4th</span>
+                        <span>Sunday, January 18th</span>
                       </div>
                       <div className="flex items-center space-x-2">
                         <Clock className="w-4 h-4" />
@@ -260,7 +260,7 @@ The Lord Rejects King Saul                  </CardTitle>
                       <span className="font-semibold">Preacher: </span> Rev. Peter Kioko
                     </p>
                     <p className="text-muted-foreground text-sm leading-relaxed">
-God is able to fulfil every promise he has made including the punishment of obedience                 </p>
+Join us in prayer and fasting from the 19th to 30thJanuary as we pray for every aspect of our lives.             </p>
                     <Link to="/sermons">
                       <Button size="lg" className="font-semibold">
                        Watch More Services
