@@ -230,7 +230,7 @@ const Services = () => {
                 <div className="md:w-1/2">
                   <iframe
                     className="w-full aspect-video md:h-full"
-                    src="https://www.youtube.com/embed/0Z8vyr8kGhI?si=hR9DjzkRJ0HNX4tP"
+                    src="https://www.youtube.com/embed/bO98ssZ9wFg?si=UvBPDG-9lebTqksp"
                     title="Walking in Obedience"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -241,11 +241,11 @@ const Services = () => {
                 <div className="md:w-1/2 flex flex-col justify-center">
                   <CardHeader className="text-left p-8 space-y-4">
                     <CardTitle className="text-2xl font-bold text-primary">
-PRAYER AND FASTING               </CardTitle>
+BASIS OF TRUE OBEDIENCE           </CardTitle>
                     <div className="flex flex-wrap items-center gap-4 text-muted-foreground text-sm">
                       <div className="flex items-center space-x-2">
                         <Calendar className="w-4 h-4" />
-                        <span>Sunday, January 18th</span>
+                        <span>Sunday, January 1st</span>
                       </div>
                       <div className="flex items-center space-x-2">
                         <Clock className="w-4 h-4" />
@@ -256,7 +256,7 @@ PRAYER AND FASTING               </CardTitle>
                       <span className="font-semibold">Preacher: </span> Rev. Peter Kioko
                     </p>
                     <p className="text-muted-foreground text-sm leading-relaxed">
-Join us in prayer and fasting from the 19th to 30thJanuary as we pray for every aspect of our lives.             </p>
+Join us in prayer to be obedient.             </p>
                     <Link to="/sermons">
                       <Button size="lg" className="font-semibold">
                        Watch More Services
