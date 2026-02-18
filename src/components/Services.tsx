@@ -301,7 +301,7 @@ Join us in prayer to be obedient.             </p>
           </Badge>
 
           <CardTitle className="text-2xl font-bold text-primary">
-            Prayer and Fasting
+           WWK SUNDAY
           </CardTitle>
 
           <p className="text-muted-foreground text-sm leading-relaxed">
