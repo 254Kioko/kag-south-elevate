@@ -9,15 +9,15 @@ import prayerImage from "@/assets/prayer-placeholder.jpg";
 import themeImage from "@/assets/theme.jpeg";
 
 const getGoogleCalendarLink = () => {
-  const title = encodeURIComponent("Prayer and Fasting - KAG South C");
+  const title = encodeURIComponent("WWK Sunday");
   const details = encodeURIComponent(
-    "Join us for a powerful prayer and fasting season at KAG South C."
+    "Join us for a powerful service with the women ministry at KAG South C."
   );
   const location = encodeURIComponent("KAG South C Church, Nairobi");
 
   // Jan 19–30, 2026 (all day event)
-  const start = "20260119";
-  const end = "20260131"; // Google calendar end date is exclusive
+  const start = "20260201";
+  const end = "20260201"; // Google calendar end date is exclusive
 
   return `https://www.google.com/calendar/render?action=TEMPLATE&text=${title}&details=${details}&location=${location}&dates=${start}/${end}`;
 };
@@ -305,19 +305,18 @@ Join us in prayer to be obedient.             </p>
           </CardTitle>
 
           <p className="text-muted-foreground text-sm leading-relaxed">
-            Join us for a powerful prayer and fasting season as we ask God to help
-            us walk in obedience.
+            Join us for a powerful servce with the Women Ministry
           </p>
 
           <div className="flex flex-col gap-3 text-muted-foreground text-sm pt-2">
             <div className="flex items-center space-x-2">
               <Calendar className="w-4 h-4" />
-              <span>January 19th – 30th, 2026</span>
+              <span>February 1st, 2026</span>
             </div>
 
             <div className="flex items-center space-x-2">
               <Clock className="w-4 h-4" />
-              <span>6AM - 6PM</span>
+              <span>9AM - 2PM</span>
             </div>
           </div>
 
