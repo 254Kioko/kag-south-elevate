@@ -3,7 +3,7 @@ import { Play, Calendar, Users } from "lucide-react";
 import { Link } from "react-router-dom";
 
 import mainImage from "@/assets/main(2).jpeg";
-import heroImage2 from "@/assets/fasting.jpg";
+import heroImage2 from "@/assets/wwk.png";
 
 import {
   Carousel,
