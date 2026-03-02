@@ -230,8 +230,8 @@ const Services = () => {
                 <div className="md:w-1/2">
                   <iframe
                     className="w-full aspect-video md:h-full"
-                    src="https://www.youtube.com/embed/bO98ssZ9wFg?si=UvBPDG-9lebTqksp"
-                    title="Walking in Obedience"
+                    src="https://www.youtube.com/embed/YQLT91WF3HU?si=68mZiO-7txJ-OFqw"
+                    title="THE ACCEPTABLE SACRIFICE"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
@@ -241,11 +241,11 @@ const Services = () => {
                 <div className="md:w-1/2 flex flex-col justify-center">
                   <CardHeader className="text-left p-8 space-y-4">
                     <CardTitle className="text-2xl font-bold text-primary">
-BASIS OF TRUE OBEDIENCE           </CardTitle>
+THE ACCEPTABLE SACRIFICE         </CardTitle>
                     <div className="flex flex-wrap items-center gap-4 text-muted-foreground text-sm">
                       <div className="flex items-center space-x-2">
                         <Calendar className="w-4 h-4" />
-                        <span>Sunday, January 1st</span>
+                        <span>Sunday, March 1st</span>
                       </div>
                       <div className="flex items-center space-x-2">
                         <Clock className="w-4 h-4" />
@@ -256,7 +256,7 @@ BASIS OF TRUE OBEDIENCE           </CardTitle>
                       <span className="font-semibold">Preacher: </span> Rev. Peter Kioko
                     </p>
                     <p className="text-muted-foreground text-sm leading-relaxed">
-Join us in prayer to be obedient.             </p>
+GOD LOVES A CHEERFUL GIVER         </p>
                     <Link to="/sermons">
                       <Button size="lg" className="font-semibold">
                        Watch More Services
