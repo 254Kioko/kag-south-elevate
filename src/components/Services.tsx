@@ -29,22 +29,21 @@ const Services = () => {
       badge: "Early Morning",
       badgeColor: "bg-yellow-500",
       time: "7:30 - 8:45 AM",
-      name: "1st Service - Empowerment",
+      name: "Intercessory Service ",
       description:
-        "Start your day with intercessory prayers and empowerment service",
+        "Start your day with intercessory prayers",
       schedule: [
         "Intercessory Prayers: 7:30-8:00 AM",
-        "Empowerment Service: 8:00-8:45 AM",
       ],
       language: "English/Swahili",
-      audience: "Youth",
+      audience: "All",
     },
     {
       id: 2,
       badge: "Morning Worship",
       badgeColor: "bg-yellow-500",
       time: "9:00 - 11:00 AM",
-      name: "2nd Service - Main Service",
+      name: "1st Service - Main Service",
       description:
         "Our main English worship service with contemporary style",
       schedule: [
@@ -62,7 +61,7 @@ const Services = () => {
       badge: "Main Service",
       badgeColor: "bg-yellow-500",
       time: "11:45 AM - 1:30 PM",
-      name: "3rd Service - Main Service",
+      name: "2nd Service - Main Service",
       description:
         "Our largest service combining English and Swahili worship",
       schedule: [
