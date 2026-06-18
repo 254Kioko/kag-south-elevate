@@ -229,7 +229,7 @@ const Services = () => {
                 <div className="md:w-1/2">
                   <iframe
                     className="w-full aspect-video md:h-full"
-                    src="https://www.youtube.com/embed/YQLT91WF3HU?si=68mZiO-7txJ-OFqw"
+                    src="https://www.youtube.com/embed/3bNsAqZ90WE?si=R26exOI_MV_s7ZMP"
                     title="THE ACCEPTABLE SACRIFICE"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -240,11 +240,11 @@ const Services = () => {
                 <div className="md:w-1/2 flex flex-col justify-center">
                   <CardHeader className="text-left p-8 space-y-4">
                     <CardTitle className="text-2xl font-bold text-primary">
-THE ACCEPTABLE SACRIFICE         </CardTitle>
+YOUTH SUNDAY        </CardTitle>
                     <div className="flex flex-wrap items-center gap-4 text-muted-foreground text-sm">
                       <div className="flex items-center space-x-2">
                         <Calendar className="w-4 h-4" />
-                        <span>Sunday, March 1st</span>
+                        <span>Sunday, June 14th </span>
                       </div>
                       <div className="flex items-center space-x-2">
                         <Clock className="w-4 h-4" />
@@ -252,10 +252,10 @@ THE ACCEPTABLE SACRIFICE         </CardTitle>
                       </div>
                     </div>
                     <p className="text-muted-foreground text-base">
-                      <span className="font-semibold">Preacher: </span> Rev. Peter Kioko
+                      <span className="font-semibold">Preacher: </span> Richard and Emmanuel
                     </p>
                     <p className="text-muted-foreground text-sm leading-relaxed">
-GOD LOVES A CHEERFUL GIVER         </p>
+NAVIGATING SALVATION AS YOUNG PEOPLE        </p>
                     <Link to="/sermons">
                       <Button size="lg" className="font-semibold">
                        Watch More Services
