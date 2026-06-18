@@ -16,8 +16,8 @@ const getGoogleCalendarLink = () => {
   const location = encodeURIComponent("KAG South C Church, Nairobi");
 
   // Jan 19–30, 2026 (all day event)
-  const start = "20260301";
-  const end = "20260301"; // Google calendar end date is exclusive
+  const start = "20262807";
+  const end = "20262807"; // Google calendar end date is exclusive
 
   return `https://www.google.com/calendar/render?action=TEMPLATE&text=${title}&details=${details}&location=${location}&dates=${start}/${end}`;
 };
@@ -300,22 +300,20 @@ GOD LOVES A CHEERFUL GIVER         </p>
           </Badge>
 
           <CardTitle className="text-2xl font-bold text-primary">
-           MISSION SUNDAY
-          </CardTitle>
+YOUTH SEMINAR          </CardTitle>
 
           <p className="text-muted-foreground text-sm leading-relaxed">
-            A Sunday dedicated to committing resources and support towards missions and kingdom advancement
-          </p>
+A seminar focused on empowering youth spiritually, socially, and purposefully.          </p>
 
           <div className="flex flex-col gap-3 text-muted-foreground text-sm pt-2">
             <div className="flex items-center space-x-2">
               <Calendar className="w-4 h-4" />
-              <span>March 1st, 2026</span>
+              <span>June 28th, 2026</span>
             </div>
 
             <div className="flex items-center space-x-2">
               <Clock className="w-4 h-4" />
-              <span>9AM - 2PM</span>
+              <span></span>
             </div>
           </div>
 
