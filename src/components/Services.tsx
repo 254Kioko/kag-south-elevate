@@ -229,8 +229,8 @@ const Services = () => {
                 <div className="md:w-1/2">
                   <iframe
                     className="w-full aspect-video md:h-full"
-                    src="https://www.youtube.com/embed/3bNsAqZ90WE?si=R26exOI_MV_s7ZMP"
-                    title="THE ACCEPTABLE SACRIFICE"
+                    src="https://www.youtube.com/embed/NT36zYkZkDw?si=TyRtLEfoos-4bKly"
+                    title="REWARDS OF OBEDIENCE"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
@@ -240,22 +240,22 @@ const Services = () => {
                 <div className="md:w-1/2 flex flex-col justify-center">
                   <CardHeader className="text-left p-8 space-y-4">
                     <CardTitle className="text-2xl font-bold text-primary">
-YOUTH SUNDAY        </CardTitle>
+REWARDS OF OBEDIENCE        </CardTitle>
                     <div className="flex flex-wrap items-center gap-4 text-muted-foreground text-sm">
                       <div className="flex items-center space-x-2">
                         <Calendar className="w-4 h-4" />
-                        <span>Sunday, June 14th </span>
+                        <span>Sunday, October 26th </span>
                       </div>
                       <div className="flex items-center space-x-2">
                         <Clock className="w-4 h-4" />
-                        <span>9:00 PM-1:30 PM </span>
+                        <span>9:00 PM-11:30 PM </span>
                       </div>
                     </div>
                     <p className="text-muted-foreground text-base">
-                      <span className="font-semibold">Preacher: </span> Richard and Emmanuel
+                      <span className="font-semibold">Preacher: </span> Sis. Rebecca Githinji
                     </p>
                     <p className="text-muted-foreground text-sm leading-relaxed">
-NAVIGATING SALVATION AS YOUNG PEOPLE        </p>
+TEXT: LUKE 5:1-11       </p>
                     <Link to="/sermons">
                       <Button size="lg" className="font-semibold">
                        Watch More Services
