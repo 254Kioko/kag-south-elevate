@@ -9,15 +9,15 @@ import prayerImage from "@/assets/prayer-placeholder.jpg";
 import themeImage from "@/assets/theme.jpeg";
 
 const getGoogleCalendarLink = () => {
-  const title = encodeURIComponent("Mission Sunday");
+  const title = encodeURIComponent("ThanksGiving Month");
   const details = encodeURIComponent(
     "A Sunday dedicated to committing resources and support towards missions and kingdom advancement."
   );
   const location = encodeURIComponent("KAG South C Church, Nairobi");
 
   // Jan 19–30, 2026 (all day event)
-  const start = "20262807";
-  const end = "20262807"; // Google calendar end date is exclusive
+  const start = "20261111";
+  const end = "20260111"; // Google calendar end date is exclusive
 
   return `https://www.google.com/calendar/render?action=TEMPLATE&text=${title}&details=${details}&location=${location}&dates=${start}/${end}`;
 };
