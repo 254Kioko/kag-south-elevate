@@ -4,7 +4,7 @@ import { Clock, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
-import heroImage2 from "@/assets/YOUTH.png";
+import heroImage2 from "@/assets/TG.jpeg";
 import prayerImage from "@/assets/prayer-placeholder.jpg";
 import themeImage from "@/assets/theme.jpeg";
 
@@ -300,15 +300,15 @@ TEXT: LUKE 5:1-11       </p>
           </Badge>
 
           <CardTitle className="text-2xl font-bold text-primary">
-YOUTH SEMINAR          </CardTitle>
+THANKSGIVING MONTH         </CardTitle>
 
           <p className="text-muted-foreground text-sm leading-relaxed">
-A seminar focused on empowering youth spiritually, socially, and purposefully.          </p>
+A month dedicated to thanksgiving, testimonies, and gratitude to God for His faithfulness.        </p>
 
           <div className="flex flex-col gap-3 text-muted-foreground text-sm pt-2">
             <div className="flex items-center space-x-2">
               <Calendar className="w-4 h-4" />
-              <span>June 28th, 2026</span>
+              <span>November 2026</span>
             </div>
 
             <div className="flex items-center space-x-2">
