@@ -16,7 +16,7 @@ const getGoogleCalendarLink = () => {
   const location = encodeURIComponent("KAG South C Church, Nairobi");
 
   // Jan 19–30, 2026 (all day event)
-  const start = "20261111";
+  const start = "20260111";
   const end = "20260111"; // Google calendar end date is exclusive
 
   return `https://www.google.com/calendar/render?action=TEMPLATE&text=${title}&details=${details}&location=${location}&dates=${start}/${end}`;
