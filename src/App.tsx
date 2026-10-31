@@ -9,6 +9,8 @@ import AboutMinistries from "./pages/AboutMinistries";
 import Contact from "./pages/Contact";
 import GiveOnline from "./pages/GiveOnline";
 import Events from "./pages/Events";
+import Sermons from "./pages/Sermons";
+
 import AdminDashboard from "./pages/AdminDashboard";
 import CCTV from "./pages/CCTV";
 
