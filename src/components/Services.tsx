@@ -269,6 +269,45 @@ TEXT: LUKE 5:1-11       </p>
         </div>
       </section>
 
+
+
+
+
+   {/* Social Media CTA */}
+        <section className="bg-gradient-to-r from-primary/5 to-accent/5 py-16">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-3xl font-heading font-bold mb-6">
+              Follow Us for More Sermons
+            </h2>
+            <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
+              Don't miss any of our powerful messages! Follow us on YouTube and Facebook 
+              to get notified when new sermons are uploaded and to join our online community.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button asChild size="lg" className="font-semibold">
+                <a href="https://www.youtube.com/channel/UCAP5aGJBcRy8wMYPfnbqX7w" target="_blank" rel="noopener noreferrer">
+                  <Youtube className="w-5 h-5 mr-2" />
+                  Follow on YouTube
+                </a>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="border-blue-600 text-blue-600 hover:bg-blue-50">
+                <a href="https://www.facebook.com/p/KAG-SOUTH-C-Church-100064333766328/" target="_blank" rel="noopener noreferrer">
+                  <Facebook className="w-5 h-5 mr-2" />
+                  Follow on Facebook
+                </a>
+              </Button>
+            </div>
+            <p className="text-sm text-muted-foreground mt-6">
+              Subscribe to our channels to never miss a sermon and be part of our growing online community.
+            </p>
+          </div>
+        </section>
+
+
+
+
+
+      
     {/* Upcoming Event */}
       
 <section className="py-16 bg-background">
