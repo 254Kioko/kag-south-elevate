@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 import heroImage2 from "@/assets/TG.jpeg";
 import prayerImage from "@/assets/prayer-placeholder.jpg";
 import themeImage from "@/assets/theme.jpeg";
+import { Calendar, Youtube, Facebook } from "lucide-react";
+
 
 const getGoogleCalendarLink = () => {
   const title = encodeURIComponent("ThanksGiving Month");
