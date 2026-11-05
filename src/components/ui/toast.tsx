@@ -62,8 +62,7 @@ const VariantIcon = ({ variant }: { variant?: string }) => {
   switch (variant) {
     case "success":
       return (
-        <CheckCircle2 className="h-6 w-6 text-green-600 dark:text-green-400" />
-      );
+<CheckCircle2 className="h-6 w-6 text-white" />      );
     case "error":
       return (
         <AlertCircle className="h-6 w-6 text-red-600 dark:text-red-400" />
