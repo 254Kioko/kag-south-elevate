@@ -49,10 +49,11 @@ const Footer = () => {
           throw error;
         }
       } else {
-        toast({
-          title: "Subscribed successfully!",
-          description: "Thank you for subscribing to our newsletter.",
-        });
+       toast({
+  title: "Subscribed successfully!",
+  description: "Thank you for subscribing to our newsletter.",
+  variant: "success",
+});
         setEmail("");
       }
     } catch (error) {
