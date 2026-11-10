@@ -93,7 +93,7 @@ const Contact = () => {
             </h1>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               We'd love to hear from you. Send us a message or prayer request
-              (anonymously if you prefer) and we'll respond as soon as possible.
+              (anonymously if you prefer).
             </p>
           </div>
         </section>
