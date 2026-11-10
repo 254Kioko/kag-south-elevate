@@ -231,7 +231,7 @@ const Services = () => {
                 <div className="md:w-1/2">
                   <iframe
                     className="w-full aspect-video md:h-full"
-                    src="https://www.youtube.com/embed/NT36zYkZkDw?si=TyRtLEfoos-4bKly"
+                    src="https://www.youtube.com/embed/4N7ygA3nDmg?si=zgWS4j9QqKGjzZEL"
                     title="REWARDS OF OBEDIENCE"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -242,7 +242,8 @@ const Services = () => {
                 <div className="md:w-1/2 flex flex-col justify-center">
                   <CardHeader className="text-left p-8 space-y-4">
                     <CardTitle className="text-2xl font-bold text-primary">
-REWARDS OF OBEDIENCE        </CardTitle>
+
+HE MAKES A WAY WHERE THERE IS NONE     </CardTitle>
                     <div className="flex flex-wrap items-center gap-4 text-muted-foreground text-sm">
                       <div className="flex items-center space-x-2">
                         <Calendar className="w-4 h-4" />
@@ -254,7 +255,7 @@ REWARDS OF OBEDIENCE        </CardTitle>
                       </div>
                     </div>
                     <p className="text-muted-foreground text-base">
-                      <span className="font-semibold">Preacher: </span> Sis. Rebecca Githinji
+                      <span className="font-semibold">Preacher: </span> Rev Peter Kioko
                     </p>
                     <p className="text-muted-foreground text-sm leading-relaxed">
 TEXT: LUKE 5:1-11       </p>
