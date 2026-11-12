@@ -46,10 +46,11 @@ const contactInfo = [
     // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 2000));
 
-    toast({
-      title: "Message Sent Successfully!",
-      description: "Thank you for reaching out. We'll get back to you within 24 hours.",
-    });
+   toast({
+  title: "Thank You for Reaching Out!",
+  description: "Your message has been received. We appreciate you getting in touch with us, the pastoral team will respond as soon as possible. God bless you!",
+  className: "bg-green-700 text-white border-green-800",
+});
 
     setIsSubmitting(false);
     
