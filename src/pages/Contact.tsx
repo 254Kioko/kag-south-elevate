@@ -40,12 +40,11 @@ const Contact = () => {
 
       if (error) throw error;
 
-      toast({
-        title: "Message sent successfully!",
-        description:
-          "Thank you for reaching out. We'll get back to you soon.",
-      });
-
+ toast({
+  title: "Thank You for Reaching Out!",
+  description: "Your message has been received. We appreciate you getting in touch with us. Our pastoral team will keep you in prayer. God bless you!",
+  className: "bg-green-700 text-white border-green-800",
+});
       setFormData({ name: "", phone: "", message: "" });
     } catch (error) {
       console.error("Error submitting form:", error);
