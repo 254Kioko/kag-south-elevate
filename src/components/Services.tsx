@@ -231,7 +231,7 @@ const Services = () => {
                 <div className="md:w-1/2">
                   <iframe
                     className="w-full aspect-video md:h-full"
-                    src="https://www.youtube.com/embed/9DZF45q9Ihc?si=Ki-OYJ0TwhrJpL-H"
+                    src="https://www.youtube.com/embed/0w35p8A8v3I?si=JOyPdXB6C24_y3o8"
                     title="REWARDS OF OBEDIENCE"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -243,7 +243,8 @@ const Services = () => {
                   <CardHeader className="text-left p-8 space-y-4">
                     <CardTitle className="text-2xl font-bold text-primary">
 
-IT HAD NOT BEEN THE LORD    </CardTitle>
+
+THANKS IN ALL CIRCUMSTANCES   </CardTitle>
                     <div className="flex flex-wrap items-center gap-4 text-muted-foreground text-sm">
                       <div className="flex items-center space-x-2">
                         <Calendar className="w-4 h-4" />
